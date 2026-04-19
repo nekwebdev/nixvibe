@@ -15,7 +15,7 @@ Phases: 1 of 3 complete
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
 | 1 | Core Policy and Contracts | 1 (`01-01`) | ✅ Complete | 2026-04-19 |
-| 2 | Orchestration and Artifact Engine | TBD | Not started | - |
+| 2 | Orchestration and Artifact Engine | 1 (`02-01`) | In progress | - |
 | 3 | Validation and Acceptance | TBD | Not started | - |
 
 ## Phase Details
@@ -48,7 +48,7 @@ Phases: 1 of 3 complete
 - Artifact generation for scaffold/refactor
 
 **Plans:**
-- [ ] 02-01: Implement route + mode gating
+- [x] 02-01: Implement route + mode gating
 - [ ] 02-02: Implement parallel specialists + merge policy
 - [ ] 02-03: Implement artifact output pipeline
 

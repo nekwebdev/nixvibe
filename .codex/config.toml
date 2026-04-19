@@ -1,0 +1,10 @@
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+
+[mcp_servers.nixos]
+command = "nix"
+args = ["run", "github:utensils/mcp-nixos", "--"]
+
+[mcp_servers.carl]
+command = "node"
+args = [".agents/carl/runtime/carl-mcp/index.js"]

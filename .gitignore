@@ -1,0 +1,9 @@
+__pycache__/
+*.py[cod]
+
+.agents/carl/runtime/carl-mcp/node_modules/
+.carl/carl-mcp/
+.carl/sessions/*
+!.carl/sessions/.gitkeep
+
+patches/

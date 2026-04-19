@@ -73,6 +73,27 @@ Write modes:
 - `propose` (default audit): plan + patch set, confirm-first
 - `apply`: explicit user opt-in, writes files
 
+## Runtime Orchestration (Phase 2 Slice)
+
+Implemented runtime primitives:
+- Policy loader reads `.agents/carl/nixvibe-domain.md` with explicit parse/validation errors.
+- Route selector returns deterministic `init` or `audit` decisions from intent + repo context.
+- Mode resolver enforces confirm-first behavior:
+  - `audit` defaults to `propose`
+  - `apply` requires explicit opt-in
+  - no implicit writes
+- Conflict resolver applies strict priority order:
+  - `safety > correctness > reversibility > simplicity > user preference > style`
+  - tie-breakers: confidence, then reversibility, then stable id order
+
+Current coverage:
+- `tests/orchestrator/test_route_and_modes.py`
+- `tests/orchestrator/test_conflict_priority.py`
+- Run with: `python -m unittest discover -s tests -p 'test_*.py' -v`
+
+CARL dependency timing:
+- Local CARL install for both Codex and Claude is now present in this repo and verified during Phase 2 plan `02-01`.
+
 ## Output Artifacts
 
 Primary artifacts:

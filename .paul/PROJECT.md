@@ -33,10 +33,10 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] CARL policy source-of-truth locked (`.agents/carl/nixvibe-domain.md`) — Phase 1
 - [x] Local MCP contract files defined for Codex and Claude — Phase 1
 - [x] Specialist output schema + merge contract defined — Phase 1
+- [x] Deterministic route + mode + conflict orchestration primitives with tests — Phase 2 (02-01)
 
 ### Active (In Progress)
 
-- [ ] Implement orchestrator route + mode gating (`init` / `audit`)
 - [ ] Implement specialist parallel execution + deterministic merge pipeline
 - [ ] Implement scaffold/refactor artifact generation for user-facing responses
 
