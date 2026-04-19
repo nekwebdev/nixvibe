@@ -14,8 +14,8 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 |-----------|-------|
 | Type | Workflow |
 | Version | 0.0.0 |
-| Status | Initializing |
-| Last Updated | 2026-04-18 |
+| Status | In progress |
+| Last Updated | 2026-04-19 |
 
 ## Requirements
 
@@ -30,17 +30,21 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 
 ### Validated (Shipped)
 
-None yet.
+- [x] CARL policy source-of-truth locked (`.agents/carl/nixvibe-domain.md`) — Phase 1
+- [x] Local MCP contract files defined for Codex and Claude — Phase 1
+- [x] Specialist output schema + merge contract defined — Phase 1
 
 ### Active (In Progress)
 
-None yet.
+- [ ] Implement orchestrator route + mode gating (`init` / `audit`)
+- [ ] Implement specialist parallel execution + deterministic merge pipeline
+- [ ] Implement scaffold/refactor artifact generation for user-facing responses
 
 ### Planned (Next)
 
-- [ ] Lock CARL domain at `.agents/carl/nixvibe-domain.md`
-- [ ] Lock Codex + Claude local MCP config contracts
-- [ ] Define specialist-agent output schema and merge contract
+- [ ] Integrate validation runner gates into runtime orchestration (`nix flake check`, `nix fmt`)
+- [ ] Add acceptance test suite for init/audit behavior
+- [ ] Standardize patch artifact lifecycle in `patches/`
 
 ### Out of Scope
 
@@ -87,6 +91,8 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | CARL required in V1 | Policy/routing logic should not drift across sessions | 2026-04-18 | Active |
 | Local MCP enforcement | Prevent environment drift and ensure deterministic validation tools | 2026-04-18 | Active |
 | Patch output in `patches/` | Transparent internal artifacts without user-facing clutter | 2026-04-18 | Active |
+| Local MCP contract files are mandatory | Phase 1 locked explicit Codex + Claude project-local contract files | 2026-04-19 | Active |
+| Specialist payload schema is required | Merge logic depends on normalized structured specialist output | 2026-04-19 | Active |
 
 ## Success Metrics
 
@@ -114,4 +120,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-18*
+*Last updated: 2026-04-19 after Phase 1*

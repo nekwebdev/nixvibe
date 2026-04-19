@@ -7,14 +7,14 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 ## Current Milestone
 
 **v0.1 Initial Release** (v0.1.0)
-Status: Not started
-Phases: 0 of 3 complete
+Status: In progress
+Phases: 1 of 3 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 1 | Core Policy and Contracts | TBD | Not started | - |
+| 1 | Core Policy and Contracts | 1 (`01-01`) | ✅ Complete | 2026-04-19 |
 | 2 | Orchestration and Artifact Engine | TBD | Not started | - |
 | 3 | Validation and Acceptance | TBD | Not started | - |
 
@@ -33,9 +33,7 @@ Phases: 0 of 3 complete
 - Specialist output schema and merge contract
 
 **Plans:**
-- [ ] 01-01: Lock CARL domain and rule set
-- [ ] 01-02: Implement local MCP contracts
-- [ ] 01-03: Define output schema + merge contract
+- [x] 01-01: Lock CARL domain, local MCP contracts, and specialist schema contracts
 
 ### Phase 2: Orchestration and Artifact Engine
 
@@ -72,4 +70,4 @@ Phases: 0 of 3 complete
 
 ---
 *Roadmap created: 2026-04-18*
-*Last updated: 2026-04-18*
+*Last updated: 2026-04-19*
