@@ -8,3 +8,6 @@ args = ["run", "github:utensils/mcp-nixos", "--"]
 [mcp_servers.carl]
 command = "node"
 args = [".agents/carl/runtime/carl-mcp/index.js"]
+
+[features]
+codex_hooks = true

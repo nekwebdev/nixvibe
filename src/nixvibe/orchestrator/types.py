@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from enum import Enum
-from typing import FrozenSet, Tuple
+from typing import Any, Callable, FrozenSet, Mapping, Tuple
 
 
 class Route(str, Enum):
@@ -25,6 +25,31 @@ class Priority(str, Enum):
     SIMPLICITY = "simplicity"
     USER_PREFERENCE = "user preference"
     STYLE = "style"
+
+
+class SpecialistStatus(str, Enum):
+    OK = "ok"
+    WARNING = "warning"
+    ERROR = "error"
+
+
+class Severity(str, Enum):
+    LOW = "low"
+    MEDIUM = "medium"
+    HIGH = "high"
+    CRITICAL = "critical"
+
+
+class RecommendationPriority(str, Enum):
+    NOW = "now"
+    NEXT = "next"
+    LATER = "later"
+
+
+class SpecialistExecutionOutcome(str, Enum):
+    OK = "ok"
+    ERROR = "error"
+    INVALID = "invalid"
 
 
 @dataclass(frozen=True)
@@ -56,6 +81,69 @@ class ModeDecision:
     reason: str
     write_allowed: bool
     requires_confirmation: bool
+
+
+@dataclass(frozen=True)
+class SpecialistFinding:
+    id: str
+    severity: Severity
+    summary: str
+    evidence: Tuple[str, ...]
+    impact: str
+    contradiction_key: str | None = None
+
+
+@dataclass(frozen=True)
+class SpecialistRecommendation:
+    id: str
+    action: str
+    priority: RecommendationPriority
+    maps_to_findings: Tuple[str, ...]
+    reversible: bool
+    policy_priority: Priority | str = Priority.USER_PREFERENCE
+    conflict_group: str | None = None
+
+
+@dataclass(frozen=True)
+class SpecialistRisk:
+    id: str
+    category: str
+    severity: str
+    mitigation: str
+
+
+@dataclass(frozen=True)
+class SpecialistPayload:
+    agent_id: str
+    task_scope: str
+    status: SpecialistStatus
+    findings: Tuple[SpecialistFinding, ...]
+    recommendations: Tuple[SpecialistRecommendation, ...]
+    confidence: float
+    risks: Tuple[SpecialistRisk, ...]
+    artifacts: Mapping[str, Any]
+    checks: Mapping[str, Any]
+    timestamp: str
+
+
+SpecialistRunner = Callable[[], Mapping[str, Any] | SpecialistPayload]
+
+
+@dataclass(frozen=True)
+class SpecialistTask:
+    agent_id: str
+    task_scope: str
+    runner: SpecialistRunner
+
+
+@dataclass(frozen=True)
+class SpecialistExecutionResult:
+    agent_id: str
+    task_scope: str
+    outcome: SpecialistExecutionOutcome
+    raw_payload: Mapping[str, Any] | SpecialistPayload | None = None
+    payload: SpecialistPayload | None = None
+    error: str | None = None
 
 
 @dataclass(frozen=True)
@@ -93,3 +181,27 @@ class OrchestrationPolicy:
     conflict: ConflictPolicy
     source_path: str
 
+
+@dataclass(frozen=True)
+class MergeResult:
+    payloads: Tuple[SpecialistPayload, ...]
+    findings: Tuple[SpecialistFinding, ...]
+    recommendations: Tuple[SpecialistRecommendation, ...]
+    risks: Tuple[SpecialistRisk, ...]
+    artifact_summary: Mapping[str, Any]
+    next_action: str
+    forced_mode: Mode | None = None
+    reason: str = ""
+
+
+@dataclass(frozen=True)
+class OrchestrationResult:
+    route_decision: RouteDecision
+    mode_decision: ModeDecision
+    selected_mode: Mode
+    artifact_summary: Mapping[str, Any]
+    next_action: str
+    included_payloads: Tuple[SpecialistPayload, ...]
+    excluded_specialists: Tuple[str, ...]
+    specialist_results: Tuple[SpecialistExecutionResult, ...]
+    merge_reason: str = ""

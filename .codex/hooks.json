@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 .codex/hooks/carl-hook.py",
+            "statusMessage": "Injecting CARL context"
+          }
+        ]
+      }
+    ]
+  }
+}

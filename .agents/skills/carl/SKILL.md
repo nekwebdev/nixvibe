@@ -20,3 +20,5 @@ CARL stores persistent rules and decisions in `./.carl/carl.json` and exposes MC
 - Rules + decisions: `./.carl/carl.json`
 - MCP server: `./.agents/carl/runtime/carl-mcp/`
 - MCP registration: `./.codex/config.toml`
+- Hook script: `./.codex/hooks/carl-hook.py`
+- Hook registration: `./.codex/hooks.json`

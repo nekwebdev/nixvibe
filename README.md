@@ -94,6 +94,23 @@ Current coverage:
 CARL dependency timing:
 - Local CARL install for both Codex and Claude is now present in this repo and verified during Phase 2 plan `02-01`.
 
+## Runtime Orchestration (Phase 2 Specialist Slice)
+
+Implemented specialist pipeline behavior:
+- Parallel specialist dispatch with stable result ordering.
+- Structured payload validation against required schema fields.
+- Deterministic merge coordinator using fixed policy order.
+- Forced safety gate: contradictory `critical` findings force final mode to `propose`.
+- Unified pipeline output always includes:
+  - selected mode (`advice` / `propose` / `apply`)
+  - artifact summary
+  - one immediate next action
+
+Additional coverage:
+- `tests/orchestrator/test_specialist_payloads.py`
+- `tests/orchestrator/test_parallel_specialists.py`
+- `tests/orchestrator/test_merge_pipeline.py`
+
 ## Output Artifacts
 
 Primary artifacts:
