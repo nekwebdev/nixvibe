@@ -34,10 +34,10 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Local MCP contract files defined for Codex and Claude — Phase 1
 - [x] Specialist output schema + merge contract defined — Phase 1
 - [x] Deterministic route + mode + conflict orchestration primitives with tests — Phase 2 (02-01)
+- [x] Parallel specialist execution + deterministic merge pipeline with schema validation — Phase 2 (02-02)
 
 ### Active (In Progress)
 
-- [ ] Implement specialist parallel execution + deterministic merge pipeline
 - [ ] Implement scaffold/refactor artifact generation for user-facing responses
 
 ### Planned (Next)
@@ -120,4 +120,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-19 after Phase 1*
+*Last updated: 2026-04-19 after Phase 2 plan 02-02*
