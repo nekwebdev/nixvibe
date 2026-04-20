@@ -68,10 +68,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add retry/backoff orchestration guardrails — Phase 10 (10-03)
 - [x] Add policy decision explainability contract — Phase 11 (11-01)
 - [x] Add controlled override workflow contract — Phase 11 (11-02)
+- [x] Add operator audit-trail summary integration — Phase 11 (11-03)
 
 ### Planned (Next)
 
-- [ ] Execute remaining Phase 11 slices (11-03)
+- [ ] Execute Phase 12 slices (12-01, 12-02, 12-03)
 
 ### Out of Scope
 
@@ -140,6 +141,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Retry/backoff guardrails are explicit | Every run must emit bounded retry policy and stop conditions for safe automatic recovery | 2026-04-20 | Active |
 | Policy decision explainability is explicit | Every run must emit deterministic stage-level decision traces for operator diagnostics | 2026-04-20 | Active |
 | Controlled override workflow is explicit | Override requests must emit deterministic allow/deny decisions, blockers, and required checks | 2026-04-20 | Active |
+| Operator audit-trail summary is explicit | Every run must emit stage-level operator audit entries with severity and action items | 2026-04-20 | Active |
 
 ## Success Metrics
 
@@ -169,4 +171,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-20 after Phase 11 plan 11-02 completion*
+*Last updated: 2026-04-20 after Phase 11 plan 11-03 completion*

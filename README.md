@@ -667,6 +667,37 @@ Added controlled override workflow contract with explicit allow/deny policy:
 Additional coverage:
 - `tests/orchestrator/test_controlled_override_workflow.py`
 
+## Runtime Orchestration (Phase 11 Operator Audit-Trail Slice)
+
+Added operator-facing audit trail summary contract:
+- Audit trail emitted as `artifact_summary.operator_audit_trail`:
+  - `contract`
+  - `summary_id`
+  - `route`
+  - `mode`
+  - `audit_level`
+  - `requires_attention`
+  - `entries`
+  - `entry_count`
+  - `action_items`
+  - `action_count`
+  - `next_operator_action`
+  - `explainability_summary`
+- Audit entry stages:
+  - `routing`
+  - `failure-classification`
+  - `release-readiness`
+  - `resume-checkpoint`
+  - `retry-guardrails`
+  - `override-workflow`
+- Severity summary behavior:
+  - `critical` for blocked/critical failure paths
+  - `warning` for release hold/denied override/degraded paths
+  - `info` for clean apply-ready paths
+
+Additional coverage:
+- `tests/orchestrator/test_operator_audit_trail.py`
+
 ## Output Artifacts
 
 Primary artifacts:

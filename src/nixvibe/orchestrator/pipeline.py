@@ -5,6 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Sequence
 
+from .audittrail import build_operator_audit_trail_summary
 from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .checkpoint import build_resume_checkpoint
 from .escalation import build_apply_safety_escalation
@@ -264,6 +265,15 @@ def run_pipeline(
         apply_safety_escalation=apply_safety_escalation,
         release_readiness=artifact_summary["release_readiness"],
         retry_backoff_guardrails=artifact_summary["retry_backoff_guardrails"],
+    )
+    artifact_summary["operator_audit_trail"] = build_operator_audit_trail_summary(
+        run_manifest=artifact_summary["run_manifest"],
+        run_failure_classification=artifact_summary["run_failure_classification"],
+        release_readiness=artifact_summary["release_readiness"],
+        resume_checkpoint=artifact_summary["resume_checkpoint"],
+        retry_backoff_guardrails=artifact_summary["retry_backoff_guardrails"],
+        policy_decision_explainability=artifact_summary["policy_decision_explainability"],
+        controlled_override_workflow=artifact_summary["controlled_override_workflow"],
     )
 
     return OrchestrationResult(

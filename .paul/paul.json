@@ -7,17 +7,17 @@
     "status": "in_progress"
   },
   "phase": {
-    "number": 11,
-    "name": "Operator Policy and Controls",
-    "status": "in_progress"
+    "number": 12,
+    "name": "Release Delivery and Milestone Closeout",
+    "status": "not_started"
   },
   "loop": {
-    "plan": "11-03",
+    "plan": "12-01",
     "position": "PLAN_PENDING"
   },
   "timestamps": {
     "created_at": "2026-04-18T23:49:27-10:00",
-    "updated_at": "2026-04-20T13:07:42-10:00"
+    "updated_at": "2026-04-20T13:11:34-10:00"
   },
   "satellite": {
     "groom": true
