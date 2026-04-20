@@ -89,13 +89,16 @@ def run_pipeline(
     if merge_result.forced_mode is not None:
         selected_mode = merge_result.forced_mode
 
+    pre_write_validation_report: ValidationReport | None = None
+    post_write_validation_report: ValidationReport | None = None
     validation_report: ValidationReport | None = None
     if selected_mode is Mode.APPLY:
-        validation_report = run_validation(
+        pre_write_validation_report = run_validation(
             workspace_root=workspace_root,
             command_runner=validation_runner,
         )
-        if not validation_report.success:
+        validation_report = pre_write_validation_report
+        if not pre_write_validation_report.success:
             selected_mode = Mode.PROPOSE
 
     artifact_bundle = generate_artifact_bundle(route_decision.route, merge_result)
@@ -104,6 +107,18 @@ def run_pipeline(
         selected_mode,
         workspace_root=workspace_root,
     )
+    if (
+        selected_mode is Mode.APPLY
+        and materialization_result.write_performed
+        and pre_write_validation_report is not None
+        and pre_write_validation_report.success
+    ):
+        post_write_validation_report = run_validation(
+            workspace_root=workspace_root,
+            command_runner=validation_runner,
+        )
+        validation_report = post_write_validation_report
+
     artifact_summary = _build_artifact_summary(
         base_summary=merge_result.artifact_summary,
         context=context,
@@ -116,12 +131,15 @@ def run_pipeline(
         proposed_files=tuple(file.path for file in materialization_result.proposed_files),
         written_files=materialization_result.written_paths,
         mode=selected_mode.value,
+        pre_write_validation_report=pre_write_validation_report,
+        post_write_validation_report=post_write_validation_report,
         validation_report=validation_report,
     )
     next_action = _next_action_for_mode(
         mode=selected_mode,
         merge_next_action=merge_result.next_action,
-        validation_report=validation_report,
+        pre_write_validation_report=pre_write_validation_report,
+        post_write_validation_report=post_write_validation_report,
     )
 
     return OrchestrationResult(
@@ -188,6 +206,8 @@ def _build_artifact_summary(
     proposed_files: tuple[str, ...],
     written_files: tuple[str, ...],
     mode: str,
+    pre_write_validation_report: ValidationReport | None,
+    post_write_validation_report: ValidationReport | None,
     validation_report: ValidationReport | None,
 ):
     merged = dict(base_summary)
@@ -219,23 +239,17 @@ def _build_artifact_summary(
     if context_profile is not None:
         merged["context_profile"] = context_profile
     if validation_report is not None:
-        merged["validation"] = {
-            "required": validation_report.required,
-            "executed": validation_report.executed,
-            "success": validation_report.success,
-            "flake_present": validation_report.flake_present,
-            "reason": validation_report.reason,
-            "commands": tuple(
-                {
-                    "command": result.command,
-                    "exit_code": result.exit_code,
-                    "success": result.success,
-                    "stdout": result.stdout,
-                    "stderr": result.stderr,
-                }
-                for result in validation_report.results
-            ),
-        }
+        validation_summary = _serialize_validation_report(validation_report)
+        checkpoints = _validation_checkpoint_summaries(
+            pre_write_validation_report=pre_write_validation_report,
+            post_write_validation_report=post_write_validation_report,
+        )
+        if checkpoints:
+            validation_summary["checkpoints"] = checkpoints
+            validation_summary["checkpoint_count"] = len(checkpoints)
+            validation_summary["final_checkpoint"] = checkpoints[-1]["stage"]
+            validation_summary["final_success"] = checkpoints[-1]["success"]
+        merged["validation"] = validation_summary
     return merged
 
 
@@ -313,12 +327,57 @@ def _next_action_for_mode(
     *,
     mode: Mode,
     merge_next_action: str,
-    validation_report: ValidationReport | None,
+    pre_write_validation_report: ValidationReport | None,
+    post_write_validation_report: ValidationReport | None,
 ) -> str:
-    if validation_report is not None and not validation_report.success:
-        return "Validation failed (`nix flake check` / `nix fmt`). Fix issues and retry apply."
+    if pre_write_validation_report is not None and not pre_write_validation_report.success:
+        return "Validation failed before write (`nix flake check` / `nix fmt`). Fix issues and retry apply."
+    if post_write_validation_report is not None and not post_write_validation_report.success:
+        return (
+            "Validation failed after write (`nix flake check` / `nix fmt`). "
+            "Review written artifacts and remediate."
+        )
     if mode is Mode.ADVICE:
         return "Switch to propose mode to preview generated artifacts."
     if mode is Mode.PROPOSE:
         return "Review proposed artifacts and confirm apply to write files."
     return merge_next_action.strip() or "Review written artifacts and continue."
+
+
+def _serialize_validation_report(
+    validation_report: ValidationReport,
+) -> dict[str, object]:
+    return {
+        "required": validation_report.required,
+        "executed": validation_report.executed,
+        "success": validation_report.success,
+        "flake_present": validation_report.flake_present,
+        "reason": validation_report.reason,
+        "commands": tuple(
+            {
+                "command": result.command,
+                "exit_code": result.exit_code,
+                "success": result.success,
+                "stdout": result.stdout,
+                "stderr": result.stderr,
+            }
+            for result in validation_report.results
+        ),
+    }
+
+
+def _validation_checkpoint_summaries(
+    *,
+    pre_write_validation_report: ValidationReport | None,
+    post_write_validation_report: ValidationReport | None,
+) -> tuple[dict[str, object], ...]:
+    checkpoints: list[dict[str, object]] = []
+    if pre_write_validation_report is not None:
+        checkpoint = _serialize_validation_report(pre_write_validation_report)
+        checkpoint["stage"] = "pre_write"
+        checkpoints.append(checkpoint)
+    if post_write_validation_report is not None:
+        checkpoint = _serialize_validation_report(post_write_validation_report)
+        checkpoint["stage"] = "post_write"
+        checkpoints.append(checkpoint)
+    return tuple(checkpoints)

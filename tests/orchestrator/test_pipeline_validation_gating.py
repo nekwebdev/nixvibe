@@ -85,7 +85,14 @@ class TestPipelineValidationGating(unittest.TestCase):
             self.assertEqual(result.proposed_artifacts, ())
             self.assertIsNotNone(result.validation_report)
             self.assertTrue(result.validation_report.success)
-            self.assertTrue(result.artifact_summary["validation"]["success"])
+            validation = result.artifact_summary["validation"]
+            self.assertTrue(validation["success"])
+            self.assertEqual(
+                tuple(checkpoint["stage"] for checkpoint in validation["checkpoints"]),
+                ("pre_write", "post_write"),
+            )
+            self.assertEqual(validation["final_checkpoint"], "post_write")
+            self.assertTrue(validation["final_success"])
 
     def test_apply_mode_with_validation_failure_forces_propose_and_blocks_writes(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -120,7 +127,14 @@ class TestPipelineValidationGating(unittest.TestCase):
             self.assertIsNotNone(result.validation_report)
             self.assertFalse(result.validation_report.success)
             self.assertIn("Validation failed", result.next_action)
-            self.assertFalse(result.artifact_summary["validation"]["success"])
+            validation = result.artifact_summary["validation"]
+            self.assertFalse(validation["success"])
+            self.assertEqual(
+                tuple(checkpoint["stage"] for checkpoint in validation["checkpoints"]),
+                ("pre_write",),
+            )
+            self.assertEqual(validation["final_checkpoint"], "pre_write")
+            self.assertFalse(validation["final_success"])
             self.assertEqual(result.artifact_summary["mode"], "propose")
 
     def test_validation_summary_includes_command_level_details(self) -> None:
@@ -157,6 +171,8 @@ class TestPipelineValidationGating(unittest.TestCase):
             self.assertEqual(validation["commands"][1]["command"], "nix fmt")
             self.assertEqual(validation["commands"][0]["exit_code"], 0)
             self.assertEqual(validation["commands"][1]["exit_code"], 0)
+            self.assertEqual(validation["checkpoint_count"], 2)
+            self.assertEqual(validation["final_checkpoint"], "post_write")
 
 
 if __name__ == "__main__":

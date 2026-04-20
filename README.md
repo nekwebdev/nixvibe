@@ -269,6 +269,25 @@ Integrated deterministic patch orchestration across specialist runtime outputs:
 Additional coverage:
 - `tests/orchestrator/test_patch_orchestration_runtime.py`
 
+## Runtime Orchestration (Phase 5 Validation Checkpoint Slice)
+
+Integrated explicit validation checkpoints for apply-mode write flows:
+- Apply mode now performs `pre_write` validation before any writes.
+- If pre-write validation fails:
+  - mode is downgraded to `propose`
+  - writes are blocked
+- If pre-write validation succeeds and writes occur:
+  - pipeline runs `post_write` validation checkpoint
+- Validation summary now exposes checkpoint metadata:
+  - `checkpoints`
+  - `checkpoint_count`
+  - `final_checkpoint`
+  - `final_success`
+
+Additional coverage:
+- `tests/orchestrator/test_pipeline_validation_gating.py`
+- `tests/orchestrator/test_runtime_contract.py`
+
 ## Output Artifacts
 
 Primary artifacts:

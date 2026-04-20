@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -178,6 +179,50 @@ class TestRuntimeContract(unittest.TestCase):
                 policy=self.policy,
                 runtime_contract=default_runtime_contract(Route.INIT),
             )
+
+    def test_runtime_contract_apply_mode_executes_validation_checkpoints(self) -> None:
+        contract = default_runtime_contract(Route.INIT)
+        handlers = {
+            RuntimeSpecialistRole.ARCHITECTURE: lambda _ctx: _payload("architecture"),
+            RuntimeSpecialistRole.MODULE: lambda _ctx: _payload("module"),
+            RuntimeSpecialistRole.VALIDATE: lambda _ctx: _payload("validate"),
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / "flake.nix").write_text("{ }")
+            call_count = {"value": 0}
+
+            def _runner(_command, _cwd):
+                call_count["value"] += 1
+                return 0, "ok", ""
+
+            result = run_pipeline(
+                request=OrchestrationRequest(
+                    user_input="Create a new scaffold and apply.",
+                    requested_mode=Mode.APPLY,
+                    explicit_apply_opt_in=True,
+                ),
+                context=RepoContext(
+                    existing_config_present=False,
+                    usable_nix_structure_present=False,
+                    request_is_change=False,
+                    repository_state="known",
+                ),
+                policy=self.policy,
+                workspace_root=tmp,
+                validation_runner=_runner,
+                runtime_contract=contract,
+                runtime_handlers=handlers,
+            )
+
+        self.assertEqual(result.selected_mode, Mode.APPLY)
+        self.assertEqual(call_count["value"], 4)
+        validation = result.artifact_summary["validation"]
+        self.assertEqual(
+            tuple(checkpoint["stage"] for checkpoint in validation["checkpoints"]),
+            ("pre_write", "post_write"),
+        )
+        self.assertEqual(validation["final_checkpoint"], "post_write")
+        self.assertTrue(validation["final_success"])
 
 
 if __name__ == "__main__":
