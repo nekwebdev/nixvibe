@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+from dataclasses import replace
 
 from .types import OrchestrationPolicy, OrchestrationRequest, RepoContext, Route, RouteDecision
 
@@ -21,6 +22,7 @@ def select_route(
     context: RepoContext,
     policy: OrchestrationPolicy,
 ) -> RouteDecision:
+    effective_context = _context_with_profile_hints(context)
     text_tokens = _tokenize(request.user_input)
     init_score = len(text_tokens & policy.route.init_keywords)
     audit_score = len(text_tokens & policy.route.audit_keywords)
@@ -37,25 +39,28 @@ def select_route(
             reason=f"Matched audit intent keywords ({audit_score} > {init_score}).",
         )
 
-    if context.usable_nix_structure_present is False:
+    if effective_context.usable_nix_structure_present is False:
         return RouteDecision(
             route=Route.INIT,
             reason="No usable Nix structure detected; route policy prefers init.",
         )
 
-    if context.existing_config_present is True and context.request_is_change is not False:
+    if (
+        effective_context.existing_config_present is True
+        and effective_context.request_is_change is not False
+    ):
         return RouteDecision(
             route=Route.AUDIT,
             reason="Existing config with requested changes; route policy prefers audit.",
         )
 
-    repository_unknown = context.repository_state.strip().lower() in {"", "unknown"}
+    repository_unknown = effective_context.repository_state.strip().lower() in {"", "unknown"}
     context_ambiguous = (
-        context.existing_config_present is None
-        and context.usable_nix_structure_present is None
+        effective_context.existing_config_present is None
+        and effective_context.usable_nix_structure_present is None
     )
     if repository_unknown or context_ambiguous:
-        fallback = _fallback_route(context)
+        fallback = _fallback_route(effective_context)
         return RouteDecision(
             route=fallback,
             reason=(
@@ -66,7 +71,7 @@ def select_route(
             clarification_questions=_AMBIGUOUS_QUESTIONS,
         )
 
-    fallback = _fallback_route(context)
+    fallback = _fallback_route(effective_context)
     return RouteDecision(
         route=fallback,
         reason=f"Ambiguous intent; using deterministic fallback route '{fallback.value}'.",
@@ -82,3 +87,31 @@ def _fallback_route(context: RepoContext) -> Route:
         return Route.AUDIT
     return Route.INIT
 
+
+def _context_with_profile_hints(context: RepoContext) -> RepoContext:
+    snapshot = context.workspace_snapshot
+    if snapshot is None:
+        return context
+
+    existing_config_present = context.existing_config_present
+    usable_nix_structure_present = context.usable_nix_structure_present
+    repository_state = context.repository_state
+
+    if existing_config_present is None:
+        existing_config_present = snapshot.flake_present or snapshot.nix_file_count > 0
+
+    if usable_nix_structure_present is None:
+        usable_nix_structure_present = bool(
+            snapshot.flake_present
+            and (snapshot.module_paths or snapshot.has_hosts_tree or snapshot.has_home_tree)
+        )
+
+    if repository_state.strip().lower() in {"", "unknown"}:
+        repository_state = "known"
+
+    return replace(
+        context,
+        existing_config_present=existing_config_present,
+        usable_nix_structure_present=usable_nix_structure_present,
+        repository_state=repository_state,
+    )

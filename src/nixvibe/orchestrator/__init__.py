@@ -15,6 +15,7 @@ from .policy_loader import (
 from .router import select_route
 from .specialists import run_specialists
 from .validation import run_validation
+from .workspace import build_repo_context, inspect_reference, snapshot_workspace
 from .types import (
     ArtifactBundle,
     ArtifactFile,
@@ -27,6 +28,7 @@ from .types import (
     OrchestrationPolicy,
     OrchestrationRequest,
     Priority,
+    ReferenceProfile,
     RecommendationPriority,
     RepoContext,
     Route,
@@ -42,6 +44,7 @@ from .types import (
     SpecialistTask,
     ValidationCommandResult,
     ValidationReport,
+    WorkspaceSnapshot,
 )
 
 __all__ = [
@@ -61,6 +64,7 @@ __all__ = [
     "PolicyLoadError",
     "PolicyValidationError",
     "Priority",
+    "ReferenceProfile",
     "RecommendationPriority",
     "RepoContext",
     "Route",
@@ -76,6 +80,9 @@ __all__ = [
     "SpecialistTask",
     "ValidationCommandResult",
     "ValidationReport",
+    "WorkspaceSnapshot",
+    "build_repo_context",
+    "inspect_reference",
     "load_policy",
     "generate_artifact_bundle",
     "materialize_artifacts",
@@ -85,6 +92,7 @@ __all__ = [
     "run_pipeline",
     "run_specialists",
     "run_validation",
+    "snapshot_workspace",
     "select_route",
     "validate_payload",
 ]

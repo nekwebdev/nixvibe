@@ -14,7 +14,7 @@ Phases: 0 of 3 complete
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 4 | Workspace Intake and Reference Adaptation | TBD | Not started | - |
+| 4 | Workspace Intake and Reference Adaptation | 1 (`04-01`) | In progress | - |
 | 5 | Runtime Agent Execution and Patch Orchestration | TBD | Not started | - |
 | 6 | Guidance UX and Safety Guardrails | TBD | Not started | - |
 
@@ -30,6 +30,11 @@ Phases: 0 of 3 complete
 - Bounded workspace snapshot reader contract
 - Reference repo adaptation policy hooks
 - Context profiling improvements for init/audit routing
+
+**Plans:**
+- [x] 04-01: Bounded workspace/reference profile intake baseline
+- [ ] 04-02: Reference adaptation policy integration
+- [ ] 04-03: Intake-driven specialist dispatch context wiring
 
 ### Phase 5: Runtime Agent Execution and Patch Orchestration
 

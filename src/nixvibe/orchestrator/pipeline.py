@@ -89,6 +89,7 @@ def run_pipeline(
     )
     artifact_summary = _build_artifact_summary(
         base_summary=merge_result.artifact_summary,
+        context=context,
         route=route_decision.route.value,
         generated_files=tuple(file.path for file in artifact_bundle.files),
         proposed_files=tuple(file.path for file in materialization_result.proposed_files),
@@ -156,6 +157,7 @@ def _validate_specialist_results(
 def _build_artifact_summary(
     *,
     base_summary,
+    context: RepoContext,
     route: str,
     generated_files: tuple[str, ...],
     proposed_files: tuple[str, ...],
@@ -175,6 +177,9 @@ def _build_artifact_summary(
             "write_performed": bool(written_files),
         }
     )
+    context_profile = _context_profile_summary(context)
+    if context_profile is not None:
+        merged["context_profile"] = context_profile
     if validation_report is not None:
         merged["validation"] = {
             "required": validation_report.required,
@@ -194,6 +199,37 @@ def _build_artifact_summary(
             ),
         }
     return merged
+
+
+def _context_profile_summary(context: RepoContext):
+    snapshot = context.workspace_snapshot
+    reference = context.reference_profile
+    if snapshot is None and reference is None:
+        return None
+
+    profile: dict[str, object] = {}
+    if snapshot is not None:
+        profile["workspace"] = {
+            "root": snapshot.root,
+            "entry_count": len(snapshot.entries),
+            "truncated": snapshot.truncated,
+            "flake_present": snapshot.flake_present,
+            "nix_file_count": snapshot.nix_file_count,
+            "module_count": len(snapshot.module_paths),
+            "has_hosts_tree": snapshot.has_hosts_tree,
+            "has_home_tree": snapshot.has_home_tree,
+        }
+    if reference is not None:
+        profile["reference"] = {
+            "root": reference.root,
+            "entry_count": len(reference.entries),
+            "truncated": reference.truncated,
+            "flake_present": reference.flake_present,
+            "module_count": len(reference.module_paths),
+            "validation_patterns": reference.validation_patterns,
+            "notes": reference.notes,
+        }
+    return profile
 
 
 def _next_action_for_mode(

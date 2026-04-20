@@ -60,11 +60,38 @@ class OrchestrationRequest:
 
 
 @dataclass(frozen=True)
+class WorkspaceSnapshot:
+    root: str
+    max_entries: int
+    entries: Tuple[str, ...]
+    truncated: bool
+    flake_present: bool
+    nix_file_count: int
+    module_paths: Tuple[str, ...]
+    has_hosts_tree: bool
+    has_home_tree: bool
+
+
+@dataclass(frozen=True)
+class ReferenceProfile:
+    root: str
+    max_entries: int
+    entries: Tuple[str, ...]
+    truncated: bool
+    flake_present: bool
+    module_paths: Tuple[str, ...]
+    validation_patterns: Tuple[str, ...]
+    notes: Tuple[str, ...]
+
+
+@dataclass(frozen=True)
 class RepoContext:
     existing_config_present: bool | None = None
     usable_nix_structure_present: bool | None = None
     request_is_change: bool | None = None
     repository_state: str = "unknown"
+    workspace_snapshot: WorkspaceSnapshot | None = None
+    reference_profile: ReferenceProfile | None = None
 
 
 @dataclass(frozen=True)

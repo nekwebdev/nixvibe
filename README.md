@@ -186,6 +186,21 @@ Implemented patch/release hygiene for final Phase 3 hardening:
 Additional coverage:
 - `tests/orchestrator/test_patch_hygiene.py`
 
+## Runtime Orchestration (Phase 4 Workspace Intake Slice)
+
+Implemented bounded intake helpers for optional workspace/reference context:
+- Added deterministic bounded workspace snapshot profiling
+  - entry limit and truncation signaling
+  - flake/module/hosts/home structure hints
+- Added optional reference-path inspection with adaptation hints:
+  - extracts structure/validation pattern signals
+  - preserves adapt-not-copy policy language in profile notes
+- Routing now uses profile hints when explicit repo flags are unknown.
+- Pipeline summary now includes compact `context_profile` metadata when available.
+
+Additional coverage:
+- `tests/orchestrator/test_workspace_intake.py`
+
 ## Output Artifacts
 
 Primary artifacts:
