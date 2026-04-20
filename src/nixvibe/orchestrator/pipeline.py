@@ -19,6 +19,7 @@ from .payloads import PayloadValidationError, validate_payload
 from .policy_loader import load_policy
 from .release import build_release_readiness
 from .recovery import build_recovery_playbook
+from .retry import build_retry_backoff_guardrails
 from .runtime import RuntimeSpecialistContractError, plan_runtime_specialists
 from .router import select_route
 from .specialists import build_dispatch_context, run_specialists, with_dispatch_context
@@ -235,6 +236,11 @@ def run_pipeline(
         run_manifest=artifact_summary["run_manifest"],
         run_failure_classification=artifact_summary["run_failure_classification"],
         release_readiness=artifact_summary["release_readiness"],
+    )
+    artifact_summary["retry_backoff_guardrails"] = build_retry_backoff_guardrails(
+        run_failure_classification=artifact_summary["run_failure_classification"],
+        resume_checkpoint=artifact_summary["resume_checkpoint"],
+        selected_mode=selected_mode.value,
     )
 
     return OrchestrationResult(

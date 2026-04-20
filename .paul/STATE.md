@@ -5,28 +5,28 @@
 See: .paul/PROJECT.md (updated 2026-04-20)
 
 **Core value:** Users can evolve clean modular NixOS configs safely with guided automation.
-**Current focus:** v0.4 Phase 10 in progress — preparing Phase 10 plan 10-03
+**Current focus:** v0.4 Phase 11 planning — preparing Phase 11 plan 11-01
 
 ## Current Position
 
 Milestone: v0.4 Reliability and Delivery Hardening (v0.4.0)
-Phase: 10 of 12 (Runtime Reliability and Resume) — In progress
-Plan: 10-02 completed
-Status: APPLY and verification complete; ready for 10-03 planning
-Last activity: 2026-04-20T12:50:14-10:00 — Completed .paul/phases/10-runtime-reliability-and-resume/10-02-SUMMARY.md
+Phase: 11 of 12 (Operator Policy and Controls) — Not started
+Plan: 10-03 completed
+Status: APPLY and verification complete; ready for 11-01 planning
+Last activity: 2026-04-20T12:58:57-10:00 — Completed .paul/phases/10-runtime-reliability-and-resume/10-03-SUMMARY.md
 
 Progress:
 - v0.1 Initial Release: [██████████] 100% ✓
 - v0.2 Execution and Context Expansion: [██████████] 100% ✓
 - v0.3 Operational Workflow Intelligence: [██████████] 100% ✓
-- v0.4 Reliability and Delivery Hardening: [██░░░░░░░░] 22%
+- v0.4 Reliability and Delivery Hardening: [███░░░░░░░] 33%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [10-02 complete]
+  ✓        ✓        ✓     [10-03 complete]
 ```
 
 ## Accumulated Context
@@ -67,6 +67,7 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - v0.4 milestone scaffold initialized with phases 10-12 and plan 10-01 as next action
 - Run failure classification contract landed for Phase 10 plan 10-01
 - Resume-safe checkpoint contract landed for Phase 10 plan 10-02
+- Retry/backoff guardrail contract landed for Phase 10 plan 10-03
 
 ### Deferred Issues
 None yet.
@@ -76,10 +77,10 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-20T12:50:14-10:00
-Stopped at: Phase 10 plan 10-02 completed and summarized
-Next action: Create and approve `.paul/phases/10-runtime-reliability-and-resume/10-03-PLAN.md`
-Resume file: .paul/phases/10-runtime-reliability-and-resume/10-02-SUMMARY.md
+Last session: 2026-04-20T12:58:57-10:00
+Stopped at: Phase 10 plan 10-03 completed and summarized
+Next action: Create and approve `.paul/phases/11-operator-policy-and-controls/11-01-PLAN.md`
+Resume file: .paul/phases/10-runtime-reliability-and-resume/10-03-SUMMARY.md
 
 ---
 *STATE.md — Updated after every significant action*

@@ -22,6 +22,7 @@ from .policy_loader import (
 )
 from .release import build_release_readiness
 from .recovery import build_recovery_playbook
+from .retry import build_retry_backoff_guardrails
 from .runtime import (
     RuntimeSpecialistContractError,
     default_runtime_contract,
@@ -124,6 +125,7 @@ __all__ = [
     "build_recovery_playbook",
     "build_operator_run_manifest",
     "build_release_readiness",
+    "build_retry_backoff_guardrails",
     "build_dispatch_context",
     "build_guidance_summary",
     "default_runtime_contract",

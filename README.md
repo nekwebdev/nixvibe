@@ -587,6 +587,33 @@ Added resume-safe checkpoint output for run recovery workflows:
 Additional coverage:
 - `tests/orchestrator/test_resume_checkpoint.py`
 
+## Runtime Orchestration (Phase 10 Retry/Backoff Guardrails Slice)
+
+Added deterministic retry/backoff guardrails for bounded automatic recovery:
+- Retry contract emitted as `artifact_summary.retry_backoff_guardrails`:
+  - `contract`
+  - `classification` / `severity`
+  - `resume_required` / `resume_stage`
+  - `release_ready`
+  - `retry_mode`
+  - `automatic_retry_allowed`
+  - `manual_retry_recommended`
+  - `bounded_retry`
+  - `max_attempts`
+  - `backoff_strategy`
+  - `backoff_seconds`
+  - `stop_conditions`
+  - `reason`
+  - `next_retry_action`
+- Guardrail behavior:
+  - clean/success runs emit no retry policy
+  - degraded auto-resume paths allow single bounded retry window
+  - specialist runtime failure paths allow bounded exponential backoff retries
+  - blocked/human-confirmation paths disable auto-retry and require manual remediation
+
+Additional coverage:
+- `tests/orchestrator/test_retry_backoff_guardrails.py`
+
 ## Output Artifacts
 
 Primary artifacts:

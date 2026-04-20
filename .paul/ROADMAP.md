@@ -14,7 +14,7 @@ Phases: 1 of 3 complete
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 10 | Runtime Reliability and Resume | 3 (`10-01`, `10-02`, `10-03`) | 🚧 In progress | - |
+| 10 | Runtime Reliability and Resume | 3 (`10-01`, `10-02`, `10-03`) | ✅ Complete | 2026-04-20 |
 | 11 | Operator Policy and Controls | 3 (`11-01`, `11-02`, `11-03`) | Not started | - |
 | 12 | Release Delivery and Milestone Closeout | 3 (`12-01`, `12-02`, `12-03`) | Not started | - |
 
@@ -34,7 +34,7 @@ Phases: 1 of 3 complete
 **Plans:**
 - [x] 10-01: Run failure classification contract
 - [x] 10-02: Resume-safe checkpoint contract
-- [ ] 10-03: Retry/backoff orchestration guardrails
+- [x] 10-03: Retry/backoff orchestration guardrails
 
 ### Phase 11: Operator Policy and Controls
 
