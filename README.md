@@ -392,6 +392,30 @@ Tuned guidance and immediate next-action behavior using ledger signals:
   - `ledger_drift_severity`
   - `ledger_action_hint`
 
+## Runtime Orchestration (Phase 8 Apply Safety Escalation Slice)
+
+Introduced a deterministic apply-safety escalation contract:
+- Escalation contract emitted as `artifact_summary.apply_safety_escalation`:
+  - `tier` (`none`, `advisory`, `guarded`, `blocked`)
+  - `score` (`0`-`3`)
+  - `reason`
+  - `triggers`
+  - `requires_recovery`
+  - `recommended_mode`
+  - `human_confirmation_required`
+  - `message`
+- Escalation tier behavior:
+  - `blocked`: apply requested but forced-propose conflict or pre-write validation failure
+  - `guarded`: apply requested with post-write validation failure
+  - `advisory`: apply requested and completed while ledger remains dirty
+  - `none`: no escalation needed
+- Guidance now includes apply-safety fields:
+  - `apply_safety_tier`
+  - `apply_safety_reason`
+
+Additional coverage:
+- `tests/orchestrator/test_apply_safety_escalation.py`
+
 ## Output Artifacts
 
 Primary artifacts:

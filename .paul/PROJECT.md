@@ -56,10 +56,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add Git ledger baseline summary contract — Phase 7 (07-01)
 - [x] Add change classification and drift signals — Phase 7 (07-02)
 - [x] Add ledger-aware guidance/next-action tuning — Phase 7 (07-03)
+- [x] Add apply safety escalation tier contract — Phase 8 (08-01)
 
 ### Planned (Next)
 
-- [ ] Plan and execute Phase 8 slices (08-01, 08-02, 08-03)
+- [ ] Execute remaining Phase 8 slices (08-02, 08-03)
 
 ### Out of Scope
 
@@ -117,6 +118,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Git ledger context is explicit | Pipeline must carry workspace VCS state as deterministic internal orchestration memory | 2026-04-20 | Active |
 | Ledger drift signals are explicit | Change classification and drift severity must be deterministic for policy consumers | 2026-04-20 | Active |
 | Ledger-aware actions are explicit | Next-action and guidance should tune behavior using ledger drift intelligence | 2026-04-20 | Active |
+| Apply safety escalation is explicit | Apply-mode outcomes must emit deterministic escalation tiers with recovery intent | 2026-04-20 | Active |
 
 ## Success Metrics
 

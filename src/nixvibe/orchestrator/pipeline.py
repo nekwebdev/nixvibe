@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Sequence
 
 from .artifacts import generate_artifact_bundle, materialize_artifacts
+from .escalation import build_apply_safety_escalation
 from .guidance import build_guidance_summary
 from .ledger import inspect_git_ledger
 from .merge import merge_specialist_payloads
@@ -155,6 +156,13 @@ def run_pipeline(
         merge_result.forced_mode is Mode.PROPOSE
         and "Contradictory critical findings" in merge_result.reason
     )
+    apply_safety_escalation = build_apply_safety_escalation(
+        requested_mode=request.requested_mode,
+        selected_mode=selected_mode,
+        validation_failure_stage=validation_failure_stage,
+        conflict_forced_propose=conflict_forced_propose,
+        ledger_summary=ledger_summary,
+    )
     guidance_summary = build_guidance_summary(
         user_input=request.user_input,
         context=context,
@@ -166,8 +174,10 @@ def run_pipeline(
         conflict_forced_propose=conflict_forced_propose,
         merge_reason=merge_result.reason,
         ledger_summary=ledger_summary,
+        apply_safety_escalation=apply_safety_escalation,
     )
     artifact_summary = dict(artifact_summary)
+    artifact_summary["apply_safety_escalation"] = apply_safety_escalation
     artifact_summary["guidance"] = guidance_summary
 
     return OrchestrationResult(

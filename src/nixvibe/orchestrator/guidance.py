@@ -51,6 +51,7 @@ def build_guidance_summary(
     conflict_forced_propose: bool,
     merge_reason: str,
     ledger_summary: dict[str, object],
+    apply_safety_escalation: dict[str, object],
 ) -> dict[str, object]:
     skill_level = infer_skill_level(user_input)
     response_style, explanation_depth, explanation_sections = _guidance_profile(skill_level)
@@ -97,6 +98,8 @@ def build_guidance_summary(
         "ledger_drift_detected": ledger_drift_detected,
         "ledger_drift_severity": ledger_drift_severity,
         "ledger_action_hint": ledger_action_hint,
+        "apply_safety_tier": str(apply_safety_escalation.get("tier") or "none"),
+        "apply_safety_reason": str(apply_safety_escalation.get("reason") or ""),
         "remediation": remediation,
         "immediate_next_action": next_action,
     }

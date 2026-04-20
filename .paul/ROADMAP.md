@@ -15,7 +15,7 @@ Phases: 1 of 3 complete
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
 | 7 | Git Ledger and Change Intelligence | 3 (`07-01`, `07-02`, `07-03`) | ✅ Complete | 2026-04-20 |
-| 8 | Apply Safety Escalation and Recovery | 3 (`08-01`, `08-02`, `08-03`) | Not started | - |
+| 8 | Apply Safety Escalation and Recovery | 3 (`08-01`, `08-02`, `08-03`) | 🚧 In progress | - |
 | 9 | Operator Surfaces and Release Ops | 3 (`09-01`, `09-02`, `09-03`) | Not started | - |
 
 ## Phase Details
@@ -48,7 +48,7 @@ Phases: 1 of 3 complete
 - Additional guardrails for high-risk mutation paths
 
 **Plans:**
-- [ ] 08-01: Apply escalation tier contract
+- [x] 08-01: Apply escalation tier contract
 - [ ] 08-02: Recovery playbook integration
 - [ ] 08-03: High-risk mutation guardrail regressions
 

@@ -2,6 +2,7 @@
 
 from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .conflicts import resolve_conflict
+from .escalation import build_apply_safety_escalation
 from .guidance import build_guidance_summary, infer_skill_level
 from .ledger import inspect_git_ledger
 from .merge import merge_specialist_payloads
@@ -110,6 +111,7 @@ __all__ = [
     "ValidationReport",
     "WorkspaceSnapshot",
     "build_repo_context",
+    "build_apply_safety_escalation",
     "build_dispatch_context",
     "build_guidance_summary",
     "default_runtime_contract",
