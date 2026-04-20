@@ -6,12 +6,52 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 ## Current Milestone
 
-None active.
-Status: Milestone boundary reached.
+**v0.2 Execution and Context Expansion** (v0.2.0)
+Status: 🚧 In progress
+Phases: 0 of 3 complete
 
-## Next Milestone
+## Phases
 
-Run `/paul:discuss-milestone` or `/paul:milestone` to define post-v0.1 scope.
+| Phase | Name | Plans | Status | Completed |
+|-------|------|-------|--------|-----------|
+| 4 | Workspace Intake and Reference Adaptation | TBD | Not started | - |
+| 5 | Runtime Agent Execution and Patch Orchestration | TBD | Not started | - |
+| 6 | Guidance UX and Safety Guardrails | TBD | Not started | - |
+
+## Phase Details
+
+### Phase 4: Workspace Intake and Reference Adaptation
+
+**Goal:** Add bounded repository intake so orchestration can inspect real workspace shape and user-provided references safely.
+**Depends on:** v0.1 baseline
+**Research:** Medium (input boundaries and adaptation rules)
+
+**Scope:**
+- Bounded workspace snapshot reader contract
+- Reference repo adaptation policy hooks
+- Context profiling improvements for init/audit routing
+
+### Phase 5: Runtime Agent Execution and Patch Orchestration
+
+**Goal:** Replace placeholder specialist behavior with executable task runners and deterministic patch set generation.
+**Depends on:** Phase 4
+**Research:** Medium (runner contracts + patch lifecycle)
+
+**Scope:**
+- Runtime specialist task runner interfaces
+- Patch proposal pipeline hardening (propose/apply boundaries)
+- Validation preflight/checkpoint integration for write paths
+
+### Phase 6: Guidance UX and Safety Guardrails
+
+**Goal:** Improve user-facing guidance quality across skill levels while preserving safety gates.
+**Depends on:** Phase 5
+**Research:** Medium (content strategy + guardrails)
+
+**Scope:**
+- Skill-adaptive explanation output structure
+- Stronger remediation output for failed validations/conflicts
+- Journey-level regression scenarios for novice-to-expert interactions
 
 ## Completed Milestones
 

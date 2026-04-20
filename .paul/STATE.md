@@ -5,25 +5,26 @@
 See: .paul/PROJECT.md (updated 2026-04-19)
 
 **Core value:** Users can evolve clean modular NixOS configs safely with guided automation.
-**Current focus:** Milestone boundary — v0.1 complete, next milestone definition pending
+**Current focus:** v0.2 milestone initialized — ready to plan Phase 4
 
 ## Current Position
 
-Milestone: Awaiting next milestone
-Phase: None active
-Plan: None
-Status: Milestone v0.1 Initial Release complete — ready for next milestone setup
-Last activity: 2026-04-19T15:45:37-10:00 — Finalized milestone records and release notes for v0.1.0
+Milestone: v0.2 Execution and Context Expansion (v0.2.0)
+Phase: 4 of 6 (Workspace Intake and Reference Adaptation) — Not started
+Plan: Not started
+Status: Ready for first PLAN in v0.2
+Last activity: 2026-04-19T15:45:37-10:00 — Created v0.2 milestone structure and phase skeleton
 
 Progress:
 - v0.1 Initial Release: [██████████] 100% ✓
+- v0.2 Execution and Context Expansion: [░░░░░░░░░░] 0%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ○        ○        ○     [Milestone complete - ready for next]
+  ○        ○        ○     [Ready for Phase 4 PLAN]
 ```
 
 ## Accumulated Context
@@ -41,6 +42,7 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - Acceptance-level journey tests now cover init/audit flows and apply safety behavior
 - Patch artifact hygiene and release-check command path are now standardized
 - Milestone archive and release notes created for v0.1.0
+- v0.2 milestone scaffold created with Phases 4-6 for post-v0.1 execution scope
 
 ### Deferred Issues
 None yet.
@@ -51,9 +53,9 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-04-19T15:45:37-10:00
-Stopped at: Milestone v0.1 Initial Release complete
-Next action: `/paul:discuss-milestone` or `/paul:milestone`
-Resume file: .paul/MILESTONES.md
+Stopped at: Milestone v0.2 created, ready for planning
+Next action: `/paul:plan` for Phase 4
+Resume file: .paul/ROADMAP.md
 
 ---
 *STATE.md — Updated after every significant action*

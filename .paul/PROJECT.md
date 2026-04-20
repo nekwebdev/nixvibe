@@ -14,7 +14,7 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 |-----------|-------|
 | Type | Workflow |
 | Version | 0.1.0 |
-| Status | Milestone complete |
+| Status | In progress (v0.2 active) |
 | Last Updated | 2026-04-19 |
 
 ## Requirements
@@ -39,15 +39,19 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Validation runner gates integrated into runtime orchestration (`nix flake check`, `nix fmt`) — Phase 3 (03-01)
 - [x] Acceptance test suite for init/audit behavior and apply safety — Phase 3 (03-02)
 - [x] Patch artifact lifecycle standardized in `patches/` + release-check path — Phase 3 (03-03)
+- [x] Milestone v0.1 tagged and release notes published — Milestone closeout (2026-04-19)
 
 ### Active (In Progress)
 
-- [ ] Define next milestone scope (post-v0.1 enhancements)
+- [ ] Add bounded workspace intake and reference adaptation for real repo contexts
+- [ ] Introduce runtime specialist execution path for concrete task runners
+- [ ] Strengthen user-facing guidance guardrails across skill levels
 
 ### Planned (Next)
 
-- [ ] Create next milestone in PAUL (`/paul:milestone`)
-- [ ] Generate first plan for the new milestone (`/paul:plan`)
+- [ ] Plan and execute Phase 4 (workspace intake + reference adaptation)
+- [ ] Plan and execute Phase 5 (runtime agent execution + patch orchestration)
+- [ ] Plan and execute Phase 6 (guidance UX + guardrail hardening)
 
 ### Out of Scope
 
@@ -126,4 +130,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-19 after milestone closeout (v0.1.0)*
+*Last updated: 2026-04-19 after v0.2 milestone kickoff*
