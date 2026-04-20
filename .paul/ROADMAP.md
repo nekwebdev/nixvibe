@@ -6,11 +6,23 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 ## Current Milestone
 
-**v0.1 Initial Release** (v0.1.0)
-Status: ✅ Complete
-Phases: 3 of 3 complete
+None active.
+Status: Milestone boundary reached.
 
-## Phases
+## Next Milestone
+
+Run `/paul:discuss-milestone` or `/paul:milestone` to define post-v0.1 scope.
+
+## Completed Milestones
+
+<details>
+<summary>v0.1 Initial Release (v0.1.0) — completed 2026-04-19</summary>
+
+### Milestone Snapshot
+
+Status: ✅ Complete  
+Phases: 3 of 3 complete  
+Plans completed: 7
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
@@ -18,55 +30,9 @@ Phases: 3 of 3 complete
 | 2 | Orchestration and Artifact Engine | 3 (`02-01`, `02-02`, `02-03`) | ✅ Complete | 2026-04-19 |
 | 3 | Validation and Acceptance | 3 (`03-01`, `03-02`, `03-03`) | ✅ Complete | 2026-04-19 |
 
-## Phase Details
+Archive: `.paul/milestones/v0.1.0-ROADMAP.md`
 
-### Phase 1: Core Policy and Contracts
-
-**Goal:** Lock CARL policy rules, local MCP contracts, and output schema contracts.
-**Depends on:** Nothing (first phase)
-**Research:** Unlikely (requirements already defined)
-
-**Scope:**
-- CARL domain file and policy set
-- Local Codex/Claude MCP contracts
-- `.codex` file-to-directory migration handling
-- Specialist output schema and merge contract
-
-**Plans:**
-- [x] 01-01: Lock CARL domain, local MCP contracts, and specialist schema contracts
-
-### Phase 2: Orchestration and Artifact Engine
-
-**Goal:** Deliver route selection, parallel execution, structured artifact generation.
-**Depends on:** Phase 1
-**Research:** Unlikely (architecture decisions captured)
-
-**Scope:**
-- Orchestrator route logic (`init` / `audit`)
-- Parallel specialist execution
-- Write-mode enforcement and confirm-first flow
-- Artifact generation for scaffold/refactor
-
-**Plans:**
-- [x] 02-01: Implement route + mode gating
-- [x] 02-02: Implement parallel specialists + merge policy
-- [x] 02-03: Implement artifact output pipeline
-
-### Phase 3: Validation and Acceptance
-
-**Goal:** Enforce quality gates and verify production behavior.
-**Depends on:** Phase 2
-**Research:** Unlikely (internal verification)
-
-**Scope:**
-- Validation gate enforcement (`nix flake check`, `nix fmt`)
-- Acceptance tests for init/audit
-- Patch artifact hygiene (`patches/`, naming convention)
-
-**Plans:**
-- [x] 03-01: Validation runner integration
-- [x] 03-02: Acceptance test suite
-- [x] 03-03: Patch hygiene + release checks
+</details>
 
 ---
 *Roadmap created: 2026-04-18*

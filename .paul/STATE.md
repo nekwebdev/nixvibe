@@ -5,26 +5,25 @@
 See: .paul/PROJECT.md (updated 2026-04-19)
 
 **Core value:** Users can evolve clean modular NixOS configs safely with guided automation.
-**Current focus:** v0.1 Initial Release — all phases complete, ready for release/tagging
+**Current focus:** Milestone boundary — v0.1 complete, next milestone definition pending
 
 ## Current Position
 
-Milestone: v0.1 Initial Release (v0.1.0)
-Phase: 3 of 3 (Validation and Acceptance) — Complete
-Plan: 03-03 completed
-Status: UNIFY complete for all planned slices in milestone v0.1
-Last activity: 2026-04-19T15:35:41-10:00 — Completed .paul/phases/03-validation-and-acceptance/03-03-SUMMARY.md
+Milestone: Awaiting next milestone
+Phase: None active
+Plan: None
+Status: Milestone v0.1 Initial Release complete — ready for next milestone setup
+Last activity: 2026-04-19T15:45:37-10:00 — Finalized milestone records and release notes for v0.1.0
 
 Progress:
-- Milestone: [██████████] 100%
-- Phase 3: [██████████] 100%
+- v0.1 Initial Release: [██████████] 100% ✓
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [03-03 complete]
+  ○        ○        ○     [Milestone complete - ready for next]
 ```
 
 ## Accumulated Context
@@ -41,6 +40,7 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - Apply mode now enforces validation gates (`nix flake check`, `nix fmt`) before writes and downgrades to propose on failure
 - Acceptance-level journey tests now cover init/audit flows and apply safety behavior
 - Patch artifact hygiene and release-check command path are now standardized
+- Milestone archive and release notes created for v0.1.0
 
 ### Deferred Issues
 None yet.
@@ -50,10 +50,10 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-19T15:35:41-10:00
-Stopped at: Phase 3 complete (03-01, 03-02, 03-03)
-Next action: Tag/release v0.1.0 and open next milestone planning
-Resume file: .paul/phases/03-validation-and-acceptance/03-03-SUMMARY.md
+Last session: 2026-04-19T15:45:37-10:00
+Stopped at: Milestone v0.1 Initial Release complete
+Next action: `/paul:discuss-milestone` or `/paul:milestone`
+Resume file: .paul/MILESTONES.md
 
 ---
 *STATE.md — Updated after every significant action*

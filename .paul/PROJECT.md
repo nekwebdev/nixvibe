@@ -13,8 +13,8 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 | Attribute | Value |
 |-----------|-------|
 | Type | Workflow |
-| Version | 0.0.0 |
-| Status | In progress |
+| Version | 0.1.0 |
+| Status | Milestone complete |
 | Last Updated | 2026-04-19 |
 
 ## Requirements
@@ -42,12 +42,12 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 
 ### Active (In Progress)
 
-- None (v0.1 milestone complete)
+- [ ] Define next milestone scope (post-v0.1 enhancements)
 
 ### Planned (Next)
 
-- [ ] Tag v0.1.0 and publish milestone release notes
-- [ ] Define next milestone scope (post-v0.1 enhancements)
+- [ ] Create next milestone in PAUL (`/paul:milestone`)
+- [ ] Generate first plan for the new milestone (`/paul:plan`)
 
 ### Out of Scope
 
@@ -121,7 +121,9 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 |----------|-----|
 | Planning | `../../projects/nixvibe/PLANNING.md` |
 | Graduation README | `README.md` |
+| Milestone Log | `.paul/MILESTONES.md` |
+| Release Notes | `.paul/releases/v0.1.0.md` |
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-19 after Phase 3 completion (03-03)*
+*Last updated: 2026-04-19 after milestone closeout (v0.1.0)*
