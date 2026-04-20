@@ -65,7 +65,7 @@ Phases: 2 of 3 complete
 
 **Plans:**
 - [x] 09-01: Operator run manifest contract
-- [ ] 09-02: Release-readiness gate expansion
+- [x] 09-02: Release-readiness gate expansion
 - [ ] 09-03: End-to-end acceptance hardening
 
 ## Completed Milestones

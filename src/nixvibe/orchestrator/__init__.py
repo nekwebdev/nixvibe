@@ -18,6 +18,7 @@ from .policy_loader import (
     PolicyValidationError,
     load_policy,
 )
+from .release import build_release_readiness
 from .recovery import build_recovery_playbook
 from .runtime import (
     RuntimeSpecialistContractError,
@@ -118,6 +119,7 @@ __all__ = [
     "evaluate_high_risk_mutation_guardrails",
     "build_recovery_playbook",
     "build_operator_run_manifest",
+    "build_release_readiness",
     "build_dispatch_context",
     "build_guidance_summary",
     "default_runtime_contract",

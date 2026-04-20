@@ -490,6 +490,30 @@ Added deterministic operator-facing run manifest output:
 Additional coverage:
 - `tests/orchestrator/test_operator_run_manifest.py`
 
+## Runtime Orchestration (Phase 9 Release-Readiness Gate Slice)
+
+Expanded release-readiness gates with structured failure reporting:
+- Release contract emitted as `artifact_summary.release_readiness`:
+  - `contract`
+  - `ready`
+  - `required_gate_count`
+  - `passed_gate_count`
+  - `failed_gate_count`
+  - `failed_gate_ids`
+  - `gates`
+  - `failure_summary`
+  - `next_gate_action`
+- Required gate set:
+  - `mode-apply`
+  - `specialist-integrity`
+  - `safety-clear`
+  - `validation-success` (apply mode)
+  - `writes-materialized` (apply mode)
+- Gate failures now provide deterministic reasons for operator remediation and release hold decisions.
+
+Additional coverage:
+- `tests/orchestrator/test_release_readiness.py`
+
 ## Output Artifacts
 
 Primary artifacts:

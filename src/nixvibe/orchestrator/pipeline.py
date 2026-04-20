@@ -15,6 +15,7 @@ from .merge import merge_specialist_payloads
 from .modes import resolve_mode
 from .payloads import PayloadValidationError, validate_payload
 from .policy_loader import load_policy
+from .release import build_release_readiness
 from .recovery import build_recovery_playbook
 from .runtime import RuntimeSpecialistContractError, plan_runtime_specialists
 from .router import select_route
@@ -219,6 +220,9 @@ def run_pipeline(
         mutation_guardrails=mutation_guardrails,
         apply_safety_escalation=apply_safety_escalation,
         recovery_playbook=recovery_playbook,
+    )
+    artifact_summary["release_readiness"] = build_release_readiness(
+        run_manifest=artifact_summary["run_manifest"]
     )
 
     return OrchestrationResult(
