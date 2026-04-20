@@ -49,7 +49,7 @@ Phases: 1 of 3 complete
 
 **Plans:**
 - [x] 11-01: Policy decision explainability contract
-- [ ] 11-02: Controlled override workflow contract
+- [x] 11-02: Controlled override workflow contract
 - [ ] 11-03: Operator audit-trail summary integration
 
 ### Phase 12: Release Delivery and Milestone Closeout

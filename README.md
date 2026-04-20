@@ -640,6 +640,33 @@ Added deterministic policy decision explainability surface:
 Additional coverage:
 - `tests/orchestrator/test_policy_decision_explainability.py`
 
+## Runtime Orchestration (Phase 11 Controlled Override Slice)
+
+Added controlled override workflow contract with explicit allow/deny policy:
+- Override contract emitted as `artifact_summary.controlled_override_workflow`:
+  - `contract`
+  - `override_requested`
+  - `override_eligible`
+  - `decision` (`none`, `allow-with-confirmation`, `deny`)
+  - `requested_overrides`
+  - `allowed_overrides`
+  - `blocked_overrides`
+  - `requires_human_confirmation`
+  - `required_checks`
+  - `next_override_action`
+  - `summary`
+- Override request detection:
+  - `force-apply`
+  - `skip-validation`
+  - `auto-retry`
+- Guardrails:
+  - validation bypass overrides are always denied
+  - blocked/guarded safety states deny force-apply override
+  - allowed overrides always require explicit confirmation and required checks
+
+Additional coverage:
+- `tests/orchestrator/test_controlled_override_workflow.py`
+
 ## Output Artifacts
 
 Primary artifacts:

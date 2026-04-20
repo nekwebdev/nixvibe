@@ -197,6 +197,7 @@ class TestAcceptanceFlows(unittest.TestCase):
         self.assertIn("resume_checkpoint", result.artifact_summary)
         self.assertIn("retry_backoff_guardrails", result.artifact_summary)
         self.assertIn("policy_decision_explainability", result.artifact_summary)
+        self.assertIn("controlled_override_workflow", result.artifact_summary)
         self.assertTrue(result.next_action.strip())
 
 

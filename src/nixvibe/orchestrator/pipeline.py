@@ -16,6 +16,7 @@ from .ledger import inspect_git_ledger
 from .manifest import build_operator_run_manifest
 from .merge import merge_specialist_payloads
 from .modes import resolve_mode
+from .override import build_controlled_override_workflow
 from .payloads import PayloadValidationError, validate_payload
 from .policy_loader import load_policy
 from .release import build_release_readiness
@@ -255,6 +256,14 @@ def run_pipeline(
         conflict_priority_order=tuple(
             priority.value for priority in active_policy.conflict.ordered_priorities
         ),
+    )
+    artifact_summary["controlled_override_workflow"] = build_controlled_override_workflow(
+        user_input=request.user_input,
+        selected_mode=selected_mode,
+        run_failure_classification=artifact_summary["run_failure_classification"],
+        apply_safety_escalation=apply_safety_escalation,
+        release_readiness=artifact_summary["release_readiness"],
+        retry_backoff_guardrails=artifact_summary["retry_backoff_guardrails"],
     )
 
     return OrchestrationResult(

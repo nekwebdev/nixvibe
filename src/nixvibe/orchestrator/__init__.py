@@ -12,6 +12,7 @@ from .ledger import inspect_git_ledger
 from .manifest import build_operator_run_manifest
 from .merge import merge_specialist_payloads
 from .modes import resolve_mode
+from .override import build_controlled_override_workflow
 from .patches import normalize_patch_path, orchestrate_patch_proposals, patch_orchestration_summary
 from .payloads import PayloadValidationError, validate_payload
 from .pipeline import OrchestrationPipelineError, run_pipeline
@@ -145,6 +146,7 @@ __all__ = [
     "plan_runtime_specialists",
     "resolve_conflict",
     "resolve_mode",
+    "build_controlled_override_workflow",
     "run_pipeline",
     "run_specialists",
     "with_dispatch_context",
