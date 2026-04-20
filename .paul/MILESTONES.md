@@ -4,7 +4,40 @@ Completed milestone log for this project.
 
 | Milestone | Completed | Duration | Stats |
 |-----------|-----------|----------|-------|
+| v0.2 Execution and Context Expansion (v0.2.0) | 2026-04-20 | 10h 03m | 3 phases, 9 plans |
 | v0.1 Initial Release (v0.1.0) | 2026-04-19 | 15h 34m | 3 phases, 7 plans |
+
+---
+
+## ✅ v0.2 Execution and Context Expansion (v0.2.0)
+
+**Completed:** 2026-04-20  
+**Duration:** 10h 03m
+
+### Stats
+
+| Metric | Value |
+|--------|-------|
+| Phases | 3 |
+| Plans | 9 |
+| Files changed | 31 |
+
+### Key Accomplishments
+
+- Added bounded workspace intake and reference adaptation contracts for real repo context.
+- Added deterministic specialist dispatch context wiring into runtime task execution.
+- Added typed runtime specialist contract planning and contract-driven pipeline execution path.
+- Added deterministic patch orchestration with explicit summary metadata.
+- Added checkpointed apply validation flow with pre-write and post-write checkpoints.
+- Added skill-adaptive guidance output contract for novice/intermediate/expert users.
+- Added structured remediation contract for validation and conflict safety failures.
+- Added novice-to-expert end-to-end journey regression suite.
+
+### Key Decisions
+
+- Keep guidance adaptation and remediation as explicit structured contracts in `artifact_summary`.
+- Preserve apply safety with deterministic validation checkpoints and conflict-forced propose fallback.
+- Treat novice-to-expert journey regressions as mandatory guardrails for future changes.
 
 ---
 

@@ -14,7 +14,7 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 |-----------|-------|
 | Type | Workflow |
 | Version | 0.2.0 |
-| Status | In progress (v0.2 active) |
+| Status | Milestone complete (v0.2 delivered) |
 | Last Updated | 2026-04-20 |
 
 ## Requirements
@@ -51,11 +51,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add runtime validation checkpoints to write-flow execution contract — Phase 5 (05-03)
 - [x] Add skill-adaptive guidance output contract — Phase 6 (06-01)
 - [x] Strengthen safety/remediation guidance for failed validations and conflicts — Phase 6 (06-02)
-- [ ] Add novice-to-expert journey regression coverage — Phase 6 (06-03)
+- [x] Add novice-to-expert journey regression coverage — Phase 6 (06-03)
 
 ### Planned (Next)
 
-- [ ] Complete remaining Phase 6 slice (06-03)
+- [ ] Define v0.3 milestone scope and first plan slice
 
 ### Out of Scope
 
@@ -109,6 +109,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Validation checkpoints are explicit | Apply writes require pre-write gate and post-write checkpoint metadata | 2026-04-20 | Active |
 | Guidance profile is explicit | Output contract must adapt style/depth by user skill level while preserving deterministic next action | 2026-04-20 | Active |
 | Remediation contract is explicit | Guidance must emit structured recovery steps for validation/conflict failures | 2026-04-20 | Active |
+| Journey regressions are mandatory | Novice-to-expert behavior must remain stable through end-to-end regression tests | 2026-04-20 | Active |
 
 ## Success Metrics
 
@@ -134,8 +135,8 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Planning | `../../projects/nixvibe/PLANNING.md` |
 | Graduation README | `README.md` |
 | Milestone Log | `.paul/MILESTONES.md` |
-| Release Notes | `.paul/releases/v0.1.0.md` |
+| Release Notes | `.paul/releases/v0.2.0.md` |
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-20 after Phase 6 plan 06-02 completion*
+*Last updated: 2026-04-20 after Phase 6 plan 06-03 completion*

@@ -330,6 +330,22 @@ Hardened guidance with structured safety remediation outputs:
 Additional coverage:
 - `tests/orchestrator/test_guidance_remediation.py`
 
+## Runtime Orchestration (Phase 6 Journey Regression Slice)
+
+Added cross-skill journey regression coverage to protect guidance UX and safety behavior:
+- Novice journey regression:
+  - init path remains propose-first
+  - guidance stays stepwise with small-start dendritic strategy
+- Intermediate journey regression:
+  - audit path guidance remains balanced
+  - preserve-and-extend behavior stays stable for structured repos
+- Expert journey regressions:
+  - runtime-contract apply flow preserves compact guidance profile
+  - critical contradiction flow still forces propose and emits conflict remediation
+
+Additional coverage:
+- `tests/orchestrator/test_guidance_journey_regressions.py`
+
 ## Output Artifacts
 
 Primary artifacts:
