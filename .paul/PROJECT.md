@@ -47,13 +47,13 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Extend reference adaptation with typed strategy and summary output contract — Phase 4 (04-02)
 - [x] Complete intake-driven context handoff to specialist dispatch — Phase 4 (04-03)
 - [x] Introduce runtime specialist execution contract path for concrete task runners — Phase 5 (05-01)
-- [ ] Integrate deterministic patch orchestration into runtime specialist outputs — Phase 5 (05-02)
+- [x] Integrate deterministic patch orchestration into runtime specialist outputs — Phase 5 (05-02)
 - [ ] Add runtime validation checkpoints to write-flow execution contract — Phase 5 (05-03)
 - [ ] Strengthen user-facing guidance guardrails across skill levels
 
 ### Planned (Next)
 
-- [ ] Complete remaining Phase 5 slices (05-02, 05-03)
+- [ ] Complete remaining Phase 5 slice (05-03)
 - [ ] Plan and execute Phase 6 (guidance UX + guardrail hardening)
 
 ### Out of Scope
@@ -104,6 +104,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Local MCP contract files are mandatory | Phase 1 locked explicit Codex + Claude project-local contract files | 2026-04-19 | Active |
 | Specialist payload schema is required | Merge logic depends on normalized structured specialist output | 2026-04-19 | Active |
 | Artifact writes are mode-gated | Prevent surprise writes while preserving apply path for explicit opt-in | 2026-04-19 | Active |
+| Patch orchestration summary is explicit | Runtime merge must expose deterministic patch metadata for downstream write orchestration | 2026-04-19 | Active |
 
 ## Success Metrics
 
@@ -133,4 +134,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-19 after Phase 5 plan 05-01 completion*
+*Last updated: 2026-04-19 after Phase 5 plan 05-02 completion*

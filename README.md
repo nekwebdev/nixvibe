@@ -253,6 +253,22 @@ Implemented typed runtime specialist execution contracts:
 Additional coverage:
 - `tests/orchestrator/test_runtime_contract.py`
 
+## Runtime Orchestration (Phase 5 Patch Orchestration Slice)
+
+Integrated deterministic patch orchestration across specialist runtime outputs:
+- Added shared patch orchestration helpers:
+  - path normalization
+  - ordered proposal assembly
+  - summary projection (`count`, `paths`, `ids`, `source_agents`)
+- Merge now emits:
+  - normalized `patches` artifact entries
+  - explicit `patch_orchestration` summary contract
+- Artifact stage now reuses the same normalization helper to keep patch path behavior aligned between merge and materialization.
+- Duplicate normalized patch paths are deduplicated while preserving first-seen order.
+
+Additional coverage:
+- `tests/orchestrator/test_patch_orchestration_runtime.py`
+
 ## Output Artifacts
 
 Primary artifacts:

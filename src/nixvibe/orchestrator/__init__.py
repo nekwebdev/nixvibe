@@ -4,6 +4,7 @@ from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .conflicts import resolve_conflict
 from .merge import merge_specialist_payloads
 from .modes import resolve_mode
+from .patches import normalize_patch_path, orchestrate_patch_proposals, patch_orchestration_summary
 from .payloads import PayloadValidationError, validate_payload
 from .pipeline import OrchestrationPipelineError, run_pipeline
 from .policy_loader import (
@@ -110,6 +111,9 @@ __all__ = [
     "build_dispatch_context",
     "default_runtime_contract",
     "derive_reference_adaptation",
+    "normalize_patch_path",
+    "orchestrate_patch_proposals",
+    "patch_orchestration_summary",
     "inspect_reference",
     "load_policy",
     "generate_artifact_bundle",

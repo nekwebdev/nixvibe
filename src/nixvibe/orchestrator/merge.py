@@ -6,6 +6,7 @@ from collections import defaultdict
 from typing import Iterable
 
 from .conflicts import resolve_conflict
+from .patches import orchestrate_patch_proposals, patch_orchestration_summary
 from .types import (
     ConflictCandidate,
     MergeResult,
@@ -108,7 +109,6 @@ def _resolve_recommendation_conflicts(
 
 def _merge_artifacts(payloads: tuple[SpecialistPayload, ...]) -> dict[str, object]:
     target_trees: list[object] = []
-    patches: list[object] = []
     notes: list[str] = []
     next_actions: list[str] = []
 
@@ -116,10 +116,6 @@ def _merge_artifacts(payloads: tuple[SpecialistPayload, ...]) -> dict[str, objec
         target_tree = payload.artifacts.get("target_tree")
         if target_tree is not None:
             target_trees.append(target_tree)
-
-        payload_patches = payload.artifacts.get("patches")
-        if isinstance(payload_patches, list):
-            patches.extend(payload_patches)
 
         payload_notes = payload.artifacts.get("notes")
         if isinstance(payload_notes, list):
@@ -135,10 +131,12 @@ def _merge_artifacts(payloads: tuple[SpecialistPayload, ...]) -> dict[str, objec
 
     deduped_notes = tuple(dict.fromkeys(notes))
     deduped_next_actions = tuple(dict.fromkeys(next_actions))
+    patches = orchestrate_patch_proposals(payloads)
 
     return {
         "target_trees": tuple(target_trees),
-        "patches": tuple(patches),
+        "patches": patches,
+        "patch_orchestration": patch_orchestration_summary(patches),
         "notes": deduped_notes,
         "next_actions": deduped_next_actions,
         "payload_count": len(payloads),
@@ -216,4 +214,3 @@ def _normalize_priority(priority: Priority | str) -> Priority:
 
     valid = ", ".join(value.value for value in Priority)
     raise ValueError(f"Unsupported priority: {priority!r}. Valid priorities: {valid}")
-

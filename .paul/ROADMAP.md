@@ -8,7 +8,7 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 **v0.2 Execution and Context Expansion** (v0.2.0)
 Status: 🚧 In progress
-Phases: 1 of 3 complete
+Phases: 2 of 3 complete
 
 ## Phases
 
@@ -49,7 +49,7 @@ Phases: 1 of 3 complete
 
 **Plans:**
 - [x] 05-01: Runtime specialist execution contract
-- [ ] 05-02: Patch orchestration integration
+- [x] 05-02: Patch orchestration integration
 - [ ] 05-03: Validation checkpoints in write flows
 
 ### Phase 6: Guidance UX and Safety Guardrails

@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-import re
 from pathlib import Path
 from typing import Any, Iterable
 
+from .patches import normalize_patch_path
 from .types import ArtifactBundle, ArtifactFile, ArtifactMaterializationResult, MergeResult, Mode, Route
 
 
@@ -292,7 +292,7 @@ def _patch_paths_from_summary(patches: Any) -> tuple[str, ...]:
 
     deduped_input = tuple(dict.fromkeys(raw_paths))
     normalized_paths = tuple(
-        _normalize_patch_path(raw_path=raw_path, index=index)
+        normalize_patch_path(raw_path=raw_path, index=index)
         for index, raw_path in enumerate(deduped_input, start=1)
     )
     deduped = tuple(dict.fromkeys(normalized_paths))
@@ -317,31 +317,3 @@ def _notes_list(merge_result: MergeResult) -> tuple[str, ...]:
     if isinstance(notes, list):
         return tuple(note for note in notes if isinstance(note, str) and note.strip())
     return ()
-
-
-def _normalize_patch_path(*, raw_path: str, index: int) -> str:
-    cleaned = raw_path.replace("\\", "/").strip()
-    segments = [segment for segment in cleaned.split("/") if segment not in ("", ".", "..")]
-    filename = segments[-1] if segments else ""
-
-    stem = filename
-    if stem.lower().endswith(".patch"):
-        stem = stem[:-6]
-    if not stem:
-        stem = "proposed-refactor"
-
-    match = re.match(r"^(\d+)[-_]?(.*)$", stem)
-    if match:
-        number = max(1, int(match.group(1)))
-        suffix = match.group(2) or "proposed-refactor"
-    else:
-        number = index
-        suffix = stem
-
-    slug = _slugify(suffix) or "proposed-refactor"
-    return f"patches/{number:03d}-{slug}.patch"
-
-
-def _slugify(value: str) -> str:
-    normalized = re.sub(r"[^a-zA-Z0-9]+", "-", value).strip("-").lower()
-    return normalized
