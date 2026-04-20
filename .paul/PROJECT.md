@@ -38,14 +38,16 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Scaffold/refactor artifact generation pipeline with mode-gated materialization — Phase 2 (02-03)
 - [x] Validation runner gates integrated into runtime orchestration (`nix flake check`, `nix fmt`) — Phase 3 (03-01)
 - [x] Acceptance test suite for init/audit behavior and apply safety — Phase 3 (03-02)
+- [x] Patch artifact lifecycle standardized in `patches/` + release-check path — Phase 3 (03-03)
 
 ### Active (In Progress)
 
-- [ ] Standardize patch artifact lifecycle in `patches/`
+- None (v0.1 milestone complete)
 
 ### Planned (Next)
 
-- [ ] Finalize v0.1 release-readiness checks after Phase 3 closes
+- [ ] Tag v0.1.0 and publish milestone release notes
+- [ ] Define next milestone scope (post-v0.1 enhancements)
 
 ### Out of Scope
 
@@ -122,4 +124,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-19 after Phase 3 plan 03-02 completion*
+*Last updated: 2026-04-19 after Phase 3 completion (03-03)*

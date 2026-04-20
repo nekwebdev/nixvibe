@@ -170,6 +170,22 @@ Implemented acceptance-level coverage for primary user journeys:
 Additional coverage:
 - `tests/orchestrator/test_acceptance_flows.py`
 
+## Runtime Orchestration (Phase 3 Patch Hygiene Slice)
+
+Implemented patch/release hygiene for final Phase 3 hardening:
+- Audit patch paths are normalized to safe deterministic outputs:
+  - always under `patches/`
+  - always `.patch`
+  - malformed/traversal/absolute inputs are adapted safely
+- Duplicate patch inputs are deduplicated after normalization
+- Added release verification helper:
+  - `scripts/release-check.sh`
+  - runs full unit test suite
+  - runs `nix flake check` and `nix fmt` when `flake.nix` exists
+
+Additional coverage:
+- `tests/orchestrator/test_patch_hygiene.py`
+
 ## Output Artifacts
 
 Primary artifacts:

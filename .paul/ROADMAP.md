@@ -7,8 +7,8 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 ## Current Milestone
 
 **v0.1 Initial Release** (v0.1.0)
-Status: In progress
-Phases: 2 of 3 complete
+Status: ✅ Complete
+Phases: 3 of 3 complete
 
 ## Phases
 
@@ -16,7 +16,7 @@ Phases: 2 of 3 complete
 |-------|------|-------|--------|-----------|
 | 1 | Core Policy and Contracts | 1 (`01-01`) | ✅ Complete | 2026-04-19 |
 | 2 | Orchestration and Artifact Engine | 3 (`02-01`, `02-02`, `02-03`) | ✅ Complete | 2026-04-19 |
-| 3 | Validation and Acceptance | 3 (`03-01`, `03-02`, `03-03`) | In progress | - |
+| 3 | Validation and Acceptance | 3 (`03-01`, `03-02`, `03-03`) | ✅ Complete | 2026-04-19 |
 
 ## Phase Details
 
@@ -66,7 +66,7 @@ Phases: 2 of 3 complete
 **Plans:**
 - [x] 03-01: Validation runner integration
 - [x] 03-02: Acceptance test suite
-- [ ] 03-03: Patch hygiene + release checks
+- [x] 03-03: Patch hygiene + release checks
 
 ---
 *Roadmap created: 2026-04-18*
