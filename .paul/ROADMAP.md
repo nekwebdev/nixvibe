@@ -15,7 +15,7 @@ Phases: 1 of 3 complete
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
 | 4 | Workspace Intake and Reference Adaptation | 3 (`04-01`, `04-02`, `04-03`) | ✅ Complete | 2026-04-19 |
-| 5 | Runtime Agent Execution and Patch Orchestration | 3 (`05-01`, `05-02`, `05-03`) | Not started | - |
+| 5 | Runtime Agent Execution and Patch Orchestration | 3 (`05-01`, `05-02`, `05-03`) | In progress | - |
 | 6 | Guidance UX and Safety Guardrails | 3 (`06-01`, `06-02`, `06-03`) | Not started | - |
 
 ## Phase Details
@@ -48,7 +48,7 @@ Phases: 1 of 3 complete
 - Validation preflight/checkpoint integration for write paths
 
 **Plans:**
-- [ ] 05-01: Runtime specialist execution contract
+- [x] 05-01: Runtime specialist execution contract
 - [ ] 05-02: Patch orchestration integration
 - [ ] 05-03: Validation checkpoints in write flows
 

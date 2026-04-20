@@ -234,6 +234,25 @@ Implemented intake-driven specialist dispatch context wiring:
 Additional coverage:
 - `tests/orchestrator/test_specialist_dispatch_context.py`
 
+## Runtime Orchestration (Phase 5 Runtime Contract Slice)
+
+Implemented typed runtime specialist execution contracts:
+- Added runtime contract models for specialist roles/specs and handler registry.
+- Added deterministic runtime planner:
+  - maps route-specific contract definitions to executable specialist tasks
+  - enforces required vs optional role handlers
+  - raises explicit contract errors for missing required handlers
+- Added optional pipeline contract execution path:
+  - if explicit specialist tasks are omitted, pipeline can execute from
+    `runtime_contract + runtime_handlers`
+  - explicit-task path remains backward compatible
+- Summary now includes specialist dispatch contract metadata:
+  - runtime contract name/route
+  - planned specialist agent IDs
+
+Additional coverage:
+- `tests/orchestrator/test_runtime_contract.py`
+
 ## Output Artifacts
 
 Primary artifacts:

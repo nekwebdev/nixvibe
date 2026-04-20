@@ -10,6 +10,7 @@ from .merge import merge_specialist_payloads
 from .modes import resolve_mode
 from .payloads import PayloadValidationError, validate_payload
 from .policy_loader import load_policy
+from .runtime import RuntimeSpecialistContractError, plan_runtime_specialists
 from .router import select_route
 from .specialists import build_dispatch_context, run_specialists, with_dispatch_context
 from .types import (
@@ -18,6 +19,8 @@ from .types import (
     OrchestrationRequest,
     OrchestrationResult,
     RepoContext,
+    RuntimeSpecialistContract,
+    RuntimeSpecialistHandlerRegistry,
     SpecialistExecutionOutcome,
     SpecialistExecutionResult,
     SpecialistTask,
@@ -33,11 +36,13 @@ class OrchestrationPipelineError(RuntimeError):
 def run_pipeline(
     request: OrchestrationRequest,
     context: RepoContext,
-    specialist_tasks: Sequence[SpecialistTask],
+    specialist_tasks: Sequence[SpecialistTask] = (),
     *,
     policy: OrchestrationPolicy | None = None,
     workspace_root: str | Path = ".",
     validation_runner: CommandRunner | None = None,
+    runtime_contract: RuntimeSpecialistContract | None = None,
+    runtime_handlers: RuntimeSpecialistHandlerRegistry | None = None,
 ) -> OrchestrationResult:
     active_policy = policy or load_policy()
 
@@ -54,9 +59,11 @@ def run_pipeline(
         route_decision=route_decision,
         mode_decision=mode_decision,
     )
-    dispatch_tasks = with_dispatch_context(
-        specialist_tasks,
+    dispatch_tasks = _dispatch_tasks(
+        specialist_tasks=specialist_tasks,
         dispatch_context=dispatch_context,
+        runtime_contract=runtime_contract,
+        runtime_handlers=runtime_handlers,
     )
     specialist_results = run_specialists(dispatch_tasks)
     validated_results = _validate_specialist_results(specialist_results)
@@ -102,6 +109,8 @@ def run_pipeline(
         context=context,
         dispatch_context=dispatch_context,
         dispatch_task_count=len(dispatch_tasks),
+        dispatch_agent_ids=tuple(task.agent_id for task in dispatch_tasks),
+        runtime_contract=runtime_contract,
         route=route_decision.route.value,
         generated_files=tuple(file.path for file in artifact_bundle.files),
         proposed_files=tuple(file.path for file in materialization_result.proposed_files),
@@ -172,6 +181,8 @@ def _build_artifact_summary(
     context: RepoContext,
     dispatch_context,
     dispatch_task_count: int,
+    dispatch_agent_ids: tuple[str, ...],
+    runtime_contract: RuntimeSpecialistContract | None,
     route: str,
     generated_files: tuple[str, ...],
     proposed_files: tuple[str, ...],
@@ -193,9 +204,14 @@ def _build_artifact_summary(
                 "route": dispatch_context.resolved_route.value,
                 "mode": dispatch_context.resolved_mode.value,
                 "task_count": dispatch_task_count,
+                "agent_ids": dispatch_agent_ids,
                 "repository_state": dispatch_context.repository_state,
                 "has_workspace_snapshot": dispatch_context.workspace_snapshot is not None,
                 "has_reference_adaptation": dispatch_context.reference_adaptation is not None,
+                "runtime_contract_name": runtime_contract.name if runtime_contract is not None else "",
+                "runtime_contract_route": (
+                    runtime_contract.route.value if runtime_contract is not None else ""
+                ),
             },
         }
     )
@@ -261,6 +277,36 @@ def _context_profile_summary(context: RepoContext):
             "notes": adaptation.notes,
         }
     return profile
+
+
+def _dispatch_tasks(
+    *,
+    specialist_tasks: Sequence[SpecialistTask],
+    dispatch_context,
+    runtime_contract: RuntimeSpecialistContract | None,
+    runtime_handlers: RuntimeSpecialistHandlerRegistry | None,
+) -> tuple[SpecialistTask, ...]:
+    if specialist_tasks:
+        return with_dispatch_context(
+            specialist_tasks,
+            dispatch_context=dispatch_context,
+        )
+
+    if runtime_contract is None and runtime_handlers is None:
+        return ()
+    if runtime_contract is None or runtime_handlers is None:
+        raise OrchestrationPipelineError(
+            "Runtime contract execution requires both runtime_contract and runtime_handlers."
+        )
+
+    try:
+        return plan_runtime_specialists(
+            contract=runtime_contract,
+            handlers=runtime_handlers,
+            dispatch_context=dispatch_context,
+        )
+    except RuntimeSpecialistContractError as exc:
+        raise OrchestrationPipelineError(str(exc)) from exc
 
 
 def _next_action_for_mode(

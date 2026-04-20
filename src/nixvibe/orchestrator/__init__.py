@@ -12,6 +12,11 @@ from .policy_loader import (
     PolicyValidationError,
     load_policy,
 )
+from .runtime import (
+    RuntimeSpecialistContractError,
+    default_runtime_contract,
+    plan_runtime_specialists,
+)
 from .router import select_route
 from .specialists import build_dispatch_context, run_specialists, with_dispatch_context
 from .validation import run_validation
@@ -39,6 +44,11 @@ from .types import (
     RepoContext,
     Route,
     RouteDecision,
+    RuntimeSpecialistContract,
+    RuntimeSpecialistHandler,
+    RuntimeSpecialistHandlerRegistry,
+    RuntimeSpecialistRole,
+    RuntimeSpecialistSpec,
     Severity,
     SpecialistExecutionOutcome,
     SpecialistExecutionResult,
@@ -77,6 +87,12 @@ __all__ = [
     "RepoContext",
     "Route",
     "RouteDecision",
+    "RuntimeSpecialistContract",
+    "RuntimeSpecialistContractError",
+    "RuntimeSpecialistHandler",
+    "RuntimeSpecialistHandlerRegistry",
+    "RuntimeSpecialistRole",
+    "RuntimeSpecialistSpec",
     "Severity",
     "SpecialistExecutionOutcome",
     "SpecialistExecutionResult",
@@ -92,12 +108,14 @@ __all__ = [
     "WorkspaceSnapshot",
     "build_repo_context",
     "build_dispatch_context",
+    "default_runtime_contract",
     "derive_reference_adaptation",
     "inspect_reference",
     "load_policy",
     "generate_artifact_bundle",
     "materialize_artifacts",
     "merge_specialist_payloads",
+    "plan_runtime_specialists",
     "resolve_conflict",
     "resolve_mode",
     "run_pipeline",

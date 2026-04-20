@@ -177,10 +177,39 @@ class SpecialistDispatchContext:
     reference_adaptation: ReferenceAdaptation | None = None
 
 
+class RuntimeSpecialistRole(str, Enum):
+    ARCHITECTURE = "architecture"
+    MODULE = "module"
+    AUDIT = "audit"
+    EXPLAIN = "explain"
+    VALIDATE = "validate"
+
+
+@dataclass(frozen=True)
+class RuntimeSpecialistSpec:
+    role: RuntimeSpecialistRole
+    agent_id: str
+    task_scope: str
+    required: bool = True
+
+
+@dataclass(frozen=True)
+class RuntimeSpecialistContract:
+    name: str
+    route: Route
+    specialists: Tuple[RuntimeSpecialistSpec, ...]
+
+
 SpecialistRunner = (
     Callable[[], Mapping[str, Any] | SpecialistPayload]
     | Callable[[SpecialistDispatchContext], Mapping[str, Any] | SpecialistPayload]
 )
+
+RuntimeSpecialistHandler = Callable[
+    [SpecialistDispatchContext],
+    Mapping[str, Any] | SpecialistPayload,
+]
+RuntimeSpecialistHandlerRegistry = Mapping[RuntimeSpecialistRole | str, RuntimeSpecialistHandler]
 
 
 @dataclass(frozen=True)

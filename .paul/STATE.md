@@ -5,26 +5,26 @@
 See: .paul/PROJECT.md (updated 2026-04-19)
 
 **Core value:** Users can evolve clean modular NixOS configs safely with guided automation.
-**Current focus:** v0.2 Phase 5 planning — Phase 4 complete
+**Current focus:** v0.2 Phase 5 in progress — 05-01 complete, preparing 05-02
 
 ## Current Position
 
 Milestone: v0.2 Execution and Context Expansion (v0.2.0)
-Phase: 5 of 6 (Runtime Agent Execution and Patch Orchestration) — Planning
-Plan: 04-03 completed
-Status: Phase 4 complete; ready for 05-01 planning
-Last activity: 2026-04-19T20:22:55-10:00 — Completed .paul/phases/04-workspace-intake-and-reference-adaptation/04-03-SUMMARY.md
+Phase: 5 of 6 (Runtime Agent Execution and Patch Orchestration) — In progress
+Plan: 05-01 completed
+Status: APPLY and verification complete; ready for 05-02 planning
+Last activity: 2026-04-19T22:42:47-10:00 — Completed .paul/phases/05-runtime-agent-execution-and-patch-orchestration/05-01-SUMMARY.md
 
 Progress:
 - v0.1 Initial Release: [██████████] 100% ✓
-- v0.2 Execution and Context Expansion: [██████░░░░] 60%
+- v0.2 Execution and Context Expansion: [███████░░░] 70%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [04-03 complete]
+  ✓        ✓        ✓     [05-01 complete]
 ```
 
 ## Accumulated Context
@@ -46,6 +46,7 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - Bounded workspace/reference context profiling baseline landed for Phase 4 plan 04-01
 - Reference adaptation strategy model and summary contract landed for Phase 4 plan 04-02
 - Intake-driven specialist dispatch context wiring landed for Phase 4 plan 04-03
+- Runtime specialist execution contract and planner landed for Phase 5 plan 05-01
 
 ### Deferred Issues
 None yet.
@@ -55,10 +56,10 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-19T20:22:55-10:00
-Stopped at: Phase 4 complete (04-01, 04-02, 04-03)
-Next action: Create and approve `.paul/phases/05-runtime-agent-execution-and-patch-orchestration/05-01-PLAN.md`
-Resume file: .paul/phases/04-workspace-intake-and-reference-adaptation/04-03-SUMMARY.md
+Last session: 2026-04-19T22:42:47-10:00
+Stopped at: Phase 5 plan 05-01 completed and summarized
+Next action: Create and approve `.paul/phases/05-runtime-agent-execution-and-patch-orchestration/05-02-PLAN.md`
+Resume file: .paul/phases/05-runtime-agent-execution-and-patch-orchestration/05-01-SUMMARY.md
 
 ---
 *STATE.md — Updated after every significant action*

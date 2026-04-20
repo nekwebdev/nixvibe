@@ -46,13 +46,14 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add bounded workspace intake and reference adaptation baseline for real repo contexts — Phase 4 (04-01)
 - [x] Extend reference adaptation with typed strategy and summary output contract — Phase 4 (04-02)
 - [x] Complete intake-driven context handoff to specialist dispatch — Phase 4 (04-03)
-- [ ] Introduce runtime specialist execution path for concrete task runners
+- [x] Introduce runtime specialist execution contract path for concrete task runners — Phase 5 (05-01)
+- [ ] Integrate deterministic patch orchestration into runtime specialist outputs — Phase 5 (05-02)
+- [ ] Add runtime validation checkpoints to write-flow execution contract — Phase 5 (05-03)
 - [ ] Strengthen user-facing guidance guardrails across skill levels
 
 ### Planned (Next)
 
-- [ ] Execute Phase 5 runtime specialist execution and patch orchestration slices
-- [ ] Plan and execute Phase 5 (runtime agent execution + patch orchestration)
+- [ ] Complete remaining Phase 5 slices (05-02, 05-03)
 - [ ] Plan and execute Phase 6 (guidance UX + guardrail hardening)
 
 ### Out of Scope
@@ -132,4 +133,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-19 after Phase 4 completion (04-03)*
+*Last updated: 2026-04-19 after Phase 5 plan 05-01 completion*
