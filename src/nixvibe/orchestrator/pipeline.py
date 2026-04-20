@@ -21,6 +21,7 @@ from .override import build_controlled_override_workflow
 from .payloads import PayloadValidationError, validate_payload
 from .policy_loader import load_policy
 from .release import build_release_readiness
+from .release_manifest import build_release_artifact_manifest
 from .recovery import build_recovery_playbook
 from .retry import build_retry_backoff_guardrails
 from .runtime import RuntimeSpecialistContractError, plan_runtime_specialists
@@ -274,6 +275,15 @@ def run_pipeline(
         retry_backoff_guardrails=artifact_summary["retry_backoff_guardrails"],
         policy_decision_explainability=artifact_summary["policy_decision_explainability"],
         controlled_override_workflow=artifact_summary["controlled_override_workflow"],
+    )
+    artifact_summary["release_artifact_manifest"] = build_release_artifact_manifest(
+        route=route_decision.route.value,
+        mode=selected_mode.value,
+        generated_files=tuple(file.path for file in artifact_bundle.files),
+        proposed_files=tuple(file.path for file in materialization_result.proposed_files),
+        written_files=materialization_result.written_paths,
+        release_readiness=artifact_summary["release_readiness"],
+        operator_audit_trail=artifact_summary["operator_audit_trail"],
     )
 
     return OrchestrationResult(

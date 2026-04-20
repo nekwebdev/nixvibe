@@ -698,6 +698,31 @@ Added operator-facing audit trail summary contract:
 Additional coverage:
 - `tests/orchestrator/test_operator_audit_trail.py`
 
+## Runtime Orchestration (Phase 12 Release Manifest Slice)
+
+Added release artifact manifest/checklist contract:
+- Release manifest emitted as `artifact_summary.release_artifact_manifest`:
+  - `contract`
+  - `manifest_id`
+  - `route`
+  - `mode`
+  - `release_ready`
+  - `checklist`
+  - checklist counters (`required_item_count`, `passed_item_count`, `failed_item_count`)
+  - `failed_item_ids`
+  - `artifact_inventory`
+  - `next_release_action`
+  - `summary`
+- Checklist includes:
+  - core docs (`ARCHITECTURE.md`, `NEXT_STEPS.md`)
+  - route-specific artifacts (init module scaffold or audit refactor/patch outputs)
+  - mode materialization consistency
+  - release gate pass state
+  - operator audit-level threshold
+
+Additional coverage:
+- `tests/orchestrator/test_release_artifact_manifest.py`
+
 ## Output Artifacts
 
 Primary artifacts:

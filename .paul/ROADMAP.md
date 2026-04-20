@@ -16,7 +16,7 @@ Phases: 2 of 3 complete
 |-------|------|-------|--------|-----------|
 | 10 | Runtime Reliability and Resume | 3 (`10-01`, `10-02`, `10-03`) | ✅ Complete | 2026-04-20 |
 | 11 | Operator Policy and Controls | 3 (`11-01`, `11-02`, `11-03`) | ✅ Complete | 2026-04-20 |
-| 12 | Release Delivery and Milestone Closeout | 3 (`12-01`, `12-02`, `12-03`) | Not started | - |
+| 12 | Release Delivery and Milestone Closeout | 3 (`12-01`, `12-02`, `12-03`) | 🚧 In progress | - |
 
 ## Phase Details
 
@@ -64,7 +64,7 @@ Phases: 2 of 3 complete
 - End-to-end v0.4 acceptance and milestone closeout
 
 **Plans:**
-- [ ] 12-01: Release artifact manifest/checklist contract
+- [x] 12-01: Release artifact manifest/checklist contract
 - [ ] 12-02: Automated release-check command contract
 - [ ] 12-03: End-to-end v0.4 acceptance and closeout
 
