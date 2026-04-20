@@ -36,11 +36,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Deterministic route + mode + conflict orchestration primitives with tests — Phase 2 (02-01)
 - [x] Parallel specialist execution + deterministic merge pipeline with schema validation — Phase 2 (02-02)
 - [x] Scaffold/refactor artifact generation pipeline with mode-gated materialization — Phase 2 (02-03)
+- [x] Validation runner gates integrated into runtime orchestration (`nix flake check`, `nix fmt`) — Phase 3 (03-01)
+- [x] Acceptance test suite for init/audit behavior and apply safety — Phase 3 (03-02)
 
 ### Active (In Progress)
 
-- [ ] Integrate validation runner gates into runtime orchestration (`nix flake check`, `nix fmt`)
-- [ ] Add acceptance test suite for init/audit behavior
 - [ ] Standardize patch artifact lifecycle in `patches/`
 
 ### Planned (Next)
@@ -122,4 +122,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-19 after Phase 2 completion*
+*Last updated: 2026-04-19 after Phase 3 plan 03-02 completion*

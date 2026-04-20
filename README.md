@@ -150,6 +150,26 @@ Additional coverage:
 - `tests/orchestrator/test_validation_runner.py`
 - `tests/orchestrator/test_pipeline_validation_gating.py`
 
+## Runtime Orchestration (Phase 3 Acceptance Slice)
+
+Implemented acceptance-level coverage for primary user journeys:
+- End-to-end `init` journey checks:
+  - route selection (`init`)
+  - safe default mode (`propose`)
+  - required scaffold/doc artifacts
+- End-to-end `audit` journey checks:
+  - route selection (`audit`)
+  - default `propose` behavior
+  - deterministic refactor artifacts (`REFACTOR_PLAN.md`, `TARGET_TREE.md`, `patches/*.patch`)
+- Apply safety acceptance checks:
+  - explicit opt-in + passing validation allows writes
+  - failing validation forces `propose` and blocks writes
+- Output contract checks:
+  - mode, route, artifact summary, and immediate next action are always present
+
+Additional coverage:
+- `tests/orchestrator/test_acceptance_flows.py`
+
 ## Output Artifacts
 
 Primary artifacts:

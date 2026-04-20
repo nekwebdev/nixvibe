@@ -65,7 +65,7 @@ Phases: 2 of 3 complete
 
 **Plans:**
 - [x] 03-01: Validation runner integration
-- [ ] 03-02: Acceptance test suite
+- [x] 03-02: Acceptance test suite
 - [ ] 03-03: Patch hygiene + release checks
 
 ---

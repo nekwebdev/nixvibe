@@ -5,26 +5,26 @@
 See: .paul/PROJECT.md (updated 2026-04-19)
 
 **Core value:** Users can evolve clean modular NixOS configs safely with guided automation.
-**Current focus:** v0.1 Initial Release — Phase 3 plan 03-01 completed, preparing 03-02
+**Current focus:** v0.1 Initial Release — Phase 3 plan 03-02 completed, preparing 03-03
 
 ## Current Position
 
 Milestone: v0.1 Initial Release (v0.1.0)
 Phase: 3 of 3 (Validation and Acceptance) — In progress
-Plan: 03-01 completed
-Status: APPLY and verification complete; ready to move to 03-02 planning
-Last activity: 2026-04-19T15:15:53-10:00 — Completed .paul/phases/03-validation-and-acceptance/03-01-SUMMARY.md
+Plan: 03-02 completed
+Status: APPLY and verification complete; ready to move to 03-03 planning
+Last activity: 2026-04-19T15:31:14-10:00 — Completed .paul/phases/03-validation-and-acceptance/03-02-SUMMARY.md
 
 Progress:
-- Milestone: [█████████░] 90%
-- Phase 3: [███░░░░░░░] 33%
+- Milestone: [██████████] 95%
+- Phase 3: [███████░░░] 67%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [03-01 complete]
+  ✓        ✓        ✓     [03-02 complete]
 ```
 
 ## Accumulated Context
@@ -39,6 +39,7 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - `.claude`, `.carl`, `.agents`, and `.codex` are versioned project artifacts (excluding transient runtime caches)
 - Phase 2 runtime now covers routing, specialist merge, and artifact output with mode-gated writes
 - Apply mode now enforces validation gates (`nix flake check`, `nix fmt`) before writes and downgrades to propose on failure
+- Acceptance-level journey tests now cover init/audit flows and apply safety behavior
 
 ### Deferred Issues
 None yet.
@@ -48,10 +49,10 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-19T15:15:53-10:00
-Stopped at: Plan 03-01 completed and summarized
-Next action: Create and approve `.paul/phases/03-validation-and-acceptance/03-02-PLAN.md`
-Resume file: .paul/phases/03-validation-and-acceptance/03-01-SUMMARY.md
+Last session: 2026-04-19T15:31:14-10:00
+Stopped at: Plan 03-02 completed and summarized
+Next action: Create and approve `.paul/phases/03-validation-and-acceptance/03-03-PLAN.md`
+Resume file: .paul/phases/03-validation-and-acceptance/03-02-SUMMARY.md
 
 ---
 *STATE.md — Updated after every significant action*
