@@ -747,6 +747,16 @@ Added automated release-check command contract:
 Additional coverage:
 - `tests/orchestrator/test_release_check_command.py`
 
+## Runtime Orchestration (Phase 12 Milestone Acceptance Slice)
+
+Added v0.4 closeout end-to-end acceptance coverage:
+- Cross-contract apply-success journey validating phase 10-12 contract chain
+- Override-deny release-hold journey validating operator/release surfaces
+- Release-check pass journey validating tagging-readiness status
+
+Additional coverage:
+- `tests/orchestrator/test_v04_milestone_acceptance.py`
+
 ## Output Artifacts
 
 Primary artifacts:

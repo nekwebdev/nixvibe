@@ -4,9 +4,41 @@ Completed milestone log for this project.
 
 | Milestone | Completed | Duration | Stats |
 |-----------|-----------|----------|-------|
+| v0.4 Reliability and Delivery Hardening (v0.4.0) | 2026-04-20 | 1h 09m | 3 phases, 9 plans |
 | v0.3 Operational Workflow Intelligence (v0.3.0) | 2026-04-20 | 8h 49m | 3 phases, 9 plans |
 | v0.2 Execution and Context Expansion (v0.2.0) | 2026-04-20 | 10h 03m | 3 phases, 9 plans |
 | v0.1 Initial Release (v0.1.0) | 2026-04-19 | 15h 34m | 3 phases, 7 plans |
+
+---
+
+## ✅ v0.4 Reliability and Delivery Hardening (v0.4.0)
+
+**Completed:** 2026-04-20  
+**Duration:** 1h 09m
+
+### Stats
+
+| Metric | Value |
+|--------|-------|
+| Phases | 3 |
+| Plans | 9 |
+| Files changed | 48 |
+
+### Key Accomplishments
+
+- Added run failure classification contract with deterministic severity mapping.
+- Added resume-safe checkpoint contract and bounded retry/backoff guardrails.
+- Added policy decision explainability and controlled override workflow contracts.
+- Added operator audit-trail summary integration.
+- Added release artifact manifest/checklist and automated release-check command contracts.
+- Added v0.4 milestone closeout acceptance regression suite.
+
+### Key Decisions
+
+- Keep reliability contracts staged: failure classification -> resume checkpoint -> retry guardrails.
+- Require policy controls to be machine-readable via explainability and override contracts.
+- Make release delivery explicit through manifest and release-check command contracts.
+- Treat milestone closeout as tested, versioned artifact publishing, not documentation-only.
 
 ---
 

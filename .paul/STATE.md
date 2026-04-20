@@ -5,28 +5,28 @@
 See: .paul/PROJECT.md (updated 2026-04-20)
 
 **Core value:** Users can evolve clean modular NixOS configs safely with guided automation.
-**Current focus:** v0.4 Phase 12 in progress — preparing Phase 12 plan 12-03
+**Current focus:** v0.4 milestone complete — awaiting next milestone definition
 
 ## Current Position
 
-Milestone: v0.4 Reliability and Delivery Hardening (v0.4.0)
-Phase: 12 of 12 (Release Delivery and Milestone Closeout) — In progress
-Plan: 12-02 completed
-Status: APPLY and verification complete; ready for 12-03 planning
-Last activity: 2026-04-20T13:20:39-10:00 — Completed .paul/phases/12-release-delivery-and-milestone-closeout/12-02-SUMMARY.md
+Milestone: v0.4 Reliability and Delivery Hardening (v0.4.0) — Complete
+Phase: 12 of 12 (Release Delivery and Milestone Closeout) — Complete
+Plan: 12-03 completed
+Status: v0.4 complete; release artifacts published; ready for next milestone planning
+Last activity: 2026-04-20T13:24:09-10:00 — Completed .paul/phases/12-release-delivery-and-milestone-closeout/12-03-SUMMARY.md
 
 Progress:
 - v0.1 Initial Release: [██████████] 100% ✓
 - v0.2 Execution and Context Expansion: [██████████] 100% ✓
 - v0.3 Operational Workflow Intelligence: [██████████] 100% ✓
-- v0.4 Reliability and Delivery Hardening: [█████████░] 89%
+- v0.4 Reliability and Delivery Hardening: [██████████] 100% ✓
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [12-02 complete]
+  ✓        ✓        ✓     [12-03 complete]
 ```
 
 ## Accumulated Context
@@ -73,6 +73,7 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - Operator audit-trail summary contract landed for Phase 11 plan 11-03
 - Release artifact manifest/checklist contract landed for Phase 12 plan 12-01
 - Release-check command contract landed for Phase 12 plan 12-02
+- v0.4 end-to-end acceptance and milestone closeout artifacts landed for Phase 12 plan 12-03
 
 ### Deferred Issues
 None yet.
@@ -82,10 +83,10 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-20T13:20:39-10:00
-Stopped at: Phase 12 plan 12-02 completed and summarized
-Next action: Create and approve `.paul/phases/12-release-delivery-and-milestone-closeout/12-03-PLAN.md`
-Resume file: .paul/phases/12-release-delivery-and-milestone-closeout/12-02-SUMMARY.md
+Last session: 2026-04-20T13:24:09-10:00
+Stopped at: Phase 12 plan 12-03 completed and milestone v0.4 closed
+Next action: Define and scaffold next milestone roadmap (v0.5.0+)
+Resume file: .paul/phases/12-release-delivery-and-milestone-closeout/12-03-SUMMARY.md
 
 ---
 *STATE.md — Updated after every significant action*

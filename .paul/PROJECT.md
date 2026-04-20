@@ -14,7 +14,7 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 |-----------|-------|
 | Type | Workflow |
 | Version | 0.4.0 |
-| Status | In progress (v0.4 active) |
+| Status | Complete (v0.4.0) |
 | Last Updated | 2026-04-20 |
 
 ## Requirements
@@ -71,10 +71,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add operator audit-trail summary integration — Phase 11 (11-03)
 - [x] Add release artifact manifest/checklist contract — Phase 12 (12-01)
 - [x] Add automated release-check command contract — Phase 12 (12-02)
+- [x] Add end-to-end v0.4 acceptance and milestone closeout artifacts — Phase 12 (12-03)
 
 ### Planned (Next)
 
-- [ ] Execute remaining Phase 12 slices (12-03)
+- [ ] Define next milestone scope (v0.5.0+)
 
 ### Out of Scope
 
@@ -146,6 +147,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Operator audit-trail summary is explicit | Every run must emit stage-level operator audit entries with severity and action items | 2026-04-20 | Active |
 | Release artifact manifest is explicit | Every run must emit route/mode-aware release checklist and artifact inventory metadata | 2026-04-20 | Active |
 | Release-check command status is explicit | Every run must emit release-check command status and tagging readiness metadata | 2026-04-20 | Active |
+| Milestone closeout acceptance is explicit | Milestone release confidence requires cross-contract acceptance tests and published archive artifacts | 2026-04-20 | Active |
 
 ## Success Metrics
 
@@ -171,8 +173,8 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Planning | `../../projects/nixvibe/PLANNING.md` |
 | Graduation README | `README.md` |
 | Milestone Log | `.paul/MILESTONES.md` |
-| Release Notes | `.paul/releases/v0.3.0.md` |
+| Release Notes | `.paul/releases/v0.4.0.md` |
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-20 after Phase 12 plan 12-02 completion*
+*Last updated: 2026-04-20 after Phase 12 plan 12-03 completion*

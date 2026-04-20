@@ -7,8 +7,8 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 ## Current Milestone
 
 **v0.4 Reliability and Delivery Hardening** (v0.4.0)
-Status: 🚧 In progress
-Phases: 2 of 3 complete
+Status: ✅ Complete
+Phases: 3 of 3 complete
 
 ## Phases
 
@@ -16,7 +16,7 @@ Phases: 2 of 3 complete
 |-------|------|-------|--------|-----------|
 | 10 | Runtime Reliability and Resume | 3 (`10-01`, `10-02`, `10-03`) | ✅ Complete | 2026-04-20 |
 | 11 | Operator Policy and Controls | 3 (`11-01`, `11-02`, `11-03`) | ✅ Complete | 2026-04-20 |
-| 12 | Release Delivery and Milestone Closeout | 3 (`12-01`, `12-02`, `12-03`) | 🚧 In progress | - |
+| 12 | Release Delivery and Milestone Closeout | 3 (`12-01`, `12-02`, `12-03`) | ✅ Complete | 2026-04-20 |
 
 ## Phase Details
 
@@ -66,9 +66,28 @@ Phases: 2 of 3 complete
 **Plans:**
 - [x] 12-01: Release artifact manifest/checklist contract
 - [x] 12-02: Automated release-check command contract
-- [ ] 12-03: End-to-end v0.4 acceptance and closeout
+- [x] 12-03: End-to-end v0.4 acceptance and closeout
 
 ## Completed Milestones
+
+<details>
+<summary>v0.4 Reliability and Delivery Hardening (v0.4.0) — completed 2026-04-20</summary>
+
+### Milestone Snapshot
+
+Status: ✅ Complete  
+Phases: 3 of 3 complete  
+Plans completed: 9
+
+| Phase | Name | Plans | Status | Completed |
+|-------|------|-------|--------|-----------|
+| 10 | Runtime Reliability and Resume | 3 (`10-01`, `10-02`, `10-03`) | ✅ Complete | 2026-04-20 |
+| 11 | Operator Policy and Controls | 3 (`11-01`, `11-02`, `11-03`) | ✅ Complete | 2026-04-20 |
+| 12 | Release Delivery and Milestone Closeout | 3 (`12-01`, `12-02`, `12-03`) | ✅ Complete | 2026-04-20 |
+
+Archive: `.paul/milestones/v0.4.0-ROADMAP.md`
+
+</details>
 
 <details>
 <summary>v0.3 Operational Workflow Intelligence (v0.3.0) — completed 2026-04-20</summary>
