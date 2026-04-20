@@ -50,6 +50,7 @@ def build_guidance_summary(
     validation_failure_stage: str,
     conflict_forced_propose: bool,
     merge_reason: str,
+    ledger_summary: dict[str, object],
 ) -> dict[str, object]:
     skill_level = infer_skill_level(user_input)
     response_style, explanation_depth, explanation_sections = _guidance_profile(skill_level)
@@ -68,6 +69,15 @@ def build_guidance_summary(
         validation_failure_stage=validation_failure_stage,
         conflict_forced_propose=conflict_forced_propose,
     )
+    ledger_available = bool(ledger_summary.get("available"))
+    ledger_change_classification = str(ledger_summary.get("change_classification") or "")
+    ledger_drift_detected = bool(ledger_summary.get("drift_detected"))
+    ledger_drift_severity = str(ledger_summary.get("drift_severity") or "none")
+    ledger_action_hint = _ledger_action_hint(
+        mode=mode,
+        available=ledger_available,
+        drift_detected=ledger_drift_detected,
+    )
 
     return {
         "skill_level": skill_level,
@@ -82,6 +92,11 @@ def build_guidance_summary(
         "validation_failure_stage": validation_failure_stage,
         "conflict_forced_propose": conflict_forced_propose,
         "merge_reason": merge_reason,
+        "ledger_available": ledger_available,
+        "ledger_change_classification": ledger_change_classification,
+        "ledger_drift_detected": ledger_drift_detected,
+        "ledger_drift_severity": ledger_drift_severity,
+        "ledger_action_hint": ledger_action_hint,
         "remediation": remediation,
         "immediate_next_action": next_action,
     }
@@ -166,3 +181,20 @@ def _build_remediation_summary(
         "retry_mode": "none",
         "blockers": (),
     }
+
+
+def _ledger_action_hint(
+    *,
+    mode: Mode,
+    available: bool,
+    drift_detected: bool,
+) -> str:
+    if not available:
+        return "ledger-unavailable"
+    if mode is Mode.PROPOSE and drift_detected:
+        return "reconcile-drift-before-apply"
+    if mode is Mode.APPLY and drift_detected:
+        return "review-and-checkpoint-post-apply"
+    if mode is Mode.ADVICE and drift_detected:
+        return "inspect-ledger-before-propose"
+    return "none"

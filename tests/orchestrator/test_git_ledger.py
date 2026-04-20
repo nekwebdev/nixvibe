@@ -13,7 +13,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from nixvibe.orchestrator.ledger import inspect_git_ledger
 from nixvibe.orchestrator.pipeline import run_pipeline
 from nixvibe.orchestrator.policy_loader import load_policy
-from nixvibe.orchestrator.types import OrchestrationRequest, RepoContext, SpecialistTask
+from nixvibe.orchestrator.types import Mode, OrchestrationRequest, RepoContext, SpecialistTask
 
 
 def _payload(*, agent_id: str) -> dict:
@@ -96,6 +96,12 @@ class TestGitLedger(unittest.TestCase):
         self.assertIn("untracked_changes", ledger["drift_reasons"])
         self.assertEqual(ledger["drift_severity"], "medium")
         self.assertTrue(ledger["status_lines"])
+        self.assertIn("Workspace drift detected", result.next_action)
+        self.assertIn("untracked-only", result.next_action)
+        guidance = result.artifact_summary["guidance"]
+        self.assertEqual(guidance["ledger_change_classification"], "untracked-only")
+        self.assertTrue(guidance["ledger_drift_detected"])
+        self.assertEqual(guidance["ledger_action_hint"], "reconcile-drift-before-apply")
 
     def _init_repo(self, root: Path) -> None:
         subprocess.run(("git", "init"), cwd=root, check=True, capture_output=True, text=True)
@@ -132,6 +138,35 @@ class TestGitLedger(unittest.TestCase):
         self.assertFalse(ledger["drift_detected"])
         self.assertEqual(ledger["drift_reasons"], ())
         self.assertEqual(ledger["drift_severity"], "none")
+
+    def test_apply_mode_uses_ledger_checkpoint_next_action_and_guidance_hint(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self._init_repo(root)
+
+            result = run_pipeline(
+                request=OrchestrationRequest(
+                    user_input="Apply scaffold changes now.",
+                    requested_mode=Mode.APPLY,
+                    explicit_apply_opt_in=True,
+                ),
+                context=RepoContext(
+                    existing_config_present=False,
+                    usable_nix_structure_present=False,
+                    request_is_change=False,
+                    repository_state="known",
+                ),
+                specialist_tasks=[SpecialistTask("architecture", "scope", lambda: _payload(agent_id="architecture"))],
+                policy=self.policy,
+                workspace_root=root,
+                validation_runner=lambda _command, _cwd: (0, "ok", ""),
+            )
+
+        self.assertEqual(result.selected_mode, Mode.APPLY)
+        self.assertIn("Apply completed with workspace changes", result.next_action)
+        guidance = result.artifact_summary["guidance"]
+        self.assertEqual(guidance["ledger_action_hint"], "review-and-checkpoint-post-apply")
+        self.assertTrue(guidance["ledger_drift_detected"])
 
 
 if __name__ == "__main__":

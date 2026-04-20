@@ -380,6 +380,18 @@ Extended ledger summary with deterministic change-intelligence fields:
   - `has_unstaged_changes`
   - `has_untracked_changes`
 
+## Runtime Orchestration (Phase 7 Ledger-Aware Guidance Slice)
+
+Tuned guidance and immediate next-action behavior using ledger signals:
+- Propose mode with drift now returns explicit reconciliation guidance before apply.
+- Apply mode with dirty ledger now returns explicit checkpoint-review guidance.
+- Guidance contract now includes ledger awareness fields:
+  - `ledger_available`
+  - `ledger_change_classification`
+  - `ledger_drift_detected`
+  - `ledger_drift_severity`
+  - `ledger_action_hint`
+
 ## Output Artifacts
 
 Primary artifacts:

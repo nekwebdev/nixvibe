@@ -122,6 +122,7 @@ def run_pipeline(
         )
         validation_report = post_write_validation_report
 
+    ledger_summary = inspect_git_ledger(workspace_root_path)
     artifact_summary = _build_artifact_summary(
         base_summary=merge_result.artifact_summary,
         context=context,
@@ -133,7 +134,7 @@ def run_pipeline(
         generated_files=tuple(file.path for file in artifact_bundle.files),
         proposed_files=tuple(file.path for file in materialization_result.proposed_files),
         written_files=materialization_result.written_paths,
-        ledger_summary=inspect_git_ledger(workspace_root_path),
+        ledger_summary=ledger_summary,
         mode=selected_mode.value,
         pre_write_validation_report=pre_write_validation_report,
         post_write_validation_report=post_write_validation_report,
@@ -142,6 +143,7 @@ def run_pipeline(
     next_action = _next_action_for_mode(
         mode=selected_mode,
         merge_next_action=merge_result.next_action,
+        ledger_summary=ledger_summary,
         pre_write_validation_report=pre_write_validation_report,
         post_write_validation_report=post_write_validation_report,
     )
@@ -163,6 +165,7 @@ def run_pipeline(
         validation_failure_stage=validation_failure_stage,
         conflict_forced_propose=conflict_forced_propose,
         merge_reason=merge_result.reason,
+        ledger_summary=ledger_summary,
     )
     artifact_summary = dict(artifact_summary)
     artifact_summary["guidance"] = guidance_summary
@@ -354,6 +357,7 @@ def _next_action_for_mode(
     *,
     mode: Mode,
     merge_next_action: str,
+    ledger_summary: dict[str, object],
     pre_write_validation_report: ValidationReport | None,
     post_write_validation_report: ValidationReport | None,
 ) -> str:
@@ -367,7 +371,15 @@ def _next_action_for_mode(
     if mode is Mode.ADVICE:
         return "Switch to propose mode to preview generated artifacts."
     if mode is Mode.PROPOSE:
+        if _ledger_has_drift(ledger_summary):
+            classification = str(ledger_summary.get("change_classification") or "drift")
+            return (
+                f"Workspace drift detected (`{classification}`). "
+                "Reconcile git changes, then review proposed artifacts and confirm apply."
+            )
         return "Review proposed artifacts and confirm apply to write files."
+    if bool(ledger_summary.get("available")) and bool(ledger_summary.get("dirty")):
+        return "Apply completed with workspace changes. Review git ledger state and checkpoint intentional changes."
     return merge_next_action.strip() or "Review written artifacts and continue."
 
 
@@ -420,3 +432,10 @@ def _validation_failure_stage(
     if post_write_validation_report is not None and not post_write_validation_report.success:
         return "post_write"
     return ""
+
+
+def _ledger_has_drift(ledger_summary: dict[str, object]) -> bool:
+    return bool(
+        ledger_summary.get("available")
+        and ledger_summary.get("drift_detected")
+    )
