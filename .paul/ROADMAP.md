@@ -6,67 +6,67 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 ## Current Milestone
 
-**v0.3 Operational Workflow Intelligence** (v0.3.0)
-Status: ✅ Complete
-Phases: 3 of 3 complete
+**v0.4 Reliability and Delivery Hardening** (v0.4.0)
+Status: 🚧 In progress
+Phases: 0 of 3 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 7 | Git Ledger and Change Intelligence | 3 (`07-01`, `07-02`, `07-03`) | ✅ Complete | 2026-04-20 |
-| 8 | Apply Safety Escalation and Recovery | 3 (`08-01`, `08-02`, `08-03`) | ✅ Complete | 2026-04-20 |
-| 9 | Operator Surfaces and Release Ops | 3 (`09-01`, `09-02`, `09-03`) | ✅ Complete | 2026-04-20 |
+| 10 | Runtime Reliability and Resume | 3 (`10-01`, `10-02`, `10-03`) | Not started | - |
+| 11 | Operator Policy and Controls | 3 (`11-01`, `11-02`, `11-03`) | Not started | - |
+| 12 | Release Delivery and Milestone Closeout | 3 (`12-01`, `12-02`, `12-03`) | Not started | - |
 
 ## Phase Details
 
-### Phase 7: Git Ledger and Change Intelligence
+### Phase 10: Runtime Reliability and Resume
 
-**Goal:** Treat Git workspace state as first-class runtime context for safer orchestration decisions.
-**Depends on:** v0.2 baseline
-**Research:** Medium (change classification + ledger semantics)
-
-**Scope:**
-- Git ledger snapshot contract in pipeline output
-- Change classification (staged/unstaged/untracked/drift)
-- Ledger-aware action guidance hooks
-
-**Plans:**
-- [x] 07-01: Git ledger baseline contract integration
-- [x] 07-02: Ledger change classification and drift signals
-- [x] 07-03: Ledger-aware guidance/next-action tuning
-
-### Phase 8: Apply Safety Escalation and Recovery
-
-**Goal:** Strengthen apply-time safety escalation and remediation workflows.
-**Depends on:** Phase 7
-**Research:** Medium (recovery policy semantics)
+**Goal:** Improve resilience of orchestration runs under partial failure and interruption.
+**Depends on:** v0.3 baseline
+**Research:** Medium (checkpoint/retry semantics)
 
 **Scope:**
-- Escalation tiers for apply failures and repeated validation breakage
-- Recovery playbook contract for reversible remediation
-- Additional guardrails for high-risk mutation paths
+- Run failure classification and deterministic severity mapping
+- Resume-safe checkpoint contract for interrupted runs
+- Retry/backoff guardrails for bounded automatic recovery
 
 **Plans:**
-- [x] 08-01: Apply escalation tier contract
-- [x] 08-02: Recovery playbook integration
-- [x] 08-03: High-risk mutation guardrail regressions
+- [ ] 10-01: Run failure classification contract
+- [ ] 10-02: Resume-safe checkpoint contract
+- [ ] 10-03: Retry/backoff orchestration guardrails
 
-### Phase 9: Operator Surfaces and Release Ops
+### Phase 11: Operator Policy and Controls
 
-**Goal:** Improve operational usability and release confidence for daily assistant-driven workflows.
-**Depends on:** Phase 8
-**Research:** Medium (operator ergonomics + release criteria)
+**Goal:** Expand operator control with explicit policy explanations and constrained overrides.
+**Depends on:** Phase 10
+**Research:** Medium (policy explainability + override safety)
 
 **Scope:**
-- Operator-facing run summaries/manifests
-- Release-readiness checks and failure reporting
-- End-to-end milestone acceptance scenarios
+- Policy decision explainability surface
+- Controlled override workflow contract
+- Operator-facing policy/audit trail summaries
 
 **Plans:**
-- [x] 09-01: Operator run manifest contract
-- [x] 09-02: Release-readiness gate expansion
-- [x] 09-03: End-to-end acceptance hardening
+- [ ] 11-01: Policy decision explainability contract
+- [ ] 11-02: Controlled override workflow contract
+- [ ] 11-03: Operator audit-trail summary integration
+
+### Phase 12: Release Delivery and Milestone Closeout
+
+**Goal:** Finalize delivery operations and close the milestone with strong release confidence.
+**Depends on:** Phase 11
+**Research:** Medium (release ergonomics + closeout criteria)
+
+**Scope:**
+- Release artifact manifest/checklist contract
+- Automated release-check command integration
+- End-to-end v0.4 acceptance and milestone closeout
+
+**Plans:**
+- [ ] 12-01: Release artifact manifest/checklist contract
+- [ ] 12-02: Automated release-check command contract
+- [ ] 12-03: End-to-end v0.4 acceptance and closeout
 
 ## Completed Milestones
 

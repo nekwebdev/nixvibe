@@ -13,8 +13,8 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 | Attribute | Value |
 |-----------|-------|
 | Type | Workflow |
-| Version | 0.3.0 |
-| Status | Complete (v0.3 shipped) |
+| Version | 0.4.0 |
+| Status | In progress (v0.4 active) |
 | Last Updated | 2026-04-20 |
 
 ## Requirements
@@ -66,7 +66,7 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 
 ### Planned (Next)
 
-- [ ] Define v0.4 roadmap scope
+- [ ] Execute Phase 10 slices (10-01, 10-02, 10-03)
 
 ### Out of Scope
 
@@ -159,4 +159,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-20 after Phase 9 plan 09-03 completion*
+*Last updated: 2026-04-20 after v0.4 milestone scaffold initialization*
