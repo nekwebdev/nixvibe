@@ -217,6 +217,25 @@ class ArtifactMaterializationResult:
 
 
 @dataclass(frozen=True)
+class ValidationCommandResult:
+    command: str
+    exit_code: int
+    success: bool
+    stdout: str
+    stderr: str
+
+
+@dataclass(frozen=True)
+class ValidationReport:
+    required: bool
+    executed: bool
+    success: bool
+    flake_present: bool
+    results: Tuple[ValidationCommandResult, ...]
+    reason: str = ""
+
+
+@dataclass(frozen=True)
 class OrchestrationResult:
     route_decision: RouteDecision
     mode_decision: ModeDecision
@@ -230,3 +249,4 @@ class OrchestrationResult:
     generated_artifacts: Tuple[ArtifactFile, ...] = ()
     proposed_artifacts: Tuple[ArtifactFile, ...] = ()
     written_artifact_paths: Tuple[str, ...] = ()
+    validation_report: ValidationReport | None = None

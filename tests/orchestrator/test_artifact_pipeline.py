@@ -157,6 +157,7 @@ class TestArtifactPipeline(unittest.TestCase):
 
     def test_apply_mode_writes_generated_files(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / "flake.nix").write_text("{ }")
             result = run_pipeline(
                 request=OrchestrationRequest(
                     user_input="Create scaffold and apply now.",
@@ -172,6 +173,7 @@ class TestArtifactPipeline(unittest.TestCase):
                 specialist_tasks=[SpecialistTask("architecture", "scope", lambda: _payload(agent_id="arch"))],
                 policy=self.policy,
                 workspace_root=tmp,
+                validation_runner=lambda _command, _cwd: (0, "ok", ""),
             )
 
             self.assertEqual(result.selected_mode, Mode.APPLY)
@@ -185,4 +187,3 @@ class TestArtifactPipeline(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

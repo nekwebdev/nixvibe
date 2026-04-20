@@ -21,7 +21,9 @@ from .types import (
     SpecialistExecutionOutcome,
     SpecialistExecutionResult,
     SpecialistTask,
+    ValidationReport,
 )
+from .validation import CommandRunner, run_validation
 
 
 class OrchestrationPipelineError(RuntimeError):
@@ -35,6 +37,7 @@ def run_pipeline(
     *,
     policy: OrchestrationPolicy | None = None,
     workspace_root: str | Path = ".",
+    validation_runner: CommandRunner | None = None,
 ) -> OrchestrationResult:
     active_policy = policy or load_policy()
 
@@ -69,6 +72,15 @@ def run_pipeline(
     if merge_result.forced_mode is not None:
         selected_mode = merge_result.forced_mode
 
+    validation_report: ValidationReport | None = None
+    if selected_mode is Mode.APPLY:
+        validation_report = run_validation(
+            workspace_root=workspace_root,
+            command_runner=validation_runner,
+        )
+        if not validation_report.success:
+            selected_mode = Mode.PROPOSE
+
     artifact_bundle = generate_artifact_bundle(route_decision.route, merge_result)
     materialization_result = materialize_artifacts(
         artifact_bundle,
@@ -82,10 +94,12 @@ def run_pipeline(
         proposed_files=tuple(file.path for file in materialization_result.proposed_files),
         written_files=materialization_result.written_paths,
         mode=selected_mode.value,
+        validation_report=validation_report,
     )
     next_action = _next_action_for_mode(
         mode=selected_mode,
         merge_next_action=merge_result.next_action,
+        validation_report=validation_report,
     )
 
     return OrchestrationResult(
@@ -101,6 +115,7 @@ def run_pipeline(
         generated_artifacts=artifact_bundle.files,
         proposed_artifacts=materialization_result.proposed_files,
         written_artifact_paths=materialization_result.written_paths,
+        validation_report=validation_report,
     )
 
 
@@ -146,6 +161,7 @@ def _build_artifact_summary(
     proposed_files: tuple[str, ...],
     written_files: tuple[str, ...],
     mode: str,
+    validation_report: ValidationReport | None,
 ):
     merged = dict(base_summary)
     merged.update(
@@ -159,10 +175,35 @@ def _build_artifact_summary(
             "write_performed": bool(written_files),
         }
     )
+    if validation_report is not None:
+        merged["validation"] = {
+            "required": validation_report.required,
+            "executed": validation_report.executed,
+            "success": validation_report.success,
+            "flake_present": validation_report.flake_present,
+            "reason": validation_report.reason,
+            "commands": tuple(
+                {
+                    "command": result.command,
+                    "exit_code": result.exit_code,
+                    "success": result.success,
+                    "stdout": result.stdout,
+                    "stderr": result.stderr,
+                }
+                for result in validation_report.results
+            ),
+        }
     return merged
 
 
-def _next_action_for_mode(*, mode: Mode, merge_next_action: str) -> str:
+def _next_action_for_mode(
+    *,
+    mode: Mode,
+    merge_next_action: str,
+    validation_report: ValidationReport | None,
+) -> str:
+    if validation_report is not None and not validation_report.success:
+        return "Validation failed (`nix flake check` / `nix fmt`). Fix issues and retry apply."
     if mode is Mode.ADVICE:
         return "Switch to propose mode to preview generated artifacts."
     if mode is Mode.PROPOSE:

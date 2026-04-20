@@ -16,7 +16,7 @@ Phases: 2 of 3 complete
 |-------|------|-------|--------|-----------|
 | 1 | Core Policy and Contracts | 1 (`01-01`) | ✅ Complete | 2026-04-19 |
 | 2 | Orchestration and Artifact Engine | 3 (`02-01`, `02-02`, `02-03`) | ✅ Complete | 2026-04-19 |
-| 3 | Validation and Acceptance | TBD | Not started | - |
+| 3 | Validation and Acceptance | 3 (`03-01`, `03-02`, `03-03`) | In progress | - |
 
 ## Phase Details
 
@@ -64,7 +64,7 @@ Phases: 2 of 3 complete
 - Patch artifact hygiene (`patches/`, naming convention)
 
 **Plans:**
-- [ ] 03-01: Validation runner integration
+- [x] 03-01: Validation runner integration
 - [ ] 03-02: Acceptance test suite
 - [ ] 03-03: Patch hygiene + release checks
 

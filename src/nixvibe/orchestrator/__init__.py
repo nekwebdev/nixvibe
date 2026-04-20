@@ -14,6 +14,7 @@ from .policy_loader import (
 )
 from .router import select_route
 from .specialists import run_specialists
+from .validation import run_validation
 from .types import (
     ArtifactBundle,
     ArtifactFile,
@@ -39,6 +40,8 @@ from .types import (
     SpecialistRisk,
     SpecialistStatus,
     SpecialistTask,
+    ValidationCommandResult,
+    ValidationReport,
 )
 
 __all__ = [
@@ -71,6 +74,8 @@ __all__ = [
     "SpecialistRisk",
     "SpecialistStatus",
     "SpecialistTask",
+    "ValidationCommandResult",
+    "ValidationReport",
     "load_policy",
     "generate_artifact_bundle",
     "materialize_artifacts",
@@ -79,6 +84,7 @@ __all__ = [
     "resolve_mode",
     "run_pipeline",
     "run_specialists",
+    "run_validation",
     "select_route",
     "validate_payload",
 ]

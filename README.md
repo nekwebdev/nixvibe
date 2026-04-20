@@ -130,6 +130,26 @@ Implemented artifact pipeline behavior:
 Additional coverage:
 - `tests/orchestrator/test_artifact_pipeline.py`
 
+## Runtime Orchestration (Phase 3 Validation Slice)
+
+Implemented validation-gated apply behavior:
+- `apply` mode now runs required checks before writes:
+  - `nix flake check`
+  - `nix fmt`
+- Validation output is structured and attached to orchestration summary:
+  - per-command command string
+  - exit code
+  - success/failure
+  - stdout/stderr
+- Validation failure enforces safe fallback:
+  - final mode is forced to `propose`
+  - no apply writes are performed
+  - next action provides immediate remediation guidance
+
+Additional coverage:
+- `tests/orchestrator/test_validation_runner.py`
+- `tests/orchestrator/test_pipeline_validation_gating.py`
+
 ## Output Artifacts
 
 Primary artifacts:
