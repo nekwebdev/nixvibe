@@ -8,13 +8,13 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 **v0.4 Reliability and Delivery Hardening** (v0.4.0)
 Status: 🚧 In progress
-Phases: 0 of 3 complete
+Phases: 1 of 3 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 10 | Runtime Reliability and Resume | 3 (`10-01`, `10-02`, `10-03`) | Not started | - |
+| 10 | Runtime Reliability and Resume | 3 (`10-01`, `10-02`, `10-03`) | 🚧 In progress | - |
 | 11 | Operator Policy and Controls | 3 (`11-01`, `11-02`, `11-03`) | Not started | - |
 | 12 | Release Delivery and Milestone Closeout | 3 (`12-01`, `12-02`, `12-03`) | Not started | - |
 
@@ -32,7 +32,7 @@ Phases: 0 of 3 complete
 - Retry/backoff guardrails for bounded automatic recovery
 
 **Plans:**
-- [ ] 10-01: Run failure classification contract
+- [x] 10-01: Run failure classification contract
 - [ ] 10-02: Resume-safe checkpoint contract
 - [ ] 10-03: Retry/backoff orchestration guardrails
 

@@ -3,6 +3,7 @@
 from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .conflicts import resolve_conflict
 from .escalation import build_apply_safety_escalation
+from .failure import build_run_failure_classification
 from .guardrails import evaluate_high_risk_mutation_guardrails
 from .guidance import build_guidance_summary, infer_skill_level
 from .ledger import inspect_git_ledger
@@ -116,6 +117,7 @@ __all__ = [
     "WorkspaceSnapshot",
     "build_repo_context",
     "build_apply_safety_escalation",
+    "build_run_failure_classification",
     "evaluate_high_risk_mutation_guardrails",
     "build_recovery_playbook",
     "build_operator_run_manifest",

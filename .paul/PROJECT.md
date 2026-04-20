@@ -63,10 +63,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add operator run manifest contract — Phase 9 (09-01)
 - [x] Add release-readiness gate expansion — Phase 9 (09-02)
 - [x] Add end-to-end operational acceptance hardening — Phase 9 (09-03)
+- [x] Add run failure classification contract — Phase 10 (10-01)
 
 ### Planned (Next)
 
-- [ ] Execute Phase 10 slices (10-01, 10-02, 10-03)
+- [ ] Execute remaining Phase 10 slices (10-02, 10-03)
 
 ### Out of Scope
 
@@ -130,6 +131,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Operator run manifests are explicit | Every orchestration run must emit stable operator-facing summary metadata | 2026-04-20 | Active |
 | Release-readiness gates are explicit | Release handoff requires deterministic gate pass/fail reporting with actionable failure reasons | 2026-04-20 | Active |
 | End-to-end operational acceptance is explicit | Cross-contract journeys must stay stable for success and blocked release outcomes | 2026-04-20 | Active |
+| Run failure classification is explicit | Every run must emit deterministic failure class and severity mapping for reliability handling | 2026-04-20 | Active |
 
 ## Success Metrics
 
@@ -159,4 +161,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-20 after v0.4 milestone scaffold initialization*
+*Last updated: 2026-04-20 after Phase 10 plan 10-01 completion*

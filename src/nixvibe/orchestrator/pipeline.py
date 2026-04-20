@@ -7,6 +7,7 @@ from typing import Sequence
 
 from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .escalation import build_apply_safety_escalation
+from .failure import build_run_failure_classification
 from .guardrails import evaluate_high_risk_mutation_guardrails
 from .guidance import build_guidance_summary
 from .ledger import inspect_git_ledger
@@ -220,6 +221,11 @@ def run_pipeline(
         mutation_guardrails=mutation_guardrails,
         apply_safety_escalation=apply_safety_escalation,
         recovery_playbook=recovery_playbook,
+    )
+    artifact_summary["run_failure_classification"] = build_run_failure_classification(
+        run_manifest=artifact_summary["run_manifest"],
+        apply_safety_escalation=apply_safety_escalation,
+        validation_failure_stage=validation_failure_stage,
     )
     artifact_summary["release_readiness"] = build_release_readiness(
         run_manifest=artifact_summary["run_manifest"]

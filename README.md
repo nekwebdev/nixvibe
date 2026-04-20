@@ -531,6 +531,32 @@ Hardened end-to-end operational acceptance scenarios across success and blocked 
 Additional coverage:
 - `tests/orchestrator/test_e2e_operational_acceptance.py`
 
+## Runtime Orchestration (Phase 10 Run Failure Classification Slice)
+
+Added deterministic run-failure classification output:
+- Failure contract emitted as `artifact_summary.run_failure_classification`:
+  - `contract`
+  - `classification` (`none`, `degraded`, `failed`, `blocked`)
+  - `severity` (`none`, `low`, `medium`, `high`, `critical`)
+  - `recoverable`
+  - `requires_human_confirmation`
+  - `recommended_mode`
+  - `signals`
+  - `signal_count`
+  - specialist invalid/error counters
+  - `validation_failure_stage`
+  - escalation tier/reason
+  - `summary`
+- Deterministic severity mapping:
+  - `blocked` escalation -> `blocked` / `critical`
+  - `guarded` escalation or specialist runtime errors -> `failed` / `high`
+  - invalid specialist payloads -> `degraded` / `medium`
+  - advisory escalation -> `degraded` / `low`
+  - no failure signals -> `none` / `none`
+
+Additional coverage:
+- `tests/orchestrator/test_run_failure_classification.py`
+
 ## Output Artifacts
 
 Primary artifacts:
