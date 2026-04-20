@@ -4,8 +4,41 @@ Completed milestone log for this project.
 
 | Milestone | Completed | Duration | Stats |
 |-----------|-----------|----------|-------|
+| v0.3 Operational Workflow Intelligence (v0.3.0) | 2026-04-20 | 8h 49m | 3 phases, 9 plans |
 | v0.2 Execution and Context Expansion (v0.2.0) | 2026-04-20 | 10h 03m | 3 phases, 9 plans |
 | v0.1 Initial Release (v0.1.0) | 2026-04-19 | 15h 34m | 3 phases, 7 plans |
+
+---
+
+## ✅ v0.3 Operational Workflow Intelligence (v0.3.0)
+
+**Completed:** 2026-04-20  
+**Duration:** 8h 49m
+
+### Stats
+
+| Metric | Value |
+|--------|-------|
+| Phases | 3 |
+| Plans | 9 |
+| Files changed | 41 |
+
+### Key Accomplishments
+
+- Added git-ledger baseline, change classification, and drift intelligence contracts.
+- Added ledger-aware next-action and guidance tuning for propose/apply flows.
+- Added tiered apply-safety escalation contract and deterministic recovery playbook contract.
+- Added high-risk mutation guardrails to block unsafe apply attempts.
+- Added operator run-manifest contract for operational run summaries.
+- Added release-readiness gate contract with deterministic failure reporting.
+- Added end-to-end operational acceptance coverage for release-ready and release-hold journeys.
+
+### Key Decisions
+
+- Treat git workspace state as first-class orchestration memory for runtime decisions.
+- Keep apply safety deterministic through explicit escalation tiers and recovery stages.
+- Require release handoff to pass explicit gate contracts, not ad hoc operator judgment.
+- Treat operational acceptance as cross-contract validation, not single-surface assertions.
 
 ---
 

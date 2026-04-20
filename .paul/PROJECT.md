@@ -14,7 +14,7 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 |-----------|-------|
 | Type | Workflow |
 | Version | 0.3.0 |
-| Status | In progress (v0.3 active) |
+| Status | Complete (v0.3 shipped) |
 | Last Updated | 2026-04-20 |
 
 ## Requirements
@@ -41,6 +41,7 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Patch artifact lifecycle standardized in `patches/` + release-check path — Phase 3 (03-03)
 - [x] Milestone v0.1 tagged and release notes published — Milestone closeout (2026-04-19)
 - [x] Milestone v0.2 tagged and release notes published — Milestone closeout (2026-04-20)
+- [x] Milestone v0.3 tagged and release notes published — Milestone closeout (2026-04-20)
 
 ### Active (In Progress)
 
@@ -61,10 +62,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add high-risk mutation guardrail regressions — Phase 8 (08-03)
 - [x] Add operator run manifest contract — Phase 9 (09-01)
 - [x] Add release-readiness gate expansion — Phase 9 (09-02)
+- [x] Add end-to-end operational acceptance hardening — Phase 9 (09-03)
 
 ### Planned (Next)
 
-- [ ] Execute remaining Phase 9 slices (09-03)
+- [ ] Define v0.4 roadmap scope
 
 ### Out of Scope
 
@@ -127,6 +129,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | High-risk mutation guardrails are explicit | Apply must be blocked when irreversible recommendations or critical risks are detected | 2026-04-20 | Active |
 | Operator run manifests are explicit | Every orchestration run must emit stable operator-facing summary metadata | 2026-04-20 | Active |
 | Release-readiness gates are explicit | Release handoff requires deterministic gate pass/fail reporting with actionable failure reasons | 2026-04-20 | Active |
+| End-to-end operational acceptance is explicit | Cross-contract journeys must stay stable for success and blocked release outcomes | 2026-04-20 | Active |
 
 ## Success Metrics
 
@@ -152,8 +155,8 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Planning | `../../projects/nixvibe/PLANNING.md` |
 | Graduation README | `README.md` |
 | Milestone Log | `.paul/MILESTONES.md` |
-| Release Notes | `.paul/releases/v0.2.0.md` |
+| Release Notes | `.paul/releases/v0.3.0.md` |
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-20 after Phase 7 plan 07-03 completion*
+*Last updated: 2026-04-20 after Phase 9 plan 09-03 completion*

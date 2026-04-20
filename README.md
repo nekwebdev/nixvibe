@@ -514,6 +514,23 @@ Expanded release-readiness gates with structured failure reporting:
 Additional coverage:
 - `tests/orchestrator/test_release_readiness.py`
 
+## Runtime Orchestration (Phase 9 End-to-End Acceptance Slice)
+
+Hardened end-to-end operational acceptance scenarios across success and blocked release paths:
+- Added full-flow acceptance journeys covering:
+  - apply success with release-ready outcome
+  - high-risk guardrail fallback with release hold
+  - pre-write validation failure with recovery + release hold
+  - critical contradiction fallback with release hold
+- Acceptance assertions now verify coordinated behavior across:
+  - `apply_safety_escalation`
+  - `recovery_playbook`
+  - `run_manifest`
+  - `release_readiness`
+
+Additional coverage:
+- `tests/orchestrator/test_e2e_operational_acceptance.py`
+
 ## Output Artifacts
 
 Primary artifacts:
