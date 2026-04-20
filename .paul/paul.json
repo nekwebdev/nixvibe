@@ -1,23 +1,23 @@
 {
   "name": "nixvibe",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "milestone": {
-    "name": "v0.2 Execution and Context Expansion",
-    "version": "v0.2.0",
-    "status": "complete"
+    "name": "v0.3 Operational Workflow Intelligence",
+    "version": "v0.3.0",
+    "status": "in_progress"
   },
   "phase": {
-    "number": 6,
-    "name": "Guidance UX and Safety Guardrails",
-    "status": "complete"
+    "number": 7,
+    "name": "Git Ledger and Change Intelligence",
+    "status": "in_progress"
   },
   "loop": {
-    "plan": "v0.3-01",
+    "plan": "07-02",
     "position": "PLAN_PENDING"
   },
   "timestamps": {
     "created_at": "2026-04-18T23:49:27-10:00",
-    "updated_at": "2026-04-20T02:56:45-10:00"
+    "updated_at": "2026-04-20T03:17:02-10:00"
   },
   "satellite": {
     "groom": true

@@ -13,8 +13,8 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 | Attribute | Value |
 |-----------|-------|
 | Type | Workflow |
-| Version | 0.2.0 |
-| Status | Milestone complete (v0.2 delivered) |
+| Version | 0.3.0 |
+| Status | In progress (v0.3 active) |
 | Last Updated | 2026-04-20 |
 
 ## Requirements
@@ -40,6 +40,7 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Acceptance test suite for init/audit behavior and apply safety — Phase 3 (03-02)
 - [x] Patch artifact lifecycle standardized in `patches/` + release-check path — Phase 3 (03-03)
 - [x] Milestone v0.1 tagged and release notes published — Milestone closeout (2026-04-19)
+- [x] Milestone v0.2 tagged and release notes published — Milestone closeout (2026-04-20)
 
 ### Active (In Progress)
 
@@ -52,10 +53,14 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add skill-adaptive guidance output contract — Phase 6 (06-01)
 - [x] Strengthen safety/remediation guidance for failed validations and conflicts — Phase 6 (06-02)
 - [x] Add novice-to-expert journey regression coverage — Phase 6 (06-03)
+- [x] Add Git ledger baseline summary contract — Phase 7 (07-01)
+- [ ] Add change classification and drift signals — Phase 7 (07-02)
+- [ ] Add ledger-aware guidance/next-action tuning — Phase 7 (07-03)
 
 ### Planned (Next)
 
-- [ ] Define v0.3 milestone scope and first plan slice
+- [ ] Complete remaining Phase 7 slices (07-02, 07-03)
+- [ ] Plan and execute Phase 8 slices (08-01, 08-02, 08-03)
 
 ### Out of Scope
 
@@ -110,6 +115,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Guidance profile is explicit | Output contract must adapt style/depth by user skill level while preserving deterministic next action | 2026-04-20 | Active |
 | Remediation contract is explicit | Guidance must emit structured recovery steps for validation/conflict failures | 2026-04-20 | Active |
 | Journey regressions are mandatory | Novice-to-expert behavior must remain stable through end-to-end regression tests | 2026-04-20 | Active |
+| Git ledger context is explicit | Pipeline must carry workspace VCS state as deterministic internal orchestration memory | 2026-04-20 | Active |
 
 ## Success Metrics
 
@@ -139,4 +145,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-20 after Phase 6 plan 06-03 completion*
+*Last updated: 2026-04-20 after Phase 7 plan 07-01 completion*

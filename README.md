@@ -346,6 +346,19 @@ Added cross-skill journey regression coverage to protect guidance UX and safety 
 Additional coverage:
 - `tests/orchestrator/test_guidance_journey_regressions.py`
 
+## Runtime Orchestration (Phase 7 Git Ledger Slice)
+
+Introduced Git-ledger context as internal orchestration memory:
+- Added workspace ledger inspection contract:
+  - repo availability and explicit non-repo reason
+  - branch/head hints when available
+  - dirty state and staged/unstaged/untracked counters
+  - normalized changed path list and status lines
+- Pipeline now includes `artifact_summary.ledger` for downstream runtime decisions and future ledger-aware orchestration.
+
+Additional coverage:
+- `tests/orchestrator/test_git_ledger.py`
+
 ## Output Artifacts
 
 Primary artifacts:

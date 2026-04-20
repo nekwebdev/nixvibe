@@ -6,67 +6,67 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 ## Current Milestone
 
-**v0.2 Execution and Context Expansion** (v0.2.0)
-Status: ✅ Complete
-Phases: 3 of 3 complete
+**v0.3 Operational Workflow Intelligence** (v0.3.0)
+Status: 🚧 In progress
+Phases: 1 of 3 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 4 | Workspace Intake and Reference Adaptation | 3 (`04-01`, `04-02`, `04-03`) | ✅ Complete | 2026-04-19 |
-| 5 | Runtime Agent Execution and Patch Orchestration | 3 (`05-01`, `05-02`, `05-03`) | ✅ Complete | 2026-04-20 |
-| 6 | Guidance UX and Safety Guardrails | 3 (`06-01`, `06-02`, `06-03`) | ✅ Complete | 2026-04-20 |
+| 7 | Git Ledger and Change Intelligence | 3 (`07-01`, `07-02`, `07-03`) | In progress | - |
+| 8 | Apply Safety Escalation and Recovery | 3 (`08-01`, `08-02`, `08-03`) | Not started | - |
+| 9 | Operator Surfaces and Release Ops | 3 (`09-01`, `09-02`, `09-03`) | Not started | - |
 
 ## Phase Details
 
-### Phase 4: Workspace Intake and Reference Adaptation
+### Phase 7: Git Ledger and Change Intelligence
 
-**Goal:** Add bounded repository intake so orchestration can inspect real workspace shape and user-provided references safely.
-**Depends on:** v0.1 baseline
-**Research:** Medium (input boundaries and adaptation rules)
-
-**Scope:**
-- Bounded workspace snapshot reader contract
-- Reference repo adaptation policy hooks
-- Context profiling improvements for init/audit routing
-
-**Plans:**
-- [x] 04-01: Bounded workspace/reference profile intake baseline
-- [x] 04-02: Reference adaptation policy integration
-- [x] 04-03: Intake-driven specialist dispatch context wiring
-
-### Phase 5: Runtime Agent Execution and Patch Orchestration
-
-**Goal:** Replace placeholder specialist behavior with executable task runners and deterministic patch set generation.
-**Depends on:** Phase 4
-**Research:** Medium (runner contracts + patch lifecycle)
+**Goal:** Treat Git workspace state as first-class runtime context for safer orchestration decisions.
+**Depends on:** v0.2 baseline
+**Research:** Medium (change classification + ledger semantics)
 
 **Scope:**
-- Runtime specialist task runner interfaces
-- Patch proposal pipeline hardening (propose/apply boundaries)
-- Validation preflight/checkpoint integration for write paths
+- Git ledger snapshot contract in pipeline output
+- Change classification (staged/unstaged/untracked/drift)
+- Ledger-aware action guidance hooks
 
 **Plans:**
-- [x] 05-01: Runtime specialist execution contract
-- [x] 05-02: Patch orchestration integration
-- [x] 05-03: Validation checkpoints in write flows
+- [x] 07-01: Git ledger baseline contract integration
+- [ ] 07-02: Ledger change classification and drift signals
+- [ ] 07-03: Ledger-aware guidance/next-action tuning
 
-### Phase 6: Guidance UX and Safety Guardrails
+### Phase 8: Apply Safety Escalation and Recovery
 
-**Goal:** Improve user-facing guidance quality across skill levels while preserving safety gates.
-**Depends on:** Phase 5
-**Research:** Medium (content strategy + guardrails)
+**Goal:** Strengthen apply-time safety escalation and remediation workflows.
+**Depends on:** Phase 7
+**Research:** Medium (recovery policy semantics)
 
 **Scope:**
-- Skill-adaptive explanation output structure
-- Stronger remediation output for failed validations/conflicts
-- Journey-level regression scenarios for novice-to-expert interactions
+- Escalation tiers for apply failures and repeated validation breakage
+- Recovery playbook contract for reversible remediation
+- Additional guardrails for high-risk mutation paths
 
 **Plans:**
-- [x] 06-01: Skill-adaptive output contract
-- [x] 06-02: Safety/remediation guidance hardening
-- [x] 06-03: Novice-to-expert journey regressions
+- [ ] 08-01: Apply escalation tier contract
+- [ ] 08-02: Recovery playbook integration
+- [ ] 08-03: High-risk mutation guardrail regressions
+
+### Phase 9: Operator Surfaces and Release Ops
+
+**Goal:** Improve operational usability and release confidence for daily assistant-driven workflows.
+**Depends on:** Phase 8
+**Research:** Medium (operator ergonomics + release criteria)
+
+**Scope:**
+- Operator-facing run summaries/manifests
+- Release-readiness checks and failure reporting
+- End-to-end milestone acceptance scenarios
+
+**Plans:**
+- [ ] 09-01: Operator run manifest contract
+- [ ] 09-02: Release-readiness gate expansion
+- [ ] 09-03: End-to-end acceptance hardening
 
 ## Completed Milestones
 

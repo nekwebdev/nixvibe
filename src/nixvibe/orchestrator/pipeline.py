@@ -7,6 +7,7 @@ from typing import Sequence
 
 from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .guidance import build_guidance_summary
+from .ledger import inspect_git_ledger
 from .merge import merge_specialist_payloads
 from .modes import resolve_mode
 from .payloads import PayloadValidationError, validate_payload
@@ -45,6 +46,7 @@ def run_pipeline(
     runtime_contract: RuntimeSpecialistContract | None = None,
     runtime_handlers: RuntimeSpecialistHandlerRegistry | None = None,
 ) -> OrchestrationResult:
+    workspace_root_path = Path(workspace_root)
     active_policy = policy or load_policy()
 
     route_decision = select_route(request, context, active_policy)
@@ -131,6 +133,7 @@ def run_pipeline(
         generated_files=tuple(file.path for file in artifact_bundle.files),
         proposed_files=tuple(file.path for file in materialization_result.proposed_files),
         written_files=materialization_result.written_paths,
+        ledger_summary=inspect_git_ledger(workspace_root_path),
         mode=selected_mode.value,
         pre_write_validation_report=pre_write_validation_report,
         post_write_validation_report=post_write_validation_report,
@@ -227,6 +230,7 @@ def _build_artifact_summary(
     generated_files: tuple[str, ...],
     proposed_files: tuple[str, ...],
     written_files: tuple[str, ...],
+    ledger_summary: dict[str, object],
     mode: str,
     pre_write_validation_report: ValidationReport | None,
     post_write_validation_report: ValidationReport | None,
@@ -242,6 +246,7 @@ def _build_artifact_summary(
             "proposed_files": proposed_files,
             "written_files": written_files,
             "write_performed": bool(written_files),
+            "ledger": ledger_summary,
             "specialist_dispatch": {
                 "route": dispatch_context.resolved_route.value,
                 "mode": dispatch_context.resolved_mode.value,
