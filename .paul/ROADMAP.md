@@ -8,14 +8,14 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 **v0.1 Initial Release** (v0.1.0)
 Status: In progress
-Phases: 1 of 3 complete
+Phases: 2 of 3 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
 | 1 | Core Policy and Contracts | 1 (`01-01`) | ✅ Complete | 2026-04-19 |
-| 2 | Orchestration and Artifact Engine | 3 (`02-01`, `02-02`, `02-03`) | In progress | - |
+| 2 | Orchestration and Artifact Engine | 3 (`02-01`, `02-02`, `02-03`) | ✅ Complete | 2026-04-19 |
 | 3 | Validation and Acceptance | TBD | Not started | - |
 
 ## Phase Details
@@ -50,7 +50,7 @@ Phases: 1 of 3 complete
 **Plans:**
 - [x] 02-01: Implement route + mode gating
 - [x] 02-02: Implement parallel specialists + merge policy
-- [ ] 02-03: Implement artifact output pipeline
+- [x] 02-03: Implement artifact output pipeline
 
 ### Phase 3: Validation and Acceptance
 

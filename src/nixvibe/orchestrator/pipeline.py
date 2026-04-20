@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Sequence
 
+from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .merge import merge_specialist_payloads
 from .modes import resolve_mode
 from .payloads import PayloadValidationError, validate_payload
@@ -32,6 +34,7 @@ def run_pipeline(
     specialist_tasks: Sequence[SpecialistTask],
     *,
     policy: OrchestrationPolicy | None = None,
+    workspace_root: str | Path = ".",
 ) -> OrchestrationResult:
     active_policy = policy or load_policy()
 
@@ -66,16 +69,38 @@ def run_pipeline(
     if merge_result.forced_mode is not None:
         selected_mode = merge_result.forced_mode
 
+    artifact_bundle = generate_artifact_bundle(route_decision.route, merge_result)
+    materialization_result = materialize_artifacts(
+        artifact_bundle,
+        selected_mode,
+        workspace_root=workspace_root,
+    )
+    artifact_summary = _build_artifact_summary(
+        base_summary=merge_result.artifact_summary,
+        route=route_decision.route.value,
+        generated_files=tuple(file.path for file in artifact_bundle.files),
+        proposed_files=tuple(file.path for file in materialization_result.proposed_files),
+        written_files=materialization_result.written_paths,
+        mode=selected_mode.value,
+    )
+    next_action = _next_action_for_mode(
+        mode=selected_mode,
+        merge_next_action=merge_result.next_action,
+    )
+
     return OrchestrationResult(
         route_decision=route_decision,
         mode_decision=mode_decision,
         selected_mode=selected_mode,
-        artifact_summary=merge_result.artifact_summary,
-        next_action=merge_result.next_action,
+        artifact_summary=artifact_summary,
+        next_action=next_action,
         included_payloads=valid_payloads,
         excluded_specialists=excluded,
         specialist_results=validated_results,
         merge_reason=merge_result.reason,
+        generated_artifacts=artifact_bundle.files,
+        proposed_artifacts=materialization_result.proposed_files,
+        written_artifact_paths=materialization_result.written_paths,
     )
 
 
@@ -112,3 +137,34 @@ def _validate_specialist_results(
         )
     return tuple(validated)
 
+
+def _build_artifact_summary(
+    *,
+    base_summary,
+    route: str,
+    generated_files: tuple[str, ...],
+    proposed_files: tuple[str, ...],
+    written_files: tuple[str, ...],
+    mode: str,
+):
+    merged = dict(base_summary)
+    merged.update(
+        {
+            "route": route,
+            "mode": mode,
+            "generated_files": generated_files,
+            "generated_file_count": len(generated_files),
+            "proposed_files": proposed_files,
+            "written_files": written_files,
+            "write_performed": bool(written_files),
+        }
+    )
+    return merged
+
+
+def _next_action_for_mode(*, mode: Mode, merge_next_action: str) -> str:
+    if mode is Mode.ADVICE:
+        return "Switch to propose mode to preview generated artifacts."
+    if mode is Mode.PROPOSE:
+        return "Review proposed artifacts and confirm apply to write files."
+    return merge_next_action.strip() or "Review written artifacts and continue."

@@ -195,6 +195,28 @@ class MergeResult:
 
 
 @dataclass(frozen=True)
+class ArtifactFile:
+    path: str
+    content: str
+    description: str
+
+
+@dataclass(frozen=True)
+class ArtifactBundle:
+    route: Route
+    files: Tuple[ArtifactFile, ...]
+    summary: Mapping[str, Any]
+
+
+@dataclass(frozen=True)
+class ArtifactMaterializationResult:
+    mode: Mode
+    proposed_files: Tuple[ArtifactFile, ...]
+    written_paths: Tuple[str, ...]
+    write_performed: bool
+
+
+@dataclass(frozen=True)
 class OrchestrationResult:
     route_decision: RouteDecision
     mode_decision: ModeDecision
@@ -205,3 +227,6 @@ class OrchestrationResult:
     excluded_specialists: Tuple[str, ...]
     specialist_results: Tuple[SpecialistExecutionResult, ...]
     merge_reason: str = ""
+    generated_artifacts: Tuple[ArtifactFile, ...] = ()
+    proposed_artifacts: Tuple[ArtifactFile, ...] = ()
+    written_artifact_paths: Tuple[str, ...] = ()

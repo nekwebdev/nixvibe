@@ -1,5 +1,6 @@
 """Orchestration primitives for nixvibe."""
 
+from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .conflicts import resolve_conflict
 from .merge import merge_specialist_payloads
 from .modes import resolve_mode
@@ -14,6 +15,9 @@ from .policy_loader import (
 from .router import select_route
 from .specialists import run_specialists
 from .types import (
+    ArtifactBundle,
+    ArtifactFile,
+    ArtifactMaterializationResult,
     ConflictCandidate,
     MergeResult,
     Mode,
@@ -39,6 +43,9 @@ from .types import (
 
 __all__ = [
     "DEFAULT_POLICY_PATH",
+    "ArtifactBundle",
+    "ArtifactFile",
+    "ArtifactMaterializationResult",
     "ConflictCandidate",
     "MergeResult",
     "Mode",
@@ -65,6 +72,8 @@ __all__ = [
     "SpecialistStatus",
     "SpecialistTask",
     "load_policy",
+    "generate_artifact_bundle",
+    "materialize_artifacts",
     "merge_specialist_payloads",
     "resolve_conflict",
     "resolve_mode",

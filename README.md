@@ -111,6 +111,25 @@ Additional coverage:
 - `tests/orchestrator/test_parallel_specialists.py`
 - `tests/orchestrator/test_merge_pipeline.py`
 
+## Runtime Orchestration (Phase 2 Artifact Slice)
+
+Implemented artifact pipeline behavior:
+- Route-aware artifact generation for both `init` and `audit`.
+- Mode-gated materialization:
+  - `advice`: no writes and no proposed file set
+  - `propose`: returns proposed artifact files only
+  - `apply`: writes artifact files to workspace paths
+- Deterministic file names for user-facing outputs:
+  - `ARCHITECTURE.md`
+  - `NEXT_STEPS.md`
+  - `REFACTOR_PLAN.md` (audit)
+  - `TARGET_TREE.md` (audit)
+  - `patches/*.patch` (audit proposals)
+  - `flake.nix`, `modules/core/default.nix`, `modules/roles/default.nix`, `modules/services/default.nix` (init)
+
+Additional coverage:
+- `tests/orchestrator/test_artifact_pipeline.py`
+
 ## Output Artifacts
 
 Primary artifacts:

@@ -35,16 +35,17 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Specialist output schema + merge contract defined — Phase 1
 - [x] Deterministic route + mode + conflict orchestration primitives with tests — Phase 2 (02-01)
 - [x] Parallel specialist execution + deterministic merge pipeline with schema validation — Phase 2 (02-02)
+- [x] Scaffold/refactor artifact generation pipeline with mode-gated materialization — Phase 2 (02-03)
 
 ### Active (In Progress)
-
-- [ ] Implement scaffold/refactor artifact generation for user-facing responses
-
-### Planned (Next)
 
 - [ ] Integrate validation runner gates into runtime orchestration (`nix flake check`, `nix fmt`)
 - [ ] Add acceptance test suite for init/audit behavior
 - [ ] Standardize patch artifact lifecycle in `patches/`
+
+### Planned (Next)
+
+- [ ] Finalize v0.1 release-readiness checks after Phase 3 closes
 
 ### Out of Scope
 
@@ -93,6 +94,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Patch output in `patches/` | Transparent internal artifacts without user-facing clutter | 2026-04-18 | Active |
 | Local MCP contract files are mandatory | Phase 1 locked explicit Codex + Claude project-local contract files | 2026-04-19 | Active |
 | Specialist payload schema is required | Merge logic depends on normalized structured specialist output | 2026-04-19 | Active |
+| Artifact writes are mode-gated | Prevent surprise writes while preserving apply path for explicit opt-in | 2026-04-19 | Active |
 
 ## Success Metrics
 
@@ -120,4 +122,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-19 after Phase 2 plan 02-02*
+*Last updated: 2026-04-19 after Phase 2 completion*
