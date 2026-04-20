@@ -2,6 +2,7 @@
 
 from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .conflicts import resolve_conflict
+from .guidance import build_guidance_summary, infer_skill_level
 from .merge import merge_specialist_payloads
 from .modes import resolve_mode
 from .patches import normalize_patch_path, orchestrate_patch_proposals, patch_orchestration_summary
@@ -109,8 +110,10 @@ __all__ = [
     "WorkspaceSnapshot",
     "build_repo_context",
     "build_dispatch_context",
+    "build_guidance_summary",
     "default_runtime_contract",
     "derive_reference_adaptation",
+    "infer_skill_level",
     "normalize_patch_path",
     "orchestrate_patch_proposals",
     "patch_orchestration_summary",

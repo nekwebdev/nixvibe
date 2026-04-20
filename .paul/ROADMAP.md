@@ -8,7 +8,7 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 **v0.2 Execution and Context Expansion** (v0.2.0)
 Status: 🚧 In progress
-Phases: 2 of 3 complete
+Phases: 2 of 3 complete (Phase 6 in progress)
 
 ## Phases
 
@@ -16,7 +16,7 @@ Phases: 2 of 3 complete
 |-------|------|-------|--------|-----------|
 | 4 | Workspace Intake and Reference Adaptation | 3 (`04-01`, `04-02`, `04-03`) | ✅ Complete | 2026-04-19 |
 | 5 | Runtime Agent Execution and Patch Orchestration | 3 (`05-01`, `05-02`, `05-03`) | ✅ Complete | 2026-04-20 |
-| 6 | Guidance UX and Safety Guardrails | 3 (`06-01`, `06-02`, `06-03`) | Not started | - |
+| 6 | Guidance UX and Safety Guardrails | 3 (`06-01`, `06-02`, `06-03`) | In progress | - |
 
 ## Phase Details
 
@@ -64,7 +64,7 @@ Phases: 2 of 3 complete
 - Journey-level regression scenarios for novice-to-expert interactions
 
 **Plans:**
-- [ ] 06-01: Skill-adaptive output contract
+- [x] 06-01: Skill-adaptive output contract
 - [ ] 06-02: Safety/remediation guidance hardening
 - [ ] 06-03: Novice-to-expert journey regressions
 

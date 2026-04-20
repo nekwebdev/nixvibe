@@ -288,6 +288,25 @@ Additional coverage:
 - `tests/orchestrator/test_pipeline_validation_gating.py`
 - `tests/orchestrator/test_runtime_contract.py`
 
+## Runtime Orchestration (Phase 6 Skill-Adaptive Guidance Slice)
+
+Implemented deterministic guidance profiling for user-facing outputs:
+- Added skill inference contract (`novice`, `intermediate`, `expert`) from user input intent cues.
+- Added structured `artifact_summary.guidance` contract:
+  - `skill_level`
+  - `response_style`
+  - `explanation_depth`
+  - `explanation_sections`
+  - `preserve_existing_structure`
+  - `prefer_fewer_files_initially`
+  - `scaffold_strategy`
+  - `immediate_next_action`
+- Guidance preserves pipeline continuity:
+  - `immediate_next_action` mirrors the orchestration result `next_action`.
+
+Additional coverage:
+- `tests/orchestrator/test_guidance_output.py`
+
 ## Output Artifacts
 
 Primary artifacts:

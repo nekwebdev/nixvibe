@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Sequence
 
 from .artifacts import generate_artifact_bundle, materialize_artifacts
+from .guidance import build_guidance_summary
 from .merge import merge_specialist_payloads
 from .modes import resolve_mode
 from .payloads import PayloadValidationError, validate_payload
@@ -141,6 +142,16 @@ def run_pipeline(
         pre_write_validation_report=pre_write_validation_report,
         post_write_validation_report=post_write_validation_report,
     )
+    guidance_summary = build_guidance_summary(
+        user_input=request.user_input,
+        context=context,
+        route=route_decision.route,
+        mode=selected_mode,
+        next_action=next_action,
+        validation_failed=bool(validation_report is not None and not validation_report.success),
+    )
+    artifact_summary = dict(artifact_summary)
+    artifact_summary["guidance"] = guidance_summary
 
     return OrchestrationResult(
         route_decision=route_decision,
