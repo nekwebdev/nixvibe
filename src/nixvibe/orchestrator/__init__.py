@@ -1,6 +1,7 @@
 """Orchestration primitives for nixvibe."""
 
 from .artifacts import generate_artifact_bundle, materialize_artifacts
+from .checkpoint import build_resume_checkpoint
 from .conflicts import resolve_conflict
 from .escalation import build_apply_safety_escalation
 from .failure import build_run_failure_classification
@@ -78,6 +79,7 @@ __all__ = [
     "ArtifactBundle",
     "ArtifactFile",
     "ArtifactMaterializationResult",
+    "build_resume_checkpoint",
     "ConflictCandidate",
     "MergeResult",
     "Mode",

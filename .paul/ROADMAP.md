@@ -33,7 +33,7 @@ Phases: 1 of 3 complete
 
 **Plans:**
 - [x] 10-01: Run failure classification contract
-- [ ] 10-02: Resume-safe checkpoint contract
+- [x] 10-02: Resume-safe checkpoint contract
 - [ ] 10-03: Retry/backoff orchestration guardrails
 
 ### Phase 11: Operator Policy and Controls

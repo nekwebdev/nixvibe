@@ -194,6 +194,7 @@ class TestAcceptanceFlows(unittest.TestCase):
         self.assertIn("run_manifest", result.artifact_summary)
         self.assertIn("run_failure_classification", result.artifact_summary)
         self.assertIn("release_readiness", result.artifact_summary)
+        self.assertIn("resume_checkpoint", result.artifact_summary)
         self.assertTrue(result.next_action.strip())
 
 

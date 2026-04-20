@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Sequence
 
 from .artifacts import generate_artifact_bundle, materialize_artifacts
+from .checkpoint import build_resume_checkpoint
 from .escalation import build_apply_safety_escalation
 from .failure import build_run_failure_classification
 from .guardrails import evaluate_high_risk_mutation_guardrails
@@ -229,6 +230,11 @@ def run_pipeline(
     )
     artifact_summary["release_readiness"] = build_release_readiness(
         run_manifest=artifact_summary["run_manifest"]
+    )
+    artifact_summary["resume_checkpoint"] = build_resume_checkpoint(
+        run_manifest=artifact_summary["run_manifest"],
+        run_failure_classification=artifact_summary["run_failure_classification"],
+        release_readiness=artifact_summary["release_readiness"],
     )
 
     return OrchestrationResult(

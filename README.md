@@ -557,6 +557,36 @@ Added deterministic run-failure classification output:
 Additional coverage:
 - `tests/orchestrator/test_run_failure_classification.py`
 
+## Runtime Orchestration (Phase 10 Resume Checkpoint Slice)
+
+Added resume-safe checkpoint output for run recovery workflows:
+- Resume checkpoint contract emitted as `artifact_summary.resume_checkpoint`:
+  - `contract`
+  - `checkpoint_id`
+  - `resume_required`
+  - `resume_stage`
+  - `classification` / `severity`
+  - `recommended_mode`
+  - `requires_human_confirmation`
+  - `can_auto_resume`
+  - `release_ready`
+  - `blockers`
+  - `required_actions`
+  - `action_count`
+  - `next_safe_action`
+- Stage mapping covers:
+  - `validation-pre-write`
+  - `validation-post-write`
+  - `specialist-runtime`
+  - `specialist-payload`
+  - `safety-escalation`
+  - `advisory-review`
+  - `none`
+- Clean propose flows do not require resume by default; release readiness remains visible as independent metadata.
+
+Additional coverage:
+- `tests/orchestrator/test_resume_checkpoint.py`
+
 ## Output Artifacts
 
 Primary artifacts:
