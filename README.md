@@ -359,6 +359,27 @@ Introduced Git-ledger context as internal orchestration memory:
 Additional coverage:
 - `tests/orchestrator/test_git_ledger.py`
 
+## Runtime Orchestration (Phase 7 Change Intelligence Slice)
+
+Extended ledger summary with deterministic change-intelligence fields:
+- `change_classification`:
+  - `clean`
+  - `staged-only`
+  - `unstaged-only`
+  - `untracked-only`
+  - `staged-unstaged`
+  - `staged-untracked`
+  - `unstaged-untracked`
+  - `mixed`
+- Drift signals:
+  - `drift_detected`
+  - `drift_reasons`
+  - `drift_severity` (`none`, `medium`, `high`)
+- Convenience booleans:
+  - `has_staged_changes`
+  - `has_unstaged_changes`
+  - `has_untracked_changes`
+
 ## Output Artifacts
 
 Primary artifacts:

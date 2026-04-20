@@ -91,12 +91,47 @@ class TestGitLedger(unittest.TestCase):
         self.assertTrue(ledger["dirty"])
         self.assertGreaterEqual(ledger["untracked_count"], 1)
         self.assertIn("scratch.txt", ledger["changed_paths"])
+        self.assertEqual(ledger["change_classification"], "untracked-only")
+        self.assertTrue(ledger["drift_detected"])
+        self.assertIn("untracked_changes", ledger["drift_reasons"])
+        self.assertEqual(ledger["drift_severity"], "medium")
         self.assertTrue(ledger["status_lines"])
 
     def _init_repo(self, root: Path) -> None:
         subprocess.run(("git", "init"), cwd=root, check=True, capture_output=True, text=True)
         (root / "flake.nix").write_text("{ }")
         subprocess.run(("git", "add", "flake.nix"), cwd=root, check=True, capture_output=True, text=True)
+        subprocess.run(
+            (
+                "git",
+                "-c",
+                "commit.gpgsign=false",
+                "-c",
+                "user.name=nixvibe-test",
+                "-c",
+                "user.email=nixvibe@test.invalid",
+                "commit",
+                "-m",
+                "init",
+            ),
+            cwd=root,
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+
+    def test_inspect_git_ledger_reports_clean_state(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self._init_repo(root)
+            ledger = inspect_git_ledger(root)
+
+        self.assertTrue(ledger["available"])
+        self.assertFalse(ledger["dirty"])
+        self.assertEqual(ledger["change_classification"], "clean")
+        self.assertFalse(ledger["drift_detected"])
+        self.assertEqual(ledger["drift_reasons"], ())
+        self.assertEqual(ledger["drift_severity"], "none")
 
 
 if __name__ == "__main__":

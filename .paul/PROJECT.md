@@ -54,12 +54,12 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Strengthen safety/remediation guidance for failed validations and conflicts — Phase 6 (06-02)
 - [x] Add novice-to-expert journey regression coverage — Phase 6 (06-03)
 - [x] Add Git ledger baseline summary contract — Phase 7 (07-01)
-- [ ] Add change classification and drift signals — Phase 7 (07-02)
+- [x] Add change classification and drift signals — Phase 7 (07-02)
 - [ ] Add ledger-aware guidance/next-action tuning — Phase 7 (07-03)
 
 ### Planned (Next)
 
-- [ ] Complete remaining Phase 7 slices (07-02, 07-03)
+- [ ] Complete remaining Phase 7 slice (07-03)
 - [ ] Plan and execute Phase 8 slices (08-01, 08-02, 08-03)
 
 ### Out of Scope
@@ -116,6 +116,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Remediation contract is explicit | Guidance must emit structured recovery steps for validation/conflict failures | 2026-04-20 | Active |
 | Journey regressions are mandatory | Novice-to-expert behavior must remain stable through end-to-end regression tests | 2026-04-20 | Active |
 | Git ledger context is explicit | Pipeline must carry workspace VCS state as deterministic internal orchestration memory | 2026-04-20 | Active |
+| Ledger drift signals are explicit | Change classification and drift severity must be deterministic for policy consumers | 2026-04-20 | Active |
 
 ## Success Metrics
 
@@ -145,4 +146,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-20 after Phase 7 plan 07-01 completion*
+*Last updated: 2026-04-20 after Phase 7 plan 07-02 completion*

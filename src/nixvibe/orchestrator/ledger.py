@@ -26,6 +26,11 @@ def inspect_git_ledger(workspace_root: str | Path) -> dict[str, object]:
     status = _run_git(root, "status", "--short")
     status_lines = _status_lines(status)
     staged, unstaged, untracked, changed_paths = _status_counts(status_lines)
+    change_signals = _change_signals(
+        staged_count=staged,
+        unstaged_count=unstaged,
+        untracked_count=untracked,
+    )
 
     return {
         "available": True,
@@ -37,6 +42,13 @@ def inspect_git_ledger(workspace_root: str | Path) -> dict[str, object]:
         "untracked_count": untracked,
         "changed_paths": changed_paths,
         "status_lines": status_lines,
+        "change_classification": change_signals["change_classification"],
+        "has_staged_changes": change_signals["has_staged_changes"],
+        "has_unstaged_changes": change_signals["has_unstaged_changes"],
+        "has_untracked_changes": change_signals["has_untracked_changes"],
+        "drift_detected": change_signals["drift_detected"],
+        "drift_reasons": change_signals["drift_reasons"],
+        "drift_severity": change_signals["drift_severity"],
     }
 
 
@@ -101,3 +113,52 @@ def _status_counts(status_lines: tuple[str, ...]) -> tuple[int, int, int, tuple[
 
     deduped_paths = tuple(dict.fromkeys(paths))
     return staged, unstaged, untracked, deduped_paths
+
+
+def _change_signals(
+    *,
+    staged_count: int,
+    unstaged_count: int,
+    untracked_count: int,
+) -> dict[str, object]:
+    has_staged = staged_count > 0
+    has_unstaged = unstaged_count > 0
+    has_untracked = untracked_count > 0
+
+    classification_map = {
+        (False, False, False): "clean",
+        (True, False, False): "staged-only",
+        (False, True, False): "unstaged-only",
+        (False, False, True): "untracked-only",
+        (True, True, False): "staged-unstaged",
+        (True, False, True): "staged-untracked",
+        (False, True, True): "unstaged-untracked",
+        (True, True, True): "mixed",
+    }
+    classification = classification_map[(has_staged, has_unstaged, has_untracked)]
+
+    drift_detected = has_unstaged or has_untracked
+    drift_reasons: list[str] = []
+    if has_unstaged:
+        drift_reasons.append("unstaged_changes")
+    if has_untracked:
+        drift_reasons.append("untracked_changes")
+
+    if not drift_detected:
+        drift_severity = "none"
+    elif has_unstaged and has_untracked:
+        drift_severity = "high"
+    elif has_unstaged:
+        drift_severity = "high"
+    else:
+        drift_severity = "medium"
+
+    return {
+        "change_classification": classification,
+        "has_staged_changes": has_staged,
+        "has_unstaged_changes": has_unstaged,
+        "has_untracked_changes": has_untracked,
+        "drift_detected": drift_detected,
+        "drift_reasons": tuple(drift_reasons),
+        "drift_severity": drift_severity,
+    }
