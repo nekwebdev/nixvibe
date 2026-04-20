@@ -10,6 +10,7 @@ from .escalation import build_apply_safety_escalation
 from .guardrails import evaluate_high_risk_mutation_guardrails
 from .guidance import build_guidance_summary
 from .ledger import inspect_git_ledger
+from .manifest import build_operator_run_manifest
 from .merge import merge_specialist_payloads
 from .modes import resolve_mode
 from .payloads import PayloadValidationError, validate_payload
@@ -200,6 +201,25 @@ def run_pipeline(
     artifact_summary["apply_safety_escalation"] = apply_safety_escalation
     artifact_summary["recovery_playbook"] = recovery_playbook
     artifact_summary["guidance"] = guidance_summary
+    artifact_summary["run_manifest"] = build_operator_run_manifest(
+        route=route_decision.route.value,
+        requested_mode=request.requested_mode,
+        selected_mode=selected_mode,
+        merge_reason=merge_result.reason,
+        next_action=next_action,
+        dispatch_task_count=len(dispatch_tasks),
+        specialist_results=validated_results,
+        included_payload_count=len(valid_payloads),
+        excluded_count=len(excluded),
+        generated_files=tuple(file.path for file in artifact_bundle.files),
+        proposed_files=tuple(file.path for file in materialization_result.proposed_files),
+        written_files=materialization_result.written_paths,
+        validation_summary=artifact_summary.get("validation"),
+        ledger_summary=ledger_summary,
+        mutation_guardrails=mutation_guardrails,
+        apply_safety_escalation=apply_safety_escalation,
+        recovery_playbook=recovery_playbook,
+    )
 
     return OrchestrationResult(
         route_decision=route_decision,

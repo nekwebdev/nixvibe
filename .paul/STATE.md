@@ -5,27 +5,27 @@
 See: .paul/PROJECT.md (updated 2026-04-20)
 
 **Core value:** Users can evolve clean modular NixOS configs safely with guided automation.
-**Current focus:** v0.3 Phase 8 complete — preparing Phase 9 plan 09-01
+**Current focus:** v0.3 Phase 9 in progress — preparing Phase 9 plan 09-02
 
 ## Current Position
 
 Milestone: v0.3 Operational Workflow Intelligence (v0.3.0)
-Phase: 9 of 9 (Operator Surfaces and Release Ops) — Not started
-Plan: 08-03 completed
-Status: APPLY and verification complete; ready for 09-01 planning
-Last activity: 2026-04-20T11:08:52-10:00 — Completed .paul/phases/08-apply-safety-escalation-and-recovery/08-03-SUMMARY.md
+Phase: 9 of 9 (Operator Surfaces and Release Ops) — In progress
+Plan: 09-01 completed
+Status: APPLY and verification complete; ready for 09-02 planning
+Last activity: 2026-04-20T11:52:05-10:00 — Completed .paul/phases/09-operator-surfaces-and-release-ops/09-01-SUMMARY.md
 
 Progress:
 - v0.1 Initial Release: [██████████] 100% ✓
 - v0.2 Execution and Context Expansion: [██████████] 100% ✓
-- v0.3 Operational Workflow Intelligence: [██████░░░░] 67%
+- v0.3 Operational Workflow Intelligence: [████████░░] 78%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [08-03 complete]
+  ✓        ✓        ✓     [09-01 complete]
 ```
 
 ## Accumulated Context
@@ -60,6 +60,7 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - Apply safety escalation tier contract landed for Phase 8 plan 08-01
 - Recovery playbook contract integration landed for Phase 8 plan 08-02
 - High-risk mutation guardrail regressions landed for Phase 8 plan 08-03
+- Operator run manifest contract landed for Phase 9 plan 09-01
 
 ### Deferred Issues
 None yet.
@@ -69,10 +70,10 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-20T11:08:52-10:00
-Stopped at: Phase 8 plan 08-03 completed and summarized
-Next action: Create and approve `.paul/phases/09-operator-surfaces-and-release-ops/09-01-PLAN.md`
-Resume file: .paul/phases/08-apply-safety-escalation-and-recovery/08-03-SUMMARY.md
+Last session: 2026-04-20T11:52:05-10:00
+Stopped at: Phase 9 plan 09-01 completed and summarized
+Next action: Create and approve `.paul/phases/09-operator-surfaces-and-release-ops/09-02-PLAN.md`
+Resume file: .paul/phases/09-operator-surfaces-and-release-ops/09-01-SUMMARY.md
 
 ---
 *STATE.md — Updated after every significant action*

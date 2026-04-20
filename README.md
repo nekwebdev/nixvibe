@@ -471,6 +471,25 @@ Added deterministic high-risk mutation guardrails for apply flows:
 Additional coverage:
 - `tests/orchestrator/test_high_risk_guardrails.py`
 
+## Runtime Orchestration (Phase 9 Operator Run Manifest Slice)
+
+Added deterministic operator-facing run manifest output:
+- Manifest contract emitted as `artifact_summary.run_manifest`:
+  - `contract`
+  - `route`
+  - `modes` (`requested`, `selected`, `changed`)
+  - `specialists` (`planned_count`, `included_count`, `excluded_count`, `outcomes`)
+  - `artifacts` (`generated_count`, `proposed_count`, `written_count`, `write_performed`)
+  - `validation` (`executed`, `success`, `final_checkpoint`, `checkpoint_count`)
+  - `safety` (`guardrail_blocked_apply`, `guardrail_triggers`, escalation/recovery signals)
+  - `ledger` (`available`, `dirty`, classification, drift signals)
+  - `merge_reason`
+  - `next_action`
+- Manifest summarizes one run in a stable structure for operator review and release automation handoff.
+
+Additional coverage:
+- `tests/orchestrator/test_operator_run_manifest.py`
+
 ## Output Artifacts
 
 Primary artifacts:

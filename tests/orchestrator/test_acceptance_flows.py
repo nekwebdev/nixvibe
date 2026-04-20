@@ -191,6 +191,7 @@ class TestAcceptanceFlows(unittest.TestCase):
         self.assertIn("mode", result.artifact_summary)
         self.assertIn("route", result.artifact_summary)
         self.assertIn("generated_files", result.artifact_summary)
+        self.assertIn("run_manifest", result.artifact_summary)
         self.assertTrue(result.next_action.strip())
 
 

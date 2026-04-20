@@ -6,6 +6,7 @@ from .escalation import build_apply_safety_escalation
 from .guardrails import evaluate_high_risk_mutation_guardrails
 from .guidance import build_guidance_summary, infer_skill_level
 from .ledger import inspect_git_ledger
+from .manifest import build_operator_run_manifest
 from .merge import merge_specialist_payloads
 from .modes import resolve_mode
 from .patches import normalize_patch_path, orchestrate_patch_proposals, patch_orchestration_summary
@@ -116,6 +117,7 @@ __all__ = [
     "build_apply_safety_escalation",
     "evaluate_high_risk_mutation_guardrails",
     "build_recovery_playbook",
+    "build_operator_run_manifest",
     "build_dispatch_context",
     "build_guidance_summary",
     "default_runtime_contract",

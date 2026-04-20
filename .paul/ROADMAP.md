@@ -16,7 +16,7 @@ Phases: 2 of 3 complete
 |-------|------|-------|--------|-----------|
 | 7 | Git Ledger and Change Intelligence | 3 (`07-01`, `07-02`, `07-03`) | ✅ Complete | 2026-04-20 |
 | 8 | Apply Safety Escalation and Recovery | 3 (`08-01`, `08-02`, `08-03`) | ✅ Complete | 2026-04-20 |
-| 9 | Operator Surfaces and Release Ops | 3 (`09-01`, `09-02`, `09-03`) | Not started | - |
+| 9 | Operator Surfaces and Release Ops | 3 (`09-01`, `09-02`, `09-03`) | 🚧 In progress | - |
 
 ## Phase Details
 
@@ -64,7 +64,7 @@ Phases: 2 of 3 complete
 - End-to-end milestone acceptance scenarios
 
 **Plans:**
-- [ ] 09-01: Operator run manifest contract
+- [x] 09-01: Operator run manifest contract
 - [ ] 09-02: Release-readiness gate expansion
 - [ ] 09-03: End-to-end acceptance hardening
 

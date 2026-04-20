@@ -59,10 +59,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add apply safety escalation tier contract — Phase 8 (08-01)
 - [x] Add recovery playbook contract integration — Phase 8 (08-02)
 - [x] Add high-risk mutation guardrail regressions — Phase 8 (08-03)
+- [x] Add operator run manifest contract — Phase 9 (09-01)
 
 ### Planned (Next)
 
-- [ ] Plan and execute Phase 9 slices (09-01, 09-02, 09-03)
+- [ ] Execute remaining Phase 9 slices (09-02, 09-03)
 
 ### Out of Scope
 
@@ -123,6 +124,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Apply safety escalation is explicit | Apply-mode outcomes must emit deterministic escalation tiers with recovery intent | 2026-04-20 | Active |
 | Recovery playbooks are explicit | Apply-time failures must produce deterministic reversible recovery strategies | 2026-04-20 | Active |
 | High-risk mutation guardrails are explicit | Apply must be blocked when irreversible recommendations or critical risks are detected | 2026-04-20 | Active |
+| Operator run manifests are explicit | Every orchestration run must emit stable operator-facing summary metadata | 2026-04-20 | Active |
 
 ## Success Metrics
 
