@@ -77,6 +77,26 @@ def build_recovery_playbook(
             source_reason=reason,
         )
 
+    if reason == "high_risk_mutation_guardrail":
+        return _summary(
+            required=True,
+            stage="guardrail-high-risk",
+            severity="high",
+            strategy="reduce-risk-before-apply",
+            reversible=True,
+            suggested_mode="propose",
+            actions=(
+                "Review irreversible recommendations and convert to reversible steps when possible.",
+                "Address critical risks or add explicit mitigations before apply.",
+                "Re-run orchestration in propose mode and validate lower-risk output.",
+            ),
+            validation_commands=VALIDATION_COMMANDS,
+            checkpoint_required=False,
+            next_step="Reduce mutation risk and confirm reversible plan before apply.",
+            source_tier=tier,
+            source_reason=reason,
+        )
+
     if reason == "apply_dirty_workspace":
         return _summary(
             required=False,

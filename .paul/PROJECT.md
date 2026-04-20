@@ -58,10 +58,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add ledger-aware guidance/next-action tuning — Phase 7 (07-03)
 - [x] Add apply safety escalation tier contract — Phase 8 (08-01)
 - [x] Add recovery playbook contract integration — Phase 8 (08-02)
+- [x] Add high-risk mutation guardrail regressions — Phase 8 (08-03)
 
 ### Planned (Next)
 
-- [ ] Execute remaining Phase 8 slices (08-03)
+- [ ] Plan and execute Phase 9 slices (09-01, 09-02, 09-03)
 
 ### Out of Scope
 
@@ -121,6 +122,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Ledger-aware actions are explicit | Next-action and guidance should tune behavior using ledger drift intelligence | 2026-04-20 | Active |
 | Apply safety escalation is explicit | Apply-mode outcomes must emit deterministic escalation tiers with recovery intent | 2026-04-20 | Active |
 | Recovery playbooks are explicit | Apply-time failures must produce deterministic reversible recovery strategies | 2026-04-20 | Active |
+| High-risk mutation guardrails are explicit | Apply must be blocked when irreversible recommendations or critical risks are detected | 2026-04-20 | Active |
 
 ## Success Metrics
 

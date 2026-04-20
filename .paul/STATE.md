@@ -5,27 +5,27 @@
 See: .paul/PROJECT.md (updated 2026-04-20)
 
 **Core value:** Users can evolve clean modular NixOS configs safely with guided automation.
-**Current focus:** v0.3 Phase 8 in progress — preparing Phase 8 plan 08-03
+**Current focus:** v0.3 Phase 8 complete — preparing Phase 9 plan 09-01
 
 ## Current Position
 
 Milestone: v0.3 Operational Workflow Intelligence (v0.3.0)
-Phase: 8 of 9 (Apply Safety Escalation and Recovery) — In progress
-Plan: 08-02 completed
-Status: APPLY and verification complete; ready for 08-03 planning
-Last activity: 2026-04-20T11:01:52-10:00 — Completed .paul/phases/08-apply-safety-escalation-and-recovery/08-02-SUMMARY.md
+Phase: 9 of 9 (Operator Surfaces and Release Ops) — Not started
+Plan: 08-03 completed
+Status: APPLY and verification complete; ready for 09-01 planning
+Last activity: 2026-04-20T11:08:52-10:00 — Completed .paul/phases/08-apply-safety-escalation-and-recovery/08-03-SUMMARY.md
 
 Progress:
 - v0.1 Initial Release: [██████████] 100% ✓
 - v0.2 Execution and Context Expansion: [██████████] 100% ✓
-- v0.3 Operational Workflow Intelligence: [█████░░░░░] 56%
+- v0.3 Operational Workflow Intelligence: [██████░░░░] 67%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [08-02 complete]
+  ✓        ✓        ✓     [08-03 complete]
 ```
 
 ## Accumulated Context
@@ -59,6 +59,7 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - Ledger-aware guidance/next-action tuning landed for Phase 7 plan 07-03
 - Apply safety escalation tier contract landed for Phase 8 plan 08-01
 - Recovery playbook contract integration landed for Phase 8 plan 08-02
+- High-risk mutation guardrail regressions landed for Phase 8 plan 08-03
 
 ### Deferred Issues
 None yet.
@@ -68,10 +69,10 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-20T11:01:52-10:00
-Stopped at: Phase 8 plan 08-02 completed and summarized
-Next action: Create and approve `.paul/phases/08-apply-safety-escalation-and-recovery/08-03-PLAN.md`
-Resume file: .paul/phases/08-apply-safety-escalation-and-recovery/08-02-SUMMARY.md
+Last session: 2026-04-20T11:08:52-10:00
+Stopped at: Phase 8 plan 08-03 completed and summarized
+Next action: Create and approve `.paul/phases/09-operator-surfaces-and-release-ops/09-01-PLAN.md`
+Resume file: .paul/phases/08-apply-safety-escalation-and-recovery/08-03-SUMMARY.md
 
 ---
 *STATE.md — Updated after every significant action*

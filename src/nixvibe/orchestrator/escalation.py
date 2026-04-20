@@ -11,6 +11,7 @@ def build_apply_safety_escalation(
     selected_mode: Mode,
     validation_failure_stage: str,
     conflict_forced_propose: bool,
+    high_risk_guardrail_forced_propose: bool,
     ledger_summary: dict[str, object],
 ) -> dict[str, object]:
     apply_requested = _requested_apply(requested_mode)
@@ -26,6 +27,19 @@ def build_apply_safety_escalation(
             recommended_mode="propose",
             human_confirmation_required=True,
             message="Apply was blocked by critical contradictions; resolve conflicts before apply.",
+        )
+
+    if apply_requested and high_risk_guardrail_forced_propose:
+        return _summary(
+            tier="blocked",
+            score=3,
+            apply_requested=True,
+            reason="high_risk_mutation_guardrail",
+            triggers=("high_risk_mutation_guardrail",),
+            requires_recovery=True,
+            recommended_mode="propose",
+            human_confirmation_required=True,
+            message="Apply was blocked by high-risk mutation guardrails.",
         )
 
     if apply_requested and validation_failure_stage == "pre_write":

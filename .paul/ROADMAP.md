@@ -8,14 +8,14 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 **v0.3 Operational Workflow Intelligence** (v0.3.0)
 Status: 🚧 In progress
-Phases: 1 of 3 complete
+Phases: 2 of 3 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
 | 7 | Git Ledger and Change Intelligence | 3 (`07-01`, `07-02`, `07-03`) | ✅ Complete | 2026-04-20 |
-| 8 | Apply Safety Escalation and Recovery | 3 (`08-01`, `08-02`, `08-03`) | 🚧 In progress | - |
+| 8 | Apply Safety Escalation and Recovery | 3 (`08-01`, `08-02`, `08-03`) | ✅ Complete | 2026-04-20 |
 | 9 | Operator Surfaces and Release Ops | 3 (`09-01`, `09-02`, `09-03`) | Not started | - |
 
 ## Phase Details
@@ -50,7 +50,7 @@ Phases: 1 of 3 complete
 **Plans:**
 - [x] 08-01: Apply escalation tier contract
 - [x] 08-02: Recovery playbook integration
-- [ ] 08-03: High-risk mutation guardrail regressions
+- [x] 08-03: High-risk mutation guardrail regressions
 
 ### Phase 9: Operator Surfaces and Release Ops
 

@@ -7,6 +7,7 @@ from typing import Sequence
 
 from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .escalation import build_apply_safety_escalation
+from .guardrails import evaluate_high_risk_mutation_guardrails
 from .guidance import build_guidance_summary
 from .ledger import inspect_git_ledger
 from .merge import merge_specialist_payloads
@@ -93,6 +94,13 @@ def run_pipeline(
     selected_mode = mode_decision.mode
     if merge_result.forced_mode is not None:
         selected_mode = merge_result.forced_mode
+    mutation_guardrails = evaluate_high_risk_mutation_guardrails(
+        requested_mode=request.requested_mode,
+        selected_mode=selected_mode,
+        payloads=valid_payloads,
+    )
+    if bool(mutation_guardrails.get("apply_blocked")):
+        selected_mode = Mode.PROPOSE
 
     pre_write_validation_report: ValidationReport | None = None
     post_write_validation_report: ValidationReport | None = None
@@ -157,11 +165,13 @@ def run_pipeline(
         merge_result.forced_mode is Mode.PROPOSE
         and "Contradictory critical findings" in merge_result.reason
     )
+    high_risk_guardrail_forced_propose = bool(mutation_guardrails.get("apply_blocked"))
     apply_safety_escalation = build_apply_safety_escalation(
         requested_mode=request.requested_mode,
         selected_mode=selected_mode,
         validation_failure_stage=validation_failure_stage,
         conflict_forced_propose=conflict_forced_propose,
+        high_risk_guardrail_forced_propose=high_risk_guardrail_forced_propose,
         ledger_summary=ledger_summary,
     )
     recovery_playbook = build_recovery_playbook(
@@ -179,12 +189,14 @@ def run_pipeline(
         validation_failed=bool(validation_report is not None and not validation_report.success),
         validation_failure_stage=validation_failure_stage,
         conflict_forced_propose=conflict_forced_propose,
+        high_risk_guardrail_forced_propose=high_risk_guardrail_forced_propose,
         merge_reason=merge_result.reason,
         ledger_summary=ledger_summary,
         apply_safety_escalation=apply_safety_escalation,
         recovery_playbook=recovery_playbook,
     )
     artifact_summary = dict(artifact_summary)
+    artifact_summary["mutation_guardrails"] = mutation_guardrails
     artifact_summary["apply_safety_escalation"] = apply_safety_escalation
     artifact_summary["recovery_playbook"] = recovery_playbook
     artifact_summary["guidance"] = guidance_summary

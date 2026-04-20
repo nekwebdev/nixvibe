@@ -49,6 +49,7 @@ def build_guidance_summary(
     validation_failed: bool,
     validation_failure_stage: str,
     conflict_forced_propose: bool,
+    high_risk_guardrail_forced_propose: bool,
     merge_reason: str,
     ledger_summary: dict[str, object],
     apply_safety_escalation: dict[str, object],
@@ -70,6 +71,7 @@ def build_guidance_summary(
         validation_failed=validation_failed,
         validation_failure_stage=validation_failure_stage,
         conflict_forced_propose=conflict_forced_propose,
+        high_risk_guardrail_forced_propose=high_risk_guardrail_forced_propose,
     )
     ledger_available = bool(ledger_summary.get("available"))
     ledger_change_classification = str(ledger_summary.get("change_classification") or "")
@@ -93,6 +95,7 @@ def build_guidance_summary(
         "validation_failed": validation_failed,
         "validation_failure_stage": validation_failure_stage,
         "conflict_forced_propose": conflict_forced_propose,
+        "high_risk_guardrail_forced_propose": high_risk_guardrail_forced_propose,
         "merge_reason": merge_reason,
         "ledger_available": ledger_available,
         "ledger_change_classification": ledger_change_classification,
@@ -135,6 +138,7 @@ def _build_remediation_summary(
     validation_failed: bool,
     validation_failure_stage: str,
     conflict_forced_propose: bool,
+    high_risk_guardrail_forced_propose: bool,
 ) -> dict[str, object]:
     if validation_failed:
         if validation_failure_stage == "post_write":
@@ -178,6 +182,21 @@ def _build_remediation_summary(
             ),
             "retry_mode": "propose",
             "blockers": ("critical_conflict_unresolved",),
+        }
+
+    if high_risk_guardrail_forced_propose:
+        return {
+            "required": True,
+            "category": "guardrail-high-risk",
+            "severity": "high",
+            "summary": "High-risk mutation guardrails blocked apply mode.",
+            "actions": (
+                "Review irreversible recommendations and critical risks before applying changes.",
+                "Refine recommendations to preserve reversibility where possible.",
+                "Re-run orchestration in propose mode and confirm guardrails are cleared.",
+            ),
+            "retry_mode": "propose",
+            "blockers": ("high_risk_mutation_guardrail",),
         }
 
     return {

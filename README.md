@@ -448,6 +448,29 @@ Additional coverage:
 - `tests/orchestrator/test_recovery_playbook.py`
 - `tests/orchestrator/test_guidance_remediation.py`
 
+## Runtime Orchestration (Phase 8 High-Risk Guardrail Slice)
+
+Added deterministic high-risk mutation guardrails for apply flows:
+- Guardrail contract emitted as `artifact_summary.mutation_guardrails`:
+  - `high_risk_detected`
+  - `apply_requested`
+  - `apply_blocked`
+  - `trigger_count`
+  - `triggers`
+  - `recommended_mode`
+  - `message`
+- Guardrail triggers:
+  - `irreversible_recommendation`
+  - `critical_risk`
+- Apply guard behavior:
+  - apply requests with high-risk triggers are forced to `propose` before validation/writes
+  - escalation reason is set to `high_risk_mutation_guardrail`
+  - recovery playbook stage is set to `guardrail-high-risk`
+  - guidance remediation category is set to `guardrail-high-risk`
+
+Additional coverage:
+- `tests/orchestrator/test_high_risk_guardrails.py`
+
 ## Output Artifacts
 
 Primary artifacts:
