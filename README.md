@@ -307,6 +307,29 @@ Implemented deterministic guidance profiling for user-facing outputs:
 Additional coverage:
 - `tests/orchestrator/test_guidance_output.py`
 
+## Runtime Orchestration (Phase 6 Safety/Remediation Slice)
+
+Hardened guidance with structured safety remediation outputs:
+- Added explicit remediation contract under `artifact_summary.guidance.remediation`:
+  - `required`
+  - `category`
+  - `severity`
+  - `summary`
+  - `actions`
+  - `retry_mode`
+  - `blockers`
+- Validation remediation now distinguishes failure stage:
+  - `validation-pre-write`
+  - `validation-post-write`
+- Conflict remediation now signals critical contradiction fallback:
+  - `conflict-critical`
+- Non-failure flows emit explicit default remediation:
+  - `category: none`
+  - `required: false`
+
+Additional coverage:
+- `tests/orchestrator/test_guidance_remediation.py`
+
 ## Output Artifacts
 
 Primary artifacts:

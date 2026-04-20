@@ -47,6 +47,9 @@ def build_guidance_summary(
     mode: Mode,
     next_action: str,
     validation_failed: bool,
+    validation_failure_stage: str,
+    conflict_forced_propose: bool,
+    merge_reason: str,
 ) -> dict[str, object]:
     skill_level = infer_skill_level(user_input)
     response_style, explanation_depth, explanation_sections = _guidance_profile(skill_level)
@@ -60,6 +63,12 @@ def build_guidance_summary(
     else:
         scaffold_strategy = "full-dendritic"
 
+    remediation = _build_remediation_summary(
+        validation_failed=validation_failed,
+        validation_failure_stage=validation_failure_stage,
+        conflict_forced_propose=conflict_forced_propose,
+    )
+
     return {
         "skill_level": skill_level,
         "response_style": response_style,
@@ -70,6 +79,10 @@ def build_guidance_summary(
         "scaffold_strategy": scaffold_strategy,
         "mode": mode.value,
         "validation_failed": validation_failed,
+        "validation_failure_stage": validation_failure_stage,
+        "conflict_forced_propose": conflict_forced_propose,
+        "merge_reason": merge_reason,
+        "remediation": remediation,
         "immediate_next_action": next_action,
     }
 
@@ -92,3 +105,64 @@ def _guidance_profile(skill_level: str) -> tuple[str, str, tuple[str, ...]]:
         "standard",
         ("summary", "rationale", "next_step"),
     )
+
+
+def _build_remediation_summary(
+    *,
+    validation_failed: bool,
+    validation_failure_stage: str,
+    conflict_forced_propose: bool,
+) -> dict[str, object]:
+    if validation_failed:
+        if validation_failure_stage == "post_write":
+            return {
+                "required": True,
+                "category": "validation-post-write",
+                "severity": "high",
+                "summary": "Validation failed after writes were applied.",
+                "actions": (
+                    "Review failing `nix flake check` / `nix fmt` output from post-write checkpoint.",
+                    "Adjust written artifacts to satisfy validation constraints.",
+                    "Re-run orchestration in propose mode to verify clean remediation before apply.",
+                ),
+                "retry_mode": "propose",
+                "blockers": ("post_write_validation_failed",),
+            }
+        return {
+            "required": True,
+            "category": "validation-pre-write",
+            "severity": "high",
+            "summary": "Validation failed before write and apply was blocked.",
+            "actions": (
+                "Run `nix flake check` and fix reported issues.",
+                "Run `nix fmt` and re-check formatting correctness.",
+                "Retry orchestration with explicit apply opt-in after checks pass.",
+            ),
+            "retry_mode": "apply",
+            "blockers": ("pre_write_validation_failed",),
+        }
+
+    if conflict_forced_propose:
+        return {
+            "required": True,
+            "category": "conflict-critical",
+            "severity": "critical",
+            "summary": "Critical contradictory findings forced propose mode.",
+            "actions": (
+                "Review contradictory critical findings and choose the safest recommendation.",
+                "Resolve conflict-group direction before enabling apply.",
+                "Re-run orchestration in propose mode and confirm conflict is cleared.",
+            ),
+            "retry_mode": "propose",
+            "blockers": ("critical_conflict_unresolved",),
+        }
+
+    return {
+        "required": False,
+        "category": "none",
+        "severity": "none",
+        "summary": "No safety remediation required.",
+        "actions": (),
+        "retry_mode": "none",
+        "blockers": (),
+    }

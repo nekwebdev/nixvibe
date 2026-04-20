@@ -65,7 +65,7 @@ Phases: 2 of 3 complete (Phase 6 in progress)
 
 **Plans:**
 - [x] 06-01: Skill-adaptive output contract
-- [ ] 06-02: Safety/remediation guidance hardening
+- [x] 06-02: Safety/remediation guidance hardening
 - [ ] 06-03: Novice-to-expert journey regressions
 
 ## Completed Milestones

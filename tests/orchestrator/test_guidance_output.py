@@ -79,6 +79,8 @@ class TestGuidanceOutput(unittest.TestCase):
         self.assertEqual(guidance["explanation_depth"], "expanded")
         self.assertTrue(guidance["prefer_fewer_files_initially"])
         self.assertEqual(guidance["scaffold_strategy"], "start-small-dendritic")
+        self.assertFalse(guidance["remediation"]["required"])
+        self.assertEqual(guidance["remediation"]["category"], "none")
         self.assertEqual(guidance["immediate_next_action"], result.next_action)
 
     def test_guidance_contract_profiles_expert_users(self) -> None:
@@ -102,6 +104,8 @@ class TestGuidanceOutput(unittest.TestCase):
         self.assertEqual(guidance["explanation_depth"], "compact")
         self.assertTrue(guidance["preserve_existing_structure"])
         self.assertEqual(guidance["scaffold_strategy"], "preserve-and-extend")
+        self.assertFalse(guidance["remediation"]["required"])
+        self.assertEqual(guidance["remediation"]["category"], "none")
         self.assertEqual(guidance["immediate_next_action"], result.next_action)
 
     def test_guidance_contract_defaults_to_intermediate(self) -> None:
@@ -127,6 +131,8 @@ class TestGuidanceOutput(unittest.TestCase):
             guidance["explanation_sections"],
             ("summary", "rationale", "next_step"),
         )
+        self.assertEqual(guidance["validation_failure_stage"], "")
+        self.assertFalse(guidance["conflict_forced_propose"])
 
 
 if __name__ == "__main__":

@@ -50,12 +50,12 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Integrate deterministic patch orchestration into runtime specialist outputs — Phase 5 (05-02)
 - [x] Add runtime validation checkpoints to write-flow execution contract — Phase 5 (05-03)
 - [x] Add skill-adaptive guidance output contract — Phase 6 (06-01)
-- [ ] Strengthen safety/remediation guidance for failed validations and conflicts — Phase 6 (06-02)
+- [x] Strengthen safety/remediation guidance for failed validations and conflicts — Phase 6 (06-02)
 - [ ] Add novice-to-expert journey regression coverage — Phase 6 (06-03)
 
 ### Planned (Next)
 
-- [ ] Complete remaining Phase 6 slices (06-02, 06-03)
+- [ ] Complete remaining Phase 6 slice (06-03)
 
 ### Out of Scope
 
@@ -108,6 +108,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Patch orchestration summary is explicit | Runtime merge must expose deterministic patch metadata for downstream write orchestration | 2026-04-19 | Active |
 | Validation checkpoints are explicit | Apply writes require pre-write gate and post-write checkpoint metadata | 2026-04-20 | Active |
 | Guidance profile is explicit | Output contract must adapt style/depth by user skill level while preserving deterministic next action | 2026-04-20 | Active |
+| Remediation contract is explicit | Guidance must emit structured recovery steps for validation/conflict failures | 2026-04-20 | Active |
 
 ## Success Metrics
 
@@ -137,4 +138,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-20 after Phase 6 plan 06-01 completion*
+*Last updated: 2026-04-20 after Phase 6 plan 06-02 completion*

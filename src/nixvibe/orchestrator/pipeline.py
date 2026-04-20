@@ -142,6 +142,14 @@ def run_pipeline(
         pre_write_validation_report=pre_write_validation_report,
         post_write_validation_report=post_write_validation_report,
     )
+    validation_failure_stage = _validation_failure_stage(
+        pre_write_validation_report=pre_write_validation_report,
+        post_write_validation_report=post_write_validation_report,
+    )
+    conflict_forced_propose = bool(
+        merge_result.forced_mode is Mode.PROPOSE
+        and "Contradictory critical findings" in merge_result.reason
+    )
     guidance_summary = build_guidance_summary(
         user_input=request.user_input,
         context=context,
@@ -149,6 +157,9 @@ def run_pipeline(
         mode=selected_mode,
         next_action=next_action,
         validation_failed=bool(validation_report is not None and not validation_report.success),
+        validation_failure_stage=validation_failure_stage,
+        conflict_forced_propose=conflict_forced_propose,
+        merge_reason=merge_result.reason,
     )
     artifact_summary = dict(artifact_summary)
     artifact_summary["guidance"] = guidance_summary
@@ -392,3 +403,15 @@ def _validation_checkpoint_summaries(
         checkpoint["stage"] = "post_write"
         checkpoints.append(checkpoint)
     return tuple(checkpoints)
+
+
+def _validation_failure_stage(
+    *,
+    pre_write_validation_report: ValidationReport | None,
+    post_write_validation_report: ValidationReport | None,
+) -> str:
+    if pre_write_validation_report is not None and not pre_write_validation_report.success:
+        return "pre_write"
+    if post_write_validation_report is not None and not post_write_validation_report.success:
+        return "post_write"
+    return ""
