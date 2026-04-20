@@ -8,6 +8,7 @@ from typing import Sequence
 from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .checkpoint import build_resume_checkpoint
 from .escalation import build_apply_safety_escalation
+from .explainability import build_policy_decision_explainability
 from .failure import build_run_failure_classification
 from .guardrails import evaluate_high_risk_mutation_guardrails
 from .guidance import build_guidance_summary
@@ -241,6 +242,19 @@ def run_pipeline(
         run_failure_classification=artifact_summary["run_failure_classification"],
         resume_checkpoint=artifact_summary["resume_checkpoint"],
         selected_mode=selected_mode.value,
+    )
+    artifact_summary["policy_decision_explainability"] = build_policy_decision_explainability(
+        route_decision=route_decision,
+        mode_decision=mode_decision,
+        selected_mode=selected_mode,
+        merge_reason=merge_result.reason,
+        mutation_guardrails=mutation_guardrails,
+        apply_safety_escalation=apply_safety_escalation,
+        run_failure_classification=artifact_summary["run_failure_classification"],
+        release_readiness=artifact_summary["release_readiness"],
+        conflict_priority_order=tuple(
+            priority.value for priority in active_policy.conflict.ordered_priorities
+        ),
     )
 
     return OrchestrationResult(

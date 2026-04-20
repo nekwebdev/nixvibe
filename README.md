@@ -614,6 +614,32 @@ Added deterministic retry/backoff guardrails for bounded automatic recovery:
 Additional coverage:
 - `tests/orchestrator/test_retry_backoff_guardrails.py`
 
+## Runtime Orchestration (Phase 11 Policy Explainability Slice)
+
+Added deterministic policy decision explainability surface:
+- Explainability contract emitted as `artifact_summary.policy_decision_explainability`:
+  - `contract`
+  - `final_route`
+  - `final_mode`
+  - `selected_mode_changed`
+  - `conflict_priority_order`
+  - `decisions`
+  - `decision_count`
+  - `blocked_stages`
+  - `summary`
+- Decision trace stages:
+  - `route-selection`
+  - `mode-resolution`
+  - `merge-resolution`
+  - `mutation-guardrails`
+  - `safety-escalation`
+  - `run-failure-classification`
+  - `release-readiness`
+- Explainability output is deterministic and machine-readable for operator diagnostics and downstream policy surfaces.
+
+Additional coverage:
+- `tests/orchestrator/test_policy_decision_explainability.py`
+
 ## Output Artifacts
 
 Primary artifacts:

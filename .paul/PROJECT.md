@@ -66,10 +66,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add run failure classification contract — Phase 10 (10-01)
 - [x] Add resume-safe checkpoint contract — Phase 10 (10-02)
 - [x] Add retry/backoff orchestration guardrails — Phase 10 (10-03)
+- [x] Add policy decision explainability contract — Phase 11 (11-01)
 
 ### Planned (Next)
 
-- [ ] Execute Phase 11 slices (11-01, 11-02, 11-03)
+- [ ] Execute remaining Phase 11 slices (11-02, 11-03)
 
 ### Out of Scope
 
@@ -136,6 +137,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Run failure classification is explicit | Every run must emit deterministic failure class and severity mapping for reliability handling | 2026-04-20 | Active |
 | Resume-safe checkpoints are explicit | Every run must emit deterministic resume-stage and safe-next-action metadata for recovery flows | 2026-04-20 | Active |
 | Retry/backoff guardrails are explicit | Every run must emit bounded retry policy and stop conditions for safe automatic recovery | 2026-04-20 | Active |
+| Policy decision explainability is explicit | Every run must emit deterministic stage-level decision traces for operator diagnostics | 2026-04-20 | Active |
 
 ## Success Metrics
 
@@ -165,4 +167,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-20 after Phase 10 plan 10-03 completion*
+*Last updated: 2026-04-20 after Phase 11 plan 11-01 completion*

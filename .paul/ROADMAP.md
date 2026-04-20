@@ -15,7 +15,7 @@ Phases: 1 of 3 complete
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
 | 10 | Runtime Reliability and Resume | 3 (`10-01`, `10-02`, `10-03`) | ✅ Complete | 2026-04-20 |
-| 11 | Operator Policy and Controls | 3 (`11-01`, `11-02`, `11-03`) | Not started | - |
+| 11 | Operator Policy and Controls | 3 (`11-01`, `11-02`, `11-03`) | 🚧 In progress | - |
 | 12 | Release Delivery and Milestone Closeout | 3 (`12-01`, `12-02`, `12-03`) | Not started | - |
 
 ## Phase Details
@@ -48,7 +48,7 @@ Phases: 1 of 3 complete
 - Operator-facing policy/audit trail summaries
 
 **Plans:**
-- [ ] 11-01: Policy decision explainability contract
+- [x] 11-01: Policy decision explainability contract
 - [ ] 11-02: Controlled override workflow contract
 - [ ] 11-03: Operator audit-trail summary integration
 
