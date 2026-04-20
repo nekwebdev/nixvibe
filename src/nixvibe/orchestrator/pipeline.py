@@ -204,7 +204,8 @@ def _build_artifact_summary(
 def _context_profile_summary(context: RepoContext):
     snapshot = context.workspace_snapshot
     reference = context.reference_profile
-    if snapshot is None and reference is None:
+    adaptation = context.reference_adaptation
+    if snapshot is None and reference is None and adaptation is None:
         return None
 
     profile: dict[str, object] = {}
@@ -228,6 +229,14 @@ def _context_profile_summary(context: RepoContext):
             "module_count": len(reference.module_paths),
             "validation_patterns": reference.validation_patterns,
             "notes": reference.notes,
+        }
+    if adaptation is not None:
+        profile["reference_adaptation"] = {
+            "strategy": adaptation.strategy,
+            "preserve_existing_structure": adaptation.preserve_existing_structure,
+            "suggested_module_aggregators": adaptation.suggested_module_aggregators,
+            "suggested_validation_commands": adaptation.suggested_validation_commands,
+            "notes": adaptation.notes,
         }
     return profile
 

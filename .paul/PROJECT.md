@@ -44,13 +44,14 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 ### Active (In Progress)
 
 - [x] Add bounded workspace intake and reference adaptation baseline for real repo contexts — Phase 4 (04-01)
-- [ ] Extend reference adaptation and intake-driven context handoff to specialist dispatch
+- [x] Extend reference adaptation with typed strategy and summary output contract — Phase 4 (04-02)
+- [ ] Complete intake-driven context handoff to specialist dispatch — Phase 4 (04-03)
 - [ ] Introduce runtime specialist execution path for concrete task runners
 - [ ] Strengthen user-facing guidance guardrails across skill levels
 
 ### Planned (Next)
 
-- [ ] Continue Phase 4 with 04-02 and 04-03 integration slices
+- [ ] Complete Phase 4 with 04-03 specialist-dispatch context integration
 - [ ] Plan and execute Phase 5 (runtime agent execution + patch orchestration)
 - [ ] Plan and execute Phase 6 (guidance UX + guardrail hardening)
 
@@ -131,4 +132,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-19 after Phase 4 plan 04-01 completion*
+*Last updated: 2026-04-19 after Phase 4 plan 04-02 completion*

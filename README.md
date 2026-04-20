@@ -201,6 +201,21 @@ Implemented bounded intake helpers for optional workspace/reference context:
 Additional coverage:
 - `tests/orchestrator/test_workspace_intake.py`
 
+## Runtime Orchestration (Phase 4 Reference Adaptation Slice)
+
+Implemented reference-adaptation integration on top of workspace intake:
+- Added typed `reference_adaptation` model in `RepoContext` with:
+  - adaptation strategy (`preserve-and-extend` or `bootstrap-from-reference-patterns`)
+  - preserve/extend signal for already-structured workspaces
+  - suggested module aggregator paths
+  - suggested validation commands
+  - explicit adapt-not-copy policy notes
+- Context builder now derives adaptation hints from workspace + optional reference profile.
+- Pipeline summary now emits `context_profile.reference_adaptation` metadata for downstream consumers.
+
+Additional coverage:
+- `tests/orchestrator/test_reference_adaptation.py`
+
 ## Output Artifacts
 
 Primary artifacts:

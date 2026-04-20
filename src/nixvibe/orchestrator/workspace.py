@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 from typing import Iterable
 
-from .types import ReferenceProfile, RepoContext, WorkspaceSnapshot
+from .types import ReferenceAdaptation, ReferenceProfile, RepoContext, WorkspaceSnapshot
 
 _IGNORED_DIRS = {
     ".git",
@@ -34,6 +34,14 @@ def build_repo_context(
         if reference_root is not None
         else None
     )
+    reference_adaptation = (
+        derive_reference_adaptation(
+            workspace_snapshot=snapshot,
+            reference_profile=reference_profile,
+        )
+        if reference_profile is not None
+        else None
+    )
     existing_config_present = snapshot.flake_present or snapshot.nix_file_count > 0
     usable_nix_structure_present = bool(
         snapshot.flake_present
@@ -48,6 +56,7 @@ def build_repo_context(
         repository_state=repository_state,
         workspace_snapshot=snapshot,
         reference_profile=reference_profile,
+        reference_adaptation=reference_adaptation,
     )
 
 
@@ -111,6 +120,40 @@ def inspect_reference(
         flake_present=flake_present,
         module_paths=module_paths,
         validation_patterns=validation_patterns,
+        notes=notes,
+    )
+
+
+def derive_reference_adaptation(
+    *,
+    workspace_snapshot: WorkspaceSnapshot,
+    reference_profile: ReferenceProfile,
+) -> ReferenceAdaptation:
+    preserve_existing_structure = bool(
+        workspace_snapshot.module_paths
+        or workspace_snapshot.has_hosts_tree
+        or workspace_snapshot.has_home_tree
+    )
+    strategy = "preserve-and-extend" if preserve_existing_structure else "bootstrap-from-reference-patterns"
+    suggested_module_aggregators = _suggested_module_aggregators(reference_profile)
+    suggested_validation_commands = (
+        reference_profile.validation_patterns
+        if reference_profile.validation_patterns
+        else ("nix flake check", "nix fmt")
+    )
+    notes = tuple(
+        dict.fromkeys(
+            (
+                "Inspect and emulate structure, conventions, and validation patterns from user-provided path; adapt to target constraints; never blindly copy.",
+                *reference_profile.notes,
+            )
+        )
+    )
+    return ReferenceAdaptation(
+        strategy=strategy,
+        preserve_existing_structure=preserve_existing_structure,
+        suggested_module_aggregators=suggested_module_aggregators,
+        suggested_validation_commands=suggested_validation_commands,
         notes=notes,
     )
 
@@ -179,3 +222,19 @@ def _read_text(path: Path) -> str:
         return path.read_text(encoding="utf-8", errors="ignore")
     except OSError:
         return ""
+
+
+def _suggested_module_aggregators(reference_profile: ReferenceProfile) -> tuple[str, ...]:
+    canonical = (
+        "modules/core/default.nix",
+        "modules/roles/default.nix",
+        "modules/services/default.nix",
+    )
+    from_reference = tuple(
+        path
+        for path in canonical
+        if path in reference_profile.module_paths
+    )
+    if from_reference:
+        return from_reference
+    return canonical

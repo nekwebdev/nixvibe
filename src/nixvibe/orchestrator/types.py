@@ -85,6 +85,15 @@ class ReferenceProfile:
 
 
 @dataclass(frozen=True)
+class ReferenceAdaptation:
+    strategy: str
+    preserve_existing_structure: bool
+    suggested_module_aggregators: Tuple[str, ...]
+    suggested_validation_commands: Tuple[str, ...]
+    notes: Tuple[str, ...]
+
+
+@dataclass(frozen=True)
 class RepoContext:
     existing_config_present: bool | None = None
     usable_nix_structure_present: bool | None = None
@@ -92,6 +101,7 @@ class RepoContext:
     repository_state: str = "unknown"
     workspace_snapshot: WorkspaceSnapshot | None = None
     reference_profile: ReferenceProfile | None = None
+    reference_adaptation: ReferenceAdaptation | None = None
 
 
 @dataclass(frozen=True)

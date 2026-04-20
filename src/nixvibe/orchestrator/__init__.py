@@ -15,7 +15,12 @@ from .policy_loader import (
 from .router import select_route
 from .specialists import run_specialists
 from .validation import run_validation
-from .workspace import build_repo_context, inspect_reference, snapshot_workspace
+from .workspace import (
+    build_repo_context,
+    derive_reference_adaptation,
+    inspect_reference,
+    snapshot_workspace,
+)
 from .types import (
     ArtifactBundle,
     ArtifactFile,
@@ -28,6 +33,7 @@ from .types import (
     OrchestrationPolicy,
     OrchestrationRequest,
     Priority,
+    ReferenceAdaptation,
     ReferenceProfile,
     RecommendationPriority,
     RepoContext,
@@ -64,6 +70,7 @@ __all__ = [
     "PolicyLoadError",
     "PolicyValidationError",
     "Priority",
+    "ReferenceAdaptation",
     "ReferenceProfile",
     "RecommendationPriority",
     "RepoContext",
@@ -82,6 +89,7 @@ __all__ = [
     "ValidationReport",
     "WorkspaceSnapshot",
     "build_repo_context",
+    "derive_reference_adaptation",
     "inspect_reference",
     "load_policy",
     "generate_artifact_bundle",
