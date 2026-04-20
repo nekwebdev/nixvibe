@@ -13,7 +13,7 @@ from .policy_loader import (
     load_policy,
 )
 from .router import select_route
-from .specialists import run_specialists
+from .specialists import build_dispatch_context, run_specialists, with_dispatch_context
 from .validation import run_validation
 from .workspace import (
     build_repo_context,
@@ -42,6 +42,7 @@ from .types import (
     Severity,
     SpecialistExecutionOutcome,
     SpecialistExecutionResult,
+    SpecialistDispatchContext,
     SpecialistFinding,
     SpecialistPayload,
     SpecialistRecommendation,
@@ -79,6 +80,7 @@ __all__ = [
     "Severity",
     "SpecialistExecutionOutcome",
     "SpecialistExecutionResult",
+    "SpecialistDispatchContext",
     "SpecialistFinding",
     "SpecialistPayload",
     "SpecialistRecommendation",
@@ -89,6 +91,7 @@ __all__ = [
     "ValidationReport",
     "WorkspaceSnapshot",
     "build_repo_context",
+    "build_dispatch_context",
     "derive_reference_adaptation",
     "inspect_reference",
     "load_policy",
@@ -99,6 +102,7 @@ __all__ = [
     "resolve_mode",
     "run_pipeline",
     "run_specialists",
+    "with_dispatch_context",
     "run_validation",
     "snapshot_workspace",
     "select_route",

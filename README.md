@@ -216,6 +216,24 @@ Implemented reference-adaptation integration on top of workspace intake:
 Additional coverage:
 - `tests/orchestrator/test_reference_adaptation.py`
 
+## Runtime Orchestration (Phase 4 Dispatch Wiring Slice)
+
+Implemented intake-driven specialist dispatch context wiring:
+- Added typed specialist dispatch context contract carrying:
+  - resolved route/mode
+  - repository-state flags
+  - optional workspace snapshot/reference profile/adaptation signals
+- Pipeline now:
+  - builds dispatch context from request + route/mode + repo context
+  - attaches context to specialist tasks before parallel execution
+  - records dispatch metadata in artifact summary
+- Specialist runtime remains backward compatible:
+  - context-aware runners can accept one dispatch-context argument
+  - existing zero-arg runners still execute without changes
+
+Additional coverage:
+- `tests/orchestrator/test_specialist_dispatch_context.py`
+
 ## Output Artifacts
 
 Primary artifacts:

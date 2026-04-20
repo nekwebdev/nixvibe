@@ -8,15 +8,15 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 **v0.2 Execution and Context Expansion** (v0.2.0)
 Status: 🚧 In progress
-Phases: 0 of 3 complete
+Phases: 1 of 3 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 4 | Workspace Intake and Reference Adaptation | 2 (`04-01`, `04-02`) | In progress | - |
-| 5 | Runtime Agent Execution and Patch Orchestration | TBD | Not started | - |
-| 6 | Guidance UX and Safety Guardrails | TBD | Not started | - |
+| 4 | Workspace Intake and Reference Adaptation | 3 (`04-01`, `04-02`, `04-03`) | ✅ Complete | 2026-04-19 |
+| 5 | Runtime Agent Execution and Patch Orchestration | 3 (`05-01`, `05-02`, `05-03`) | Not started | - |
+| 6 | Guidance UX and Safety Guardrails | 3 (`06-01`, `06-02`, `06-03`) | Not started | - |
 
 ## Phase Details
 
@@ -34,7 +34,7 @@ Phases: 0 of 3 complete
 **Plans:**
 - [x] 04-01: Bounded workspace/reference profile intake baseline
 - [x] 04-02: Reference adaptation policy integration
-- [ ] 04-03: Intake-driven specialist dispatch context wiring
+- [x] 04-03: Intake-driven specialist dispatch context wiring
 
 ### Phase 5: Runtime Agent Execution and Patch Orchestration
 
@@ -47,6 +47,11 @@ Phases: 0 of 3 complete
 - Patch proposal pipeline hardening (propose/apply boundaries)
 - Validation preflight/checkpoint integration for write paths
 
+**Plans:**
+- [ ] 05-01: Runtime specialist execution contract
+- [ ] 05-02: Patch orchestration integration
+- [ ] 05-03: Validation checkpoints in write flows
+
 ### Phase 6: Guidance UX and Safety Guardrails
 
 **Goal:** Improve user-facing guidance quality across skill levels while preserving safety gates.
@@ -57,6 +62,11 @@ Phases: 0 of 3 complete
 - Skill-adaptive explanation output structure
 - Stronger remediation output for failed validations/conflicts
 - Journey-level regression scenarios for novice-to-expert interactions
+
+**Plans:**
+- [ ] 06-01: Skill-adaptive output contract
+- [ ] 06-02: Safety/remediation guidance hardening
+- [ ] 06-03: Novice-to-expert journey regressions
 
 ## Completed Milestones
 

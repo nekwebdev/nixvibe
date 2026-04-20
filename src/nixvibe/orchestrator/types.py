@@ -163,7 +163,24 @@ class SpecialistPayload:
     timestamp: str
 
 
-SpecialistRunner = Callable[[], Mapping[str, Any] | SpecialistPayload]
+@dataclass(frozen=True)
+class SpecialistDispatchContext:
+    requested_mode: Mode | str | None
+    resolved_route: Route
+    resolved_mode: Mode
+    repository_state: str
+    existing_config_present: bool | None
+    usable_nix_structure_present: bool | None
+    request_is_change: bool | None
+    workspace_snapshot: WorkspaceSnapshot | None = None
+    reference_profile: ReferenceProfile | None = None
+    reference_adaptation: ReferenceAdaptation | None = None
+
+
+SpecialistRunner = (
+    Callable[[], Mapping[str, Any] | SpecialistPayload]
+    | Callable[[SpecialistDispatchContext], Mapping[str, Any] | SpecialistPayload]
+)
 
 
 @dataclass(frozen=True)
@@ -171,6 +188,7 @@ class SpecialistTask:
     agent_id: str
     task_scope: str
     runner: SpecialistRunner
+    dispatch_context: SpecialistDispatchContext | None = None
 
 
 @dataclass(frozen=True)

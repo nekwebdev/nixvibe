@@ -11,7 +11,7 @@ from .modes import resolve_mode
 from .payloads import PayloadValidationError, validate_payload
 from .policy_loader import load_policy
 from .router import select_route
-from .specialists import run_specialists
+from .specialists import build_dispatch_context, run_specialists, with_dispatch_context
 from .types import (
     Mode,
     OrchestrationPolicy,
@@ -48,7 +48,17 @@ def run_pipeline(
         explicit_apply_opt_in=request.explicit_apply_opt_in,
     )
 
-    specialist_results = run_specialists(specialist_tasks)
+    dispatch_context = build_dispatch_context(
+        request=request,
+        context=context,
+        route_decision=route_decision,
+        mode_decision=mode_decision,
+    )
+    dispatch_tasks = with_dispatch_context(
+        specialist_tasks,
+        dispatch_context=dispatch_context,
+    )
+    specialist_results = run_specialists(dispatch_tasks)
     validated_results = _validate_specialist_results(specialist_results)
 
     valid_payloads = tuple(
@@ -90,6 +100,8 @@ def run_pipeline(
     artifact_summary = _build_artifact_summary(
         base_summary=merge_result.artifact_summary,
         context=context,
+        dispatch_context=dispatch_context,
+        dispatch_task_count=len(dispatch_tasks),
         route=route_decision.route.value,
         generated_files=tuple(file.path for file in artifact_bundle.files),
         proposed_files=tuple(file.path for file in materialization_result.proposed_files),
@@ -158,6 +170,8 @@ def _build_artifact_summary(
     *,
     base_summary,
     context: RepoContext,
+    dispatch_context,
+    dispatch_task_count: int,
     route: str,
     generated_files: tuple[str, ...],
     proposed_files: tuple[str, ...],
@@ -175,6 +189,14 @@ def _build_artifact_summary(
             "proposed_files": proposed_files,
             "written_files": written_files,
             "write_performed": bool(written_files),
+            "specialist_dispatch": {
+                "route": dispatch_context.resolved_route.value,
+                "mode": dispatch_context.resolved_mode.value,
+                "task_count": dispatch_task_count,
+                "repository_state": dispatch_context.repository_state,
+                "has_workspace_snapshot": dispatch_context.workspace_snapshot is not None,
+                "has_reference_adaptation": dispatch_context.reference_adaptation is not None,
+            },
         }
     )
     context_profile = _context_profile_summary(context)
