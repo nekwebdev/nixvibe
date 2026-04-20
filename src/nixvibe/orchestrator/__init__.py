@@ -16,6 +16,7 @@ from .policy_loader import (
     PolicyValidationError,
     load_policy,
 )
+from .recovery import build_recovery_playbook
 from .runtime import (
     RuntimeSpecialistContractError,
     default_runtime_contract,
@@ -112,6 +113,7 @@ __all__ = [
     "WorkspaceSnapshot",
     "build_repo_context",
     "build_apply_safety_escalation",
+    "build_recovery_playbook",
     "build_dispatch_context",
     "build_guidance_summary",
     "default_runtime_contract",

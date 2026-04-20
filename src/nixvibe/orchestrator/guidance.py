@@ -52,6 +52,7 @@ def build_guidance_summary(
     merge_reason: str,
     ledger_summary: dict[str, object],
     apply_safety_escalation: dict[str, object],
+    recovery_playbook: dict[str, object],
 ) -> dict[str, object]:
     skill_level = infer_skill_level(user_input)
     response_style, explanation_depth, explanation_sections = _guidance_profile(skill_level)
@@ -100,6 +101,10 @@ def build_guidance_summary(
         "ledger_action_hint": ledger_action_hint,
         "apply_safety_tier": str(apply_safety_escalation.get("tier") or "none"),
         "apply_safety_reason": str(apply_safety_escalation.get("reason") or ""),
+        "recovery_required": bool(recovery_playbook.get("required")),
+        "recovery_stage": str(recovery_playbook.get("stage") or "none"),
+        "recovery_strategy": str(recovery_playbook.get("strategy") or "none"),
+        "recovery_reversible": bool(recovery_playbook.get("reversible", True)),
         "remediation": remediation,
         "immediate_next_action": next_action,
     }

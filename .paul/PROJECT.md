@@ -57,10 +57,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add change classification and drift signals — Phase 7 (07-02)
 - [x] Add ledger-aware guidance/next-action tuning — Phase 7 (07-03)
 - [x] Add apply safety escalation tier contract — Phase 8 (08-01)
+- [x] Add recovery playbook contract integration — Phase 8 (08-02)
 
 ### Planned (Next)
 
-- [ ] Execute remaining Phase 8 slices (08-02, 08-03)
+- [ ] Execute remaining Phase 8 slices (08-03)
 
 ### Out of Scope
 
@@ -119,6 +120,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Ledger drift signals are explicit | Change classification and drift severity must be deterministic for policy consumers | 2026-04-20 | Active |
 | Ledger-aware actions are explicit | Next-action and guidance should tune behavior using ledger drift intelligence | 2026-04-20 | Active |
 | Apply safety escalation is explicit | Apply-mode outcomes must emit deterministic escalation tiers with recovery intent | 2026-04-20 | Active |
+| Recovery playbooks are explicit | Apply-time failures must produce deterministic reversible recovery strategies | 2026-04-20 | Active |
 
 ## Success Metrics
 

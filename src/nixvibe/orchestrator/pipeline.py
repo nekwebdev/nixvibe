@@ -13,6 +13,7 @@ from .merge import merge_specialist_payloads
 from .modes import resolve_mode
 from .payloads import PayloadValidationError, validate_payload
 from .policy_loader import load_policy
+from .recovery import build_recovery_playbook
 from .runtime import RuntimeSpecialistContractError, plan_runtime_specialists
 from .router import select_route
 from .specialists import build_dispatch_context, run_specialists, with_dispatch_context
@@ -163,6 +164,12 @@ def run_pipeline(
         conflict_forced_propose=conflict_forced_propose,
         ledger_summary=ledger_summary,
     )
+    recovery_playbook = build_recovery_playbook(
+        escalation=apply_safety_escalation,
+        mode=selected_mode,
+        next_action=next_action,
+        ledger_summary=ledger_summary,
+    )
     guidance_summary = build_guidance_summary(
         user_input=request.user_input,
         context=context,
@@ -175,9 +182,11 @@ def run_pipeline(
         merge_reason=merge_result.reason,
         ledger_summary=ledger_summary,
         apply_safety_escalation=apply_safety_escalation,
+        recovery_playbook=recovery_playbook,
     )
     artifact_summary = dict(artifact_summary)
     artifact_summary["apply_safety_escalation"] = apply_safety_escalation
+    artifact_summary["recovery_playbook"] = recovery_playbook
     artifact_summary["guidance"] = guidance_summary
 
     return OrchestrationResult(

@@ -49,7 +49,7 @@ Phases: 1 of 3 complete
 
 **Plans:**
 - [x] 08-01: Apply escalation tier contract
-- [ ] 08-02: Recovery playbook integration
+- [x] 08-02: Recovery playbook integration
 - [ ] 08-03: High-risk mutation guardrail regressions
 
 ### Phase 9: Operator Surfaces and Release Ops

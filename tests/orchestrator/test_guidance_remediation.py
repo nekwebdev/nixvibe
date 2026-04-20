@@ -86,10 +86,16 @@ class TestGuidanceRemediation(unittest.TestCase):
 
         guidance = result.artifact_summary["guidance"]
         remediation = guidance["remediation"]
+        playbook = result.artifact_summary["recovery_playbook"]
         self.assertEqual(guidance["validation_failure_stage"], "pre_write")
         self.assertTrue(remediation["required"])
         self.assertEqual(remediation["category"], "validation-pre-write")
         self.assertIn("pre_write_validation_failed", remediation["blockers"])
+        self.assertTrue(playbook["required"])
+        self.assertEqual(playbook["stage"], "validation-pre-write")
+        self.assertEqual(playbook["strategy"], "fix-before-apply")
+        self.assertTrue(guidance["recovery_required"])
+        self.assertEqual(guidance["recovery_stage"], "validation-pre-write")
 
     def test_post_write_validation_failure_emits_post_write_remediation(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -122,11 +128,16 @@ class TestGuidanceRemediation(unittest.TestCase):
 
         guidance = result.artifact_summary["guidance"]
         remediation = guidance["remediation"]
+        playbook = result.artifact_summary["recovery_playbook"]
         self.assertEqual(result.selected_mode, Mode.APPLY)
         self.assertEqual(guidance["validation_failure_stage"], "post_write")
         self.assertTrue(remediation["required"])
         self.assertEqual(remediation["category"], "validation-post-write")
         self.assertIn("post_write_validation_failed", remediation["blockers"])
+        self.assertTrue(playbook["required"])
+        self.assertEqual(playbook["stage"], "validation-post-write")
+        self.assertEqual(playbook["strategy"], "stabilize-after-write")
+        self.assertEqual(guidance["recovery_stage"], "validation-post-write")
 
     def test_conflict_forced_propose_emits_conflict_remediation(self) -> None:
         result = run_pipeline(
@@ -166,11 +177,16 @@ class TestGuidanceRemediation(unittest.TestCase):
 
         guidance = result.artifact_summary["guidance"]
         remediation = guidance["remediation"]
+        playbook = result.artifact_summary["recovery_playbook"]
         self.assertEqual(result.selected_mode, Mode.PROPOSE)
         self.assertTrue(guidance["conflict_forced_propose"])
         self.assertTrue(remediation["required"])
         self.assertEqual(remediation["category"], "conflict-critical")
         self.assertIn("critical_conflict_unresolved", remediation["blockers"])
+        self.assertTrue(playbook["required"])
+        self.assertEqual(playbook["stage"], "conflict-critical")
+        self.assertEqual(playbook["strategy"], "resolve-critical-contradiction")
+        self.assertEqual(guidance["recovery_stage"], "conflict-critical")
 
 
 if __name__ == "__main__":

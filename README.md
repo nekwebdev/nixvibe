@@ -416,6 +416,38 @@ Introduced a deterministic apply-safety escalation contract:
 Additional coverage:
 - `tests/orchestrator/test_apply_safety_escalation.py`
 
+## Runtime Orchestration (Phase 8 Recovery Playbook Slice)
+
+Integrated a structured recovery playbook contract for apply-time safety outcomes:
+- Recovery playbook emitted as `artifact_summary.recovery_playbook`:
+  - `required`
+  - `stage`
+  - `severity`
+  - `strategy`
+  - `reversible`
+  - `suggested_mode`
+  - `actions`
+  - `validation_commands`
+  - `checkpoint_required`
+  - `next_step`
+  - `source_tier`
+  - `source_reason`
+- Recovery stages now map deterministic escalation reasons:
+  - `validation-pre-write`
+  - `validation-post-write`
+  - `conflict-critical`
+  - `advisory-checkpoint`
+  - `none`
+- Guidance contract now carries recovery surface fields:
+  - `recovery_required`
+  - `recovery_stage`
+  - `recovery_strategy`
+  - `recovery_reversible`
+
+Additional coverage:
+- `tests/orchestrator/test_recovery_playbook.py`
+- `tests/orchestrator/test_guidance_remediation.py`
+
 ## Output Artifacts
 
 Primary artifacts:
