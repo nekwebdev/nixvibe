@@ -65,7 +65,7 @@ Phases: 2 of 3 complete
 
 **Plans:**
 - [x] 12-01: Release artifact manifest/checklist contract
-- [ ] 12-02: Automated release-check command contract
+- [x] 12-02: Automated release-check command contract
 - [ ] 12-03: End-to-end v0.4 acceptance and closeout
 
 ## Completed Milestones

@@ -723,6 +723,30 @@ Added release artifact manifest/checklist contract:
 Additional coverage:
 - `tests/orchestrator/test_release_artifact_manifest.py`
 
+## Runtime Orchestration (Phase 12 Release-Check Command Slice)
+
+Added automated release-check command contract:
+- Release check emitted as `artifact_summary.release_check_command`:
+  - `contract`
+  - `command`
+  - `script_exists`
+  - `release_ready`
+  - `executed`
+  - `status` (`skipped`, `pending`, `passed`, `failed`)
+  - `reason`
+  - `exit_code`
+  - `stdout`
+  - `stderr`
+  - `ready_for_tagging`
+  - `next_action`
+- Behavior:
+  - skipped when manifest is not ready or script is missing
+  - pending when manifest is ready but no runner is attached
+  - passed/failed when runner executes command
+
+Additional coverage:
+- `tests/orchestrator/test_release_check_command.py`
+
 ## Output Artifacts
 
 Primary artifacts:

@@ -200,6 +200,7 @@ class TestAcceptanceFlows(unittest.TestCase):
         self.assertIn("controlled_override_workflow", result.artifact_summary)
         self.assertIn("operator_audit_trail", result.artifact_summary)
         self.assertIn("release_artifact_manifest", result.artifact_summary)
+        self.assertIn("release_check_command", result.artifact_summary)
         self.assertTrue(result.next_action.strip())
 
 

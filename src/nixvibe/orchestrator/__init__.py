@@ -24,6 +24,7 @@ from .policy_loader import (
     load_policy,
 )
 from .release import build_release_readiness
+from .release_check import build_release_check_command_contract, default_release_check_runner
 from .release_manifest import build_release_artifact_manifest
 from .recovery import build_recovery_playbook
 from .retry import build_retry_backoff_guardrails
@@ -131,6 +132,7 @@ __all__ = [
     "build_recovery_playbook",
     "build_operator_run_manifest",
     "build_release_readiness",
+    "build_release_check_command_contract",
     "build_release_artifact_manifest",
     "build_retry_backoff_guardrails",
     "build_dispatch_context",
@@ -155,6 +157,7 @@ __all__ = [
     "run_specialists",
     "with_dispatch_context",
     "run_validation",
+    "default_release_check_runner",
     "snapshot_workspace",
     "select_route",
     "validate_payload",

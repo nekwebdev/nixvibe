@@ -21,6 +21,7 @@ from .override import build_controlled_override_workflow
 from .payloads import PayloadValidationError, validate_payload
 from .policy_loader import load_policy
 from .release import build_release_readiness
+from .release_check import build_release_check_command_contract
 from .release_manifest import build_release_artifact_manifest
 from .recovery import build_recovery_playbook
 from .retry import build_retry_backoff_guardrails
@@ -55,6 +56,7 @@ def run_pipeline(
     policy: OrchestrationPolicy | None = None,
     workspace_root: str | Path = ".",
     validation_runner: CommandRunner | None = None,
+    release_check_runner: CommandRunner | None = None,
     runtime_contract: RuntimeSpecialistContract | None = None,
     runtime_handlers: RuntimeSpecialistHandlerRegistry | None = None,
 ) -> OrchestrationResult:
@@ -284,6 +286,11 @@ def run_pipeline(
         written_files=materialization_result.written_paths,
         release_readiness=artifact_summary["release_readiness"],
         operator_audit_trail=artifact_summary["operator_audit_trail"],
+    )
+    artifact_summary["release_check_command"] = build_release_check_command_contract(
+        workspace_root=workspace_root,
+        release_artifact_manifest=artifact_summary["release_artifact_manifest"],
+        command_runner=release_check_runner,
     )
 
     return OrchestrationResult(
