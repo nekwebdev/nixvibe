@@ -89,10 +89,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add alert-aware policy gate integration contract — Phase 17 (17-02)
 - [x] Add end-to-end alert/policy acceptance and phase closeout artifacts — Phase 17 (17-03)
 - [x] Add release candidate evidence bundle contract — Phase 18 (18-01)
+- [x] Add v0.6 readiness summary integration contract — Phase 18 (18-02)
 
 ### Planned (Next)
 
-- [ ] Execute remaining v0.6 plans (`18-02` to `18-03`)
+- [ ] Execute remaining v0.6 plans (`18-03`)
 - [ ] Define and scaffold milestone path from v0.6 to v1.0
 
 ### Out of Scope
@@ -180,6 +181,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Alert policy gates are explicit | Every run must emit deterministic apply/release gate outcomes derived from alert and safety context | 2026-04-21 | Active |
 | Alert-policy acceptance is explicit | Phase closeout requires deterministic warning/healthy/critical end-to-end acceptance coverage | 2026-04-21 | Active |
 | Release candidate evidence is explicit | Every run must emit deterministic release-candidate evidence readiness from release/alert/policy signals | 2026-04-21 | Active |
+| v0.6 readiness summary is explicit | Every run must emit deterministic milestone readiness band and blocker summary metadata | 2026-04-21 | Active |
 
 ## Success Metrics
 
@@ -209,4 +211,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-21 after Phase 18 plan 18-01 completion*
+*Last updated: 2026-04-21 after Phase 18 plan 18-02 completion*

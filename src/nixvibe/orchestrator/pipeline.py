@@ -43,6 +43,7 @@ from .router import select_route
 from .specialists import build_dispatch_context, run_specialists, with_dispatch_context
 from .telemetry import build_run_telemetry
 from .telemetry_regression import build_telemetry_regression_report
+from .v06_readiness_summary import build_v06_readiness_summary
 from .types import (
     Mode,
     OrchestrationPolicy,
@@ -416,6 +417,12 @@ def run_pipeline(
         workspace_root=workspace_root,
         release_artifact_manifest=artifact_summary["release_artifact_manifest"],
         command_runner=release_check_runner,
+    )
+    artifact_summary["v06_readiness_summary"] = build_v06_readiness_summary(
+        release_candidate_evidence=artifact_summary["release_candidate_evidence"],
+        release_check_command=artifact_summary["release_check_command"],
+        release_readiness=artifact_summary["release_readiness"],
+        alert_policy_gate=artifact_summary["alert_policy_gate"],
     )
 
     return OrchestrationResult(

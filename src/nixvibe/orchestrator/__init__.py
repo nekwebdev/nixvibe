@@ -49,6 +49,7 @@ from .router import select_route
 from .specialists import build_dispatch_context, run_specialists, with_dispatch_context
 from .telemetry import build_run_telemetry
 from .telemetry_regression import build_telemetry_regression_report
+from .v06_readiness_summary import build_v06_readiness_summary
 from .validation import run_validation
 from .workspace import (
     build_repo_context,
@@ -160,6 +161,7 @@ __all__ = [
     "build_release_artifact_manifest",
     "build_retry_backoff_guardrails",
     "build_run_telemetry",
+    "build_v06_readiness_summary",
     "build_telemetry_regression_report",
     "build_dispatch_context",
     "build_guidance_summary",

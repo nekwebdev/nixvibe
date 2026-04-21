@@ -1066,6 +1066,22 @@ Added deterministic release-candidate evidence bundle contract:
 Additional coverage:
 - `tests/orchestrator/test_release_candidate_evidence.py`
 
+## Runtime Orchestration (Phase 18 v0.6 Readiness Summary Slice)
+
+Added deterministic v0.6 readiness summary contract:
+- v0.6 readiness summary emitted as `artifact_summary.v06_readiness_summary`:
+  - `contract`
+  - `readiness_band` (`ready`, `hold`, `blocked`)
+  - blocker list and blocker count
+  - contract health checks and failed check IDs
+- Readiness summary integrates:
+  - release candidate evidence readiness category
+  - release-check command status
+  - release readiness and alert policy gate context
+
+Additional coverage:
+- `tests/orchestrator/test_v06_readiness_summary.py`
+
 ## Output Artifacts
 
 Primary artifacts:

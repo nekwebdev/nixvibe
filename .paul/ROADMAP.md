@@ -65,7 +65,7 @@ Phases: 2 of 3 complete
 
 **Plans:**
 - [x] 18-01: Release candidate evidence bundle contract
-- [ ] 18-02: v0.6 readiness summary integration
+- [x] 18-02: v0.6 readiness summary integration
 - [ ] 18-03: End-to-end v0.6 acceptance and milestone closeout
 
 ## Completed Milestones
