@@ -96,10 +96,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add release policy execution integration contract for release flow — Phase 19 (19-02)
 - [x] Add end-to-end release automation acceptance and phase closeout artifacts — Phase 19 (19-03)
 - [x] Add operator observability digest contract — Phase 20 (20-01)
+- [x] Add governance hardening escalation contract — Phase 20 (20-02)
 
 ### Planned (Next)
 
-- [ ] Execute remaining v0.7 plans (`20-02` to `21-03`)
+- [ ] Execute remaining v0.7 plans (`20-03` to `21-03`)
 - [ ] Define and scaffold milestone path from v0.7 to v1.0
 
 ### Out of Scope
@@ -193,6 +194,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Release policy execution is explicit | Every run must emit deterministic automated/manual/blocking release policy execution outcomes | 2026-04-21 | Active |
 | Release automation acceptance is explicit | Phase closeout requires deterministic hold/automated/override-blocked end-to-end acceptance coverage | 2026-04-21 | Active |
 | Operator observability digest is explicit | Every run must emit deterministic observability banding and focus actions from operator runtime signals | 2026-04-21 | Active |
+| Governance hardening escalation is explicit | Every run must emit deterministic governance escalation posture from observability, policy, override, and safety signals | 2026-04-21 | Active |
 
 ## Success Metrics
 
@@ -222,4 +224,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-21 after Phase 20 plan 20-01 completion*
+*Last updated: 2026-04-21 after Phase 20 plan 20-02 completion*

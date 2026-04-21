@@ -21,6 +21,7 @@ from .benchmark_scenarios import build_benchmark_scenario_catalog
 from .escalation import build_apply_safety_escalation
 from .explainability import build_policy_decision_explainability
 from .failure import build_run_failure_classification
+from .governance_hardening_escalation import build_governance_hardening_escalation
 from .guardrails import evaluate_high_risk_mutation_guardrails
 from .guidance import build_guidance_summary
 from .ledger import inspect_git_ledger
@@ -441,6 +442,12 @@ def run_pipeline(
         operator_audit_trail=artifact_summary["operator_audit_trail"],
         run_telemetry=artifact_summary["run_telemetry"],
         release_policy_execution=artifact_summary["release_policy_execution"],
+    )
+    artifact_summary["governance_hardening_escalation"] = build_governance_hardening_escalation(
+        operator_observability_digest=artifact_summary["operator_observability_digest"],
+        release_policy_execution=artifact_summary["release_policy_execution"],
+        controlled_override_workflow=artifact_summary["controlled_override_workflow"],
+        apply_safety_escalation=artifact_summary["apply_safety_escalation"],
     )
 
     return OrchestrationResult(

@@ -1153,6 +1153,23 @@ Added deterministic operator observability digest contract:
 Additional coverage:
 - `tests/orchestrator/test_operator_observability_digest.py`
 
+## Runtime Orchestration (Phase 20 Governance Hardening Escalation Slice)
+
+Added deterministic governance hardening escalation contract:
+- Governance hardening escalation emitted as `artifact_summary.governance_hardening_escalation`:
+  - `contract`
+  - `escalation_level` (`none`, `review`, `escalate`, `critical`)
+  - `governance_posture` (`stable`, `watch`, `harden`, `blocked`)
+  - governance blocker summary and next governance action
+- Escalation decision integrates:
+  - `operator_observability_digest.observability_band`
+  - `release_policy_execution.decision`
+  - `controlled_override_workflow.decision`
+  - `apply_safety_escalation.tier`
+
+Additional coverage:
+- `tests/orchestrator/test_governance_hardening_escalation.py`
+
 ## Output Artifacts
 
 Primary artifacts:

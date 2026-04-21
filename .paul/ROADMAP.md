@@ -49,7 +49,7 @@ Phases: 1 of 3 complete
 
 **Plans:**
 - [x] 20-01: Operator observability digest contract
-- [ ] 20-02: Governance hardening escalation contract
+- [x] 20-02: Governance hardening escalation contract
 - [ ] 20-03: End-to-end observability/governance acceptance and phase closeout
 
 ### Phase 21: v0.7 Closeout and v1.0 Pathway
