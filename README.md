@@ -1277,6 +1277,23 @@ Closed phase 22 with end-to-end foundation hardening acceptance coverage:
 Additional coverage:
 - `tests/orchestrator/test_phase22_foundation_acceptance.py`
 
+## Runtime Orchestration (Phase 23 Operator Control-Plane Summary Slice)
+
+Added deterministic operator control-plane summary contract:
+- operator control-plane summary emitted as `artifact_summary.operator_control_plane_summary`:
+  - `contract`
+  - `control_plane_status` (`aligned`, `attention`, `blocked`)
+  - blocker summary and failed check IDs
+  - next control-plane action metadata
+- Operator control-plane summary integrates:
+  - `migration_safety_policy.policy_decision`
+  - `governance_hardening_escalation.escalation_level`
+  - `operator_audit_trail.audit_level`
+  - `policy_decision_explainability.blocked_stages`
+
+Additional coverage:
+- `tests/orchestrator/test_operator_control_plane_summary.py`
+
 ## Output Artifacts
 
 Primary artifacts:

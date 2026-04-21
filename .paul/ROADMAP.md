@@ -15,7 +15,7 @@ Phases: 1 of 3 complete
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
 | 22 | v1 Foundation Hardening and Compatibility | 3 (`22-01`, `22-02`, `22-03`) | ✅ Complete | 2026-04-21 |
-| 23 | v1 Operator Control Plane Consolidation | 3 (`23-01`, `23-02`, `23-03`) | Not started | - |
+| 23 | v1 Operator Control Plane Consolidation | 3 (`23-01`, `23-02`, `23-03`) | In progress | - |
 | 24 | v1 General Availability Closeout | 3 (`24-01`, `24-02`, `24-03`) | Not started | - |
 
 ## Phase Details
@@ -48,7 +48,7 @@ Phases: 1 of 3 complete
 - Acceptance coverage for consolidated operator control flows
 
 **Plans:**
-- [ ] 23-01: operator control-plane summary contract
+- [x] 23-01: operator control-plane summary contract
 - [ ] 23-02: governance workflow consolidation integration
 - [ ] 23-03: end-to-end operator consolidation acceptance and phase closeout
 

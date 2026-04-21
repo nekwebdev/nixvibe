@@ -26,6 +26,7 @@ from .merge import merge_specialist_payloads
 from .modes import resolve_mode
 from .outcome_alert import build_outcome_alert
 from .outcome_scorecard import build_outcome_scorecard
+from .operator_control_plane_summary import build_operator_control_plane_summary
 from .operator_observability_digest import build_operator_observability_digest
 from .override import build_controlled_override_workflow
 from .patches import normalize_patch_path, orchestrate_patch_proposals, patch_orchestration_summary
@@ -182,6 +183,7 @@ __all__ = [
     "build_guidance_summary",
     "build_outcome_alert",
     "build_outcome_scorecard",
+    "build_operator_control_plane_summary",
     "build_operator_observability_digest",
     "default_runtime_contract",
     "derive_reference_adaptation",

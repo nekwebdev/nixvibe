@@ -31,6 +31,7 @@ from .merge import merge_specialist_payloads
 from .modes import resolve_mode
 from .outcome_alert import build_outcome_alert
 from .outcome_scorecard import build_outcome_scorecard
+from .operator_control_plane_summary import build_operator_control_plane_summary
 from .operator_observability_digest import build_operator_observability_digest
 from .override import build_controlled_override_workflow
 from .payloads import PayloadValidationError, validate_payload
@@ -475,6 +476,12 @@ def run_pipeline(
         apply_safety_escalation=artifact_summary["apply_safety_escalation"],
         controlled_override_workflow=artifact_summary["controlled_override_workflow"],
         release_policy_execution=artifact_summary["release_policy_execution"],
+    )
+    artifact_summary["operator_control_plane_summary"] = build_operator_control_plane_summary(
+        migration_safety_policy=artifact_summary["migration_safety_policy"],
+        governance_hardening_escalation=artifact_summary["governance_hardening_escalation"],
+        operator_audit_trail=artifact_summary["operator_audit_trail"],
+        policy_decision_explainability=artifact_summary["policy_decision_explainability"],
     )
 
     return OrchestrationResult(
