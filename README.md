@@ -1033,6 +1033,22 @@ Added deterministic alert-aware policy gate contract:
 Additional coverage:
 - `tests/orchestrator/test_alert_policy_gate.py`
 
+## Runtime Orchestration (Phase 17 Alert/Policy Acceptance Slice)
+
+Added end-to-end acceptance coverage for phase17 alert escalation chain:
+- warning path:
+  - outcome alert `warning`
+  - policy gate `warn` with `allow_with_warning` apply gate
+- healthy sequential path (with persisted trend history):
+  - outcome alert `none`
+  - policy gate `open` with apply/release `allow`
+- critical path:
+  - outcome alert `critical`
+  - policy gate `blocked` with apply/release `deny`
+
+Additional coverage:
+- `tests/orchestrator/test_phase17_alert_policy_acceptance.py`
+
 ## Output Artifacts
 
 Primary artifacts:

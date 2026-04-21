@@ -8,14 +8,14 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 **v0.6 Trend Persistence and Outcome Signal Governance** (v0.6.0)
 Status: 🚧 In progress
-Phases: 1 of 3 complete
+Phases: 2 of 3 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
 | 16 | Benchmark Trend Persistence and Deltas | 3 (`16-01`, `16-02`, `16-03`) | ✅ Complete | 2026-04-21 |
-| 17 | Outcome Policy Gates and Alert Escalation | 3 (`17-01`, `17-02`, `17-03`) | 🚧 In progress | - |
+| 17 | Outcome Policy Gates and Alert Escalation | 3 (`17-01`, `17-02`, `17-03`) | ✅ Complete | 2026-04-21 |
 | 18 | Release Candidate Evidence and v0.6 Closeout | 3 (`18-01`, `18-02`, `18-03`) | Not started | - |
 
 ## Phase Details
@@ -50,7 +50,7 @@ Phases: 1 of 3 complete
 **Plans:**
 - [x] 17-01: Outcome alert contract
 - [x] 17-02: Alert-aware policy gate integration
-- [ ] 17-03: End-to-end alert/policy acceptance and phase closeout
+- [x] 17-03: End-to-end alert/policy acceptance and phase closeout
 
 ### Phase 18: Release Candidate Evidence and v0.6 Closeout
 
