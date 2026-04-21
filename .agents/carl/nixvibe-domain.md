@@ -28,6 +28,17 @@ It is the source of truth for route selection, safety gates, conflict resolution
 - `audit` must never auto-apply without explicit user opt-in.
 - Mode must be made explicit by behavior (no surprise writes).
 
+## Branch Ownership Policy
+
+All assistant write activity is restricted to a single working branch:
+
+- Required branch name: `active`.
+- Before first write/apply action, create/switch to `active`.
+- If current branch is not `active`, do not write until switched.
+- Treat `main`/`master` as non-writing branches for this workflow.
+
+This policy applies to plan artifacts, patch artifacts, and real file writes.
+
 ## Conflict Resolution Policy
 
 Merge and decision priority is strict:

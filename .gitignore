@@ -2,7 +2,7 @@ __pycache__/
 *.py[cod]
 
 .agents/carl/runtime/carl-mcp/node_modules/
-.carl/carl-mcp/
+.carl/carl-mcp/node_modules/
 .carl/sessions/*
 !.carl/sessions/.gitkeep
 
