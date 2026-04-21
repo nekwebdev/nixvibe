@@ -34,6 +34,7 @@ from .payloads import PayloadValidationError, validate_payload
 from .policy_loader import load_policy
 from .release import build_release_readiness
 from .release_candidate_evidence import build_release_candidate_evidence
+from .release_execution_gate import build_release_execution_gate
 from .release_check import build_release_check_command_contract
 from .release_manifest import build_release_artifact_manifest
 from .recovery import build_recovery_playbook
@@ -423,6 +424,10 @@ def run_pipeline(
         release_check_command=artifact_summary["release_check_command"],
         release_readiness=artifact_summary["release_readiness"],
         alert_policy_gate=artifact_summary["alert_policy_gate"],
+    )
+    artifact_summary["release_execution_gate"] = build_release_execution_gate(
+        v06_readiness_summary=artifact_summary["v06_readiness_summary"],
+        release_check_command=artifact_summary["release_check_command"],
     )
 
     return OrchestrationResult(

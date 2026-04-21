@@ -1094,6 +1094,21 @@ Closed milestone v0.6 with end-to-end acceptance and release artifacts:
   - `.paul/milestones/v0.6.0-ROADMAP.md`
   - `.paul/MILESTONES.md` entry for v0.6 completion
 
+## Runtime Orchestration (Phase 19 Release Execution Gate Slice)
+
+Added deterministic automated release execution gate contract:
+- Release execution gate emitted as `artifact_summary.release_execution_gate`:
+  - `contract`
+  - `decision` (`allow`, `hold`, `deny`)
+  - `automated_execution_allowed`
+  - blocker list and failed check IDs
+- Gate decision derives from:
+  - `v06_readiness_summary.readiness_band`
+  - `release_check_command.status`
+
+Additional coverage:
+- `tests/orchestrator/test_release_execution_gate.py`
+
 ## Output Artifacts
 
 Primary artifacts:

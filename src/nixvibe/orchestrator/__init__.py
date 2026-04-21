@@ -36,6 +36,7 @@ from .policy_loader import (
 )
 from .release import build_release_readiness
 from .release_candidate_evidence import build_release_candidate_evidence
+from .release_execution_gate import build_release_execution_gate
 from .release_check import build_release_check_command_contract, default_release_check_runner
 from .release_manifest import build_release_artifact_manifest
 from .recovery import build_recovery_playbook
@@ -157,6 +158,7 @@ __all__ = [
     "build_operator_run_manifest",
     "build_release_readiness",
     "build_release_candidate_evidence",
+    "build_release_execution_gate",
     "build_release_check_command_contract",
     "build_release_artifact_manifest",
     "build_retry_backoff_guardrails",
