@@ -6,69 +6,88 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 ## Current Milestone
 
-**v0.6 Trend Persistence and Outcome Signal Governance** (v0.6.0)
-Status: 🚧 In progress
-Phases: 2 of 3 complete
+**v0.7 Release Automation and Governance Hardening** (v0.7.0)
+Status: Not started
+Phases: 0 of 3 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 16 | Benchmark Trend Persistence and Deltas | 3 (`16-01`, `16-02`, `16-03`) | ✅ Complete | 2026-04-21 |
-| 17 | Outcome Policy Gates and Alert Escalation | 3 (`17-01`, `17-02`, `17-03`) | ✅ Complete | 2026-04-21 |
-| 18 | Release Candidate Evidence and v0.6 Closeout | 3 (`18-01`, `18-02`, `18-03`) | 🚧 In progress | - |
+| 19 | Release Automation and Policy Execution | 3 (`19-01`, `19-02`, `19-03`) | Not started | - |
+| 20 | Operator Observability and Governance Hardening | 3 (`20-01`, `20-02`, `20-03`) | Not started | - |
+| 21 | v0.7 Closeout and v1.0 Pathway | 3 (`21-01`, `21-02`, `21-03`) | Not started | - |
 
 ## Phase Details
 
-### Phase 16: Benchmark Trend Persistence and Deltas
+### Phase 19: Release Automation and Policy Execution
 
-**Goal:** Persist and compare benchmark trend signals over time.
-**Depends on:** v0.5 baseline
-**Research:** Medium (trend consistency and delta semantics)
-
-**Scope:**
-- Trend entry contract for each benchmark-capable run
-- Trend delta contract for prior-vs-current benchmark interpretation
-- End-to-end trend persistence acceptance coverage
-
-**Plans:**
-- [x] 16-01: Benchmark trend entry contract
-- [x] 16-02: Benchmark trend delta contract
-- [x] 16-03: End-to-end trend persistence acceptance and phase closeout
-
-### Phase 17: Outcome Policy Gates and Alert Escalation
-
-**Goal:** Convert outcome trends into deterministic operator policy signals.
-**Depends on:** Phase 16
-**Research:** Medium (alert severity calibration and policy mapping)
+**Goal:** Automate release operations from policy-ready runtime surfaces.
+**Depends on:** v0.6 closeout
+**Research:** Medium (release automation safety and policy execution boundaries)
 
 **Scope:**
-- Outcome alert contract for warning/critical thresholds
-- Policy gate contract linking alerts to apply/release behavior
-- Acceptance coverage for alert escalation and policy routing
+- Automated release execution gate contract
+- Policy-execution contract for release automation decisions
+- Acceptance coverage for release automation safety paths
 
 **Plans:**
-- [x] 17-01: Outcome alert contract
-- [x] 17-02: Alert-aware policy gate integration
-- [x] 17-03: End-to-end alert/policy acceptance and phase closeout
+- [ ] 19-01: Automated release execution gate contract
+- [ ] 19-02: Policy execution integration for release flow
+- [ ] 19-03: End-to-end release automation acceptance and phase closeout
 
-### Phase 18: Release Candidate Evidence and v0.6 Closeout
+### Phase 20: Operator Observability and Governance Hardening
 
-**Goal:** Publish release-candidate evidence and close milestone v0.6.
-**Depends on:** Phase 17
-**Research:** Medium (evidence packaging and closeout criteria)
+**Goal:** Expand operator observability and governance diagnostics.
+**Depends on:** Phase 19
+**Research:** Medium (operator signal quality and governance explainability)
 
 **Scope:**
-- Release candidate evidence bundle contract
-- Operator-facing v0.6 readiness summary integration
-- End-to-end v0.6 acceptance and milestone closeout artifacts
+- Operator observability digest contract
+- Governance hardening contract and escalation summary
+- Acceptance coverage for observability-governance workflows
 
 **Plans:**
-- [x] 18-01: Release candidate evidence bundle contract
-- [x] 18-02: v0.6 readiness summary integration
-- [ ] 18-03: End-to-end v0.6 acceptance and milestone closeout
+- [ ] 20-01: Operator observability digest contract
+- [ ] 20-02: Governance hardening escalation contract
+- [ ] 20-03: End-to-end observability/governance acceptance and phase closeout
+
+### Phase 21: v0.7 Closeout and v1.0 Pathway
+
+**Goal:** Close v0.7 and publish the pathway scaffold toward v1.0.
+**Depends on:** Phase 20
+**Research:** Medium (milestone sequencing and release confidence packaging)
+
+**Scope:**
+- v0.7 release candidate closeout artifacts
+- v1.0 milestone pathway scaffold and roadmap transition
+- End-to-end v0.7 acceptance and milestone closeout artifacts
+
+**Plans:**
+- [ ] 21-01: v0.7 closeout evidence bundle
+- [ ] 21-02: v1.0 pathway scaffold integration
+- [ ] 21-03: End-to-end v0.7 acceptance and milestone closeout
 
 ## Completed Milestones
+
+<details>
+<summary>v0.6 Trend Persistence and Outcome Signal Governance (v0.6.0) — completed 2026-04-21</summary>
+
+### Milestone Snapshot
+
+Status: ✅ Complete  
+Phases: 3 of 3 complete  
+Plans completed: 9
+
+| Phase | Name | Plans | Status | Completed |
+|-------|------|-------|--------|-----------|
+| 16 | Benchmark Trend Persistence and Deltas | 3 (`16-01`, `16-02`, `16-03`) | ✅ Complete | 2026-04-21 |
+| 17 | Outcome Policy Gates and Alert Escalation | 3 (`17-01`, `17-02`, `17-03`) | ✅ Complete | 2026-04-21 |
+| 18 | Release Candidate Evidence and v0.6 Closeout | 3 (`18-01`, `18-02`, `18-03`) | ✅ Complete | 2026-04-21 |
+
+Archive: `.paul/milestones/v0.6.0-ROADMAP.md`
+
+</details>
 
 <details>
 <summary>v0.5 Measured Outcomes and Benchmark Baselines (v0.5.0) — completed 2026-04-20</summary>

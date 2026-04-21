@@ -1082,6 +1082,18 @@ Added deterministic v0.6 readiness summary contract:
 Additional coverage:
 - `tests/orchestrator/test_v06_readiness_summary.py`
 
+## Runtime Orchestration (Phase 18 Milestone Closeout Slice)
+
+Closed milestone v0.6 with end-to-end acceptance and release artifacts:
+- Added milestone acceptance suite for phase16-18 contract continuity:
+  - trend persistence chain
+  - alert and policy-gate chain
+  - release evidence and v0.6 readiness summary chain
+- Published milestone artifacts:
+  - `.paul/releases/v0.6.0.md`
+  - `.paul/milestones/v0.6.0-ROADMAP.md`
+  - `.paul/MILESTONES.md` entry for v0.6 completion
+
 ## Output Artifacts
 
 Primary artifacts:

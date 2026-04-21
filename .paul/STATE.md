@@ -2,18 +2,18 @@
 
 ## Project Reference
 
-See: .paul/PROJECT.md (updated 2026-04-20)
+See: .paul/PROJECT.md (updated 2026-04-21)
 
 **Core value:** Users can evolve clean modular NixOS configs safely with guided automation.
-**Current focus:** v0.6 phase 18 in progress — readiness summary integration landed
+**Current focus:** v0.7 scaffold ready — release automation and governance hardening queued
 
 ## Current Position
 
-Milestone: v0.6 Trend Persistence and Outcome Signal Governance (v0.6.0) — In progress
-Phase: 18 of 18 (Release Candidate Evidence and v0.6 Closeout) — In progress
-Plan: 18-02 completed
-Status: PLAN/APPLY/UNIFY closed for 18-02; phase 18 has remaining plan (18-03)
-Last activity: 2026-04-21T01:03:22-10:00 — Completed .paul/phases/18-release-candidate-evidence-and-v0.6-closeout/18-02-SUMMARY.md
+Milestone: v0.7 Release Automation and Governance Hardening (v0.7.0) — Ready to plan
+Phase: 19 of 21 (Release Automation and Policy Execution) — Ready to plan
+Plan: Not started
+Status: v0.6 complete; next loop points to 19-01
+Last activity: 2026-04-21T01:09:07-10:00 — Completed .paul/phases/18-release-candidate-evidence-and-v0.6-closeout/18-03-SUMMARY.md
 
 Progress:
 - v0.1 Initial Release: [██████████] 100% ✓
@@ -21,14 +21,15 @@ Progress:
 - v0.3 Operational Workflow Intelligence: [██████████] 100% ✓
 - v0.4 Reliability and Delivery Hardening: [██████████] 100% ✓
 - v0.5 Measured Outcomes and Benchmark Baselines: [██████████] 100% ✓
-- v0.6 Trend Persistence and Outcome Signal Governance: [████████░░] 89%
+- v0.6 Trend Persistence and Outcome Signal Governance: [██████████] 100% ✓
+- v0.7 Release Automation and Governance Hardening: [░░░░░░░░░░] 0%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [18-02 complete]
+  ✓        ✓        ✓     [v0.6 milestone complete]
 ```
 
 ## Accumulated Context
@@ -94,6 +95,7 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - End-to-end alert/policy acceptance and phase closeout landed for Phase 17 plan 17-03
 - Release candidate evidence bundle contract landed for Phase 18 plan 18-01
 - v0.6 readiness summary integration landed for Phase 18 plan 18-02
+- End-to-end v0.6 acceptance and milestone closeout landed for Phase 18 plan 18-03
 
 ### Deferred Issues
 None yet.
@@ -103,10 +105,10 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-21T01:03:22-10:00
-Stopped at: Phase 18 plan 18-02 completed
-Next action: Create and execute `.paul/phases/18-release-candidate-evidence-and-v0.6-closeout/18-03-PLAN.md`
-Resume file: .paul/phases/18-release-candidate-evidence-and-v0.6-closeout/18-02-SUMMARY.md
+Last session: 2026-04-21T01:09:07-10:00
+Stopped at: v0.6 milestone complete after phase 18 plan 18-03
+Next action: Create and execute `.paul/phases/19-release-automation-and-policy-execution/19-01-PLAN.md`
+Resume file: .paul/phases/18-release-candidate-evidence-and-v0.6-closeout/18-03-SUMMARY.md
 
 ---
 *STATE.md — Updated after every significant action*

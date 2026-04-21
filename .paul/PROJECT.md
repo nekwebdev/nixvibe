@@ -13,8 +13,8 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 | Attribute | Value |
 |-----------|-------|
 | Type | Workflow |
-| Version | 0.6.0 |
-| Status | In progress (v0.6 active) |
+| Version | 0.7.0 |
+| Status | In progress (v0.7 active) |
 | Last Updated | 2026-04-21 |
 
 ## Requirements
@@ -43,6 +43,7 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Milestone v0.2 tagged and release notes published — Milestone closeout (2026-04-20)
 - [x] Milestone v0.3 tagged and release notes published — Milestone closeout (2026-04-20)
 - [x] Milestone v0.5 tagged and release notes published — Milestone closeout (2026-04-20)
+- [x] Milestone v0.6 tagged and release notes published — Milestone closeout (2026-04-21)
 
 ### Active (In Progress)
 
@@ -90,11 +91,12 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add end-to-end alert/policy acceptance and phase closeout artifacts — Phase 17 (17-03)
 - [x] Add release candidate evidence bundle contract — Phase 18 (18-01)
 - [x] Add v0.6 readiness summary integration contract — Phase 18 (18-02)
+- [x] Add end-to-end v0.6 acceptance and milestone closeout artifacts — Phase 18 (18-03)
 
 ### Planned (Next)
 
-- [ ] Execute remaining v0.6 plans (`18-03`)
-- [ ] Define and scaffold milestone path from v0.6 to v1.0
+- [ ] Execute remaining v0.7 plans (`19-01` to `21-03`)
+- [ ] Define and scaffold milestone path from v0.7 to v1.0
 
 ### Out of Scope
 
@@ -182,6 +184,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Alert-policy acceptance is explicit | Phase closeout requires deterministic warning/healthy/critical end-to-end acceptance coverage | 2026-04-21 | Active |
 | Release candidate evidence is explicit | Every run must emit deterministic release-candidate evidence readiness from release/alert/policy signals | 2026-04-21 | Active |
 | v0.6 readiness summary is explicit | Every run must emit deterministic milestone readiness band and blocker summary metadata | 2026-04-21 | Active |
+| Milestone closeout evidence is explicit | Milestone release confidence requires end-to-end acceptance plus published release/archive artifacts | 2026-04-21 | Active |
 
 ## Success Metrics
 
@@ -207,8 +210,8 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Planning | `../../projects/nixvibe/PLANNING.md` |
 | Graduation README | `README.md` |
 | Milestone Log | `.paul/MILESTONES.md` |
-| Release Notes | `.paul/releases/v0.5.0.md` |
+| Release Notes | `.paul/releases/v0.6.0.md` |
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-21 after Phase 18 plan 18-02 completion*
+*Last updated: 2026-04-21 after Phase 18 plan 18-03 completion*

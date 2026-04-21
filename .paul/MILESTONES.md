@@ -4,11 +4,43 @@ Completed milestone log for this project.
 
 | Milestone | Completed | Duration | Stats |
 |-----------|-----------|----------|-------|
+| v0.6 Trend Persistence and Outcome Signal Governance (v0.6.0) | 2026-04-21 | 1h 02m | 3 phases, 9 plans |
 | v0.5 Measured Outcomes and Benchmark Baselines (v0.5.0) | 2026-04-20 | 1h 17m | 3 phases, 9 plans |
 | v0.4 Reliability and Delivery Hardening (v0.4.0) | 2026-04-20 | 1h 09m | 3 phases, 9 plans |
 | v0.3 Operational Workflow Intelligence (v0.3.0) | 2026-04-20 | 8h 49m | 3 phases, 9 plans |
 | v0.2 Execution and Context Expansion (v0.2.0) | 2026-04-20 | 10h 03m | 3 phases, 9 plans |
 | v0.1 Initial Release (v0.1.0) | 2026-04-19 | 15h 34m | 3 phases, 7 plans |
+
+---
+
+## ✅ v0.6 Trend Persistence and Outcome Signal Governance (v0.6.0)
+
+**Completed:** 2026-04-21  
+**Duration:** 1h 02m
+
+### Stats
+
+| Metric | Value |
+|--------|-------|
+| Phases | 3 |
+| Plans | 9 |
+| Files changed | 66 |
+
+### Key Accomplishments
+
+- Added benchmark trend entry, delta, and bounded history persistence contracts.
+- Added deterministic outcome alert and alert-aware policy gate contracts.
+- Added release candidate evidence bundle and v0.6 readiness summary contracts.
+- Added phase17 end-to-end alert-policy acceptance coverage.
+- Added v0.6 end-to-end milestone acceptance coverage across phase16-18 contract chain.
+- Published v0.6 release notes and roadmap archive artifacts.
+
+### Key Decisions
+
+- Keep trend continuity explicit through entry -> history -> delta chain before alerting.
+- Keep policy routing explicit via outcome alerts and alert-aware apply/release gates.
+- Keep milestone closeout readiness machine-readable with evidence and readiness summary contracts.
+- Transition to v0.7 with scaffolded phases focused on release automation and governance hardening.
 
 ---
 
