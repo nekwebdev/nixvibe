@@ -21,6 +21,7 @@ from .guardrails import evaluate_high_risk_mutation_guardrails
 from .guidance import build_guidance_summary, infer_skill_level
 from .ledger import inspect_git_ledger
 from .manifest import build_operator_run_manifest
+from .migration_safety_policy import build_migration_safety_policy
 from .merge import merge_specialist_payloads
 from .modes import resolve_mode
 from .outcome_alert import build_outcome_alert
@@ -163,6 +164,7 @@ __all__ = [
     "evaluate_high_risk_mutation_guardrails",
     "build_recovery_playbook",
     "build_operator_run_manifest",
+    "build_migration_safety_policy",
     "build_release_readiness",
     "build_release_candidate_evidence",
     "build_release_execution_gate",

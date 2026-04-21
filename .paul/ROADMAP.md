@@ -33,7 +33,7 @@ Phases: 0 of 3 complete
 
 **Plans:**
 - [x] 22-01: v1 compatibility baseline contract
-- [ ] 22-02: migration-safety policy integration
+- [x] 22-02: migration-safety policy integration
 - [ ] 22-03: end-to-end foundation hardening acceptance and phase closeout
 
 ### Phase 23: v1 Operator Control Plane Consolidation

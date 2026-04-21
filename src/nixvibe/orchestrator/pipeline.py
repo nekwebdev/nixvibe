@@ -26,6 +26,7 @@ from .guardrails import evaluate_high_risk_mutation_guardrails
 from .guidance import build_guidance_summary
 from .ledger import inspect_git_ledger
 from .manifest import build_operator_run_manifest
+from .migration_safety_policy import build_migration_safety_policy
 from .merge import merge_specialist_payloads
 from .modes import resolve_mode
 from .outcome_alert import build_outcome_alert
@@ -468,6 +469,12 @@ def run_pipeline(
         governance_hardening_escalation=artifact_summary["governance_hardening_escalation"],
         release_policy_execution=artifact_summary["release_policy_execution"],
         release_readiness=artifact_summary["release_readiness"],
+    )
+    artifact_summary["migration_safety_policy"] = build_migration_safety_policy(
+        v10_compatibility_baseline=artifact_summary["v10_compatibility_baseline"],
+        apply_safety_escalation=artifact_summary["apply_safety_escalation"],
+        controlled_override_workflow=artifact_summary["controlled_override_workflow"],
+        release_policy_execution=artifact_summary["release_policy_execution"],
     )
 
     return OrchestrationResult(

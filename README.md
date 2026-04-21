@@ -1249,6 +1249,23 @@ Added deterministic v1 compatibility baseline contract:
 Additional coverage:
 - `tests/orchestrator/test_v10_compatibility_baseline.py`
 
+## Runtime Orchestration (Phase 22 Migration Safety Policy Slice)
+
+Added deterministic migration safety policy contract:
+- migration safety policy emitted as `artifact_summary.migration_safety_policy`:
+  - `contract`
+  - `policy_decision` (`allow`, `review`, `block`)
+  - `policy_level` (`open`, `guarded`, `strict`)
+  - migration blocker summary and failed check IDs
+- Migration safety policy integrates:
+  - `v10_compatibility_baseline.compatibility_status`
+  - `apply_safety_escalation.tier`
+  - `controlled_override_workflow.decision`
+  - `release_policy_execution.decision`
+
+Additional coverage:
+- `tests/orchestrator/test_migration_safety_policy.py`
+
 ## Output Artifacts
 
 Primary artifacts:
