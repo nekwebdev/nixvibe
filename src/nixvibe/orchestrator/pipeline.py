@@ -10,6 +10,7 @@ from .audittrail import build_operator_audit_trail_summary
 from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .checkpoint import build_resume_checkpoint
 from .benchmark import build_benchmark_baseline_report
+from .benchmark_release import build_benchmark_release_readiness
 from .benchmark_runner import build_benchmark_runner_report
 from .benchmark_snapshot import build_benchmark_baseline_snapshot
 from .benchmark_scenarios import build_benchmark_scenario_catalog
@@ -314,6 +315,13 @@ def run_pipeline(
         benchmark_runner_report=artifact_summary["benchmark_runner_report"],
         benchmark_baseline_snapshot=artifact_summary["benchmark_baseline_snapshot"],
         release_readiness=artifact_summary["release_readiness"],
+        telemetry_regression=artifact_summary["telemetry_regression"],
+    )
+    artifact_summary["benchmark_release_readiness"] = build_benchmark_release_readiness(
+        release_readiness=artifact_summary["release_readiness"],
+        outcome_scorecard=artifact_summary["outcome_scorecard"],
+        benchmark_baseline_snapshot=artifact_summary["benchmark_baseline_snapshot"],
+        benchmark_runner_report=artifact_summary["benchmark_runner_report"],
         telemetry_regression=artifact_summary["telemetry_regression"],
     )
     artifact_summary["resume_checkpoint"] = build_resume_checkpoint(

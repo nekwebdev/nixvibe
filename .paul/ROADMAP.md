@@ -65,7 +65,7 @@ Phases: 2 of 3 complete
 
 **Plans:**
 - [x] 15-01: Outcome scorecard contract
-- [ ] 15-02: Benchmark-aware release readiness integration
+- [x] 15-02: Benchmark-aware release readiness integration
 - [ ] 15-03: End-to-end v0.5 acceptance and closeout
 
 ## Completed Milestones

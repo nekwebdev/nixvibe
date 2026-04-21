@@ -911,6 +911,25 @@ Added deterministic outcome scorecard contract tied to v0.5 success metrics:
 Additional coverage:
 - `tests/orchestrator/test_outcome_scorecard.py`
 
+## Runtime Orchestration (Phase 15 Benchmark-Aware Release Slice)
+
+Added benchmark-aware release readiness integration:
+- Benchmark release readiness emitted as `artifact_summary.benchmark_release_readiness`:
+  - `contract`
+  - benchmark-aware release status (`ready` or `blocked`)
+  - failed benchmark gate IDs
+  - benchmark context (`outcome_score_percent`, `trend_bucket`, `regression_detected`)
+- Benchmark release gates now require:
+  - base release readiness pass
+  - outcome scorecard dependency readiness
+  - outcome score threshold (>= 80%)
+  - regression-clear telemetry state
+  - baseline-candidate snapshot state
+  - runner plan readiness
+
+Additional coverage:
+- `tests/orchestrator/test_benchmark_release_readiness.py`
+
 ## Output Artifacts
 
 Primary artifacts:

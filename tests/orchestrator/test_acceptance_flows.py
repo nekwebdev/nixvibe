@@ -200,6 +200,7 @@ class TestAcceptanceFlows(unittest.TestCase):
         self.assertIn("benchmark_runner_report", result.artifact_summary)
         self.assertIn("benchmark_baseline_snapshot", result.artifact_summary)
         self.assertIn("outcome_scorecard", result.artifact_summary)
+        self.assertIn("benchmark_release_readiness", result.artifact_summary)
         self.assertIn("release_readiness", result.artifact_summary)
         self.assertIn("resume_checkpoint", result.artifact_summary)
         self.assertIn("retry_backoff_guardrails", result.artifact_summary)
