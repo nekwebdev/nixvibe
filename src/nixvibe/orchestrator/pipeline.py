@@ -33,6 +33,7 @@ from .override import build_controlled_override_workflow
 from .payloads import PayloadValidationError, validate_payload
 from .policy_loader import load_policy
 from .release import build_release_readiness
+from .release_candidate_evidence import build_release_candidate_evidence
 from .release_check import build_release_check_command_contract
 from .release_manifest import build_release_artifact_manifest
 from .recovery import build_recovery_playbook
@@ -356,6 +357,11 @@ def run_pipeline(
         outcome_alert=artifact_summary["outcome_alert"],
         release_readiness=artifact_summary["release_readiness"],
         apply_safety_escalation=artifact_summary["apply_safety_escalation"],
+    )
+    artifact_summary["release_candidate_evidence"] = build_release_candidate_evidence(
+        release_readiness=artifact_summary["release_readiness"],
+        outcome_alert=artifact_summary["outcome_alert"],
+        alert_policy_gate=artifact_summary["alert_policy_gate"],
     )
     artifact_summary["resume_checkpoint"] = build_resume_checkpoint(
         run_manifest=artifact_summary["run_manifest"],

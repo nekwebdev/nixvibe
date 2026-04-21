@@ -206,6 +206,7 @@ class TestAcceptanceFlows(unittest.TestCase):
         self.assertIn("benchmark_trend_delta", result.artifact_summary)
         self.assertIn("outcome_alert", result.artifact_summary)
         self.assertIn("alert_policy_gate", result.artifact_summary)
+        self.assertIn("release_candidate_evidence", result.artifact_summary)
         self.assertIn("release_readiness", result.artifact_summary)
         self.assertIn("resume_checkpoint", result.artifact_summary)
         self.assertIn("retry_backoff_guardrails", result.artifact_summary)

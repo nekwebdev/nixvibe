@@ -1049,6 +1049,23 @@ Added end-to-end acceptance coverage for phase17 alert escalation chain:
 Additional coverage:
 - `tests/orchestrator/test_phase17_alert_policy_acceptance.py`
 
+## Runtime Orchestration (Phase 18 Release Candidate Evidence Slice)
+
+Added deterministic release-candidate evidence bundle contract:
+- Release candidate evidence emitted as `artifact_summary.release_candidate_evidence`:
+  - `contract`
+  - `readiness_category` (`ready`, `hold`, `blocked`)
+  - `evidence_id`
+  - evidence checklist counters and failed item IDs
+  - dependency checks and failed check IDs
+- Evidence bundle derives readiness from:
+  - release readiness contract
+  - outcome alert status
+  - alert policy gate status
+
+Additional coverage:
+- `tests/orchestrator/test_release_candidate_evidence.py`
+
 ## Output Artifacts
 
 Primary artifacts:

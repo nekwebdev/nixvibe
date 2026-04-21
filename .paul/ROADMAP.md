@@ -16,7 +16,7 @@ Phases: 2 of 3 complete
 |-------|------|-------|--------|-----------|
 | 16 | Benchmark Trend Persistence and Deltas | 3 (`16-01`, `16-02`, `16-03`) | ✅ Complete | 2026-04-21 |
 | 17 | Outcome Policy Gates and Alert Escalation | 3 (`17-01`, `17-02`, `17-03`) | ✅ Complete | 2026-04-21 |
-| 18 | Release Candidate Evidence and v0.6 Closeout | 3 (`18-01`, `18-02`, `18-03`) | Not started | - |
+| 18 | Release Candidate Evidence and v0.6 Closeout | 3 (`18-01`, `18-02`, `18-03`) | 🚧 In progress | - |
 
 ## Phase Details
 
@@ -64,7 +64,7 @@ Phases: 2 of 3 complete
 - End-to-end v0.6 acceptance and milestone closeout artifacts
 
 **Plans:**
-- [ ] 18-01: Release candidate evidence bundle contract
+- [x] 18-01: Release candidate evidence bundle contract
 - [ ] 18-02: v0.6 readiness summary integration
 - [ ] 18-03: End-to-end v0.6 acceptance and milestone closeout
 
