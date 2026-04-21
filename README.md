@@ -998,6 +998,23 @@ Additional coverage:
 - `tests/orchestrator/test_benchmark_trend_history.py`
 - `tests/orchestrator/test_phase16_trend_persistence_acceptance.py`
 
+## Runtime Orchestration (Phase 17 Outcome Alert Slice)
+
+Added deterministic outcome alert contract derived from trend signals:
+- Outcome alert emitted as `artifact_summary.outcome_alert`:
+  - `contract`
+  - `alert_status` (`none`, `warning`, `critical`, `blocked`)
+  - `severity` (`info`, `warning`, `critical`)
+  - trigger metadata (`trigger_ids`, `trigger_count`)
+  - dependency checks and failed check IDs
+- Alert triggers currently include:
+  - critical: trend degradation and delta regression
+  - warning: no baseline, stable-watch trend, release-not-ready signal
+- This alert contract is phase17 baseline input for policy-gate integration in the next plans.
+
+Additional coverage:
+- `tests/orchestrator/test_outcome_alert.py`
+
 ## Output Artifacts
 
 Primary artifacts:

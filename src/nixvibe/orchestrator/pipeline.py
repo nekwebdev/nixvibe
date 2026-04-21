@@ -26,6 +26,7 @@ from .ledger import inspect_git_ledger
 from .manifest import build_operator_run_manifest
 from .merge import merge_specialist_payloads
 from .modes import resolve_mode
+from .outcome_alert import build_outcome_alert
 from .outcome_scorecard import build_outcome_scorecard
 from .override import build_controlled_override_workflow
 from .payloads import PayloadValidationError, validate_payload
@@ -344,6 +345,11 @@ def run_pipeline(
         previous_benchmark_trend_entry=artifact_summary["benchmark_trend_history"][
             "previous_benchmark_trend_entry"
         ],
+    )
+    artifact_summary["outcome_alert"] = build_outcome_alert(
+        benchmark_trend_entry=artifact_summary["benchmark_trend_entry"],
+        benchmark_trend_history=artifact_summary["benchmark_trend_history"],
+        benchmark_trend_delta=artifact_summary["benchmark_trend_delta"],
     )
     artifact_summary["resume_checkpoint"] = build_resume_checkpoint(
         run_manifest=artifact_summary["run_manifest"],

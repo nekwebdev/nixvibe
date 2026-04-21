@@ -21,6 +21,7 @@ from .ledger import inspect_git_ledger
 from .manifest import build_operator_run_manifest
 from .merge import merge_specialist_payloads
 from .modes import resolve_mode
+from .outcome_alert import build_outcome_alert
 from .outcome_scorecard import build_outcome_scorecard
 from .override import build_controlled_override_workflow
 from .patches import normalize_patch_path, orchestrate_patch_proposals, patch_orchestration_summary
@@ -158,6 +159,7 @@ __all__ = [
     "build_telemetry_regression_report",
     "build_dispatch_context",
     "build_guidance_summary",
+    "build_outcome_alert",
     "build_outcome_scorecard",
     "default_runtime_contract",
     "derive_reference_adaptation",

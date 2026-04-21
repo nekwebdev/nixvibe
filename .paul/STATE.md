@@ -5,15 +5,15 @@
 See: .paul/PROJECT.md (updated 2026-04-20)
 
 **Core value:** Users can evolve clean modular NixOS configs safely with guided automation.
-**Current focus:** v0.6 phase 17 ready — phase 16 trend persistence and deltas complete
+**Current focus:** v0.6 phase 17 in progress — outcome alert contract landed
 
 ## Current Position
 
 Milestone: v0.6 Trend Persistence and Outcome Signal Governance (v0.6.0) — In progress
-Phase: 17 of 18 (Outcome Policy Gates and Alert Escalation) — Ready to plan
-Plan: Not started
-Status: Phase 16 complete; next loop points to 17-01
-Last activity: 2026-04-21T00:46:02-10:00 — Completed .paul/phases/16-benchmark-trend-persistence-and-deltas/16-03-SUMMARY.md
+Phase: 17 of 18 (Outcome Policy Gates and Alert Escalation) — In progress
+Plan: 17-01 completed
+Status: PLAN/APPLY/UNIFY closed for 17-01; phase 17 has remaining plans (17-02, 17-03)
+Last activity: 2026-04-21T00:49:50-10:00 — Completed .paul/phases/17-outcome-policy-gates-and-alert-escalation/17-01-SUMMARY.md
 
 Progress:
 - v0.1 Initial Release: [██████████] 100% ✓
@@ -21,14 +21,14 @@ Progress:
 - v0.3 Operational Workflow Intelligence: [██████████] 100% ✓
 - v0.4 Reliability and Delivery Hardening: [██████████] 100% ✓
 - v0.5 Measured Outcomes and Benchmark Baselines: [██████████] 100% ✓
-- v0.6 Trend Persistence and Outcome Signal Governance: [███░░░░░░░] 33%
+- v0.6 Trend Persistence and Outcome Signal Governance: [████░░░░░░] 44%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [Phase 16 complete]
+  ✓        ✓        ✓     [17-01 complete]
 ```
 
 ## Accumulated Context
@@ -89,6 +89,7 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - Benchmark trend entry contract landed for Phase 16 plan 16-01
 - Benchmark trend delta contract landed for Phase 16 plan 16-02
 - Trend history persistence contract + phase16 acceptance landed for Phase 16 plan 16-03
+- Outcome alert contract landed for Phase 17 plan 17-01
 
 ### Deferred Issues
 None yet.
@@ -98,10 +99,10 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-21T00:46:02-10:00
-Stopped at: Phase 16 complete after plan 16-03
-Next action: Create and execute `.paul/phases/17-outcome-policy-gates-and-alert-escalation/17-01-PLAN.md`
-Resume file: .paul/phases/16-benchmark-trend-persistence-and-deltas/16-03-SUMMARY.md
+Last session: 2026-04-21T00:49:50-10:00
+Stopped at: Phase 17 plan 17-01 completed
+Next action: Create and execute `.paul/phases/17-outcome-policy-gates-and-alert-escalation/17-02-PLAN.md`
+Resume file: .paul/phases/17-outcome-policy-gates-and-alert-escalation/17-01-SUMMARY.md
 
 ---
 *STATE.md — Updated after every significant action*
