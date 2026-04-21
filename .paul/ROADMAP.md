@@ -6,67 +6,67 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 ## Current Milestone
 
-**v0.4 Reliability and Delivery Hardening** (v0.4.0)
-Status: ✅ Complete
-Phases: 3 of 3 complete
+**v0.5 Measured Outcomes and Benchmark Baselines** (v0.5.0)
+Status: 🚧 In progress
+Phases: 0 of 3 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 10 | Runtime Reliability and Resume | 3 (`10-01`, `10-02`, `10-03`) | ✅ Complete | 2026-04-20 |
-| 11 | Operator Policy and Controls | 3 (`11-01`, `11-02`, `11-03`) | ✅ Complete | 2026-04-20 |
-| 12 | Release Delivery and Milestone Closeout | 3 (`12-01`, `12-02`, `12-03`) | ✅ Complete | 2026-04-20 |
+| 13 | Execution Telemetry and Benchmark Contracts | 3 (`13-01`, `13-02`, `13-03`) | 🚧 In progress | - |
+| 14 | Benchmark Scenario Harness and Reports | 3 (`14-01`, `14-02`, `14-03`) | Not started | - |
+| 15 | Outcome Tracking and Milestone Closeout | 3 (`15-01`, `15-02`, `15-03`) | Not started | - |
 
 ## Phase Details
 
-### Phase 10: Runtime Reliability and Resume
+### Phase 13: Execution Telemetry and Benchmark Contracts
 
-**Goal:** Improve resilience of orchestration runs under partial failure and interruption.
-**Depends on:** v0.3 baseline
-**Research:** Medium (checkpoint/retry semantics)
-
-**Scope:**
-- Run failure classification and deterministic severity mapping
-- Resume-safe checkpoint contract for interrupted runs
-- Retry/backoff guardrails for bounded automatic recovery
-
-**Plans:**
-- [x] 10-01: Run failure classification contract
-- [x] 10-02: Resume-safe checkpoint contract
-- [x] 10-03: Retry/backoff orchestration guardrails
-
-### Phase 11: Operator Policy and Controls
-
-**Goal:** Expand operator control with explicit policy explanations and constrained overrides.
-**Depends on:** Phase 10
-**Research:** Medium (policy explainability + override safety)
+**Goal:** Introduce deterministic run telemetry needed for benchmark tracking.
+**Depends on:** v0.4 baseline
+**Research:** Medium (timing contract shape and benchmark signal quality)
 
 **Scope:**
-- Policy decision explainability surface
-- Controlled override workflow contract
-- Operator-facing policy/audit trail summaries
+- Run telemetry contract with stage timing counters
+- Operator manifest timing surface integration
+- Benchmark baseline contract primitives for upcoming harness work
 
 **Plans:**
-- [x] 11-01: Policy decision explainability contract
-- [x] 11-02: Controlled override workflow contract
-- [x] 11-03: Operator audit-trail summary integration
+- [x] 13-01: Run telemetry contract and manifest timing integration
+- [ ] 13-02: Benchmark baseline report contract
+- [ ] 13-03: Telemetry regression thresholds and acceptance coverage
 
-### Phase 12: Release Delivery and Milestone Closeout
+### Phase 14: Benchmark Scenario Harness and Reports
 
-**Goal:** Finalize delivery operations and close the milestone with strong release confidence.
-**Depends on:** Phase 11
-**Research:** Medium (release ergonomics + closeout criteria)
+**Goal:** Add deterministic benchmark scenario execution for key user outcomes.
+**Depends on:** Phase 13
+**Research:** Medium (fixture realism and stable reporting)
 
 **Scope:**
-- Release artifact manifest/checklist contract
-- Automated release-check command integration
-- End-to-end v0.4 acceptance and milestone closeout
+- Scenario fixtures for scaffold, audit refactor, and service-add workflows
+- Benchmark runner command and machine-readable report output
+- Baseline snapshots for milestone-level trend tracking
 
 **Plans:**
-- [x] 12-01: Release artifact manifest/checklist contract
-- [x] 12-02: Automated release-check command contract
-- [x] 12-03: End-to-end v0.4 acceptance and closeout
+- [ ] 14-01: Scenario fixture catalog and loader contract
+- [ ] 14-02: Benchmark runner and report emitter
+- [ ] 14-03: Baseline snapshot generation and regression checks
+
+### Phase 15: Outcome Tracking and Milestone Closeout
+
+**Goal:** Convert benchmark signals into milestone closeout confidence.
+**Depends on:** Phase 14
+**Research:** Medium (metric interpretation and release gating)
+
+**Scope:**
+- Outcome scorecards tied to success metrics
+- Operator-facing benchmark summary and release readiness tie-in
+- End-to-end v0.5 acceptance and milestone closeout artifacts
+
+**Plans:**
+- [ ] 15-01: Outcome scorecard contract
+- [ ] 15-02: Benchmark-aware release readiness integration
+- [ ] 15-03: End-to-end v0.5 acceptance and closeout
 
 ## Completed Milestones
 

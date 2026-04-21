@@ -24,6 +24,7 @@ def build_operator_run_manifest(
     mutation_guardrails: dict[str, object],
     apply_safety_escalation: dict[str, object],
     recovery_playbook: dict[str, object],
+    run_telemetry: dict[str, object] | None,
 ) -> dict[str, object]:
     requested_mode_value = _requested_mode_value(requested_mode)
     selected_mode_value = selected_mode.value
@@ -57,6 +58,7 @@ def build_operator_run_manifest(
             "final_checkpoint": str(validation.get("final_checkpoint") or "none"),
             "checkpoint_count": int(validation.get("checkpoint_count") or 0),
         },
+        "timing": _timing_summary(run_telemetry),
         "safety": {
             "guardrail_blocked_apply": bool(mutation_guardrails.get("apply_blocked", False)),
             "guardrail_triggers": tuple(mutation_guardrails.get("triggers", ())),
@@ -97,3 +99,24 @@ def _requested_mode_value(requested_mode: Mode | str | None) -> str:
         return requested_mode.value
     normalized = str(requested_mode).strip().lower()
     return normalized or "auto"
+
+
+def _timing_summary(run_telemetry: dict[str, object] | None) -> dict[str, int]:
+    telemetry = run_telemetry or {}
+    return {
+        "total_duration_ms": _metric_ms(telemetry.get("total_duration_ms")),
+        "specialist_execution_ms": _metric_ms(telemetry.get("specialist_execution_ms")),
+        "artifact_materialization_ms": _metric_ms(telemetry.get("artifact_materialization_ms")),
+        "validation_total_ms": _metric_ms(telemetry.get("validation_total_ms")),
+        "validation_pre_write_ms": _metric_ms(telemetry.get("validation_pre_write_ms")),
+        "validation_post_write_ms": _metric_ms(telemetry.get("validation_post_write_ms")),
+        "ledger_inspection_ms": _metric_ms(telemetry.get("ledger_inspection_ms")),
+    }
+
+
+def _metric_ms(value: object) -> int:
+    if isinstance(value, bool):
+        return int(value)
+    if isinstance(value, (int, float)):
+        return max(0, int(value))
+    return 0

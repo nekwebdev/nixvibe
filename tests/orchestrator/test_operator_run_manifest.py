@@ -100,6 +100,9 @@ class TestOperatorRunManifest(unittest.TestCase):
         self.assertEqual(manifest["specialists"]["excluded_count"], 0)
         self.assertEqual(manifest["validation"]["final_checkpoint"], "post_write")
         self.assertEqual(manifest["validation"]["checkpoint_count"], 2)
+        self.assertIn("timing", manifest)
+        self.assertGreaterEqual(manifest["timing"]["total_duration_ms"], 0)
+        self.assertGreaterEqual(manifest["timing"]["specialist_execution_ms"], 0)
 
     def test_guardrail_forced_propose_manifest_fields(self) -> None:
         result = run_pipeline(

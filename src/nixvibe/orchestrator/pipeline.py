@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
+import time
 from pathlib import Path
-from typing import Sequence
+from typing import Callable, Sequence
 
 from .audittrail import build_operator_audit_trail_summary
 from .artifacts import generate_artifact_bundle, materialize_artifacts
@@ -28,6 +29,7 @@ from .retry import build_retry_backoff_guardrails
 from .runtime import RuntimeSpecialistContractError, plan_runtime_specialists
 from .router import select_route
 from .specialists import build_dispatch_context, run_specialists, with_dispatch_context
+from .telemetry import build_run_telemetry
 from .types import (
     Mode,
     OrchestrationPolicy,
@@ -59,8 +61,11 @@ def run_pipeline(
     release_check_runner: CommandRunner | None = None,
     runtime_contract: RuntimeSpecialistContract | None = None,
     runtime_handlers: RuntimeSpecialistHandlerRegistry | None = None,
+    monotonic_clock: Callable[[], float] | None = None,
 ) -> OrchestrationResult:
     workspace_root_path = Path(workspace_root)
+    clock = monotonic_clock or time.perf_counter
+    pipeline_started_at = clock()
     active_policy = policy or load_policy()
 
     route_decision = select_route(request, context, active_policy)
@@ -82,7 +87,10 @@ def run_pipeline(
         runtime_contract=runtime_contract,
         runtime_handlers=runtime_handlers,
     )
+    specialist_execution_ms = 0
+    specialist_execution_started_at = clock()
     specialist_results = run_specialists(dispatch_tasks)
+    specialist_execution_ms = _elapsed_ms(specialist_execution_started_at, clock())
     validated_results = _validate_specialist_results(specialist_results)
 
     valid_payloads = tuple(
@@ -116,34 +124,44 @@ def run_pipeline(
     pre_write_validation_report: ValidationReport | None = None
     post_write_validation_report: ValidationReport | None = None
     validation_report: ValidationReport | None = None
+    pre_write_validation_ms = 0
+    post_write_validation_ms = 0
     if selected_mode is Mode.APPLY:
+        pre_write_validation_started_at = clock()
         pre_write_validation_report = run_validation(
             workspace_root=workspace_root,
             command_runner=validation_runner,
         )
+        pre_write_validation_ms = _elapsed_ms(pre_write_validation_started_at, clock())
         validation_report = pre_write_validation_report
         if not pre_write_validation_report.success:
             selected_mode = Mode.PROPOSE
 
     artifact_bundle = generate_artifact_bundle(route_decision.route, merge_result)
+    artifact_materialization_started_at = clock()
     materialization_result = materialize_artifacts(
         artifact_bundle,
         selected_mode,
         workspace_root=workspace_root,
     )
+    artifact_materialization_ms = _elapsed_ms(artifact_materialization_started_at, clock())
     if (
         selected_mode is Mode.APPLY
         and materialization_result.write_performed
         and pre_write_validation_report is not None
         and pre_write_validation_report.success
     ):
+        post_write_validation_started_at = clock()
         post_write_validation_report = run_validation(
             workspace_root=workspace_root,
             command_runner=validation_runner,
         )
+        post_write_validation_ms = _elapsed_ms(post_write_validation_started_at, clock())
         validation_report = post_write_validation_report
 
+    ledger_inspection_started_at = clock()
     ledger_summary = inspect_git_ledger(workspace_root_path)
+    ledger_inspection_ms = _elapsed_ms(ledger_inspection_started_at, clock())
     artifact_summary = _build_artifact_summary(
         base_summary=merge_result.artifact_summary,
         context=context,
@@ -211,6 +229,23 @@ def run_pipeline(
     artifact_summary["apply_safety_escalation"] = apply_safety_escalation
     artifact_summary["recovery_playbook"] = recovery_playbook
     artifact_summary["guidance"] = guidance_summary
+    run_telemetry = build_run_telemetry(
+        route=route_decision.route.value,
+        mode=selected_mode.value,
+        specialist_count=len(dispatch_tasks),
+        generated_file_count=len(artifact_bundle.files),
+        proposed_file_count=len(materialization_result.proposed_files),
+        written_file_count=len(materialization_result.written_paths),
+        pre_write_validation_executed=pre_write_validation_report is not None,
+        post_write_validation_executed=post_write_validation_report is not None,
+        specialist_execution_ms=specialist_execution_ms,
+        artifact_materialization_ms=artifact_materialization_ms,
+        validation_pre_write_ms=pre_write_validation_ms,
+        validation_post_write_ms=post_write_validation_ms,
+        ledger_inspection_ms=ledger_inspection_ms,
+        total_duration_ms=_elapsed_ms(pipeline_started_at, clock()),
+    )
+    artifact_summary["run_telemetry"] = run_telemetry
     artifact_summary["run_manifest"] = build_operator_run_manifest(
         route=route_decision.route.value,
         requested_mode=request.requested_mode,
@@ -229,6 +264,7 @@ def run_pipeline(
         mutation_guardrails=mutation_guardrails,
         apply_safety_escalation=apply_safety_escalation,
         recovery_playbook=recovery_playbook,
+        run_telemetry=run_telemetry,
     )
     artifact_summary["run_failure_classification"] = build_run_failure_classification(
         run_manifest=artifact_summary["run_manifest"],
@@ -562,3 +598,7 @@ def _ledger_has_drift(ledger_summary: dict[str, object]) -> bool:
         ledger_summary.get("available")
         and ledger_summary.get("drift_detected")
     )
+
+
+def _elapsed_ms(started_at: float, finished_at: float) -> int:
+    return max(0, int(round((finished_at - started_at) * 1000)))

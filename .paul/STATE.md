@@ -5,28 +5,29 @@
 See: .paul/PROJECT.md (updated 2026-04-20)
 
 **Core value:** Users can evolve clean modular NixOS configs safely with guided automation.
-**Current focus:** v0.4 milestone complete — awaiting next milestone definition
+**Current focus:** v0.5 started — phase 13 telemetry slice in progress
 
 ## Current Position
 
-Milestone: v0.4 Reliability and Delivery Hardening (v0.4.0) — Complete
-Phase: 12 of 12 (Release Delivery and Milestone Closeout) — Complete
-Plan: 12-03 completed
-Status: v0.4 complete; release artifacts published; ready for next milestone planning
-Last activity: 2026-04-20T13:24:09-10:00 — Completed .paul/phases/12-release-delivery-and-milestone-closeout/12-03-SUMMARY.md
+Milestone: v0.5 Measured Outcomes and Benchmark Baselines (v0.5.0) — In progress
+Phase: 13 of 15 (Execution Telemetry and Benchmark Contracts) — In progress
+Plan: 13-01 completed
+Status: PLAN/APPLY/UNIFY closed for 13-01; phase 13 has remaining plans (13-02, 13-03)
+Last activity: 2026-04-20T21:36:17-10:00 — Completed .paul/phases/13-execution-telemetry-and-benchmark-contracts/13-01-SUMMARY.md
 
 Progress:
 - v0.1 Initial Release: [██████████] 100% ✓
 - v0.2 Execution and Context Expansion: [██████████] 100% ✓
 - v0.3 Operational Workflow Intelligence: [██████████] 100% ✓
 - v0.4 Reliability and Delivery Hardening: [██████████] 100% ✓
+- v0.5 Measured Outcomes and Benchmark Baselines: [█░░░░░░░░░] 11%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [12-03 complete]
+  ✓        ✓        ✓     [13-01 complete]
 ```
 
 ## Accumulated Context
@@ -74,6 +75,8 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - Release artifact manifest/checklist contract landed for Phase 12 plan 12-01
 - Release-check command contract landed for Phase 12 plan 12-02
 - v0.4 end-to-end acceptance and milestone closeout artifacts landed for Phase 12 plan 12-03
+- v0.5 milestone scaffold initialized with phases 13-15 and plan 13-01 as next action
+- Run telemetry contract landed with manifest timing integration for Phase 13 plan 13-01
 
 ### Deferred Issues
 None yet.
@@ -83,10 +86,10 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-20T13:24:09-10:00
-Stopped at: Phase 12 plan 12-03 completed and milestone v0.4 closed
-Next action: Define and scaffold next milestone roadmap (v0.5.0+)
-Resume file: .paul/phases/12-release-delivery-and-milestone-closeout/12-03-SUMMARY.md
+Last session: 2026-04-20T21:36:17-10:00
+Stopped at: Phase 13 plan 13-01 completed
+Next action: Create and execute `.paul/phases/13-execution-telemetry-and-benchmark-contracts/13-02-PLAN.md`
+Resume file: .paul/phases/13-execution-telemetry-and-benchmark-contracts/13-01-SUMMARY.md
 
 ---
 *STATE.md — Updated after every significant action*

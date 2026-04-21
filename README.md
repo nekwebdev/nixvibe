@@ -768,6 +768,29 @@ Added v0.4 closeout end-to-end acceptance coverage:
 Additional coverage:
 - `tests/orchestrator/test_v04_milestone_acceptance.py`
 
+## Runtime Orchestration (Phase 13 Run Telemetry Slice)
+
+Added deterministic run telemetry contract for timing and throughput visibility:
+- Run telemetry emitted as `artifact_summary.run_telemetry`:
+  - `contract`
+  - `route`
+  - `mode`
+  - specialist/artifact counters
+  - validation checkpoint counter
+  - stage timings:
+    - `total_duration_ms`
+    - `specialist_execution_ms`
+    - `artifact_materialization_ms`
+    - `validation_pre_write_ms`
+    - `validation_post_write_ms`
+    - `validation_total_ms`
+    - `ledger_inspection_ms`
+- Operator manifest now exposes normalized timing metadata at:
+  - `artifact_summary.run_manifest.timing`
+
+Additional coverage:
+- `tests/orchestrator/test_run_telemetry_contract.py`
+
 ## Output Artifacts
 
 Primary artifacts:

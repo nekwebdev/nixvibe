@@ -13,8 +13,8 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 | Attribute | Value |
 |-----------|-------|
 | Type | Workflow |
-| Version | 0.4.0 |
-| Status | Complete (v0.4.0) |
+| Version | 0.5.0 |
+| Status | In progress (v0.5 active) |
 | Last Updated | 2026-04-20 |
 
 ## Requirements
@@ -72,10 +72,13 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add release artifact manifest/checklist contract — Phase 12 (12-01)
 - [x] Add automated release-check command contract — Phase 12 (12-02)
 - [x] Add end-to-end v0.4 acceptance and milestone closeout artifacts — Phase 12 (12-03)
+- [x] Add run telemetry contract and manifest timing integration — Phase 13 (13-01)
 
 ### Planned (Next)
 
-- [ ] Define next milestone scope (v0.5.0+)
+- [ ] Complete remaining Phase 13 slices (`13-02`, `13-03`)
+- [ ] Execute Phase 14 benchmark scenario harness plans (`14-01` to `14-03`)
+- [ ] Execute Phase 15 outcome tracking and closeout plans (`15-01` to `15-03`)
 
 ### Out of Scope
 
@@ -148,6 +151,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Release artifact manifest is explicit | Every run must emit route/mode-aware release checklist and artifact inventory metadata | 2026-04-20 | Active |
 | Release-check command status is explicit | Every run must emit release-check command status and tagging readiness metadata | 2026-04-20 | Active |
 | Milestone closeout acceptance is explicit | Milestone release confidence requires cross-contract acceptance tests and published archive artifacts | 2026-04-20 | Active |
+| Run telemetry is explicit | Every run must emit deterministic stage timings and throughput counters for benchmark analysis | 2026-04-20 | Active |
 
 ## Success Metrics
 
@@ -177,4 +181,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-20 after Phase 12 plan 12-03 completion*
+*Last updated: 2026-04-20 after Phase 13 plan 13-01 completion*

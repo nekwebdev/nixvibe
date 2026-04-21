@@ -1,23 +1,23 @@
 {
   "name": "nixvibe",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "milestone": {
-    "name": "v0.4 Reliability and Delivery Hardening",
-    "version": "v0.4.0",
-    "status": "complete"
+    "name": "v0.5 Measured Outcomes and Benchmark Baselines",
+    "version": "v0.5.0",
+    "status": "in_progress"
   },
   "phase": {
-    "number": 12,
-    "name": "Release Delivery and Milestone Closeout",
-    "status": "complete"
+    "number": 13,
+    "name": "Execution Telemetry and Benchmark Contracts",
+    "status": "in_progress"
   },
   "loop": {
-    "plan": "12-03",
+    "plan": "13-01",
     "position": "COMPLETE"
   },
   "timestamps": {
     "created_at": "2026-04-18T23:49:27-10:00",
-    "updated_at": "2026-04-20T13:24:09-10:00"
+    "updated_at": "2026-04-20T21:36:17-10:00"
   },
   "satellite": {
     "groom": true
