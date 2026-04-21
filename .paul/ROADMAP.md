@@ -65,7 +65,7 @@ Phases: 2 of 3 complete
 
 **Plans:**
 - [x] 21-01: v0.7 closeout evidence bundle
-- [ ] 21-02: v1.0 pathway scaffold integration
+- [x] 21-02: v1.0 pathway scaffold integration
 - [ ] 21-03: End-to-end v0.7 acceptance and milestone closeout
 
 ## Completed Milestones

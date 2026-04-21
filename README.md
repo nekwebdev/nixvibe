@@ -1197,6 +1197,23 @@ Added deterministic v0.7 closeout evidence contract:
 Additional coverage:
 - `tests/orchestrator/test_v07_closeout_evidence.py`
 
+## Runtime Orchestration (Phase 21 v1.0 Pathway Scaffold Slice)
+
+Added deterministic v1.0 pathway scaffold contract:
+- v1.0 pathway scaffold emitted as `artifact_summary.v10_pathway_scaffold`:
+  - `contract`
+  - `pathway_status` (`ready`, `hold`, `blocked`)
+  - transition gate metadata and blocker summary
+  - deterministic phase blueprint for phases 22-24
+- Pathway scaffold integrates:
+  - `v07_closeout_evidence.closeout_category`
+  - `governance_hardening_escalation.escalation_level`
+  - `benchmark_release_readiness.ready`
+  - `release_policy_execution.decision`
+
+Additional coverage:
+- `tests/orchestrator/test_v10_pathway_scaffold.py`
+
 ## Output Artifacts
 
 Primary artifacts:

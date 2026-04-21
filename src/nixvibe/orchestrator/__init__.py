@@ -55,6 +55,7 @@ from .telemetry import build_run_telemetry
 from .telemetry_regression import build_telemetry_regression_report
 from .v06_readiness_summary import build_v06_readiness_summary
 from .v07_closeout_evidence import build_v07_closeout_evidence
+from .v10_pathway_scaffold import build_v10_pathway_scaffold
 from .validation import run_validation
 from .workspace import (
     build_repo_context,
@@ -171,6 +172,7 @@ __all__ = [
     "build_run_telemetry",
     "build_v06_readiness_summary",
     "build_v07_closeout_evidence",
+    "build_v10_pathway_scaffold",
     "build_telemetry_regression_report",
     "build_dispatch_context",
     "build_guidance_summary",
