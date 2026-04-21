@@ -7,8 +7,8 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 ## Current Milestone
 
 **v1.0 General Availability and Launch Governance** (v1.0.0)
-Status: 🚧 In progress
-Phases: 2 of 3 complete
+Status: ✅ Complete
+Phases: 3 of 3 complete
 
 ## Phases
 
@@ -16,7 +16,7 @@ Phases: 2 of 3 complete
 |-------|------|-------|--------|-----------|
 | 22 | v1 Foundation Hardening and Compatibility | 3 (`22-01`, `22-02`, `22-03`) | ✅ Complete | 2026-04-21 |
 | 23 | v1 Operator Control Plane Consolidation | 3 (`23-01`, `23-02`, `23-03`) | ✅ Complete | 2026-04-21 |
-| 24 | v1 General Availability Closeout | 3 (`24-01`, `24-02`, `24-03`) | In progress | - |
+| 24 | v1 General Availability Closeout | 3 (`24-01`, `24-02`, `24-03`) | ✅ Complete | 2026-04-21 |
 
 ## Phase Details
 
@@ -66,7 +66,7 @@ Phases: 2 of 3 complete
 **Plans:**
 - [x] 24-01: v1 launch evidence bundle contract
 - [x] 24-02: v1 launch readiness summary integration
-- [ ] 24-03: end-to-end v1.0 acceptance and milestone closeout
+- [x] 24-03: end-to-end v1.0 acceptance and milestone closeout
 
 ## Completed Milestones
 

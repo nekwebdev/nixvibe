@@ -1356,6 +1356,21 @@ Added deterministic v1 launch readiness summary contract:
 Additional coverage:
 - `tests/orchestrator/test_v10_launch_readiness_summary.py`
 
+## Runtime Orchestration (Phase 24 Acceptance and Milestone Closeout Slice)
+
+Closed milestone v1.0 with end-to-end GA acceptance and closeout artifacts:
+- Added phase acceptance suite for launch evidence and launch readiness chain:
+  - default flow yields hold launch posture
+  - history-backed + release-check pass yields ready launch evidence/readiness posture
+  - override-denied path yields blocked launch evidence/readiness posture
+- Published milestone artifacts:
+  - `.paul/releases/v1.0.0.md`
+  - `.paul/milestones/v1.0.0-ROADMAP.md`
+  - `.paul/MILESTONES.md` entry for v1.0 completion
+
+Additional coverage:
+- `tests/orchestrator/test_phase24_ga_closeout_acceptance.py`
+
 ## Output Artifacts
 
 Primary artifacts:

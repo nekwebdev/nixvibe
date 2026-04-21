@@ -4,6 +4,7 @@ Completed milestone log for this project.
 
 | Milestone | Completed | Duration | Stats |
 |-----------|-----------|----------|-------|
+| v1.0 General Availability and Launch Governance (v1.0.0) | 2026-04-21 | 52m | 3 phases, 9 plans |
 | v0.7 Release Automation and Governance Hardening (v0.7.0) | 2026-04-21 | 40m | 3 phases, 9 plans |
 | v0.6 Trend Persistence and Outcome Signal Governance (v0.6.0) | 2026-04-21 | 1h 02m | 3 phases, 9 plans |
 | v0.5 Measured Outcomes and Benchmark Baselines (v0.5.0) | 2026-04-20 | 1h 17m | 3 phases, 9 plans |
@@ -11,6 +12,36 @@ Completed milestone log for this project.
 | v0.3 Operational Workflow Intelligence (v0.3.0) | 2026-04-20 | 8h 49m | 3 phases, 9 plans |
 | v0.2 Execution and Context Expansion (v0.2.0) | 2026-04-20 | 10h 03m | 3 phases, 9 plans |
 | v0.1 Initial Release (v0.1.0) | 2026-04-19 | 15h 34m | 3 phases, 7 plans |
+
+---
+
+## ✅ v1.0 General Availability and Launch Governance (v1.0.0)
+
+**Completed:** 2026-04-21  
+**Duration:** 52m
+
+### Stats
+
+| Metric | Value |
+|--------|-------|
+| Phases | 3 |
+| Plans | 9 |
+| Files changed | 70 |
+
+### Key Accomplishments
+
+- Added v1 compatibility baseline and migration safety policy contracts.
+- Added operator control-plane summary and governance workflow consolidation contracts.
+- Added v1 launch evidence bundle and launch readiness summary contracts.
+- Added phase23 end-to-end operator consolidation acceptance coverage.
+- Added phase24 end-to-end GA closeout acceptance coverage.
+- Published v1.0 release notes and roadmap archive artifacts.
+
+### Key Decisions
+
+- Keep v1 migration and launch control posture machine-readable via explicit compatibility, migration, control-plane, and launch-readiness contracts.
+- Keep GA closeout deterministic with hold/ready/blocked launch evidence and readiness surfaces.
+- Treat v1.0 closeout as validated contract continuity plus published release/archive artifacts.
 
 ---
 
