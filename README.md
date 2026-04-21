@@ -834,6 +834,28 @@ Added deterministic telemetry regression threshold contract for benchmark safety
 Additional coverage:
 - `tests/orchestrator/test_telemetry_regression_thresholds.py`
 
+## Runtime Orchestration (Phase 14 Scenario Catalog Slice)
+
+Added deterministic benchmark scenario catalog and fixture loader contract:
+- Scenario catalog emitted as `artifact_summary.benchmark_scenario_catalog`:
+  - `contract`
+  - `catalog_version`
+  - `route`, `mode`
+  - scenario inventory and count
+  - recommended scenario IDs and selection reason
+  - regression and baseline context flags
+- Scenario fixture loader helper:
+  - `load_benchmark_scenario(<id>)`
+  - returns deterministic scenario metadata
+  - raises clear error for unknown IDs
+- Recommendation routing now adapts to:
+  - route/mode (`init` or `audit`, `propose` or `apply`)
+  - telemetry regression detection
+  - baseline eligibility state
+
+Additional coverage:
+- `tests/orchestrator/test_benchmark_scenario_catalog.py`
+
 ## Output Artifacts
 
 Primary artifacts:

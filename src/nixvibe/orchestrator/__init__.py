@@ -3,6 +3,7 @@
 from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .audittrail import build_operator_audit_trail_summary
 from .benchmark import build_benchmark_baseline_report
+from .benchmark_scenarios import build_benchmark_scenario_catalog, load_benchmark_scenario
 from .checkpoint import build_resume_checkpoint
 from .conflicts import resolve_conflict
 from .escalation import build_apply_safety_escalation
@@ -90,6 +91,7 @@ __all__ = [
     "ArtifactMaterializationResult",
     "build_operator_audit_trail_summary",
     "build_benchmark_baseline_report",
+    "build_benchmark_scenario_catalog",
     "build_resume_checkpoint",
     "ConflictCandidate",
     "MergeResult",
@@ -150,6 +152,7 @@ __all__ = [
     "normalize_patch_path",
     "orchestrate_patch_proposals",
     "patch_orchestration_summary",
+    "load_benchmark_scenario",
     "inspect_reference",
     "load_policy",
     "generate_artifact_bundle",

@@ -15,7 +15,7 @@ Phases: 1 of 3 complete
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
 | 13 | Execution Telemetry and Benchmark Contracts | 3 (`13-01`, `13-02`, `13-03`) | ✅ Complete | 2026-04-20 |
-| 14 | Benchmark Scenario Harness and Reports | 3 (`14-01`, `14-02`, `14-03`) | Not started | - |
+| 14 | Benchmark Scenario Harness and Reports | 3 (`14-01`, `14-02`, `14-03`) | 🚧 In progress | - |
 | 15 | Outcome Tracking and Milestone Closeout | 3 (`15-01`, `15-02`, `15-03`) | Not started | - |
 
 ## Phase Details
@@ -48,7 +48,7 @@ Phases: 1 of 3 complete
 - Baseline snapshots for milestone-level trend tracking
 
 **Plans:**
-- [ ] 14-01: Scenario fixture catalog and loader contract
+- [x] 14-01: Scenario fixture catalog and loader contract
 - [ ] 14-02: Benchmark runner and report emitter
 - [ ] 14-03: Baseline snapshot generation and regression checks
 
