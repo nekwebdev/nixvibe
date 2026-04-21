@@ -1170,6 +1170,17 @@ Added deterministic governance hardening escalation contract:
 Additional coverage:
 - `tests/orchestrator/test_governance_hardening_escalation.py`
 
+## Runtime Orchestration (Phase 20 Acceptance and Closeout Slice)
+
+Closed phase 20 with end-to-end observability/governance acceptance coverage:
+- Added phase acceptance suite for digest/escalation chain:
+  - default attention digest yields governance escalation posture
+  - history-backed + release-check pass yields healthy/stable governance posture
+  - override-denied path yields critical/blocked governance posture
+
+Additional coverage:
+- `tests/orchestrator/test_phase20_observability_governance_acceptance.py`
+
 ## Output Artifacts
 
 Primary artifacts:

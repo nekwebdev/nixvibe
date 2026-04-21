@@ -7,17 +7,17 @@
     "status": "in_progress"
   },
   "phase": {
-    "number": 20,
-    "name": "Operator Observability and Governance Hardening",
+    "number": 21,
+    "name": "v0.7 Closeout and v1.0 Pathway",
     "status": "in_progress"
   },
   "loop": {
-    "plan": "20-03",
+    "plan": "21-01",
     "position": "PLAN_PENDING"
   },
   "timestamps": {
     "created_at": "2026-04-18T23:49:27-10:00",
-    "updated_at": "2026-04-21T01:32:52-10:00"
+    "updated_at": "2026-04-21T01:35:57-10:00"
   },
   "satellite": {
     "groom": true

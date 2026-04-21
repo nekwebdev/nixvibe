@@ -8,14 +8,14 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 **v0.7 Release Automation and Governance Hardening** (v0.7.0)
 Status: 🚧 In progress
-Phases: 1 of 3 complete
+Phases: 2 of 3 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
 | 19 | Release Automation and Policy Execution | 3 (`19-01`, `19-02`, `19-03`) | ✅ Complete | 2026-04-21 |
-| 20 | Operator Observability and Governance Hardening | 3 (`20-01`, `20-02`, `20-03`) | 🚧 In progress | - |
+| 20 | Operator Observability and Governance Hardening | 3 (`20-01`, `20-02`, `20-03`) | ✅ Complete | 2026-04-21 |
 | 21 | v0.7 Closeout and v1.0 Pathway | 3 (`21-01`, `21-02`, `21-03`) | Not started | - |
 
 ## Phase Details
@@ -50,7 +50,7 @@ Phases: 1 of 3 complete
 **Plans:**
 - [x] 20-01: Operator observability digest contract
 - [x] 20-02: Governance hardening escalation contract
-- [ ] 20-03: End-to-end observability/governance acceptance and phase closeout
+- [x] 20-03: End-to-end observability/governance acceptance and phase closeout
 
 ### Phase 21: v0.7 Closeout and v1.0 Pathway
 
