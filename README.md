@@ -894,6 +894,23 @@ Added deterministic baseline snapshot generation and regression-check contract:
 Additional coverage:
 - `tests/orchestrator/test_benchmark_baseline_snapshot.py`
 
+## Runtime Orchestration (Phase 15 Outcome Scorecard Slice)
+
+Added deterministic outcome scorecard contract tied to v0.5 success metrics:
+- Outcome scorecard emitted as `artifact_summary.outcome_scorecard`:
+  - `contract`
+  - score summary (`achieved_score`, `max_score`, `score_percent`)
+  - `overall_status` (`on_track`, `watch`, `at_risk`, `blocked`)
+  - failed metric IDs and dependency-check IDs
+  - trend context (`release_ready`, `regression_detected`, `trend_bucket`)
+- Scorecard metric model currently evaluates:
+  - new host scaffold estimate vs 30-minute target
+  - existing config modularization estimate vs 2-hour target with release-readiness gate
+  - service-add confidence from baseline recordability, regression state, and runner readiness
+
+Additional coverage:
+- `tests/orchestrator/test_outcome_scorecard.py`
+
 ## Output Artifacts
 
 Primary artifacts:

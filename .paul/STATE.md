@@ -5,29 +5,29 @@
 See: .paul/PROJECT.md (updated 2026-04-20)
 
 **Core value:** Users can evolve clean modular NixOS configs safely with guided automation.
-**Current focus:** v0.5 phase 15 planning — outcome tracking and closeout kickoff
+**Current focus:** v0.5 phase 15 in progress — outcome scorecard contract landed
 
 ## Current Position
 
 Milestone: v0.5 Measured Outcomes and Benchmark Baselines (v0.5.0) — In progress
 Phase: 15 of 15 (Outcome Tracking and Milestone Closeout) — In progress
-Plan: 14-03 completed
-Status: PLAN/APPLY/UNIFY closed for 14-03; phase 14 complete and pointer advanced to phase 15 plan 15-01
-Last activity: 2026-04-20T22:29:20-10:00 — Completed .paul/phases/14-benchmark-scenario-harness-and-reports/14-03-SUMMARY.md
+Plan: 15-01 completed
+Status: PLAN/APPLY/UNIFY closed for 15-01; phase 15 has remaining plans (15-02, 15-03)
+Last activity: 2026-04-20T22:40:50-10:00 — Completed .paul/phases/15-outcome-tracking-and-milestone-closeout/15-01-SUMMARY.md
 
 Progress:
 - v0.1 Initial Release: [██████████] 100% ✓
 - v0.2 Execution and Context Expansion: [██████████] 100% ✓
 - v0.3 Operational Workflow Intelligence: [██████████] 100% ✓
 - v0.4 Reliability and Delivery Hardening: [██████████] 100% ✓
-- v0.5 Measured Outcomes and Benchmark Baselines: [███████░░░] 67%
+- v0.5 Measured Outcomes and Benchmark Baselines: [████████░░] 78%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [14-03 complete]
+  ✓        ✓        ✓     [15-01 complete]
 ```
 
 ## Accumulated Context
@@ -82,6 +82,7 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - Benchmark scenario catalog/loader contract landed for Phase 14 plan 14-01
 - Benchmark runner report emitter contract landed for Phase 14 plan 14-02
 - Benchmark baseline snapshot + regression consistency contract landed for Phase 14 plan 14-03
+- Outcome scorecard contract landed for Phase 15 plan 15-01
 
 ### Deferred Issues
 None yet.
@@ -91,10 +92,10 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-20T22:29:20-10:00
-Stopped at: Phase 14 complete after plan 14-03
-Next action: Create and execute `.paul/phases/15-outcome-tracking-and-milestone-closeout/15-01-PLAN.md`
-Resume file: .paul/phases/14-benchmark-scenario-harness-and-reports/14-03-SUMMARY.md
+Last session: 2026-04-20T22:40:50-10:00
+Stopped at: Phase 15 plan 15-01 completed
+Next action: Create and execute `.paul/phases/15-outcome-tracking-and-milestone-closeout/15-02-PLAN.md`
+Resume file: .paul/phases/15-outcome-tracking-and-milestone-closeout/15-01-SUMMARY.md
 
 ---
 *STATE.md — Updated after every significant action*

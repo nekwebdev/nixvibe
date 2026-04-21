@@ -22,6 +22,7 @@ from .ledger import inspect_git_ledger
 from .manifest import build_operator_run_manifest
 from .merge import merge_specialist_payloads
 from .modes import resolve_mode
+from .outcome_scorecard import build_outcome_scorecard
 from .override import build_controlled_override_workflow
 from .payloads import PayloadValidationError, validate_payload
 from .policy_loader import load_policy
@@ -307,6 +308,13 @@ def run_pipeline(
         telemetry_regression=artifact_summary["telemetry_regression"],
         benchmark_scenario_catalog=artifact_summary["benchmark_scenario_catalog"],
         benchmark_runner_report=artifact_summary["benchmark_runner_report"],
+    )
+    artifact_summary["outcome_scorecard"] = build_outcome_scorecard(
+        benchmark_scenario_catalog=artifact_summary["benchmark_scenario_catalog"],
+        benchmark_runner_report=artifact_summary["benchmark_runner_report"],
+        benchmark_baseline_snapshot=artifact_summary["benchmark_baseline_snapshot"],
+        release_readiness=artifact_summary["release_readiness"],
+        telemetry_regression=artifact_summary["telemetry_regression"],
     )
     artifact_summary["resume_checkpoint"] = build_resume_checkpoint(
         run_manifest=artifact_summary["run_manifest"],

@@ -78,10 +78,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add benchmark scenario catalog and loader contract — Phase 14 (14-01)
 - [x] Add benchmark runner and machine-readable report emitter contract — Phase 14 (14-02)
 - [x] Add baseline snapshot and regression consistency checks contract — Phase 14 (14-03)
+- [x] Add outcome scorecard contract tied to milestone success metrics — Phase 15 (15-01)
 
 ### Planned (Next)
 
-- [ ] Execute Phase 15 outcome tracking and closeout plans (`15-01` to `15-03`)
+- [ ] Execute remaining Phase 15 outcome tracking and closeout plans (`15-02` to `15-03`)
 
 ### Out of Scope
 
@@ -160,6 +161,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Scenario catalog is explicit | Every run must emit deterministic benchmark scenario recommendations and fixture lookup metadata | 2026-04-20 | Active |
 | Runner report is explicit | Every run must emit deterministic benchmark execution plan metadata and runner commands | 2026-04-20 | Active |
 | Baseline snapshot is explicit | Every run must emit deterministic milestone-trend snapshot metadata with cross-contract regression consistency checks | 2026-04-20 | Active |
+| Outcome scorecard is explicit | Every run must emit deterministic success-metric scoring tied to benchmark and release signals | 2026-04-20 | Active |
 
 ## Success Metrics
 
@@ -189,4 +191,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-20 after Phase 14 plan 14-03 completion*
+*Last updated: 2026-04-20 after Phase 15 plan 15-01 completion*
