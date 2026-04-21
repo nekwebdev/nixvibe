@@ -104,10 +104,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add end-to-end v0.7 acceptance and milestone closeout artifacts — Phase 21 (21-03)
 - [x] Add v1 compatibility baseline contract — Phase 22 (22-01)
 - [x] Add migration-safety policy integration contract — Phase 22 (22-02)
+- [x] Add end-to-end foundation hardening acceptance and phase closeout artifacts — Phase 22 (22-03)
 
 ### Planned (Next)
 
-- [ ] Execute remaining v1.0 plans (`22-03` to `24-03`)
+- [ ] Execute remaining v1.0 plans (`23-01` to `24-03`)
 - [ ] Publish v1.0 launch evidence and GA closeout artifacts
 
 ### Out of Scope
@@ -208,6 +209,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | v0.7 milestone closeout is explicit | Milestone completion requires phase19-21 contract continuity, release/archive publication, and v1.0 scaffold transition | 2026-04-21 | Active |
 | v1 compatibility baseline is explicit | Every run must emit deterministic compatibility gating from pathway, governance, and release readiness signals | 2026-04-21 | Active |
 | migration safety policy is explicit | Every run must emit deterministic migration allow/review/block policy decisions from compatibility, override, and release signals | 2026-04-21 | Active |
+| foundation acceptance closeout is explicit | Phase completion requires deterministic hold/ready/block end-to-end acceptance coverage across phase22 contracts | 2026-04-21 | Active |
 
 ## Success Metrics
 
@@ -237,4 +239,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-21 after Phase 22 plan 22-02 completion*
+*Last updated: 2026-04-21 after Phase 22 plan 22-03 completion*

@@ -8,13 +8,13 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 **v1.0 General Availability and Launch Governance** (v1.0.0)
 Status: 🚧 In progress
-Phases: 0 of 3 complete
+Phases: 1 of 3 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 22 | v1 Foundation Hardening and Compatibility | 3 (`22-01`, `22-02`, `22-03`) | 🚧 In progress | - |
+| 22 | v1 Foundation Hardening and Compatibility | 3 (`22-01`, `22-02`, `22-03`) | ✅ Complete | 2026-04-21 |
 | 23 | v1 Operator Control Plane Consolidation | 3 (`23-01`, `23-02`, `23-03`) | Not started | - |
 | 24 | v1 General Availability Closeout | 3 (`24-01`, `24-02`, `24-03`) | Not started | - |
 
@@ -34,7 +34,7 @@ Phases: 0 of 3 complete
 **Plans:**
 - [x] 22-01: v1 compatibility baseline contract
 - [x] 22-02: migration-safety policy integration
-- [ ] 22-03: end-to-end foundation hardening acceptance and phase closeout
+- [x] 22-03: end-to-end foundation hardening acceptance and phase closeout
 
 ### Phase 23: v1 Operator Control Plane Consolidation
 

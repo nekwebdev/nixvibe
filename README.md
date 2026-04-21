@@ -1266,6 +1266,17 @@ Added deterministic migration safety policy contract:
 Additional coverage:
 - `tests/orchestrator/test_migration_safety_policy.py`
 
+## Runtime Orchestration (Phase 22 Acceptance and Closeout Slice)
+
+Closed phase 22 with end-to-end foundation hardening acceptance coverage:
+- Added phase acceptance suite for compatibility and migration policy chain:
+  - default flow yields compatibility hold and migration policy review
+  - history-backed + release-check pass yields compatibility ready and migration allow
+  - override-denied path yields blocked compatibility and migration policy block
+
+Additional coverage:
+- `tests/orchestrator/test_phase22_foundation_acceptance.py`
+
 ## Output Artifacts
 
 Primary artifacts:
