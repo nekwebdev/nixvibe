@@ -1109,6 +1109,22 @@ Added deterministic automated release execution gate contract:
 Additional coverage:
 - `tests/orchestrator/test_release_execution_gate.py`
 
+## Runtime Orchestration (Phase 19 Policy Execution Integration Slice)
+
+Added deterministic release policy execution integration contract:
+- Release policy execution emitted as `artifact_summary.release_policy_execution`:
+  - `contract`
+  - `decision` (`automated`, `manual-ack`, `blocked`)
+  - `automated_release_enabled`
+  - blocker list and failed check IDs
+- Policy execution decision derives from:
+  - `release_execution_gate.decision`
+  - `controlled_override_workflow.decision`
+  - `release_check_command.status`
+
+Additional coverage:
+- `tests/orchestrator/test_release_policy_execution.py`
+
 ## Output Artifacts
 
 Primary artifacts:

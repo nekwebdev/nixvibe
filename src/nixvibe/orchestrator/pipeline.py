@@ -35,6 +35,7 @@ from .policy_loader import load_policy
 from .release import build_release_readiness
 from .release_candidate_evidence import build_release_candidate_evidence
 from .release_execution_gate import build_release_execution_gate
+from .release_policy_execution import build_release_policy_execution
 from .release_check import build_release_check_command_contract
 from .release_manifest import build_release_artifact_manifest
 from .recovery import build_recovery_playbook
@@ -427,6 +428,11 @@ def run_pipeline(
     )
     artifact_summary["release_execution_gate"] = build_release_execution_gate(
         v06_readiness_summary=artifact_summary["v06_readiness_summary"],
+        release_check_command=artifact_summary["release_check_command"],
+    )
+    artifact_summary["release_policy_execution"] = build_release_policy_execution(
+        release_execution_gate=artifact_summary["release_execution_gate"],
+        controlled_override_workflow=artifact_summary["controlled_override_workflow"],
         release_check_command=artifact_summary["release_check_command"],
     )
 
