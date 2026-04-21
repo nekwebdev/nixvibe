@@ -874,6 +874,26 @@ Added deterministic benchmark runner report emitter:
 Additional coverage:
 - `tests/orchestrator/test_benchmark_runner_report.py`
 
+## Runtime Orchestration (Phase 14 Baseline Snapshot Slice)
+
+Added deterministic baseline snapshot generation and regression-check contract:
+- Baseline snapshot emitted as `artifact_summary.benchmark_baseline_snapshot`:
+  - `contract`
+  - `snapshot_id` and `snapshot_profile`
+  - run context (`route`, `mode`, `run_mode`, expected run mode)
+  - trend bucket classification (`baseline-candidate`, `recovery-needed`, `regression-investigate`, `baseline-blocked`)
+  - baseline recordability signal for milestone trend capture
+  - deterministic check matrix and failed check IDs
+- Snapshot checks validate cross-contract consistency across:
+  - baseline report
+  - telemetry regression status
+  - scenario catalog contract
+  - runner report contract/readiness
+  - expected run-mode derivation
+
+Additional coverage:
+- `tests/orchestrator/test_benchmark_baseline_snapshot.py`
+
 ## Output Artifacts
 
 Primary artifacts:

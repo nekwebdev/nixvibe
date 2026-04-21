@@ -77,10 +77,10 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add telemetry regression threshold contract — Phase 13 (13-03)
 - [x] Add benchmark scenario catalog and loader contract — Phase 14 (14-01)
 - [x] Add benchmark runner and machine-readable report emitter contract — Phase 14 (14-02)
+- [x] Add baseline snapshot and regression consistency checks contract — Phase 14 (14-03)
 
 ### Planned (Next)
 
-- [ ] Execute remaining Phase 14 benchmark scenario harness plan (`14-03`)
 - [ ] Execute Phase 15 outcome tracking and closeout plans (`15-01` to `15-03`)
 
 ### Out of Scope
@@ -159,6 +159,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Telemetry regression thresholds are explicit | Every run must emit deterministic timing threshold pass/fail signals for regression detection | 2026-04-20 | Active |
 | Scenario catalog is explicit | Every run must emit deterministic benchmark scenario recommendations and fixture lookup metadata | 2026-04-20 | Active |
 | Runner report is explicit | Every run must emit deterministic benchmark execution plan metadata and runner commands | 2026-04-20 | Active |
+| Baseline snapshot is explicit | Every run must emit deterministic milestone-trend snapshot metadata with cross-contract regression consistency checks | 2026-04-20 | Active |
 
 ## Success Metrics
 
@@ -188,4 +189,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-20 after Phase 14 plan 14-02 completion*
+*Last updated: 2026-04-20 after Phase 14 plan 14-03 completion*

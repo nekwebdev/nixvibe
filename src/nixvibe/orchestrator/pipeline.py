@@ -11,6 +11,7 @@ from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .checkpoint import build_resume_checkpoint
 from .benchmark import build_benchmark_baseline_report
 from .benchmark_runner import build_benchmark_runner_report
+from .benchmark_snapshot import build_benchmark_baseline_snapshot
 from .benchmark_scenarios import build_benchmark_scenario_catalog
 from .escalation import build_apply_safety_escalation
 from .explainability import build_policy_decision_explainability
@@ -298,6 +299,14 @@ def run_pipeline(
         benchmark_scenario_catalog=artifact_summary["benchmark_scenario_catalog"],
         benchmark_baseline_report=artifact_summary["benchmark_baseline_report"],
         telemetry_regression=artifact_summary["telemetry_regression"],
+    )
+    artifact_summary["benchmark_baseline_snapshot"] = build_benchmark_baseline_snapshot(
+        run_manifest=artifact_summary["run_manifest"],
+        run_telemetry=artifact_summary["run_telemetry"],
+        benchmark_baseline_report=artifact_summary["benchmark_baseline_report"],
+        telemetry_regression=artifact_summary["telemetry_regression"],
+        benchmark_scenario_catalog=artifact_summary["benchmark_scenario_catalog"],
+        benchmark_runner_report=artifact_summary["benchmark_runner_report"],
     )
     artifact_summary["resume_checkpoint"] = build_resume_checkpoint(
         run_manifest=artifact_summary["run_manifest"],

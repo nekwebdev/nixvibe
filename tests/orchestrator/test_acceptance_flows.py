@@ -198,6 +198,7 @@ class TestAcceptanceFlows(unittest.TestCase):
         self.assertIn("telemetry_regression", result.artifact_summary)
         self.assertIn("benchmark_scenario_catalog", result.artifact_summary)
         self.assertIn("benchmark_runner_report", result.artifact_summary)
+        self.assertIn("benchmark_baseline_snapshot", result.artifact_summary)
         self.assertIn("release_readiness", result.artifact_summary)
         self.assertIn("resume_checkpoint", result.artifact_summary)
         self.assertIn("retry_backoff_guardrails", result.artifact_summary)
