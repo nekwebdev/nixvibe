@@ -930,6 +930,21 @@ Added benchmark-aware release readiness integration:
 Additional coverage:
 - `tests/orchestrator/test_benchmark_release_readiness.py`
 
+## Runtime Orchestration (Phase 15 Milestone Closeout Slice)
+
+Closed milestone v0.5 with end-to-end acceptance and release artifacts:
+- Added milestone acceptance suite for phase13-15 contract continuity:
+  - telemetry/baseline/regression chain
+  - benchmark harness and snapshot chain
+  - outcome scorecard and benchmark-aware release gating
+- Published milestone artifacts:
+  - `.paul/releases/v0.5.0.md`
+  - `.paul/milestones/v0.5.0-ROADMAP.md`
+  - `.paul/MILESTONES.md` entry for v0.5 completion
+
+Additional coverage:
+- `tests/orchestrator/test_v05_milestone_acceptance.py`
+
 ## Output Artifacts
 
 Primary artifacts:

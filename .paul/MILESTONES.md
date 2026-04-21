@@ -4,10 +4,42 @@ Completed milestone log for this project.
 
 | Milestone | Completed | Duration | Stats |
 |-----------|-----------|----------|-------|
+| v0.5 Measured Outcomes and Benchmark Baselines (v0.5.0) | 2026-04-20 | 1h 17m | 3 phases, 9 plans |
 | v0.4 Reliability and Delivery Hardening (v0.4.0) | 2026-04-20 | 1h 09m | 3 phases, 9 plans |
 | v0.3 Operational Workflow Intelligence (v0.3.0) | 2026-04-20 | 8h 49m | 3 phases, 9 plans |
 | v0.2 Execution and Context Expansion (v0.2.0) | 2026-04-20 | 10h 03m | 3 phases, 9 plans |
 | v0.1 Initial Release (v0.1.0) | 2026-04-19 | 15h 34m | 3 phases, 7 plans |
+
+---
+
+## ✅ v0.5 Measured Outcomes and Benchmark Baselines (v0.5.0)
+
+**Completed:** 2026-04-20  
+**Duration:** 1h 17m
+
+### Stats
+
+| Metric | Value |
+|--------|-------|
+| Phases | 3 |
+| Plans | 9 |
+| Files changed | 52 |
+
+### Key Accomplishments
+
+- Added deterministic run telemetry and benchmark baseline eligibility contracts.
+- Added telemetry regression threshold contract and benchmark scenario harness contracts.
+- Added benchmark runner, baseline snapshot, and regression consistency contracts.
+- Added outcome scorecard contract tied to milestone success metrics.
+- Added benchmark-aware release readiness integration contract.
+- Added v0.5 end-to-end milestone acceptance coverage plus release/archive artifacts.
+
+### Key Decisions
+
+- Keep benchmark confidence layered: telemetry -> baseline -> regression -> scenario runner -> snapshot.
+- Keep closeout confidence machine-readable via scorecard and benchmark-aware release gates.
+- Preserve backward compatibility by layering benchmark release readiness over base release readiness.
+- Treat milestone closeout as validated contract continuity plus published archive artifacts.
 
 ---
 

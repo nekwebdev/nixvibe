@@ -14,7 +14,7 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 |-----------|-------|
 | Type | Workflow |
 | Version | 0.5.0 |
-| Status | In progress (v0.5 active) |
+| Status | Complete (v0.5 shipped) |
 | Last Updated | 2026-04-20 |
 
 ## Requirements
@@ -42,6 +42,7 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Milestone v0.1 tagged and release notes published — Milestone closeout (2026-04-19)
 - [x] Milestone v0.2 tagged and release notes published — Milestone closeout (2026-04-20)
 - [x] Milestone v0.3 tagged and release notes published — Milestone closeout (2026-04-20)
+- [x] Milestone v0.5 tagged and release notes published — Milestone closeout (2026-04-20)
 
 ### Active (In Progress)
 
@@ -80,10 +81,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add baseline snapshot and regression consistency checks contract — Phase 14 (14-03)
 - [x] Add outcome scorecard contract tied to milestone success metrics — Phase 15 (15-01)
 - [x] Add benchmark-aware release readiness integration contract — Phase 15 (15-02)
+- [x] Add end-to-end v0.5 acceptance and milestone closeout artifacts — Phase 15 (15-03)
 
 ### Planned (Next)
 
-- [ ] Execute remaining Phase 15 outcome tracking and closeout plan (`15-03`)
+- [ ] Define and scaffold next milestone beyond v0.5
 
 ### Out of Scope
 
@@ -189,8 +191,8 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Planning | `../../projects/nixvibe/PLANNING.md` |
 | Graduation README | `README.md` |
 | Milestone Log | `.paul/MILESTONES.md` |
-| Release Notes | `.paul/releases/v0.4.0.md` |
+| Release Notes | `.paul/releases/v0.5.0.md` |
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-20 after Phase 15 plan 15-02 completion*
+*Last updated: 2026-04-20 after Phase 15 plan 15-03 completion*

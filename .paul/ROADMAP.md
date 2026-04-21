@@ -7,8 +7,8 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 ## Current Milestone
 
 **v0.5 Measured Outcomes and Benchmark Baselines** (v0.5.0)
-Status: 🚧 In progress
-Phases: 2 of 3 complete
+Status: ✅ Complete
+Phases: 3 of 3 complete
 
 ## Phases
 
@@ -16,7 +16,7 @@ Phases: 2 of 3 complete
 |-------|------|-------|--------|-----------|
 | 13 | Execution Telemetry and Benchmark Contracts | 3 (`13-01`, `13-02`, `13-03`) | ✅ Complete | 2026-04-20 |
 | 14 | Benchmark Scenario Harness and Reports | 3 (`14-01`, `14-02`, `14-03`) | ✅ Complete | 2026-04-20 |
-| 15 | Outcome Tracking and Milestone Closeout | 3 (`15-01`, `15-02`, `15-03`) | 🚧 In progress | - |
+| 15 | Outcome Tracking and Milestone Closeout | 3 (`15-01`, `15-02`, `15-03`) | ✅ Complete | 2026-04-20 |
 
 ## Phase Details
 
@@ -66,9 +66,28 @@ Phases: 2 of 3 complete
 **Plans:**
 - [x] 15-01: Outcome scorecard contract
 - [x] 15-02: Benchmark-aware release readiness integration
-- [ ] 15-03: End-to-end v0.5 acceptance and closeout
+- [x] 15-03: End-to-end v0.5 acceptance and closeout
 
 ## Completed Milestones
+
+<details>
+<summary>v0.5 Measured Outcomes and Benchmark Baselines (v0.5.0) — completed 2026-04-20</summary>
+
+### Milestone Snapshot
+
+Status: ✅ Complete  
+Phases: 3 of 3 complete  
+Plans completed: 9
+
+| Phase | Name | Plans | Status | Completed |
+|-------|------|-------|--------|-----------|
+| 13 | Execution Telemetry and Benchmark Contracts | 3 (`13-01`, `13-02`, `13-03`) | ✅ Complete | 2026-04-20 |
+| 14 | Benchmark Scenario Harness and Reports | 3 (`14-01`, `14-02`, `14-03`) | ✅ Complete | 2026-04-20 |
+| 15 | Outcome Tracking and Milestone Closeout | 3 (`15-01`, `15-02`, `15-03`) | ✅ Complete | 2026-04-20 |
+
+Archive: `.paul/milestones/v0.5.0-ROADMAP.md`
+
+</details>
 
 <details>
 <summary>v0.4 Reliability and Delivery Hardening (v0.4.0) — completed 2026-04-20</summary>
