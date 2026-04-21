@@ -16,7 +16,7 @@ Phases: 2 of 3 complete
 |-------|------|-------|--------|-----------|
 | 22 | v1 Foundation Hardening and Compatibility | 3 (`22-01`, `22-02`, `22-03`) | ✅ Complete | 2026-04-21 |
 | 23 | v1 Operator Control Plane Consolidation | 3 (`23-01`, `23-02`, `23-03`) | ✅ Complete | 2026-04-21 |
-| 24 | v1 General Availability Closeout | 3 (`24-01`, `24-02`, `24-03`) | Not started | - |
+| 24 | v1 General Availability Closeout | 3 (`24-01`, `24-02`, `24-03`) | In progress | - |
 
 ## Phase Details
 
@@ -64,7 +64,7 @@ Phases: 2 of 3 complete
 - End-to-end v1.0 acceptance and milestone closeout artifacts
 
 **Plans:**
-- [ ] 24-01: v1 launch evidence bundle contract
+- [x] 24-01: v1 launch evidence bundle contract
 - [ ] 24-02: v1 launch readiness summary integration
 - [ ] 24-03: end-to-end v1.0 acceptance and milestone closeout
 

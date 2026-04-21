@@ -53,6 +53,7 @@ from .telemetry_regression import build_telemetry_regression_report
 from .v06_readiness_summary import build_v06_readiness_summary
 from .v07_closeout_evidence import build_v07_closeout_evidence
 from .v10_compatibility_baseline import build_v10_compatibility_baseline
+from .v10_launch_evidence_bundle import build_v10_launch_evidence_bundle
 from .v10_pathway_scaffold import build_v10_pathway_scaffold
 from .types import (
     Mode,
@@ -488,6 +489,12 @@ def run_pipeline(
         operator_control_plane_summary=artifact_summary["operator_control_plane_summary"],
         governance_hardening_escalation=artifact_summary["governance_hardening_escalation"],
         controlled_override_workflow=artifact_summary["controlled_override_workflow"],
+        release_policy_execution=artifact_summary["release_policy_execution"],
+    )
+    artifact_summary["v10_launch_evidence_bundle"] = build_v10_launch_evidence_bundle(
+        governance_workflow_consolidation=artifact_summary["governance_workflow_consolidation"],
+        operator_control_plane_summary=artifact_summary["operator_control_plane_summary"],
+        benchmark_release_readiness=artifact_summary["benchmark_release_readiness"],
         release_policy_execution=artifact_summary["release_policy_execution"],
     )
 

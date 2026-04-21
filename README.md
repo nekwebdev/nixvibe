@@ -1322,6 +1322,23 @@ Closed phase 23 with end-to-end operator consolidation acceptance coverage:
 Additional coverage:
 - `tests/orchestrator/test_phase23_operator_consolidation_acceptance.py`
 
+## Runtime Orchestration (Phase 24 v1 Launch Evidence Bundle Slice)
+
+Added deterministic v1 launch evidence bundle contract:
+- v1 launch evidence bundle emitted as `artifact_summary.v10_launch_evidence_bundle`:
+  - `contract`
+  - `evidence_status` (`ready`, `hold`, `blocked`)
+  - evidence blocker summary and failed check IDs
+  - next launch-evidence action metadata
+- Launch evidence bundle integrates:
+  - `governance_workflow_consolidation.consolidation_status`
+  - `operator_control_plane_summary.control_plane_status`
+  - `benchmark_release_readiness.ready`
+  - `release_policy_execution.decision`
+
+Additional coverage:
+- `tests/orchestrator/test_v10_launch_evidence_bundle.py`
+
 ## Output Artifacts
 
 Primary artifacts:
