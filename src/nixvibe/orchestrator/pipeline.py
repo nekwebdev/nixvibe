@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Callable, Sequence
 
 from .audittrail import build_operator_audit_trail_summary
+from .alert_policy_gate import build_alert_policy_gate
 from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .checkpoint import build_resume_checkpoint
 from .benchmark import build_benchmark_baseline_report
@@ -350,6 +351,11 @@ def run_pipeline(
         benchmark_trend_entry=artifact_summary["benchmark_trend_entry"],
         benchmark_trend_history=artifact_summary["benchmark_trend_history"],
         benchmark_trend_delta=artifact_summary["benchmark_trend_delta"],
+    )
+    artifact_summary["alert_policy_gate"] = build_alert_policy_gate(
+        outcome_alert=artifact_summary["outcome_alert"],
+        release_readiness=artifact_summary["release_readiness"],
+        apply_safety_escalation=artifact_summary["apply_safety_escalation"],
     )
     artifact_summary["resume_checkpoint"] = build_resume_checkpoint(
         run_manifest=artifact_summary["run_manifest"],

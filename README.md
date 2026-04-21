@@ -1015,6 +1015,24 @@ Added deterministic outcome alert contract derived from trend signals:
 Additional coverage:
 - `tests/orchestrator/test_outcome_alert.py`
 
+## Runtime Orchestration (Phase 17 Alert Policy Gate Slice)
+
+Added deterministic alert-aware policy gate contract:
+- Alert policy gate emitted as `artifact_summary.alert_policy_gate`:
+  - `contract`
+  - `gate_status` (`open`, `warn`, `blocked`)
+  - `apply_gate` / `release_gate` (`allow`, `allow_with_warning`, `deny`)
+  - `policy_actions` and `requires_acknowledgement`
+  - dependency checks and failed check IDs
+- Gate logic currently links:
+  - outcome alert severity
+  - release readiness status
+  - apply safety escalation tier
+- This contract is the policy-routing bridge for phase17 escalation acceptance.
+
+Additional coverage:
+- `tests/orchestrator/test_alert_policy_gate.py`
+
 ## Output Artifacts
 
 Primary artifacts:

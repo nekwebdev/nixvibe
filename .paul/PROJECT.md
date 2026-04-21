@@ -86,10 +86,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add benchmark trend delta contract — Phase 16 (16-02)
 - [x] Add end-to-end trend persistence acceptance and phase closeout artifacts — Phase 16 (16-03)
 - [x] Add outcome alert contract — Phase 17 (17-01)
+- [x] Add alert-aware policy gate integration contract — Phase 17 (17-02)
 
 ### Planned (Next)
 
-- [ ] Execute remaining v0.6 plans (`17-02` to `18-03`)
+- [ ] Execute remaining v0.6 plans (`17-03` to `18-03`)
 - [ ] Define and scaffold milestone path from v0.6 to v1.0
 
 ### Out of Scope
@@ -174,6 +175,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Benchmark trend entry is explicit | Every run must emit deterministic trend-status metadata for longitudinal benchmark tracking | 2026-04-21 | Active |
 | Benchmark trend history is explicit | Every run must emit deterministic bounded history metadata and previous-entry continuity for trend deltas | 2026-04-21 | Active |
 | Outcome alerts are explicit | Every run must emit deterministic warning/critical alert metadata derived from trend contracts | 2026-04-21 | Active |
+| Alert policy gates are explicit | Every run must emit deterministic apply/release gate outcomes derived from alert and safety context | 2026-04-21 | Active |
 
 ## Success Metrics
 
@@ -203,4 +205,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-21 after Phase 17 plan 17-01 completion*
+*Last updated: 2026-04-21 after Phase 17 plan 17-02 completion*

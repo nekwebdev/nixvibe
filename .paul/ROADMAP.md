@@ -49,7 +49,7 @@ Phases: 1 of 3 complete
 
 **Plans:**
 - [x] 17-01: Outcome alert contract
-- [ ] 17-02: Alert-aware policy gate integration
+- [x] 17-02: Alert-aware policy gate integration
 - [ ] 17-03: End-to-end alert/policy acceptance and phase closeout
 
 ### Phase 18: Release Candidate Evidence and v0.6 Closeout
