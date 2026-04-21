@@ -6,69 +6,88 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 ## Current Milestone
 
-**v0.7 Release Automation and Governance Hardening** (v0.7.0)
-Status: 🚧 In progress
-Phases: 2 of 3 complete
+**v1.0 General Availability and Launch Governance** (v1.0.0)
+Status: Not started
+Phases: 0 of 3 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 19 | Release Automation and Policy Execution | 3 (`19-01`, `19-02`, `19-03`) | ✅ Complete | 2026-04-21 |
-| 20 | Operator Observability and Governance Hardening | 3 (`20-01`, `20-02`, `20-03`) | ✅ Complete | 2026-04-21 |
-| 21 | v0.7 Closeout and v1.0 Pathway | 3 (`21-01`, `21-02`, `21-03`) | 🚧 In progress | - |
+| 22 | v1 Foundation Hardening and Compatibility | 3 (`22-01`, `22-02`, `22-03`) | Not started | - |
+| 23 | v1 Operator Control Plane Consolidation | 3 (`23-01`, `23-02`, `23-03`) | Not started | - |
+| 24 | v1 General Availability Closeout | 3 (`24-01`, `24-02`, `24-03`) | Not started | - |
 
 ## Phase Details
 
-### Phase 19: Release Automation and Policy Execution
+### Phase 22: v1 Foundation Hardening and Compatibility
 
-**Goal:** Automate release operations from policy-ready runtime surfaces.
-**Depends on:** v0.6 closeout
-**Research:** Medium (release automation safety and policy execution boundaries)
-
-**Scope:**
-- Automated release execution gate contract
-- Policy-execution contract for release automation decisions
-- Acceptance coverage for release automation safety paths
-
-**Plans:**
-- [x] 19-01: Automated release execution gate contract
-- [x] 19-02: Policy execution integration for release flow
-- [x] 19-03: End-to-end release automation acceptance and phase closeout
-
-### Phase 20: Operator Observability and Governance Hardening
-
-**Goal:** Expand operator observability and governance diagnostics.
-**Depends on:** Phase 19
-**Research:** Medium (operator signal quality and governance explainability)
+**Goal:** Lock v1.0 compatibility guarantees and migration-safe defaults.
+**Depends on:** v0.7 closeout
+**Research:** Medium (compatibility constraints and migration guardrails)
 
 **Scope:**
-- Operator observability digest contract
-- Governance hardening contract and escalation summary
-- Acceptance coverage for observability-governance workflows
+- Compatibility baseline contract for v1 migration confidence
+- Migration-safety policy integration for apply/release transitions
+- Acceptance coverage for compatibility and migration-safe paths
 
 **Plans:**
-- [x] 20-01: Operator observability digest contract
-- [x] 20-02: Governance hardening escalation contract
-- [x] 20-03: End-to-end observability/governance acceptance and phase closeout
+- [ ] 22-01: v1 compatibility baseline contract
+- [ ] 22-02: migration-safety policy integration
+- [ ] 22-03: end-to-end foundation hardening acceptance and phase closeout
 
-### Phase 21: v0.7 Closeout and v1.0 Pathway
+### Phase 23: v1 Operator Control Plane Consolidation
 
-**Goal:** Close v0.7 and publish the pathway scaffold toward v1.0.
-**Depends on:** Phase 20
-**Research:** Medium (milestone sequencing and release confidence packaging)
+**Goal:** Consolidate operator control surfaces for v1 governance ergonomics.
+**Depends on:** Phase 22
+**Research:** Medium (operator UX consistency and governance control clarity)
 
 **Scope:**
-- v0.7 release candidate closeout artifacts
-- v1.0 milestone pathway scaffold and roadmap transition
-- End-to-end v0.7 acceptance and milestone closeout artifacts
+- Unified operator control-plane summary contract
+- Governance and override workflow consolidation integration
+- Acceptance coverage for consolidated operator control flows
 
 **Plans:**
-- [x] 21-01: v0.7 closeout evidence bundle
-- [x] 21-02: v1.0 pathway scaffold integration
-- [ ] 21-03: End-to-end v0.7 acceptance and milestone closeout
+- [ ] 23-01: operator control-plane summary contract
+- [ ] 23-02: governance workflow consolidation integration
+- [ ] 23-03: end-to-end operator consolidation acceptance and phase closeout
+
+### Phase 24: v1 General Availability Closeout
+
+**Goal:** Publish v1 launch evidence and complete milestone GA closeout.
+**Depends on:** Phase 23
+**Research:** Medium (launch evidence packaging and GA closeout criteria)
+
+**Scope:**
+- v1 launch evidence bundle contract
+- v1 launch readiness summary integration
+- End-to-end v1.0 acceptance and milestone closeout artifacts
+
+**Plans:**
+- [ ] 24-01: v1 launch evidence bundle contract
+- [ ] 24-02: v1 launch readiness summary integration
+- [ ] 24-03: end-to-end v1.0 acceptance and milestone closeout
 
 ## Completed Milestones
+
+<details>
+<summary>v0.7 Release Automation and Governance Hardening (v0.7.0) — completed 2026-04-21</summary>
+
+### Milestone Snapshot
+
+Status: ✅ Complete  
+Phases: 3 of 3 complete  
+Plans completed: 9
+
+| Phase | Name | Plans | Status | Completed |
+|-------|------|-------|--------|-----------|
+| 19 | Release Automation and Policy Execution | 3 (`19-01`, `19-02`, `19-03`) | ✅ Complete | 2026-04-21 |
+| 20 | Operator Observability and Governance Hardening | 3 (`20-01`, `20-02`, `20-03`) | ✅ Complete | 2026-04-21 |
+| 21 | v0.7 Closeout and v1.0 Pathway | 3 (`21-01`, `21-02`, `21-03`) | ✅ Complete | 2026-04-21 |
+
+Archive: `.paul/milestones/v0.7.0-ROADMAP.md`
+
+</details>
 
 <details>
 <summary>v0.6 Trend Persistence and Outcome Signal Governance (v0.6.0) — completed 2026-04-21</summary>

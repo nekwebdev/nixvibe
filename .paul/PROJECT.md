@@ -13,8 +13,8 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 | Attribute | Value |
 |-----------|-------|
 | Type | Workflow |
-| Version | 0.7.0 |
-| Status | In progress (v0.7 active) |
+| Version | 1.0.0 |
+| Status | In progress (v1.0 active) |
 | Last Updated | 2026-04-21 |
 
 ## Requirements
@@ -44,6 +44,7 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Milestone v0.3 tagged and release notes published — Milestone closeout (2026-04-20)
 - [x] Milestone v0.5 tagged and release notes published — Milestone closeout (2026-04-20)
 - [x] Milestone v0.6 tagged and release notes published — Milestone closeout (2026-04-21)
+- [x] Milestone v0.7 tagged and release notes published — Milestone closeout (2026-04-21)
 
 ### Active (In Progress)
 
@@ -100,11 +101,12 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add end-to-end observability/governance acceptance and phase closeout artifacts — Phase 20 (20-03)
 - [x] Add v0.7 closeout evidence bundle contract — Phase 21 (21-01)
 - [x] Add v1.0 pathway scaffold integration contract — Phase 21 (21-02)
+- [x] Add end-to-end v0.7 acceptance and milestone closeout artifacts — Phase 21 (21-03)
 
 ### Planned (Next)
 
-- [ ] Execute remaining v0.7 plans (`21-03`)
-- [ ] Define and scaffold milestone path from v0.7 to v1.0
+- [ ] Execute v1.0 plans (`22-01` to `24-03`)
+- [ ] Publish v1.0 launch evidence and GA closeout artifacts
 
 ### Out of Scope
 
@@ -201,6 +203,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Observability-governance acceptance is explicit | Phase closeout requires deterministic attention/healthy/critical end-to-end governance posture coverage | 2026-04-21 | Active |
 | v0.7 closeout evidence is explicit | Every run must emit deterministic closeout readiness evidence from governance, observability, and release policy outcomes | 2026-04-21 | Active |
 | v1.0 pathway scaffold is explicit | Every run must emit deterministic phase-blueprint readiness metadata for the v1.0 transition path | 2026-04-21 | Active |
+| v0.7 milestone closeout is explicit | Milestone completion requires phase19-21 contract continuity, release/archive publication, and v1.0 scaffold transition | 2026-04-21 | Active |
 
 ## Success Metrics
 
@@ -226,8 +229,8 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Planning | `../../projects/nixvibe/PLANNING.md` |
 | Graduation README | `README.md` |
 | Milestone Log | `.paul/MILESTONES.md` |
-| Release Notes | `.paul/releases/v0.6.0.md` |
+| Release Notes | `.paul/releases/v0.7.0.md` |
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-21 after Phase 21 plan 21-02 completion*
+*Last updated: 2026-04-21 after Phase 21 plan 21-03 completion*

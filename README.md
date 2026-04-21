@@ -1214,6 +1214,24 @@ Added deterministic v1.0 pathway scaffold contract:
 Additional coverage:
 - `tests/orchestrator/test_v10_pathway_scaffold.py`
 
+## Runtime Orchestration (Phase 21 Acceptance and Milestone Closeout Slice)
+
+Closed milestone v0.7 with end-to-end acceptance and transition coverage:
+- Added milestone acceptance suite for phase19-21 contract continuity:
+  - default release flow yields hold/gated closeout+pathway posture
+  - history-backed + release-check pass yields ready/open closeout+pathway transition
+  - override-denied path yields blocked closeout+pathway posture
+- Published milestone artifacts:
+  - `.paul/releases/v0.7.0.md`
+  - `.paul/milestones/v0.7.0-ROADMAP.md`
+- Initialized v1.0 scaffold phases:
+  - `.paul/phases/22-v1-foundation-hardening-and-compatibility/.gitkeep`
+  - `.paul/phases/23-v1-operator-control-plane-consolidation/.gitkeep`
+  - `.paul/phases/24-v1-general-availability-closeout/.gitkeep`
+
+Additional coverage:
+- `tests/orchestrator/test_v07_milestone_acceptance.py`
+
 ## Output Artifacts
 
 Primary artifacts:

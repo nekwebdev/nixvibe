@@ -4,12 +4,44 @@ Completed milestone log for this project.
 
 | Milestone | Completed | Duration | Stats |
 |-----------|-----------|----------|-------|
+| v0.7 Release Automation and Governance Hardening (v0.7.0) | 2026-04-21 | 40m | 3 phases, 9 plans |
 | v0.6 Trend Persistence and Outcome Signal Governance (v0.6.0) | 2026-04-21 | 1h 02m | 3 phases, 9 plans |
 | v0.5 Measured Outcomes and Benchmark Baselines (v0.5.0) | 2026-04-20 | 1h 17m | 3 phases, 9 plans |
 | v0.4 Reliability and Delivery Hardening (v0.4.0) | 2026-04-20 | 1h 09m | 3 phases, 9 plans |
 | v0.3 Operational Workflow Intelligence (v0.3.0) | 2026-04-20 | 8h 49m | 3 phases, 9 plans |
 | v0.2 Execution and Context Expansion (v0.2.0) | 2026-04-20 | 10h 03m | 3 phases, 9 plans |
 | v0.1 Initial Release (v0.1.0) | 2026-04-19 | 15h 34m | 3 phases, 7 plans |
+
+---
+
+## ✅ v0.7 Release Automation and Governance Hardening (v0.7.0)
+
+**Completed:** 2026-04-21  
+**Duration:** 40m
+
+### Stats
+
+| Metric | Value |
+|--------|-------|
+| Phases | 3 |
+| Plans | 9 |
+| Files changed | 58 |
+
+### Key Accomplishments
+
+- Added release execution gate and release policy execution contracts.
+- Added operator observability digest and governance hardening escalation contracts.
+- Added v0.7 closeout evidence and v1.0 pathway scaffold contracts.
+- Added phase20 end-to-end observability-governance acceptance coverage.
+- Added v0.7 end-to-end milestone acceptance coverage across phase19-21 contract chain.
+- Published v0.7 release notes and roadmap archive artifacts.
+
+### Key Decisions
+
+- Keep release automation explicit through gate and policy execution contracts.
+- Keep governance hardening deterministic via observability digest and escalation posture.
+- Keep milestone closeout readiness machine-readable with closeout evidence and pathway scaffold contracts.
+- Transition to v1.0 with scaffolded phases focused on compatibility hardening, operator consolidation, and GA closeout.
 
 ---
 
