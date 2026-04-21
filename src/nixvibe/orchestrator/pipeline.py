@@ -48,6 +48,7 @@ from .specialists import build_dispatch_context, run_specialists, with_dispatch_
 from .telemetry import build_run_telemetry
 from .telemetry_regression import build_telemetry_regression_report
 from .v06_readiness_summary import build_v06_readiness_summary
+from .v07_closeout_evidence import build_v07_closeout_evidence
 from .types import (
     Mode,
     OrchestrationPolicy,
@@ -448,6 +449,11 @@ def run_pipeline(
         release_policy_execution=artifact_summary["release_policy_execution"],
         controlled_override_workflow=artifact_summary["controlled_override_workflow"],
         apply_safety_escalation=artifact_summary["apply_safety_escalation"],
+    )
+    artifact_summary["v07_closeout_evidence"] = build_v07_closeout_evidence(
+        governance_hardening_escalation=artifact_summary["governance_hardening_escalation"],
+        operator_observability_digest=artifact_summary["operator_observability_digest"],
+        release_policy_execution=artifact_summary["release_policy_execution"],
     )
 
     return OrchestrationResult(

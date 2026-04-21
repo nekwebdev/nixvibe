@@ -16,7 +16,7 @@ Phases: 2 of 3 complete
 |-------|------|-------|--------|-----------|
 | 19 | Release Automation and Policy Execution | 3 (`19-01`, `19-02`, `19-03`) | ✅ Complete | 2026-04-21 |
 | 20 | Operator Observability and Governance Hardening | 3 (`20-01`, `20-02`, `20-03`) | ✅ Complete | 2026-04-21 |
-| 21 | v0.7 Closeout and v1.0 Pathway | 3 (`21-01`, `21-02`, `21-03`) | Not started | - |
+| 21 | v0.7 Closeout and v1.0 Pathway | 3 (`21-01`, `21-02`, `21-03`) | 🚧 In progress | - |
 
 ## Phase Details
 
@@ -64,7 +64,7 @@ Phases: 2 of 3 complete
 - End-to-end v0.7 acceptance and milestone closeout artifacts
 
 **Plans:**
-- [ ] 21-01: v0.7 closeout evidence bundle
+- [x] 21-01: v0.7 closeout evidence bundle
 - [ ] 21-02: v1.0 pathway scaffold integration
 - [ ] 21-03: End-to-end v0.7 acceptance and milestone closeout
 

@@ -1181,6 +1181,22 @@ Closed phase 20 with end-to-end observability/governance acceptance coverage:
 Additional coverage:
 - `tests/orchestrator/test_phase20_observability_governance_acceptance.py`
 
+## Runtime Orchestration (Phase 21 v0.7 Closeout Evidence Slice)
+
+Added deterministic v0.7 closeout evidence contract:
+- v0.7 closeout evidence emitted as `artifact_summary.v07_closeout_evidence`:
+  - `contract`
+  - `closeout_category` (`ready`, `hold`, `blocked`)
+  - blocker summary and failed check IDs
+  - next closeout action metadata
+- Closeout evidence integrates:
+  - `governance_hardening_escalation.escalation_level`
+  - `operator_observability_digest.observability_band`
+  - `release_policy_execution.decision`
+
+Additional coverage:
+- `tests/orchestrator/test_v07_closeout_evidence.py`
+
 ## Output Artifacts
 
 Primary artifacts:

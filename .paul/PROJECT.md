@@ -98,10 +98,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add operator observability digest contract — Phase 20 (20-01)
 - [x] Add governance hardening escalation contract — Phase 20 (20-02)
 - [x] Add end-to-end observability/governance acceptance and phase closeout artifacts — Phase 20 (20-03)
+- [x] Add v0.7 closeout evidence bundle contract — Phase 21 (21-01)
 
 ### Planned (Next)
 
-- [ ] Execute remaining v0.7 plans (`21-01` to `21-03`)
+- [ ] Execute remaining v0.7 plans (`21-02` to `21-03`)
 - [ ] Define and scaffold milestone path from v0.7 to v1.0
 
 ### Out of Scope
@@ -197,6 +198,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Operator observability digest is explicit | Every run must emit deterministic observability banding and focus actions from operator runtime signals | 2026-04-21 | Active |
 | Governance hardening escalation is explicit | Every run must emit deterministic governance escalation posture from observability, policy, override, and safety signals | 2026-04-21 | Active |
 | Observability-governance acceptance is explicit | Phase closeout requires deterministic attention/healthy/critical end-to-end governance posture coverage | 2026-04-21 | Active |
+| v0.7 closeout evidence is explicit | Every run must emit deterministic closeout readiness evidence from governance, observability, and release policy outcomes | 2026-04-21 | Active |
 
 ## Success Metrics
 
@@ -226,4 +228,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-21 after Phase 20 plan 20-03 completion*
+*Last updated: 2026-04-21 after Phase 21 plan 21-01 completion*

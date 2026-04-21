@@ -5,15 +5,15 @@
 See: .paul/PROJECT.md (updated 2026-04-21)
 
 **Core value:** Users can evolve clean modular NixOS configs safely with guided automation.
-**Current focus:** v0.7 phase 21 ready — milestone closeout and v1.0 pathway queued
+**Current focus:** v0.7 phase 21 in progress — closeout evidence bundle landed
 
 ## Current Position
 
 Milestone: v0.7 Release Automation and Governance Hardening (v0.7.0) — In progress
-Phase: 21 of 21 (v0.7 Closeout and v1.0 Pathway) — Ready to plan
-Plan: Not started
-Status: Phase 20 complete; next loop pointer set to 21-01
-Last activity: 2026-04-21T01:35:57-10:00 — Completed .paul/phases/20-operator-observability-and-governance-hardening/20-03-SUMMARY.md
+Phase: 21 of 21 (v0.7 Closeout and v1.0 Pathway) — In progress
+Plan: 21-01 completed
+Status: PLAN/APPLY/UNIFY closed for 21-01; phase 21 has remaining plans (21-02, 21-03)
+Last activity: 2026-04-21T01:39:47-10:00 — Completed .paul/phases/21-v0.7-closeout-and-v1.0-pathway/21-01-SUMMARY.md
 
 Progress:
 - v0.1 Initial Release: [██████████] 100% ✓
@@ -22,14 +22,14 @@ Progress:
 - v0.4 Reliability and Delivery Hardening: [██████████] 100% ✓
 - v0.5 Measured Outcomes and Benchmark Baselines: [██████████] 100% ✓
 - v0.6 Trend Persistence and Outcome Signal Governance: [██████████] 100% ✓
-- v0.7 Release Automation and Governance Hardening: [██████░░░░] 67%
+- v0.7 Release Automation and Governance Hardening: [███████░░░] 78%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [20-03 complete]
+  ✓        ✓        ✓     [21-01 complete]
 ```
 
 ## Accumulated Context
@@ -102,6 +102,7 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - Operator observability digest contract landed for Phase 20 plan 20-01
 - Governance hardening escalation contract landed for Phase 20 plan 20-02
 - End-to-end observability/governance acceptance and phase closeout landed for Phase 20 plan 20-03
+- v0.7 closeout evidence bundle contract landed for Phase 21 plan 21-01
 
 ### Deferred Issues
 None yet.
@@ -111,10 +112,10 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-21T01:35:57-10:00
-Stopped at: Phase 20 plan 20-03 completed
-Next action: Create and execute `.paul/phases/21-v0.7-closeout-and-v1.0-pathway/21-01-PLAN.md`
-Resume file: .paul/phases/20-operator-observability-and-governance-hardening/20-03-SUMMARY.md
+Last session: 2026-04-21T01:39:47-10:00
+Stopped at: Phase 21 plan 21-01 completed
+Next action: Create and execute `.paul/phases/21-v0.7-closeout-and-v1.0-pathway/21-02-PLAN.md`
+Resume file: .paul/phases/21-v0.7-closeout-and-v1.0-pathway/21-01-SUMMARY.md
 
 ---
 *STATE.md — Updated after every significant action*
