@@ -856,6 +856,24 @@ Added deterministic benchmark scenario catalog and fixture loader contract:
 Additional coverage:
 - `tests/orchestrator/test_benchmark_scenario_catalog.py`
 
+## Runtime Orchestration (Phase 14 Runner Report Slice)
+
+Added deterministic benchmark runner report emitter:
+- Runner report emitted as `artifact_summary.benchmark_runner_report`:
+  - `contract`
+  - `run_mode` (`baseline`, `recovery`, `regression`)
+  - planned scenario IDs and ordered run plan entries
+  - per-scenario runner command string
+  - total estimated runtime
+  - readiness checks and failed check IDs
+- Run mode selection logic:
+  - `regression` when telemetry regression detected
+  - `baseline` when baseline is eligible and no regression
+  - `recovery` otherwise
+
+Additional coverage:
+- `tests/orchestrator/test_benchmark_runner_report.py`
+
 ## Output Artifacts
 
 Primary artifacts:

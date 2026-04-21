@@ -49,7 +49,7 @@ Phases: 1 of 3 complete
 
 **Plans:**
 - [x] 14-01: Scenario fixture catalog and loader contract
-- [ ] 14-02: Benchmark runner and report emitter
+- [x] 14-02: Benchmark runner and report emitter
 - [ ] 14-03: Baseline snapshot generation and regression checks
 
 ### Phase 15: Outcome Tracking and Milestone Closeout

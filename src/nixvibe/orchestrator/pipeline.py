@@ -10,6 +10,7 @@ from .audittrail import build_operator_audit_trail_summary
 from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .checkpoint import build_resume_checkpoint
 from .benchmark import build_benchmark_baseline_report
+from .benchmark_runner import build_benchmark_runner_report
 from .benchmark_scenarios import build_benchmark_scenario_catalog
 from .escalation import build_apply_safety_escalation
 from .explainability import build_policy_decision_explainability
@@ -290,6 +291,11 @@ def run_pipeline(
     artifact_summary["benchmark_scenario_catalog"] = build_benchmark_scenario_catalog(
         route=route_decision.route.value,
         mode=selected_mode.value,
+        benchmark_baseline_report=artifact_summary["benchmark_baseline_report"],
+        telemetry_regression=artifact_summary["telemetry_regression"],
+    )
+    artifact_summary["benchmark_runner_report"] = build_benchmark_runner_report(
+        benchmark_scenario_catalog=artifact_summary["benchmark_scenario_catalog"],
         benchmark_baseline_report=artifact_summary["benchmark_baseline_report"],
         telemetry_regression=artifact_summary["telemetry_regression"],
     )
