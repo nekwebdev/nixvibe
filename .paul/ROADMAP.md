@@ -6,67 +6,67 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 ## Current Milestone
 
-**v0.5 Measured Outcomes and Benchmark Baselines** (v0.5.0)
-Status: ✅ Complete
-Phases: 3 of 3 complete
+**v0.6 Trend Persistence and Outcome Signal Governance** (v0.6.0)
+Status: 🚧 In progress
+Phases: 0 of 3 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 13 | Execution Telemetry and Benchmark Contracts | 3 (`13-01`, `13-02`, `13-03`) | ✅ Complete | 2026-04-20 |
-| 14 | Benchmark Scenario Harness and Reports | 3 (`14-01`, `14-02`, `14-03`) | ✅ Complete | 2026-04-20 |
-| 15 | Outcome Tracking and Milestone Closeout | 3 (`15-01`, `15-02`, `15-03`) | ✅ Complete | 2026-04-20 |
+| 16 | Benchmark Trend Persistence and Deltas | 3 (`16-01`, `16-02`, `16-03`) | 🚧 In progress | - |
+| 17 | Outcome Policy Gates and Alert Escalation | 3 (`17-01`, `17-02`, `17-03`) | Not started | - |
+| 18 | Release Candidate Evidence and v0.6 Closeout | 3 (`18-01`, `18-02`, `18-03`) | Not started | - |
 
 ## Phase Details
 
-### Phase 13: Execution Telemetry and Benchmark Contracts
+### Phase 16: Benchmark Trend Persistence and Deltas
 
-**Goal:** Introduce deterministic run telemetry needed for benchmark tracking.
-**Depends on:** v0.4 baseline
-**Research:** Medium (timing contract shape and benchmark signal quality)
-
-**Scope:**
-- Run telemetry contract with stage timing counters
-- Operator manifest timing surface integration
-- Benchmark baseline contract primitives for upcoming harness work
-
-**Plans:**
-- [x] 13-01: Run telemetry contract and manifest timing integration
-- [x] 13-02: Benchmark baseline report contract
-- [x] 13-03: Telemetry regression thresholds and acceptance coverage
-
-### Phase 14: Benchmark Scenario Harness and Reports
-
-**Goal:** Add deterministic benchmark scenario execution for key user outcomes.
-**Depends on:** Phase 13
-**Research:** Medium (fixture realism and stable reporting)
+**Goal:** Persist and compare benchmark trend signals over time.
+**Depends on:** v0.5 baseline
+**Research:** Medium (trend consistency and delta semantics)
 
 **Scope:**
-- Scenario fixtures for scaffold, audit refactor, and service-add workflows
-- Benchmark runner command and machine-readable report output
-- Baseline snapshots for milestone-level trend tracking
+- Trend entry contract for each benchmark-capable run
+- Trend delta contract for prior-vs-current benchmark interpretation
+- End-to-end trend persistence acceptance coverage
 
 **Plans:**
-- [x] 14-01: Scenario fixture catalog and loader contract
-- [x] 14-02: Benchmark runner and report emitter
-- [x] 14-03: Baseline snapshot generation and regression checks
+- [x] 16-01: Benchmark trend entry contract
+- [ ] 16-02: Benchmark trend delta contract
+- [ ] 16-03: End-to-end trend persistence acceptance and phase closeout
 
-### Phase 15: Outcome Tracking and Milestone Closeout
+### Phase 17: Outcome Policy Gates and Alert Escalation
 
-**Goal:** Convert benchmark signals into milestone closeout confidence.
-**Depends on:** Phase 14
-**Research:** Medium (metric interpretation and release gating)
+**Goal:** Convert outcome trends into deterministic operator policy signals.
+**Depends on:** Phase 16
+**Research:** Medium (alert severity calibration and policy mapping)
 
 **Scope:**
-- Outcome scorecards tied to success metrics
-- Operator-facing benchmark summary and release readiness tie-in
-- End-to-end v0.5 acceptance and milestone closeout artifacts
+- Outcome alert contract for warning/critical thresholds
+- Policy gate contract linking alerts to apply/release behavior
+- Acceptance coverage for alert escalation and policy routing
 
 **Plans:**
-- [x] 15-01: Outcome scorecard contract
-- [x] 15-02: Benchmark-aware release readiness integration
-- [x] 15-03: End-to-end v0.5 acceptance and closeout
+- [ ] 17-01: Outcome alert contract
+- [ ] 17-02: Alert-aware policy gate integration
+- [ ] 17-03: End-to-end alert/policy acceptance and phase closeout
+
+### Phase 18: Release Candidate Evidence and v0.6 Closeout
+
+**Goal:** Publish release-candidate evidence and close milestone v0.6.
+**Depends on:** Phase 17
+**Research:** Medium (evidence packaging and closeout criteria)
+
+**Scope:**
+- Release candidate evidence bundle contract
+- Operator-facing v0.6 readiness summary integration
+- End-to-end v0.6 acceptance and milestone closeout artifacts
+
+**Plans:**
+- [ ] 18-01: Release candidate evidence bundle contract
+- [ ] 18-02: v0.6 readiness summary integration
+- [ ] 18-03: End-to-end v0.6 acceptance and milestone closeout
 
 ## Completed Milestones
 
@@ -167,4 +167,4 @@ Archive: `.paul/milestones/v0.1.0-ROADMAP.md`
 
 ---
 *Roadmap created: 2026-04-18*
-*Last updated: 2026-04-20*
+*Last updated: 2026-04-21*

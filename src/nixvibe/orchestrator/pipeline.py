@@ -13,6 +13,7 @@ from .benchmark import build_benchmark_baseline_report
 from .benchmark_release import build_benchmark_release_readiness
 from .benchmark_runner import build_benchmark_runner_report
 from .benchmark_snapshot import build_benchmark_baseline_snapshot
+from .benchmark_trend import build_benchmark_trend_entry
 from .benchmark_scenarios import build_benchmark_scenario_catalog
 from .escalation import build_apply_safety_escalation
 from .explainability import build_policy_decision_explainability
@@ -323,6 +324,13 @@ def run_pipeline(
         benchmark_baseline_snapshot=artifact_summary["benchmark_baseline_snapshot"],
         benchmark_runner_report=artifact_summary["benchmark_runner_report"],
         telemetry_regression=artifact_summary["telemetry_regression"],
+    )
+    artifact_summary["benchmark_trend_entry"] = build_benchmark_trend_entry(
+        run_manifest=artifact_summary["run_manifest"],
+        run_telemetry=artifact_summary["run_telemetry"],
+        benchmark_baseline_snapshot=artifact_summary["benchmark_baseline_snapshot"],
+        outcome_scorecard=artifact_summary["outcome_scorecard"],
+        benchmark_release_readiness=artifact_summary["benchmark_release_readiness"],
     )
     artifact_summary["resume_checkpoint"] = build_resume_checkpoint(
         run_manifest=artifact_summary["run_manifest"],

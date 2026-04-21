@@ -945,6 +945,24 @@ Closed milestone v0.5 with end-to-end acceptance and release artifacts:
 Additional coverage:
 - `tests/orchestrator/test_v05_milestone_acceptance.py`
 
+## Runtime Orchestration (Phase 16 Benchmark Trend Entry Slice)
+
+Added deterministic benchmark trend-entry contract for post-v0.5 progression tracking:
+- Benchmark trend entry emitted as `artifact_summary.benchmark_trend_entry`:
+  - `contract`
+  - deterministic `trend_key`
+  - `trend_status` (`improving_candidate`, `stable_watch`, `degradation_alert`, `blocked`)
+  - trend context (`snapshot_id`, `trend_bucket`, `outcome_status`, `outcome_score_percent`)
+  - duration band (`fast`, `moderate`, `slow`)
+  - dependency checks and failed check IDs
+- Trend status currently derives from:
+  - baseline recordability and benchmark-aware release readiness
+  - telemetry regression signal
+  - outcome scorecard status/score
+
+Additional coverage:
+- `tests/orchestrator/test_benchmark_trend_entry.py`
+
 ## Output Artifacts
 
 Primary artifacts:
