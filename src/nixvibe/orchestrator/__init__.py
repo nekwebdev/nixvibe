@@ -7,6 +7,7 @@ from .benchmark_release import build_benchmark_release_readiness
 from .benchmark_runner import build_benchmark_runner_report
 from .benchmark_snapshot import build_benchmark_baseline_snapshot
 from .benchmark_trend_delta import build_benchmark_trend_delta
+from .benchmark_trend_history import build_benchmark_trend_history
 from .benchmark_trend import build_benchmark_trend_entry
 from .benchmark_scenarios import build_benchmark_scenario_catalog, load_benchmark_scenario
 from .checkpoint import build_resume_checkpoint
@@ -99,6 +100,7 @@ __all__ = [
     "build_benchmark_baseline_report",
     "build_benchmark_release_readiness",
     "build_benchmark_baseline_snapshot",
+    "build_benchmark_trend_history",
     "build_benchmark_trend_delta",
     "build_benchmark_trend_entry",
     "build_benchmark_runner_report",

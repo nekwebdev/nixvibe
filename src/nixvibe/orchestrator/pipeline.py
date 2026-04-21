@@ -14,6 +14,7 @@ from .benchmark_release import build_benchmark_release_readiness
 from .benchmark_runner import build_benchmark_runner_report
 from .benchmark_snapshot import build_benchmark_baseline_snapshot
 from .benchmark_trend_delta import build_benchmark_trend_delta
+from .benchmark_trend_history import build_benchmark_trend_history
 from .benchmark_trend import build_benchmark_trend_entry
 from .benchmark_scenarios import build_benchmark_scenario_catalog
 from .escalation import build_apply_safety_escalation
@@ -70,6 +71,7 @@ def run_pipeline(
     release_check_runner: CommandRunner | None = None,
     runtime_contract: RuntimeSpecialistContract | None = None,
     runtime_handlers: RuntimeSpecialistHandlerRegistry | None = None,
+    benchmark_trend_history: Sequence[dict[str, object]] = (),
     monotonic_clock: Callable[[], float] | None = None,
 ) -> OrchestrationResult:
     workspace_root_path = Path(workspace_root)
@@ -333,8 +335,15 @@ def run_pipeline(
         outcome_scorecard=artifact_summary["outcome_scorecard"],
         benchmark_release_readiness=artifact_summary["benchmark_release_readiness"],
     )
+    artifact_summary["benchmark_trend_history"] = build_benchmark_trend_history(
+        benchmark_trend_entry=artifact_summary["benchmark_trend_entry"],
+        prior_history=benchmark_trend_history,
+    )
     artifact_summary["benchmark_trend_delta"] = build_benchmark_trend_delta(
-        benchmark_trend_entry=artifact_summary["benchmark_trend_entry"]
+        benchmark_trend_entry=artifact_summary["benchmark_trend_entry"],
+        previous_benchmark_trend_entry=artifact_summary["benchmark_trend_history"][
+            "previous_benchmark_trend_entry"
+        ],
     )
     artifact_summary["resume_checkpoint"] = build_resume_checkpoint(
         run_manifest=artifact_summary["run_manifest"],

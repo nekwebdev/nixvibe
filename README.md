@@ -979,6 +979,25 @@ Added deterministic benchmark trend-delta contract:
 Additional coverage:
 - `tests/orchestrator/test_benchmark_trend_delta.py`
 
+## Runtime Orchestration (Phase 16 Trend Persistence Acceptance Slice)
+
+Added end-to-end benchmark trend persistence flow:
+- Trend history emitted as `artifact_summary.benchmark_trend_history`:
+  - `contract`
+  - `history_status` (`seeded`, `advanced`, `blocked`)
+  - `history_count`, `history_limit`, and `dropped_count`
+  - `previous_benchmark_trend_entry` and bounded `history_entries`
+- Pipeline now supports optional persisted history input:
+  - `run_pipeline(..., benchmark_trend_history=<prior entries>)`
+  - trend delta consumes persisted previous entry when available
+- Sequential-run acceptance verifies:
+  - first run emits `no_baseline`
+  - second run with persisted history emits a non-baseline delta
+
+Additional coverage:
+- `tests/orchestrator/test_benchmark_trend_history.py`
+- `tests/orchestrator/test_phase16_trend_persistence_acceptance.py`
+
 ## Output Artifacts
 
 Primary artifacts:

@@ -84,10 +84,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add end-to-end v0.5 acceptance and milestone closeout artifacts — Phase 15 (15-03)
 - [x] Add benchmark trend entry contract — Phase 16 (16-01)
 - [x] Add benchmark trend delta contract — Phase 16 (16-02)
+- [x] Add end-to-end trend persistence acceptance and phase closeout artifacts — Phase 16 (16-03)
 
 ### Planned (Next)
 
-- [ ] Execute remaining v0.6 plans (`16-03` to `18-03`)
+- [ ] Execute remaining v0.6 plans (`17-01` to `18-03`)
 - [ ] Define and scaffold milestone path from v0.6 to v1.0
 
 ### Out of Scope
@@ -170,6 +171,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Outcome scorecard is explicit | Every run must emit deterministic success-metric scoring tied to benchmark and release signals | 2026-04-20 | Active |
 | Benchmark-aware release readiness is explicit | Every run must emit benchmark-gated release readiness status derived from release, scorecard, snapshot, runner, and regression signals | 2026-04-20 | Active |
 | Benchmark trend entry is explicit | Every run must emit deterministic trend-status metadata for longitudinal benchmark tracking | 2026-04-21 | Active |
+| Benchmark trend history is explicit | Every run must emit deterministic bounded history metadata and previous-entry continuity for trend deltas | 2026-04-21 | Active |
 
 ## Success Metrics
 
@@ -199,4 +201,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-21 after Phase 16 plan 16-02 completion*
+*Last updated: 2026-04-21 after Phase 16 plan 16-03 completion*
