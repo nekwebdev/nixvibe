@@ -214,6 +214,7 @@ class TestAcceptanceFlows(unittest.TestCase):
         self.assertIn("governance_hardening_escalation", result.artifact_summary)
         self.assertIn("v07_closeout_evidence", result.artifact_summary)
         self.assertIn("v10_pathway_scaffold", result.artifact_summary)
+        self.assertIn("v10_compatibility_baseline", result.artifact_summary)
         self.assertIn("release_readiness", result.artifact_summary)
         self.assertIn("resume_checkpoint", result.artifact_summary)
         self.assertIn("retry_backoff_guardrails", result.artifact_summary)

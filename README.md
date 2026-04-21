@@ -1232,6 +1232,23 @@ Closed milestone v0.7 with end-to-end acceptance and transition coverage:
 Additional coverage:
 - `tests/orchestrator/test_v07_milestone_acceptance.py`
 
+## Runtime Orchestration (Phase 22 v1 Compatibility Baseline Slice)
+
+Added deterministic v1 compatibility baseline contract:
+- v1 compatibility baseline emitted as `artifact_summary.v10_compatibility_baseline`:
+  - `contract`
+  - `compatibility_status` (`ready`, `hold`, `blocked`)
+  - `compatibility_band` (`stable`, `watch`, `risk`)
+  - compatibility blocker summary and failed check IDs
+- Compatibility baseline integrates:
+  - `v10_pathway_scaffold.pathway_status`
+  - `governance_hardening_escalation.escalation_level`
+  - `release_policy_execution.decision`
+  - `release_readiness.ready`
+
+Additional coverage:
+- `tests/orchestrator/test_v10_compatibility_baseline.py`
+
 ## Output Artifacts
 
 Primary artifacts:

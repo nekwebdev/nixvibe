@@ -12,12 +12,12 @@
     "status": "in_progress"
   },
   "loop": {
-    "plan": "22-01",
+    "plan": "22-02",
     "position": "PLAN_PENDING"
   },
   "timestamps": {
     "created_at": "2026-04-18T23:49:27-10:00",
-    "updated_at": "2026-04-21T01:54:34-10:00"
+    "updated_at": "2026-04-21T01:59:13-10:00"
   },
   "satellite": {
     "groom": true
