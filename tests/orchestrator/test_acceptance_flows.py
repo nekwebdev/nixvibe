@@ -217,6 +217,7 @@ class TestAcceptanceFlows(unittest.TestCase):
         self.assertIn("v10_compatibility_baseline", result.artifact_summary)
         self.assertIn("migration_safety_policy", result.artifact_summary)
         self.assertIn("operator_control_plane_summary", result.artifact_summary)
+        self.assertIn("governance_workflow_consolidation", result.artifact_summary)
         self.assertIn("release_readiness", result.artifact_summary)
         self.assertIn("resume_checkpoint", result.artifact_summary)
         self.assertIn("retry_backoff_guardrails", result.artifact_summary)

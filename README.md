@@ -1294,6 +1294,23 @@ Added deterministic operator control-plane summary contract:
 Additional coverage:
 - `tests/orchestrator/test_operator_control_plane_summary.py`
 
+## Runtime Orchestration (Phase 23 Governance Workflow Consolidation Slice)
+
+Added deterministic governance workflow consolidation contract:
+- governance workflow consolidation emitted as `artifact_summary.governance_workflow_consolidation`:
+  - `contract`
+  - `consolidation_status` (`consolidated`, `review`, `blocked`)
+  - blocker summary and failed check IDs
+  - next governance-workflow action metadata
+- Governance workflow consolidation integrates:
+  - `operator_control_plane_summary.control_plane_status`
+  - `governance_hardening_escalation.escalation_level`
+  - `controlled_override_workflow.decision`
+  - `release_policy_execution.decision`
+
+Additional coverage:
+- `tests/orchestrator/test_governance_workflow_consolidation.py`
+
 ## Output Artifacts
 
 Primary artifacts:

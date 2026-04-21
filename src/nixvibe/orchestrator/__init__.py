@@ -17,6 +17,7 @@ from .escalation import build_apply_safety_escalation
 from .explainability import build_policy_decision_explainability
 from .failure import build_run_failure_classification
 from .governance_hardening_escalation import build_governance_hardening_escalation
+from .governance_workflow_consolidation import build_governance_workflow_consolidation
 from .guardrails import evaluate_high_risk_mutation_guardrails
 from .guidance import build_guidance_summary, infer_skill_level
 from .ledger import inspect_git_ledger
@@ -162,6 +163,7 @@ __all__ = [
     "build_policy_decision_explainability",
     "build_run_failure_classification",
     "build_governance_hardening_escalation",
+    "build_governance_workflow_consolidation",
     "evaluate_high_risk_mutation_guardrails",
     "build_recovery_playbook",
     "build_operator_run_manifest",

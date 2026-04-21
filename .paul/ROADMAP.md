@@ -49,7 +49,7 @@ Phases: 1 of 3 complete
 
 **Plans:**
 - [x] 23-01: operator control-plane summary contract
-- [ ] 23-02: governance workflow consolidation integration
+- [x] 23-02: governance workflow consolidation integration
 - [ ] 23-03: end-to-end operator consolidation acceptance and phase closeout
 
 ### Phase 24: v1 General Availability Closeout
