@@ -1311,6 +1311,17 @@ Added deterministic governance workflow consolidation contract:
 Additional coverage:
 - `tests/orchestrator/test_governance_workflow_consolidation.py`
 
+## Runtime Orchestration (Phase 23 Acceptance and Closeout Slice)
+
+Closed phase 23 with end-to-end operator consolidation acceptance coverage:
+- Added phase acceptance suite for control-plane and governance workflow consolidation chain:
+  - default flow yields attention/review operator governance posture
+  - history-backed + release-check pass yields aligned/consolidated operator governance posture
+  - override-denied path yields blocked control-plane and blocked governance workflow posture
+
+Additional coverage:
+- `tests/orchestrator/test_phase23_operator_consolidation_acceptance.py`
+
 ## Output Artifacts
 
 Primary artifacts:
