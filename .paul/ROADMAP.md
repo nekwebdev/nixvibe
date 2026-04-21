@@ -8,13 +8,13 @@ Ship a policy-driven NixOS guidance engine in phased slices: first lock governan
 
 **v0.5 Measured Outcomes and Benchmark Baselines** (v0.5.0)
 Status: 🚧 In progress
-Phases: 0 of 3 complete
+Phases: 1 of 3 complete
 
 ## Phases
 
 | Phase | Name | Plans | Status | Completed |
 |-------|------|-------|--------|-----------|
-| 13 | Execution Telemetry and Benchmark Contracts | 3 (`13-01`, `13-02`, `13-03`) | 🚧 In progress | - |
+| 13 | Execution Telemetry and Benchmark Contracts | 3 (`13-01`, `13-02`, `13-03`) | ✅ Complete | 2026-04-20 |
 | 14 | Benchmark Scenario Harness and Reports | 3 (`14-01`, `14-02`, `14-03`) | Not started | - |
 | 15 | Outcome Tracking and Milestone Closeout | 3 (`15-01`, `15-02`, `15-03`) | Not started | - |
 
@@ -34,7 +34,7 @@ Phases: 0 of 3 complete
 **Plans:**
 - [x] 13-01: Run telemetry contract and manifest timing integration
 - [x] 13-02: Benchmark baseline report contract
-- [ ] 13-03: Telemetry regression thresholds and acceptance coverage
+- [x] 13-03: Telemetry regression thresholds and acceptance coverage
 
 ### Phase 14: Benchmark Scenario Harness and Reports
 

@@ -812,6 +812,28 @@ Added deterministic benchmark baseline report contract for milestone measurement
 Additional coverage:
 - `tests/orchestrator/test_benchmark_baseline_report.py`
 
+## Runtime Orchestration (Phase 13 Telemetry Regression Slice)
+
+Added deterministic telemetry regression threshold contract for benchmark safety gating:
+- Telemetry regression emitted as `artifact_summary.telemetry_regression`:
+  - `contract`
+  - `profile`
+  - `status` (`pass` or `regression`)
+  - `regression_detected`
+  - failed check and threshold IDs
+  - full threshold matrix with actual vs limit milliseconds
+  - benchmark baseline context (`eligible`, `tier`)
+- Default threshold profile evaluates:
+  - total run duration
+  - specialist execution duration
+  - validation duration
+  - artifact materialization duration
+  - ledger inspection duration
+  - specialist average duration
+
+Additional coverage:
+- `tests/orchestrator/test_telemetry_regression_thresholds.py`
+
 ## Output Artifacts
 
 Primary artifacts:

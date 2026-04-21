@@ -31,6 +31,7 @@ from .runtime import RuntimeSpecialistContractError, plan_runtime_specialists
 from .router import select_route
 from .specialists import build_dispatch_context, run_specialists, with_dispatch_context
 from .telemetry import build_run_telemetry
+from .telemetry_regression import build_telemetry_regression_report
 from .types import (
     Mode,
     OrchestrationPolicy,
@@ -280,6 +281,10 @@ def run_pipeline(
         run_manifest=artifact_summary["run_manifest"],
         run_failure_classification=artifact_summary["run_failure_classification"],
         release_readiness=artifact_summary["release_readiness"],
+    )
+    artifact_summary["telemetry_regression"] = build_telemetry_regression_report(
+        run_telemetry=run_telemetry,
+        benchmark_baseline_report=artifact_summary["benchmark_baseline_report"],
     )
     artifact_summary["resume_checkpoint"] = build_resume_checkpoint(
         run_manifest=artifact_summary["run_manifest"],
