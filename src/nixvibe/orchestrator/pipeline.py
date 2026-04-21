@@ -54,6 +54,7 @@ from .v06_readiness_summary import build_v06_readiness_summary
 from .v07_closeout_evidence import build_v07_closeout_evidence
 from .v10_compatibility_baseline import build_v10_compatibility_baseline
 from .v10_launch_evidence_bundle import build_v10_launch_evidence_bundle
+from .v10_launch_readiness_summary import build_v10_launch_readiness_summary
 from .v10_pathway_scaffold import build_v10_pathway_scaffold
 from .types import (
     Mode,
@@ -496,6 +497,12 @@ def run_pipeline(
         operator_control_plane_summary=artifact_summary["operator_control_plane_summary"],
         benchmark_release_readiness=artifact_summary["benchmark_release_readiness"],
         release_policy_execution=artifact_summary["release_policy_execution"],
+    )
+    artifact_summary["v10_launch_readiness_summary"] = build_v10_launch_readiness_summary(
+        v10_launch_evidence_bundle=artifact_summary["v10_launch_evidence_bundle"],
+        release_readiness=artifact_summary["release_readiness"],
+        benchmark_release_readiness=artifact_summary["benchmark_release_readiness"],
+        migration_safety_policy=artifact_summary["migration_safety_policy"],
     )
 
     return OrchestrationResult(

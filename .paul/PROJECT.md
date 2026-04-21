@@ -109,10 +109,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add governance workflow consolidation integration contract — Phase 23 (23-02)
 - [x] Add end-to-end operator consolidation acceptance and phase closeout artifacts — Phase 23 (23-03)
 - [x] Add v1 launch evidence bundle contract — Phase 24 (24-01)
+- [x] Add v1 launch readiness summary integration contract — Phase 24 (24-02)
 
 ### Planned (Next)
 
-- [ ] Execute remaining v1.0 plans (`24-02` to `24-03`)
+- [ ] Execute remaining v1.0 plans (`24-03`)
 - [ ] Publish v1.0 launch evidence and GA closeout artifacts
 
 ### Out of Scope
@@ -218,6 +219,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | governance workflow consolidation is explicit | Every run must emit deterministic consolidated/review/blocked governance workflow metadata from control-plane status, governance escalation, override workflow, and release policy decisions | 2026-04-21 | Active |
 | operator consolidation acceptance closeout is explicit | Phase completion requires deterministic attention/consolidated/blocked end-to-end acceptance coverage across phase23 contracts | 2026-04-21 | Active |
 | v1 launch evidence bundle is explicit | Every run must emit deterministic ready/hold/blocked launch evidence metadata from governance consolidation, control-plane, benchmark readiness, and release policy signals | 2026-04-21 | Active |
+| v1 launch readiness summary is explicit | Every run must emit deterministic ready/hold/blocked GA readiness metadata from launch evidence, release readiness, benchmark readiness, and migration policy signals | 2026-04-21 | Active |
 
 ## Success Metrics
 
@@ -247,4 +249,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-21 after Phase 24 plan 24-01 completion*
+*Last updated: 2026-04-21 after Phase 24 plan 24-02 completion*

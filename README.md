@@ -1339,6 +1339,23 @@ Added deterministic v1 launch evidence bundle contract:
 Additional coverage:
 - `tests/orchestrator/test_v10_launch_evidence_bundle.py`
 
+## Runtime Orchestration (Phase 24 v1 Launch Readiness Summary Slice)
+
+Added deterministic v1 launch readiness summary contract:
+- v1 launch readiness summary emitted as `artifact_summary.v10_launch_readiness_summary`:
+  - `contract`
+  - `readiness_status` (`ready`, `hold`, `blocked`)
+  - launch gate metadata and blocker summary
+  - next launch-readiness action metadata
+- Launch readiness summary integrates:
+  - `v10_launch_evidence_bundle.evidence_status`
+  - `release_readiness.ready`
+  - `benchmark_release_readiness.ready`
+  - `migration_safety_policy.policy_decision`
+
+Additional coverage:
+- `tests/orchestrator/test_v10_launch_readiness_summary.py`
+
 ## Output Artifacts
 
 Primary artifacts:

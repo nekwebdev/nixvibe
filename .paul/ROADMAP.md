@@ -65,7 +65,7 @@ Phases: 2 of 3 complete
 
 **Plans:**
 - [x] 24-01: v1 launch evidence bundle contract
-- [ ] 24-02: v1 launch readiness summary integration
+- [x] 24-02: v1 launch readiness summary integration
 - [ ] 24-03: end-to-end v1.0 acceptance and milestone closeout
 
 ## Completed Milestones
