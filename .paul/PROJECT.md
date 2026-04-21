@@ -73,10 +73,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add automated release-check command contract — Phase 12 (12-02)
 - [x] Add end-to-end v0.4 acceptance and milestone closeout artifacts — Phase 12 (12-03)
 - [x] Add run telemetry contract and manifest timing integration — Phase 13 (13-01)
+- [x] Add benchmark baseline report contract — Phase 13 (13-02)
 
 ### Planned (Next)
 
-- [ ] Complete remaining Phase 13 slices (`13-02`, `13-03`)
+- [ ] Complete remaining Phase 13 slice (`13-03`)
 - [ ] Execute Phase 14 benchmark scenario harness plans (`14-01` to `14-03`)
 - [ ] Execute Phase 15 outcome tracking and closeout plans (`15-01` to `15-03`)
 
@@ -152,6 +153,7 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 | Release-check command status is explicit | Every run must emit release-check command status and tagging readiness metadata | 2026-04-20 | Active |
 | Milestone closeout acceptance is explicit | Milestone release confidence requires cross-contract acceptance tests and published archive artifacts | 2026-04-20 | Active |
 | Run telemetry is explicit | Every run must emit deterministic stage timings and throughput counters for benchmark analysis | 2026-04-20 | Active |
+| Benchmark baseline report is explicit | Every run must emit deterministic baseline eligibility checks for benchmark trend capture | 2026-04-20 | Active |
 
 ## Success Metrics
 
@@ -181,4 +183,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-20 after Phase 13 plan 13-01 completion*
+*Last updated: 2026-04-20 after Phase 13 plan 13-02 completion*

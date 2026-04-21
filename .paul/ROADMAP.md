@@ -33,7 +33,7 @@ Phases: 0 of 3 complete
 
 **Plans:**
 - [x] 13-01: Run telemetry contract and manifest timing integration
-- [ ] 13-02: Benchmark baseline report contract
+- [x] 13-02: Benchmark baseline report contract
 - [ ] 13-03: Telemetry regression thresholds and acceptance coverage
 
 ### Phase 14: Benchmark Scenario Harness and Reports

@@ -791,6 +791,27 @@ Added deterministic run telemetry contract for timing and throughput visibility:
 Additional coverage:
 - `tests/orchestrator/test_run_telemetry_contract.py`
 
+## Runtime Orchestration (Phase 13 Benchmark Baseline Slice)
+
+Added deterministic benchmark baseline report contract for milestone measurement:
+- Benchmark baseline emitted as `artifact_summary.benchmark_baseline_report`:
+  - `contract`
+  - `benchmark_id`
+  - `route`, `mode`
+  - `baseline_eligible`
+  - `baseline_tier`
+  - deterministic check matrix and failed check IDs
+  - timing summary sourced from telemetry contract
+  - throughput counters (`specialist_count`, `validation_checkpoint_count`)
+- Baseline eligibility checks currently require:
+  - selected mode `apply`
+  - clear run failure classification
+  - release readiness true
+  - telemetry contract availability with captured total duration
+
+Additional coverage:
+- `tests/orchestrator/test_benchmark_baseline_report.py`
+
 ## Output Artifacts
 
 Primary artifacts:

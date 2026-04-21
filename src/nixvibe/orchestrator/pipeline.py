@@ -9,6 +9,7 @@ from typing import Callable, Sequence
 from .audittrail import build_operator_audit_trail_summary
 from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .checkpoint import build_resume_checkpoint
+from .benchmark import build_benchmark_baseline_report
 from .escalation import build_apply_safety_escalation
 from .explainability import build_policy_decision_explainability
 from .failure import build_run_failure_classification
@@ -273,6 +274,12 @@ def run_pipeline(
     )
     artifact_summary["release_readiness"] = build_release_readiness(
         run_manifest=artifact_summary["run_manifest"]
+    )
+    artifact_summary["benchmark_baseline_report"] = build_benchmark_baseline_report(
+        run_telemetry=run_telemetry,
+        run_manifest=artifact_summary["run_manifest"],
+        run_failure_classification=artifact_summary["run_failure_classification"],
+        release_readiness=artifact_summary["release_readiness"],
     )
     artifact_summary["resume_checkpoint"] = build_resume_checkpoint(
         run_manifest=artifact_summary["run_manifest"],

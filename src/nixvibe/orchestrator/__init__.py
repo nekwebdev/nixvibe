@@ -2,6 +2,7 @@
 
 from .artifacts import generate_artifact_bundle, materialize_artifacts
 from .audittrail import build_operator_audit_trail_summary
+from .benchmark import build_benchmark_baseline_report
 from .checkpoint import build_resume_checkpoint
 from .conflicts import resolve_conflict
 from .escalation import build_apply_safety_escalation
@@ -87,6 +88,7 @@ __all__ = [
     "ArtifactFile",
     "ArtifactMaterializationResult",
     "build_operator_audit_trail_summary",
+    "build_benchmark_baseline_report",
     "build_resume_checkpoint",
     "ConflictCandidate",
     "MergeResult",
