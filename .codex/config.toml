@@ -1,9 +1,12 @@
+suppress_unstable_features_warning = true
+
 model = "gpt-5.4"
 model_reasoning_effort = "high"
 
 [mcp_servers.nixos]
 command = "nix"
 args = ["run", "github:utensils/mcp-nixos", "--"]
+startup_timeout_sec = 600
 
 [mcp_servers.carl]
 command = "node"

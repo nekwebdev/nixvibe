@@ -42,6 +42,17 @@ Core before/after:
 - Plugin ecosystem
 - Exposing internal agent chatter to users
 
+## ISO Installer Build
+
+This flake now exposes a GNOME installer ISO that bundles `/nixvibe` plus Codex/Claude CLIs.
+
+Build commands:
+- `nix build .#iso`
+- `nix build .#iso-installer`
+
+Direct output target:
+- `nix build .#nixosConfigurations.nixvibe-installer.config.system.build.isoImage`
+
 ## Integration Map
 
 | System | Reads | Writes | Purpose |
