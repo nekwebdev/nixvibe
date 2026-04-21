@@ -963,6 +963,22 @@ Added deterministic benchmark trend-entry contract for post-v0.5 progression tra
 Additional coverage:
 - `tests/orchestrator/test_benchmark_trend_entry.py`
 
+## Runtime Orchestration (Phase 16 Benchmark Trend Delta Slice)
+
+Added deterministic benchmark trend-delta contract:
+- Trend delta emitted as `artifact_summary.benchmark_trend_delta`:
+  - `contract`
+  - deterministic `delta_key`
+  - `delta_status` (`no_baseline`, `improvement`, `stable`, `regression`, `blocked`)
+  - score and duration deltas against previous trend entry
+  - status transition metadata and dependency checks
+- Delta behavior currently supports:
+  - pipeline default `no_baseline` when no prior trend is available
+  - explicit improvement/regression classification when prior trend is provided
+
+Additional coverage:
+- `tests/orchestrator/test_benchmark_trend_delta.py`
+
 ## Output Artifacts
 
 Primary artifacts:

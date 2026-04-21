@@ -13,6 +13,7 @@ from .benchmark import build_benchmark_baseline_report
 from .benchmark_release import build_benchmark_release_readiness
 from .benchmark_runner import build_benchmark_runner_report
 from .benchmark_snapshot import build_benchmark_baseline_snapshot
+from .benchmark_trend_delta import build_benchmark_trend_delta
 from .benchmark_trend import build_benchmark_trend_entry
 from .benchmark_scenarios import build_benchmark_scenario_catalog
 from .escalation import build_apply_safety_escalation
@@ -331,6 +332,9 @@ def run_pipeline(
         benchmark_baseline_snapshot=artifact_summary["benchmark_baseline_snapshot"],
         outcome_scorecard=artifact_summary["outcome_scorecard"],
         benchmark_release_readiness=artifact_summary["benchmark_release_readiness"],
+    )
+    artifact_summary["benchmark_trend_delta"] = build_benchmark_trend_delta(
+        benchmark_trend_entry=artifact_summary["benchmark_trend_entry"]
     )
     artifact_summary["resume_checkpoint"] = build_resume_checkpoint(
         run_manifest=artifact_summary["run_manifest"],

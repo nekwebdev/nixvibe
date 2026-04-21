@@ -33,7 +33,7 @@ Phases: 0 of 3 complete
 
 **Plans:**
 - [x] 16-01: Benchmark trend entry contract
-- [ ] 16-02: Benchmark trend delta contract
+- [x] 16-02: Benchmark trend delta contract
 - [ ] 16-03: End-to-end trend persistence acceptance and phase closeout
 
 ### Phase 17: Outcome Policy Gates and Alert Escalation

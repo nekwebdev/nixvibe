@@ -83,10 +83,11 @@ Users can evolve clean, modular NixOS configurations quickly and safely without 
 - [x] Add benchmark-aware release readiness integration contract — Phase 15 (15-02)
 - [x] Add end-to-end v0.5 acceptance and milestone closeout artifacts — Phase 15 (15-03)
 - [x] Add benchmark trend entry contract — Phase 16 (16-01)
+- [x] Add benchmark trend delta contract — Phase 16 (16-02)
 
 ### Planned (Next)
 
-- [ ] Execute remaining v0.6 plans (`16-02` to `18-03`)
+- [ ] Execute remaining v0.6 plans (`16-03` to `18-03`)
 - [ ] Define and scaffold milestone path from v0.6 to v1.0
 
 ### Out of Scope
@@ -198,4 +199,4 @@ Flake-based NixOS workflow with dendritic module composition, local MCP validati
 
 ---
 *PROJECT.md — Updated when requirements or context change*
-*Last updated: 2026-04-21 after Phase 16 plan 16-01 completion*
+*Last updated: 2026-04-21 after Phase 16 plan 16-02 completion*

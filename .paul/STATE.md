@@ -5,15 +5,15 @@
 See: .paul/PROJECT.md (updated 2026-04-20)
 
 **Core value:** Users can evolve clean modular NixOS configs safely with guided automation.
-**Current focus:** v0.6 phase 16 in progress — benchmark trend entry contract landed
+**Current focus:** v0.6 phase 16 in progress — trend entry and delta contracts landed
 
 ## Current Position
 
 Milestone: v0.6 Trend Persistence and Outcome Signal Governance (v0.6.0) — In progress
 Phase: 16 of 18 (Benchmark Trend Persistence and Deltas) — In progress
-Plan: 16-01 completed
-Status: PLAN/APPLY/UNIFY closed for 16-01; phase 16 has remaining plans (16-02, 16-03)
-Last activity: 2026-04-21T00:34:16-10:00 — Completed .paul/phases/16-benchmark-trend-persistence-and-deltas/16-01-SUMMARY.md
+Plan: 16-02 completed
+Status: PLAN/APPLY/UNIFY closed for 16-02; phase 16 has remaining plan (16-03)
+Last activity: 2026-04-21T00:40:40-10:00 — Completed .paul/phases/16-benchmark-trend-persistence-and-deltas/16-02-SUMMARY.md
 
 Progress:
 - v0.1 Initial Release: [██████████] 100% ✓
@@ -21,14 +21,14 @@ Progress:
 - v0.3 Operational Workflow Intelligence: [██████████] 100% ✓
 - v0.4 Reliability and Delivery Hardening: [██████████] 100% ✓
 - v0.5 Measured Outcomes and Benchmark Baselines: [██████████] 100% ✓
-- v0.6 Trend Persistence and Outcome Signal Governance: [█░░░░░░░░░] 11%
+- v0.6 Trend Persistence and Outcome Signal Governance: [██░░░░░░░░] 22%
 
 ## Loop Position
 
 Current loop state:
 ```
 PLAN ──▶ APPLY ──▶ UNIFY
-  ✓        ✓        ✓     [16-01 complete]
+  ✓        ✓        ✓     [16-02 complete]
 ```
 
 ## Accumulated Context
@@ -87,6 +87,7 @@ PLAN ──▶ APPLY ──▶ UNIFY
 - Benchmark-aware release readiness contract landed for Phase 15 plan 15-02
 - End-to-end v0.5 acceptance and milestone closeout artifacts landed for Phase 15 plan 15-03
 - Benchmark trend entry contract landed for Phase 16 plan 16-01
+- Benchmark trend delta contract landed for Phase 16 plan 16-02
 
 ### Deferred Issues
 None yet.
@@ -96,10 +97,10 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-04-21T00:34:16-10:00
-Stopped at: Phase 16 plan 16-01 completed
-Next action: Create and execute `.paul/phases/16-benchmark-trend-persistence-and-deltas/16-02-PLAN.md`
-Resume file: .paul/phases/16-benchmark-trend-persistence-and-deltas/16-01-SUMMARY.md
+Last session: 2026-04-21T00:40:40-10:00
+Stopped at: Phase 16 plan 16-02 completed
+Next action: Create and execute `.paul/phases/16-benchmark-trend-persistence-and-deltas/16-03-PLAN.md`
+Resume file: .paul/phases/16-benchmark-trend-persistence-and-deltas/16-02-SUMMARY.md
 
 ---
 *STATE.md — Updated after every significant action*
