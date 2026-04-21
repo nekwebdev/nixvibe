@@ -1136,6 +1136,23 @@ Closed phase 19 with end-to-end release automation acceptance coverage:
 Additional coverage:
 - `tests/orchestrator/test_phase19_release_automation_acceptance.py`
 
+## Runtime Orchestration (Phase 20 Operator Observability Digest Slice)
+
+Added deterministic operator observability digest contract:
+- Operator observability digest emitted as `artifact_summary.operator_observability_digest`:
+  - `contract`
+  - `observability_band` (`healthy`, `attention`, `critical`, `degraded`)
+  - `attention_required` and escalation recommendation
+  - operator focus items and timing snapshot
+- Digest integrates:
+  - `run_manifest`
+  - `operator_audit_trail`
+  - `run_telemetry`
+  - `release_policy_execution`
+
+Additional coverage:
+- `tests/orchestrator/test_operator_observability_digest.py`
+
 ## Output Artifacts
 
 Primary artifacts:

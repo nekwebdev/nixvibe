@@ -210,6 +210,7 @@ class TestAcceptanceFlows(unittest.TestCase):
         self.assertIn("v06_readiness_summary", result.artifact_summary)
         self.assertIn("release_execution_gate", result.artifact_summary)
         self.assertIn("release_policy_execution", result.artifact_summary)
+        self.assertIn("operator_observability_digest", result.artifact_summary)
         self.assertIn("release_readiness", result.artifact_summary)
         self.assertIn("resume_checkpoint", result.artifact_summary)
         self.assertIn("retry_backoff_guardrails", result.artifact_summary)

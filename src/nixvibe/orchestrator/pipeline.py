@@ -29,6 +29,7 @@ from .merge import merge_specialist_payloads
 from .modes import resolve_mode
 from .outcome_alert import build_outcome_alert
 from .outcome_scorecard import build_outcome_scorecard
+from .operator_observability_digest import build_operator_observability_digest
 from .override import build_controlled_override_workflow
 from .payloads import PayloadValidationError, validate_payload
 from .policy_loader import load_policy
@@ -434,6 +435,12 @@ def run_pipeline(
         release_execution_gate=artifact_summary["release_execution_gate"],
         controlled_override_workflow=artifact_summary["controlled_override_workflow"],
         release_check_command=artifact_summary["release_check_command"],
+    )
+    artifact_summary["operator_observability_digest"] = build_operator_observability_digest(
+        run_manifest=artifact_summary["run_manifest"],
+        operator_audit_trail=artifact_summary["operator_audit_trail"],
+        run_telemetry=artifact_summary["run_telemetry"],
+        release_policy_execution=artifact_summary["release_policy_execution"],
     )
 
     return OrchestrationResult(
