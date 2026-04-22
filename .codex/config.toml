@@ -1,12 +1,15 @@
 suppress_unstable_features_warning = true
-
+personality = "pragmatic"
 model = "gpt-5.4"
 model_reasoning_effort = "high"
 
 [mcp_servers.nixos]
-command = "nix"
-args = ["run", "github:utensils/mcp-nixos", "--"]
+command = "bash"
+args = ["-lc", "if command -v mcp-nixos >/dev/null 2>&1; then exec mcp-nixos; else exec nix run github:utensils/mcp-nixos --; fi"]
 startup_timeout_sec = 600
+
+[mcp_servers.nixos.tools.nix]
+approval_mode = "approve"
 
 [mcp_servers.carl]
 command = "node"
@@ -14,3 +17,6 @@ args = [".agents/carl/runtime/carl-mcp/index.js"]
 
 [features]
 codex_hooks = true
+
+[tui]
+status_line = ["model-with-reasoning", "current-dir", "context-usage"]

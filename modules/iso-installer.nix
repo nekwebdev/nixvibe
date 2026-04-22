@@ -25,6 +25,7 @@ in {
     system = pkgs.stdenv.hostPlatform.system;
     codexPkg = inputs.codex-cli-nix.packages.${system}.default;
     claudePkg = inputs.claude-code.packages.${system}.default;
+    mcpNixosPkg = inputs.mcp-nixos.packages.${system}.default;
     carlMcpPkg = pkgs.buildNpmPackage {
       pname = "carl-mcp";
       version = "2.0.0";
@@ -90,11 +91,14 @@ in {
     environment.systemPackages = [
       codexPkg
       claudePkg
+      mcpNixosPkg
       carlMcpPkg
       pkgs.bubblewrap
       pkgs.git
       pkgs.nodejs
       pkgs.python3
+      pkgs.ripgrep
+      pkgs.jq
     ];
 
     services.qemuGuest.enable = true;
