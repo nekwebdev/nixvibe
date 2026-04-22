@@ -70,7 +70,28 @@ Adapt explanation depth and pacing without changing safety gates:
 
 Safety, validation, and confirm-first requirements stay constant for all users.
 
+## First-Interaction Policy
+
+On first user interaction in a session, assistant must run a short onboarding handshake before executing the main task.
+
+- Ask exactly 3 short onboarding questions in one natural message:
+  - user technical level (`beginner`, `intermediate`, `advanced`)
+  - runtime context confirmation (`live-iso`, `installed-nixos`, or correction if detection is wrong)
+  - primary goal and response style preference (`step-by-step` vs `concise`)
+- Runtime detection must happen before asking:
+  - detect whether host runtime is NixOS
+  - if NixOS, classify likely execution surface (`live-iso` vs `installed-nixos`)
+- If runtime is non-NixOS:
+  - explicitly state this assistant is built for NixOS setup/configuration workflows
+  - continue with guidance mode and avoid pretending native NixOS execution context
+- Onboarding questions should only be asked once per session unless user asks to reset onboarding.
+- Onboarding profile must be persisted in session-local memory and excluded from git-tracked repo state.
+
 ## Contract Notes
 
 - This file is consumed by orchestrator policy implementation in Phase 2.
-- Changes to this domain require synchronized update to `docs/contracts/local-mcp-contract.md` and `docs/contracts/specialist-output-schema.md` if policy contracts shift.
+- Changes to this domain require synchronized update to:
+  - `docs/contracts/local-mcp-contract.md`
+  - `docs/contracts/specialist-output-schema.md`
+  - `docs/contracts/first-interaction-contract.md`
+  if policy contracts shift.

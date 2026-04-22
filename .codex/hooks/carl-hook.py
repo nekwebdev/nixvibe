@@ -35,6 +35,68 @@ DEBUG = False
 ENABLE_CONTEXT_DEDUP = True
 FORCE_EMIT_EVERY_N = 5
 
+_SKILL_BEGINNER_KEYWORDS = (
+    "beginner",
+    "new to nix",
+    "new to nixos",
+    "first time",
+    "noob",
+    "novice",
+    "never used",
+)
+_SKILL_ADVANCED_KEYWORDS = (
+    "advanced",
+    "expert",
+    "senior",
+    "power user",
+    "already run",
+    "already have",
+)
+_GOAL_INSTALL_KEYWORDS = (
+    "install",
+    "installer",
+    "live iso",
+    "fresh setup",
+    "first boot",
+)
+_GOAL_CONFIGURE_KEYWORDS = (
+    "configure",
+    "configuration",
+    "refactor",
+    "module",
+    "flake",
+    "home-manager",
+)
+_GOAL_DEBUG_KEYWORDS = (
+    "debug",
+    "fix",
+    "error",
+    "broken",
+    "fail",
+    "failing",
+)
+_GOAL_LEARN_KEYWORDS = (
+    "learn",
+    "understand",
+    "explain",
+    "teach",
+    "how does",
+)
+_STYLE_STEPWISE_KEYWORDS = (
+    "step by step",
+    "step-by-step",
+    "walk me through",
+    "explain slowly",
+    "detailed",
+)
+_STYLE_CONCISE_KEYWORDS = (
+    "concise",
+    "brief",
+    "short",
+    "tldr",
+    "just commands",
+)
+
 
 def debug_log(msg: str):
     if DEBUG:
@@ -56,6 +118,216 @@ def compute_context_signature(
         "c:{}".format(','.join(sorted(command_names)))
     ]
     return "|".join(parts)
+
+
+def _default_first_interaction_state() -> dict:
+    return {
+        "completed": False,
+        "asked_at_prompt": None,
+        "completed_at_prompt": None,
+        "profile": {
+            "skill_level": "unknown",
+            "goal": "unknown",
+            "response_style": "unknown",
+        },
+        "runtime": {
+            "runtime_environment": "unknown",
+            "execution_surface": "unknown",
+            "checked_at": None,
+            "evidence": [],
+        },
+    }
+
+
+def _read_os_release() -> dict:
+    path = Path("/etc/os-release")
+    if not path.exists():
+        return {}
+    data = {}
+    try:
+        for line in path.read_text(encoding="utf-8", errors="ignore").splitlines():
+            line = line.strip()
+            if not line or line.startswith("#") or "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            key = key.strip()
+            value = value.strip().strip('"').strip("'")
+            if key:
+                data[key] = value
+    except OSError:
+        return {}
+    return data
+
+
+def _detect_runtime_environment(cwd: str) -> dict:
+    os_release = _read_os_release()
+    distro = os_release.get("ID", "").strip().lower()
+    runtime_environment = "nixos" if distro == "nixos" else ("non-nixos" if distro else "unknown")
+    execution_surface = "unknown"
+    evidence = []
+
+    if runtime_environment == "nixos":
+        evidence.append("os-release:id=nixos")
+        if Path("/iso/nixvibe").exists() or Path("/iso").exists():
+            execution_surface = "live-iso"
+            evidence.append("path:/iso")
+        else:
+            execution_surface = "installed-nixos"
+            if Path("/run/current-system").exists():
+                evidence.append("path:/run/current-system")
+            else:
+                evidence.append("path:/run/current-system:missing")
+    elif runtime_environment == "non-nixos":
+        execution_surface = "non-nixos"
+        if distro:
+            evidence.append(f"os-release:id={distro}")
+    else:
+        if Path(cwd).exists():
+            evidence.append(f"cwd:{cwd}")
+
+    return {
+        "runtime_environment": runtime_environment,
+        "execution_surface": execution_surface,
+        "checked_at": datetime.now().isoformat(),
+        "evidence": evidence,
+    }
+
+
+def _infer_skill_level_from_prompt(user_prompt: str) -> str:
+    prompt = (user_prompt or "").strip().lower()
+    if not prompt:
+        return "unknown"
+    if any(keyword in prompt for keyword in _SKILL_BEGINNER_KEYWORDS):
+        return "beginner"
+    if any(keyword in prompt for keyword in _SKILL_ADVANCED_KEYWORDS):
+        return "advanced"
+    if any(token in prompt for token in ("intermediate", "some experience")):
+        return "intermediate"
+    return "unknown"
+
+
+def _infer_goal_from_prompt(user_prompt: str) -> str:
+    prompt = (user_prompt or "").strip().lower()
+    if not prompt:
+        return "unknown"
+    if any(keyword in prompt for keyword in _GOAL_INSTALL_KEYWORDS):
+        return "install"
+    if any(keyword in prompt for keyword in _GOAL_DEBUG_KEYWORDS):
+        return "debug"
+    if any(keyword in prompt for keyword in _GOAL_CONFIGURE_KEYWORDS):
+        return "configure"
+    if any(keyword in prompt for keyword in _GOAL_LEARN_KEYWORDS):
+        return "learn"
+    return "unknown"
+
+
+def _infer_response_style_from_prompt(user_prompt: str) -> str:
+    prompt = (user_prompt or "").strip().lower()
+    if not prompt:
+        return "unknown"
+    if any(keyword in prompt for keyword in _STYLE_STEPWISE_KEYWORDS):
+        return "stepwise"
+    if any(keyword in prompt for keyword in _STYLE_CONCISE_KEYWORDS):
+        return "concise"
+    return "unknown"
+
+
+def _ensure_first_interaction_state(session_config: dict) -> dict:
+    state = session_config.get("first_interaction")
+    if not isinstance(state, dict):
+        state = _default_first_interaction_state()
+        session_config["first_interaction"] = state
+    state.setdefault("profile", {})
+    state.setdefault("runtime", {})
+    state["profile"].setdefault("skill_level", "unknown")
+    state["profile"].setdefault("goal", "unknown")
+    state["profile"].setdefault("response_style", "unknown")
+    state["runtime"].setdefault("runtime_environment", "unknown")
+    state["runtime"].setdefault("execution_surface", "unknown")
+    state["runtime"].setdefault("checked_at", None)
+    state["runtime"].setdefault("evidence", [])
+    state.setdefault("completed", False)
+    state.setdefault("asked_at_prompt", None)
+    state.setdefault("completed_at_prompt", None)
+    return state
+
+
+def _update_first_interaction_state(
+    *,
+    session_config: Optional[dict],
+    user_prompt: str,
+    cwd: str,
+) -> Optional[dict]:
+    if not session_config:
+        return None
+
+    state = _ensure_first_interaction_state(session_config)
+    prompt_count = int(session_config.get("prompt_count", 0) or 0)
+    profile = state.get("profile", {})
+
+    runtime = _detect_runtime_environment(cwd)
+    state["runtime"] = runtime
+
+    inferred_skill = _infer_skill_level_from_prompt(user_prompt)
+    inferred_goal = _infer_goal_from_prompt(user_prompt)
+    inferred_style = _infer_response_style_from_prompt(user_prompt)
+
+    if inferred_skill != "unknown":
+        profile["skill_level"] = inferred_skill
+    if inferred_goal != "unknown":
+        profile["goal"] = inferred_goal
+    if inferred_style != "unknown":
+        profile["response_style"] = inferred_style
+
+    if prompt_count == 1 and state.get("asked_at_prompt") is None:
+        state["asked_at_prompt"] = 1
+    if prompt_count >= 2 and not bool(state.get("completed")):
+        state["completed"] = True
+        state["completed_at_prompt"] = prompt_count
+
+    return state
+
+
+def _render_first_interaction_context(
+    *,
+    session_config: Optional[dict],
+    cwd: str,
+    conversation_turn: int = 1,
+) -> str:
+    prompt_count = (
+        int(session_config.get("prompt_count", 1) or 1)
+        if session_config
+        else max(1, int(conversation_turn or 1))
+    )
+    if prompt_count != 1:
+        return ""
+
+    runtime = _detect_runtime_environment(cwd)
+    if session_config:
+        state = session_config.get("first_interaction")
+        if isinstance(state, dict):
+            runtime = state.get("runtime", runtime)
+
+    runtime_environment = str(runtime.get("runtime_environment") or "unknown")
+    execution_surface = str(runtime.get("execution_surface") or "unknown")
+    evidence = runtime.get("evidence")
+    evidence_line = ", ".join(evidence) if isinstance(evidence, list) and evidence else "none"
+
+    return (
+        "\n<first-interaction-contract>\n"
+        "FIRST INTERACTION POLICY (nixvibe)\n"
+        f"- detected.runtime_environment: {runtime_environment}\n"
+        f"- detected.execution_surface: {execution_surface}\n"
+        f"- detected.evidence: {evidence_line}\n"
+        "- Before handling the user's main request, ask exactly 3 short onboarding questions in one natural message:\n"
+        "  1) technical level: beginner, intermediate, or advanced\n"
+        "  2) environment confirmation: live ISO vs installed NixOS; if non-NixOS, confirm that explicitly\n"
+        "  3) current goal plus response style preference: step-by-step or concise\n"
+        "- If runtime_environment is non-nixos, clearly explain this assistant is intended for NixOS setup/configuration.\n"
+        "- After the user answers, adapt explanation depth and command detail to the selected technical level.\n"
+        "- Do not repeat onboarding questions again in this session unless the user asks to reset onboarding.\n"
+        "</first-interaction-contract>\n"
+    )
 
 
 # =============================================================================
@@ -111,7 +383,8 @@ def create_session_config(session_id: str, cwd: str, carl_data: dict) -> dict:
         "prompt_count": 0,
         "last_activity": now,
         "overrides": overrides,
-        "last_context_signature": None
+        "last_context_signature": None,
+        "first_interaction": _default_first_interaction_state(),
     }
 
 
@@ -578,6 +851,7 @@ def main():
         input_data.get('message', '') or
         input_data.get('input', '')
     )
+    conversation_turn = int(input_data.get('context', {}).get('conversationTurnNumber', 1) or 1)
 
     # Find all .carl/ scopes
     scopes = find_all_carl_scopes(cwd)
@@ -592,6 +866,18 @@ def main():
 
     # Session management
     session_config = get_or_create_session(carl_path, session_id, cwd, carl_data or {})
+    _update_first_interaction_state(
+        session_config=session_config,
+        user_prompt=user_prompt,
+        cwd=cwd,
+    )
+    if session_config:
+        save_session_config(carl_path, session_config)
+    first_interaction_context = _render_first_interaction_context(
+        session_config=session_config,
+        cwd=cwd,
+        conversation_turn=conversation_turn,
+    )
 
     # Merge with session overrides
     domains, global_exclude, devmode = merge_config_with_session(
@@ -729,6 +1015,8 @@ def main():
 
         if decisions_summary:
             context += "\n" + decisions_summary + "\n"
+        if first_interaction_context:
+            context += "\n" + first_interaction_context + "\n"
 
         output = {
             "hookSpecificOutput": {
@@ -765,6 +1053,8 @@ def main():
 
         if decisions_summary:
             status += "\n" + decisions_summary + "\n"
+        if first_interaction_context:
+            status += "\n" + first_interaction_context + "\n"
 
         output = {
             "hookSpecificOutput": {
