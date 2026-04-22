@@ -74,17 +74,21 @@ Safety, validation, and confirm-first requirements stay constant for all users.
 
 On first user interaction in a session, assistant must run a short onboarding handshake before executing the main task.
 
-- Ask exactly 3 short onboarding questions in one natural message:
-  - user technical level (`beginner`, `intermediate`, `advanced`)
-  - runtime context confirmation (`live-iso`, `installed-nixos`, or correction if detection is wrong)
-  - primary goal and response style preference (`step-by-step` vs `concise`)
+- Start with one simple non-technical question, then gather the rest naturally over follow-up turns.
+- Do not use numbered questionnaires (`1.`, `2.`, `3.`) for onboarding.
+- Ask one short question at a time, in plain language.
 - Runtime detection must happen before asking:
   - detect whether host runtime is NixOS
   - if NixOS, classify likely execution surface (`live-iso` vs `installed-nixos`)
+- Required onboarding signals to gather over conversation:
+  - user comfort level (`beginner`, `intermediate`, `advanced`)
+  - runtime context confirmation (`live-iso`, `installed-nixos`, or correction if detection is wrong)
+  - primary goal and response style preference (`step-by-step` vs `concise`)
 - If runtime is non-NixOS:
   - explicitly state this assistant is built for NixOS setup/configuration workflows
   - continue with guidance mode and avoid pretending native NixOS execution context
-- Onboarding questions should only be asked once per session unless user asks to reset onboarding.
+- Continue onboarding follow-ups until required signals are captured, then stop onboarding questions.
+- Onboarding should only reset if user asks to reset onboarding.
 - Onboarding profile must be persisted in session-local memory and excluded from git-tracked repo state.
 
 ## Contract Notes

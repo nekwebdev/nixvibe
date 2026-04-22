@@ -13,15 +13,20 @@ This contract is runtime policy, not a loose prompt guideline.
 ## Trigger
 
 - Trigger on first user prompt in a session (`prompt_count == 1`).
-- Ask onboarding once per session unless user requests an onboarding reset.
+- Continue onboarding until required signals are captured.
+- Reset onboarding only if user requests onboarding reset.
 
 ## Required Question Set
 
-Before handling the user's main task, ask exactly 3 short questions in one natural message:
+Do onboarding as a natural conversation:
 
-1. Technical level: `beginner`, `intermediate`, `advanced`
-2. Environment confirmation: detected runtime (`live-iso` vs `installed-nixos`, or correction)
-3. Current goal + response style preference (`step-by-step` vs `concise`)
+- Ask one short question at a time.
+- Do not use numbered `1/2/3` questionnaires.
+- Start with a simple plain-language question.
+- Gather these required signals across turns:
+  - technical level (`beginner`, `intermediate`, `advanced`)
+  - environment confirmation (detected runtime vs user correction)
+  - current goal + response style preference (`step-by-step` vs `concise`)
 
 ## Runtime Detection Contract
 
@@ -44,6 +49,13 @@ If `runtime_environment=non-nixos`, assistant must:
 - explicitly state nixvibe assistant is intended for NixOS setup/configuration workflows
 - avoid pretending native NixOS execution context
 - continue in guidance mode with NixOS-focused next steps
+
+## Conversation Style Guardrails
+
+- First onboarding question should avoid jargon.
+- Do not front-load all onboarding questions in one message.
+- Prefer plain language first; introduce terms like `live ISO` only after context is established.
+- Stop onboarding questions as soon as required signals are known.
 
 ## Session State Schema
 

@@ -43,6 +43,10 @@ _SKILL_BEGINNER_KEYWORDS = (
     "noob",
     "novice",
     "never used",
+    "not technical",
+    "not tech",
+    "no idea",
+    "unsure",
 )
 _SKILL_ADVANCED_KEYWORDS = (
     "advanced",
@@ -58,6 +62,8 @@ _GOAL_INSTALL_KEYWORDS = (
     "live iso",
     "fresh setup",
     "first boot",
+    "set up for the first time",
+    "new setup",
 )
 _GOAL_CONFIGURE_KEYWORDS = (
     "configure",
@@ -66,6 +72,9 @@ _GOAL_CONFIGURE_KEYWORDS = (
     "module",
     "flake",
     "home-manager",
+    "already set up",
+    "existing setup",
+    "change this setup",
 )
 _GOAL_DEBUG_KEYWORDS = (
     "debug",
@@ -252,6 +261,25 @@ def _ensure_first_interaction_state(session_config: dict) -> dict:
     return state
 
 
+def _missing_first_interaction_fields(state: dict) -> list[str]:
+    profile = state.get("profile", {})
+    missing = []
+    if str(profile.get("skill_level") or "unknown") == "unknown":
+        missing.append("technical_level")
+    if str(profile.get("goal") or "unknown") == "unknown":
+        missing.append("goal")
+    if str(profile.get("response_style") or "unknown") == "unknown":
+        missing.append("response_style")
+    return missing
+
+
+def _is_first_interaction_complete(state: dict) -> bool:
+    runtime = state.get("runtime", {})
+    runtime_known = str(runtime.get("runtime_environment") or "unknown") != "unknown"
+    missing = _missing_first_interaction_fields(state)
+    return runtime_known and len(missing) == 0
+
+
 def _update_first_interaction_state(
     *,
     session_config: Optional[dict],
@@ -281,9 +309,13 @@ def _update_first_interaction_state(
 
     if prompt_count == 1 and state.get("asked_at_prompt") is None:
         state["asked_at_prompt"] = 1
-    if prompt_count >= 2 and not bool(state.get("completed")):
+
+    if _is_first_interaction_complete(state) and not bool(state.get("completed")):
         state["completed"] = True
         state["completed_at_prompt"] = prompt_count
+    elif not _is_first_interaction_complete(state):
+        state["completed"] = False
+        state["completed_at_prompt"] = None
 
     return state
 
@@ -294,38 +326,50 @@ def _render_first_interaction_context(
     cwd: str,
     conversation_turn: int = 1,
 ) -> str:
+    state = _default_first_interaction_state()
+    if session_config:
+        loaded_state = session_config.get("first_interaction")
+        if isinstance(loaded_state, dict):
+            state = loaded_state
+    if bool(state.get("completed")):
+        return ""
+
     prompt_count = (
         int(session_config.get("prompt_count", 1) or 1)
         if session_config
         else max(1, int(conversation_turn or 1))
     )
-    if prompt_count != 1:
-        return ""
 
     runtime = _detect_runtime_environment(cwd)
-    if session_config:
-        state = session_config.get("first_interaction")
-        if isinstance(state, dict):
-            runtime = state.get("runtime", runtime)
+    runtime_from_state = state.get("runtime")
+    if isinstance(runtime_from_state, dict):
+        runtime = runtime_from_state
 
     runtime_environment = str(runtime.get("runtime_environment") or "unknown")
     execution_surface = str(runtime.get("execution_surface") or "unknown")
     evidence = runtime.get("evidence")
     evidence_line = ", ".join(evidence) if isinstance(evidence, list) and evidence else "none"
+    phase = "starter" if prompt_count <= 1 else "follow-up"
+    missing_line = ", ".join(_missing_first_interaction_fields(state)) or "none"
 
     return (
         "\n<first-interaction-contract>\n"
         "FIRST INTERACTION POLICY (nixvibe)\n"
+        f"- onboarding.status: pending\n"
+        f"- onboarding.phase: {phase}\n"
+        f"- onboarding.missing: {missing_line}\n"
         f"- detected.runtime_environment: {runtime_environment}\n"
         f"- detected.execution_surface: {execution_surface}\n"
         f"- detected.evidence: {evidence_line}\n"
-        "- Before handling the user's main request, ask exactly 3 short onboarding questions in one natural message:\n"
-        "  1) technical level: beginner, intermediate, or advanced\n"
-        "  2) environment confirmation: live ISO vs installed NixOS; if non-NixOS, confirm that explicitly\n"
-        "  3) current goal plus response style preference: step-by-step or concise\n"
+        "- Ask one short onboarding question at a time. Do not ask numbered 1/2/3 questionnaires.\n"
+        "- Use plain language first and avoid jargon unless the user uses it first.\n"
+        "- Starter turn question (or very close equivalent):\n"
+        "  \"Are you setting this computer up for the first time, or changing one that's already set up?\"\n"
+        "- Over follow-up turns, gather: technical level, environment confirmation, goal, and response-style preference.\n"
+        "- Ask only one next-best follow-up question per turn until onboarding.missing is none.\n"
         "- If runtime_environment is non-nixos, clearly explain this assistant is intended for NixOS setup/configuration.\n"
-        "- After the user answers, adapt explanation depth and command detail to the selected technical level.\n"
-        "- Do not repeat onboarding questions again in this session unless the user asks to reset onboarding.\n"
+        "- Adapt explanation depth and command detail to the inferred technical level and style.\n"
+        "- Stop onboarding questions once onboarding.missing is none, unless the user asks to reset onboarding.\n"
         "</first-interaction-contract>\n"
     )
 
