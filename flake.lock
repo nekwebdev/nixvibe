@@ -25,11 +25,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776726769,
-        "narHash": "sha256-1d/fvsvQLxIWKRFcknuu034e3LehWbP11TO94yT23UQ=",
+        "lastModified": 1776816577,
+        "narHash": "sha256-2UjmJWKYdJbJx2J+fWz5+KAVqcO5PRCwQEU4uhhjAsI=",
         "owner": "sadjow",
         "repo": "claude-code-nix",
-        "rev": "b288b71477311a924785c43a04c4c0e25e02e6fe",
+        "rev": "b80b5551dfc7bf94fd653a882f331c454d2092c6",
         "type": "github"
       },
       "original": {
@@ -119,11 +119,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776721614,
-        "narHash": "sha256-zGuW7C4tsScib2560yE5VV6lY/MdRs30aU9cbg3RP+U=",
+        "lastModified": 1776777932,
+        "narHash": "sha256-0R3Yow/NzSeVGUke5tL7CCkqmss4Vmi6BbV6idHzq/8=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c555a4a34a260493be5adb795c54e013c58f2d34",
+        "rev": "5d5640599a0050b994330328b9fd45709c909720",
         "type": "github"
       },
       "original": {
@@ -157,11 +157,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1776797501,
-        "narHash": "sha256-Av187extEA6z3w4Aqc98hBqOYPJovv9CGM9k4Hzy380=",
+        "lastModified": 1776820508,
+        "narHash": "sha256-Tp5vBdSsLIeOJgfTjJTqQuadnqaUxe83q/CeFaWGGog=",
         "owner": "utensils",
         "repo": "mcp-nixos",
-        "rev": "872dfa25572bf84c846bfa05ef3a0a75e652caa9",
+        "rev": "5b65b26cb36e9d9246b70c4734fe08110cc18f11",
         "type": "github"
       },
       "original": {
@@ -226,11 +226,11 @@
     "nixvibeSource": {
       "flake": false,
       "locked": {
-        "lastModified": 1776730896,
-        "narHash": "sha256-UkLGUg+P5Gjb/htXApqoStbMSsBoGHMsPhU3m4/vAdc=",
+        "lastModified": 1776831357,
+        "narHash": "sha256-acREZEWznZovGnBSBLtlggIMchsKPIxc16yuzvsrSHo=",
         "ref": "refs/heads/main",
-        "rev": "7bb9d20545aa9c44dfb6bb153f0d69652797155a",
-        "revCount": 42,
+        "rev": "355d8d58a1ae9c97a9078437f6a2877eddf996aa",
+        "revCount": 81,
         "type": "git",
         "url": "https://github.com/nekwebdev/nixvibe.git"
       },

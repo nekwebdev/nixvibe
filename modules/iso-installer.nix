@@ -5,7 +5,7 @@
 }: let
   installerSystem = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
-    specialArgs = {nixvibeSource = self.outPath;};
+    specialArgs = {nixvibeSource = inputs.nixvibeSource;};
     modules = [self.nixosModules.nixvibeInstaller];
   };
 in {
